@@ -22,7 +22,7 @@ public class Login extends Body implements ActionListener {
 		button = new JButton("Login");
 		button2 = new JButton("TestScreen");
 		button3 = new JButton("TestScreen + Banner");
-		button4 = new JButton("Ms Teams");
+		button4 = new JButton("Mein Profil");
 		
 		this.add(button);
 		this.add(button2);
@@ -50,7 +50,7 @@ public class Login extends Body implements ActionListener {
 				Fenster.addToFrame(new TestScreen(), new BeispielBanner());
 			}
 			else if(e.getSource() == button4) {
-				Fenster.addToFrame(new MsTeams());
+				Fenster.addToFrame(new MeinProfil());
 			}
 			
 			
