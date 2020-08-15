@@ -47,7 +47,7 @@ public class Login extends Body implements ActionListener {
 				Fenster.addToFrame(new TestScreen());
 			}
 			else if(e.getSource() == button3) {
-				Fenster.addToFrame(new TestScreen(), new BeispielBanner());
+				Fenster.addToFrame(new ProfilBearbeiten());
 			}
 			else if(e.getSource() == button4) {
 				Fenster.addToFrame(new MeinProfil());
