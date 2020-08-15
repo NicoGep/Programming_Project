@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 import javax.swing.*;
 
@@ -15,7 +16,7 @@ public class MeinProfil extends MasterScreen {
 	public static String name;
 	public static String niveau;
 	public static String profilBildAdresse;
-	public static LinkedList<String> gruppenListe = new LinkedList<String>();
+	public static TreeSet<String> gruppenListe = new TreeSet<String>();
 	
 	
 	JPanel daten;
@@ -30,7 +31,6 @@ public class MeinProfil extends MasterScreen {
 
 	public JLabel profilbildLabel;
 	public JLabel meineGruppen;
-	public JLabel gruppe1;
 	public JLabel nameLabel;
 	public JLabel niveauLabel;
 	public Icon profilBild;
@@ -122,9 +122,9 @@ public class MeinProfil extends MasterScreen {
 		daten.add(profilbildPanel);
 		daten.add(nameNiveau);
 		
-	
-		for (int i = 0; i<gruppenListe.size();i++) {
-			meineGruppenListe.add(new JLabel(gruppenListe.get(i)));
+		Iterator it = gruppenListe.iterator();
+		while(it.hasNext()) {
+			meineGruppenListe.add(new JLabel((String) it.next()));
 		}
 		
 		gruppen.add(profilBearbeiten);
