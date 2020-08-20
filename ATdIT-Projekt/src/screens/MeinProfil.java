@@ -41,6 +41,8 @@ public class MeinProfil extends MasterScreen {
 		this.setLayout(null);
 		ActionListener meinProfilAL = new FunktionMeinProfil();
 		new FunktionMeinProfil().datenLaden();
+		Image image = Toolkit.getDefaultToolkit().createImage("C:/Users/Philipp/OneDrive/Bilder/profilbild.jpg");
+		
 		
 		daten = new JPanel();
 		daten.setBounds(0, 0, 450, 100);
@@ -94,8 +96,8 @@ public class MeinProfil extends MasterScreen {
 		meineGruppen.setBackground(Color.GRAY);
 		meineGruppen.setFont(new Font("Ueberschrift", Font.BOLD, 14));
 		
-		profilbildLabel = new JLabel("PB");
-		profilbildLabel.setBounds(100, 35, 25, 25);
+		profilbildLabel = new JLabel(new ImageIcon(image));
+		profilbildLabel.setBounds(75, 0, 100, 100 );
 		profilbildLabel.setBackground(Color.GRAY);
 		
 		JLabel nameBeschriftung = new JLabel("Name:");
