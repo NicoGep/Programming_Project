@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import master.Fenster;
 import screens.MeinProfil;
+import screens.MenuScreen;
 import screens.ProfilBearbeiten;
 
 
@@ -28,6 +29,9 @@ public class FunktionMeinProfil implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == MeinProfil.profilBearbeiten) {
 			Fenster.addToFrame(new ProfilBearbeiten());
+		}
+		if (e.getSource() == MenuScreen.meinProfilButton) {
+			Fenster.addToFrame(new MeinProfil());
 		}
 		
 	}

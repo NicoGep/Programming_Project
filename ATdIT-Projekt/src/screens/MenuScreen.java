@@ -16,12 +16,12 @@ import master.MasterScreen;
 
 public class MenuScreen extends MasterScreen {
 	
-	JPanel menuPanel;
-	JLabel menuLabel;
-	JButton karteButton;
-	JButton mountainbikeKarteButton;
-	JButton meinProfilButton;
-	JButton ausloggenButton;
+	public JPanel menuPanel;
+	public JLabel menuLabel;
+	public static JButton karteButton;
+	public static JButton mountainbikeKarteButton;
+	public static JButton meinProfilButton;
+	public static JButton ausloggenButton;
 	
 	
 	public MenuScreen( ) {
