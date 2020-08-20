@@ -1,6 +1,7 @@
 package master;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,7 @@ public class MasterBanner extends JPanel {
 	private final int SIZE_X = 450, SIZE_Y = 100;
 	
 	JButton back;
+	
 	
 	public MasterBanner() {
 
