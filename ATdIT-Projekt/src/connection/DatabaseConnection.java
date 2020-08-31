@@ -6,11 +6,12 @@ import exceptions.DatabaseConnectException;
 
 public class DatabaseConnection {
 
-//	private static final String url = "jdbc:mysql://localhost:3306/";
-	private static final String url = "jdbc:mysql://192.168.178.27:3306/";
+	private static final String url = "jdbc:mysql://localhost:3306/";
+//	private static final String url = "jdbc:mysql://192.168.178.27:3306/";
 	private static String rootUser = "root";
-	private static String rootPassword = "key";
+//	private static String rootPassword = "key";
 //	private static String rootPassword = "pass";
+	private static String rootPassword = "";
 	
 	private static Connection con;
 	
