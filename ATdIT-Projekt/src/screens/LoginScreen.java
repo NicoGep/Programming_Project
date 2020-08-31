@@ -1,17 +1,19 @@
 package screens;
 
-import java.awt.Container;
 import java.awt.Font;
+
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.Graphics;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 
 import funktionen.LoginFunktion;
 import funktionen.PasswVergFunktion;
@@ -19,9 +21,8 @@ import master.Body;
 
 public class LoginScreen extends Body {
 	
-	public LoginScreen() {   
-		
 
+	public LoginScreen() {
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(13,1));
 		pan.setBounds(0,0,450,800);
@@ -36,7 +37,7 @@ public class LoginScreen extends Body {
 		JTextField benutzertx = new JTextField();
 		
 		JLabel passwort = new JLabel("Passwort");
-		JTextField passworttx = new JTextField();
+		JPasswordField passworttx = new JPasswordField();
 		
 		JLabel leer0 = new JLabel();
 		JLabel leer = new JLabel();
@@ -49,17 +50,6 @@ public class LoginScreen extends Body {
 		JButton login = new JButton ("Einloggen");
 		
 	
-		JLabel btBild;
-		Image image = Toolkit.getDefaultToolkit().createImage("C:\\Users\\I518194\\Pictures\\wandern (2).jpg");
-		btBild = new JLabel(new ImageIcon(image));
-	
-		
-		
-	
-		
-		
-		
-		this.add(btBild);
 		pan.add(leer0);
 		pan.add(leer);
 		pan.add(einlog);
@@ -76,7 +66,7 @@ public class LoginScreen extends Body {
 		pan.add(leer2);
 		pan.add(login);
 		
-		this.add(pan, 0);
+		this.add(pan);
 		
 		LoginFunktion regF = new LoginFunktion();
 		reg.addActionListener(regF);
@@ -84,11 +74,34 @@ public class LoginScreen extends Body {
 		PasswVergFunktion pwV = new PasswVergFunktion();
 		passVer.addActionListener(pwV);
 		
-	}
-
 	
 		
 	}
+		@Override
+		protected void paintComponent (Graphics g) {
+		Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\I518194\\Pictures\\wandern (2).jpg");	
+		super.paintComponent(g);
+		g.drawImage(img, 0, 0 , null);
+		setVisible(true);
+		
+		}  
+		
+		
+	
+		public static void main(String[] args) {
+			new LoginScreen();
+		}
+		
+		
+		
+		
+	
+	}
+
+
+		
+		
+	
 
 
 		
