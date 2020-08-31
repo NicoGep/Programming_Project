@@ -9,7 +9,6 @@ public class Main {
 		
 		Fenster frame = new Fenster();
 		frame.setVisible(true);
-		
 		Fenster.addToFrame(new Login());
 		
 	}
