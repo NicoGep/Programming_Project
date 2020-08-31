@@ -32,6 +32,7 @@ public class AdminFunctions {
 		
 	}
 	
+//	<classpathentry kind="lib" path="C:/Users/nicol/Documents/Workspace/GitHub/ATdIT-Projekt/Programming_Project/ATdIT-Projekt/lib/mysql-connector-java-5.1.49.jar"/>
 	
 	public static boolean checkPassword(int passwordHash, ResultSet user) throws LoginCredentialsException, SQLException {
 
