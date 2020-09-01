@@ -22,8 +22,9 @@ public class Fenster extends JFrame {
 		content = this.getContentPane();
 
 		this.setTitle("ATdIT Projekt");
-		this.setBounds(0, 0, SIZE_X, SIZE_Y);
+		this.setBounds(-900, 20, SIZE_X, SIZE_Y);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setResizable(false);
 		
 	}
 	
@@ -66,5 +67,9 @@ public class Fenster extends JFrame {
 		
 	}
 	
+	public static void malen() {
+		masterFrame.revalidate();
+		masterFrame.repaint();
+	}
 	
 }

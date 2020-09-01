@@ -41,7 +41,7 @@ public class MeinProfil extends MasterScreen {
 		this.setLayout(null);
 		ActionListener meinProfilAL = new FunktionMeinProfil();
 		new FunktionMeinProfil().datenLaden();
-		Image image = Toolkit.getDefaultToolkit().createImage("C:/Users/Philipp/OneDrive/Bilder/profilbild.jpg");
+		Image image = Toolkit.getDefaultToolkit().createImage("./ui/images/github_profilbild.jpg");
 		
 		
 		daten = new JPanel();
