@@ -1,6 +1,7 @@
 package master;
 
 import screens.Login;
+import screens.LoginScreen;
 
 public class Main {
 
@@ -9,7 +10,7 @@ public class Main {
 		
 		Fenster frame = new Fenster();
 		frame.setVisible(true);
-		Fenster.addToFrame(new Login());
+		Fenster.addToFrame(new LoginScreen());
 		
 	}
 	

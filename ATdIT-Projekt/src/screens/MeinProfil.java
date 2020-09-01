@@ -3,7 +3,6 @@ package screens;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.TreeSet;
 
 import javax.swing.*;
@@ -15,6 +14,7 @@ public class MeinProfil extends MasterScreen {
 	
 	public static String name;
 	public static String niveau;
+	public static String email;
 	public static String profilBildAdresse;
 	public static TreeSet<String> gruppenListe = new TreeSet<String>();
 	
@@ -26,8 +26,8 @@ public class MeinProfil extends MasterScreen {
 	JPanel meineGruppenListe;
 
 	public static JButton profilBearbeiten;
-	public JButton gruppeBeitreten;
-	public JButton gruppeErstellen;
+	public static JButton gruppeBeitreten;
+	public static JButton gruppeErstellen;
 
 	public JLabel profilbildLabel;
 	public JLabel meineGruppen;
@@ -41,7 +41,7 @@ public class MeinProfil extends MasterScreen {
 		this.setLayout(null);
 		ActionListener meinProfilAL = new FunktionMeinProfil();
 		new FunktionMeinProfil().datenLaden();
-		Image image = Toolkit.getDefaultToolkit().createImage("C:/Users/Philipp/OneDrive/Bilder/profilbild.jpg");
+		Image image = Toolkit.getDefaultToolkit().createImage(profilBildAdresse);
 		
 		
 		daten = new JPanel();
@@ -77,13 +77,15 @@ public class MeinProfil extends MasterScreen {
 		
 		profilBearbeiten.addActionListener(meinProfilAL);
 		
-		gruppeBeitreten = new JButton("Gruppe beitreten");
+		gruppeBeitreten = new JButton("Gruppe beitreten oder löschen");
 		gruppeBeitreten.setBounds(0, 50, 450, 50);
 		gruppeBeitreten.setBackground(Color.LIGHT_GRAY);
+		gruppeBeitreten.addActionListener(meinProfilAL);
 		
 		gruppeErstellen = new JButton("Gruppe erstellen");
 		gruppeErstellen.setBounds(0, 100, 450, 50);
 		gruppeErstellen.setBackground(Color.LIGHT_GRAY);
+		gruppeErstellen.addActionListener(meinProfilAL);
 
 		profilBild = new ImageIcon(profilBildAdresse);
 
