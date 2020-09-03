@@ -70,7 +70,7 @@ public class Registrierung extends MasterScreen {
 
 	@Override
 		protected void paintComponent (Graphics g) {
-		Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\I518194\\Pictures\\wandern (2).jpg");	
+		Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");	
 		super.paintComponent(g);
 		g.drawImage(img, 0, 0 , null);
 		setVisible(true);

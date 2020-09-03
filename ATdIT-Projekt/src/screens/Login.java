@@ -44,7 +44,7 @@ public Login() {
 		JLabel passwort = new JLabel("Passwort");
 		JPasswordField passworttx = new JPasswordField();
 		
-		JLabel leer0 = new JLabel();
+	//	JLabel leer0 = new JLabel();
 		JLabel leer = new JLabel();
 		JLabel leer1 = new JLabel();
 		JLabel leer2 = new JLabel();
@@ -91,7 +91,7 @@ public Login() {
 		public static void main (String[] args) {
 		new Login();
 	
-	}
+}
 }
 
 
