@@ -13,7 +13,7 @@ public class AusloggenFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == MenuScreen.ausloggenButton) {
-			Fenster.addToFrame(new MeinProfil());
+			Fenster.addToFrame(new Login());
 		}
 		
 	}
