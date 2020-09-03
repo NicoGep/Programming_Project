@@ -7,7 +7,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import master.Fenster;
 import screens.MeinProfil;
+import screens.PasswortAendern;
 import screens.ProfilBearbeiten;
+import screens.ProfilbildAendern;
 
 public class FunktionProfilBearbeiten implements ActionListener {
 	
@@ -17,29 +19,16 @@ public class FunktionProfilBearbeiten implements ActionListener {
 			Fenster.addToFrame(new MeinProfil());
 		}
 		if (e.getSource() == ProfilBearbeiten.speichern) {
-			// Speichern der Daten einfügen
+			MeinProfil.name = ProfilBearbeiten.neuerName.getText();
+			MeinProfil.niveau = (String) ProfilBearbeiten.niveauAuswahl.getItemAt(ProfilBearbeiten.niveauAuswahl.getSelectedIndex());
+			MeinProfil.email = ProfilBearbeiten.neueemail.getText();
 			Fenster.addToFrame(new MeinProfil());
 		}
 		if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
-			JDialog profilBildAdresse = new JDialog(new Fenster(), true);
-			profilBildAdresse.getContentPane();
-			profilBildAdresse.setLayout(new BorderLayout());
-			profilBildAdresse.setSize(250, 400);
-			profilBildAdresse.add(new JLabel("Geben Sie die Adresse des Profilbilds an:"), BorderLayout.NORTH);
-			JTextField adresse = new JTextField();
-			profilBildAdresse.add(adresse, BorderLayout.CENTER);
-			JButton speichern = new JButton("Speichern");
-			speichern.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					MeinProfil.profilBildAdresse = adresse.getText();
-					profilBildAdresse.dispose();
-					profilBildAdresse.setModal(false);
-				}
-			});
-			profilBildAdresse.add(speichern,BorderLayout.SOUTH);
-			profilBildAdresse.setVisible(true);
+			Fenster.addToFrame(new ProfilbildAendern());
+		}
+		if (e.getSource() == ProfilBearbeiten.passwortAendern) {
+			Fenster.addToFrame(new PasswortAendern());
 		}
 
 	}

@@ -1,6 +1,6 @@
 package master;
 
-import screens.Login;
+import screens.*;
 
 public class Main {
 

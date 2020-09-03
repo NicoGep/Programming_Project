@@ -9,6 +9,7 @@ import javax.swing.*;
 
 import funktionen.AusloggenFunktion;
 import funktionen.KarteFunktion;
+import funktionen.MeinProfilFunktion;
 import funktionen.MountainBikeFunktion;
 import master.Fenster;
 import master.MasterBanner;
@@ -70,7 +71,7 @@ public class MenuScreen extends MasterScreen {
 		
 		karteButton.addActionListener(new KarteFunktion());
 		mountainbikeKarteButton.addActionListener(new MountainBikeFunktion());
-		//meinProfilButton.addActionListener(new MeinProfilFunktion());
+		meinProfilButton.addActionListener(new MeinProfilFunktion());
 		ausloggenButton.addActionListener(new AusloggenFunktion());
 		this.add(menuPanel);
 		this.add(karteButton);

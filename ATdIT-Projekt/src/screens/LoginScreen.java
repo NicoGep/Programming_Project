@@ -18,11 +18,13 @@ import javax.swing.JTextField;
 import funktionen.LoginFunktion;
 import funktionen.PasswVergFunktion;
 import master.Body;
+import master.Fenster;
 
 public class LoginScreen extends Body {
 	
 
 	public LoginScreen() {
+		
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(13,1));
 		pan.setBounds(0,0,450,800);
@@ -74,41 +76,14 @@ public class LoginScreen extends Body {
 		PasswVergFunktion pwV = new PasswVergFunktion();
 		passVer.addActionListener(pwV);
 		
-	
-		
 	}
 		@Override
-		protected void paintComponent (Graphics g) {
-		Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\I518194\\Pictures\\wandern (2).jpg");	
+		protected void paintComponent (Graphics g) {	
 		super.paintComponent(g);
+		Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");
 		g.drawImage(img, 0, 0 , null);
 		setVisible(true);
 		
 		}  
-		
-		
-	
-		public static void main(String[] args) {
-			new LoginScreen();
-		}
-		
-		
-		
-		
 	
 	}
-
-
-		
-		
-	
-
-
-		
-	
-
-
-
-	
-
-
