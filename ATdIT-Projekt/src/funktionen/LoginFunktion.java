@@ -2,9 +2,12 @@ package funktionen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 import master.Fenster;
-import screens.Login;
-import screens.MenuScreen;
+import screens.LoginScreen;
 import screens.PasswortVerg;
 import screens.Registrierung;
 
@@ -12,19 +15,22 @@ import screens.Registrierung;
 
 public class LoginFunktion implements ActionListener {
 	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			if(e.getSource() == Login.login) {
-			Fenster.addToFrame(new MenuScreen());
-				
-			} else if (e.getSource() == Login.reg) {
+			e.getSource();
 			Fenster.addToFrame(new Registrierung());
 			
-			} else if (e.getSource() == Login.passVer) {
-			Fenster.addToFrame(new PasswortVerg());
 			
-		}
+			
+			
+			
+			
+			
+			
+		
+			}	
 	}
-}
 	
 
