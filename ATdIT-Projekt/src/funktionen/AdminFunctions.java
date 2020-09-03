@@ -3,36 +3,48 @@ package funktionen;
 import java.sql.*;
 
 import connection.DatabaseConnection;
+import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 
 public class AdminFunctions {
 	
 	
-	public static void addUser(String name, int password) {
+	private static void addUser(String name, int password) {
 		
-		DatabaseConnection.makeUpdate("INSERT INTO benutzer(name, password) VALUES('" + name + "', '" + password + "');");
+		
+		if(findUser(name) == null) {
+			
+			DatabaseConnection.makeUpdate("INSERT INTO benutzer(name, password) VALUES('" + name + "', '" + password + "');");
+			
+			System.out.println("Benutzer " + name + " hinzugefügt.");
+			
+		} else {
+			
+			System.out.println("Benutzer existiert bereits.");
+			
+		}
+		
 		
 	}
 	
-	public static ResultSet findUser(String name) throws LoginCredentialsException {
-		
-		ResultSet set = DatabaseConnection.makeQuerry("SELECT id, name, password FROM benutzer WHERE name = '" + name + "';");
+	public static ResultSet findUser(String name) {
 		
 		try {
 			
-			if(!set.first())
-				throw new LoginCredentialsException(1);
-			
-			return set;
-			
-		} catch(SQLException sqlE) {
-			sqlE.printStackTrace();
-			return null;
-		}
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT id, name, password FROM benutzer WHERE name = '" + name + "';");
 		
+			if(!set.first())	
+				return null;
+			
+			return DatabaseConnection.makeQuerry("SELECT id, name, password FROM benutzer WHERE name = '" + name + "';");
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}		
 	}
 	
-//	<classpathentry kind="lib" path="C:/Users/nicol/Documents/Workspace/GitHub/ATdIT-Projekt/Programming_Project/ATdIT-Projekt/lib/mysql-connector-java-5.1.49.jar"/>
 	
 	public static boolean checkPassword(int passwordHash, ResultSet user) throws LoginCredentialsException, SQLException {
 
@@ -58,6 +70,19 @@ public class AdminFunctions {
 	
 	public static int encrypt(String st) {
 		return st.hashCode();
+	}
+	
+	
+	public static String outputResultSet(ResultSet set) throws SQLException {
+		
+		String result = "";
+		
+		while(set.next()) {
+			result += set.getString("id") + " " + set.getString("name") + "\n";
+		}
+		
+		return result;
+	
 	}
 		
 

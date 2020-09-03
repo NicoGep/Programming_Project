@@ -28,12 +28,13 @@ public class FlexTest {
 		
 		
 		
+		
 		} catch(LoginCredentialsException logE) {
 			
 			switch(logE.getState()) {
 			
-			case 1: System.out.println("Name nicht gefunden_Main"); break;
-			case 2: System.out.println("Password falsch_Main"); break;
+			case 1: System.out.println("Output1"); break;
+			case 2: System.out.println("Output2"); break;
 			
 			default: System.out.println("Login fehlgeschlagen_Main");
 			

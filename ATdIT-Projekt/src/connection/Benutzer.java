@@ -1,6 +1,7 @@
 package connection;
 
 import java.sql.*;
+import java.util.*;
 
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
@@ -8,18 +9,28 @@ import funktionen.AdminFunctions;
 
 public class Benutzer {
 	
-	private static int loggedUserID = 1;
-	private static Benutzer benutzer;
+	private static Benutzer loggedUser;
 	
 	//-------------------------------------- WIP ---------------------------------------------------
-	public int TEMP_loggedUserID;
+	public int userID;
 	public String name;
 	
 	
 	private Benutzer() {
-		Benutzer.benutzer = this;
-		TEMP_loggedUserID = getID();
-		name = getName();
+		Benutzer.loggedUser = this;
+		
+		try {
+		
+		ResultSet set = getAllInfos();
+		
+		userID = set.getInt("id");
+		name = set.getString("name");
+		
+		} catch(SQLException sqlE) {
+			sqlE.printStackTrace();
+		}
+		
+		
 	}
 	//----------------------------------------------------------------------------------------------
 	
@@ -37,12 +48,14 @@ public class Benutzer {
 		
 		user = AdminFunctions.findUser(name);
 		
+		if(user == null)
+			throw new LoginCredentialsException(1);
 		
 		if(!user.first()) 
 			throw new LoginCredentialsException(1);
 		
 		if(user.next())
-			throw new InputException();
+			throw new InputException(2);
 		
 		user.first();
 		
@@ -58,58 +71,73 @@ public class Benutzer {
 		
 	}
 	
-	public static void setUserID(int key) {
+	/**
+	 * Gibt ein ResultSet mit allen Feldern die in der args-Liste stehen zurück
+	 * 
+	 * @param args Eine Aufzählung der gewünschten Felder.
+	 * @return Ein ResultSet mit den gewünschten Feldern.
+	 */
+	public ResultSet getInfos(List<String> args) {
 		
-		loggedUserID = key;
-		
-	}
-	
-	public static void unsetUserID() {
-		loggedUserID = -1;
-	}
-	
-	
-	private static String abfrageString(String col) {
-		
-		ResultSet temp = DatabaseConnection.makeQuerry("SELECT " + col + " FROM benutzer WHERE id = '" + loggedUserID + "';");
-		
-		try {
-		
-			temp.next();
-		
-			return temp.getString(col);
-		} catch(SQLException e) {
-			e.printStackTrace();
+		if(args.size() == 0)
 			return null;
-		}
 		
-	}
-	
-	private static int abfrageInt(String col) {
+		int i = 0;
 		
-		ResultSet temp = DatabaseConnection.makeQuerry("SELECT " + col + " FROM benutzer WHERE id = '" + loggedUserID + "';");
-		try {
-			
-			temp.next();
-			
-			return temp.getInt(col);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return -1;
-		}
+		String querry = "" + args.get(i).strip();
+		i++;
 		
+		while(i < args.size()) 
+			querry = ", " + args.get(i++).strip();
+		
+		return DatabaseConnection.makeQuerry("SELECT " + querry + " FROM benutzer WHERE id = '" + userID + "';");
 	}
 	
-	public static int getID() {
-		return abfrageInt("id");
+	private ResultSet getAllInfos() {
+		return DatabaseConnection.makeQuerry("SELECT * FROM benutzer WHERE id = '" + userID + "';");
 	}
 	
-	public static String getName() {
-		return abfrageString("name");
-	}
-	
-	public static int getPassword() {
-		return abfrageInt("password");
-	}
+//	private static String abfrageString(String col) {
+//		
+//		ResultSet temp = DatabaseConnection.makeQuerry("SELECT " + col + " FROM benutzer WHERE id = '" + loggedUserID + "';");
+//		
+//		try {
+//		
+//			temp.next();
+//		
+//			return temp.getString(col);
+//		} catch(SQLException e) {
+//			e.printStackTrace();
+//			return null;
+//		}
+//		
+//	}
+//	
+//	private static int abfrageInt(String col) {
+//		
+//		ResultSet temp = DatabaseConnection.makeQuerry("SELECT " + col + " FROM benutzer WHERE id = '" + loggedUserID + "';");
+//		try {
+//			
+//			temp.next();
+//			
+//			return temp.getInt(col);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			return -1;
+//		}
+//		
+//	}
+//	
+//	public static int getID() {
+//		return abfrageInt("id");
+//	}
+//	
+//	public static String getName() {
+//		return abfrageString("name");
+//	}
+//	
+//	public static int getPassword() {
+//		return abfrageInt("password");
+//	}
 	
 }

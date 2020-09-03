@@ -5,12 +5,13 @@ import java.sql.*;
 import exceptions.DatabaseConnectException;
 
 public class DatabaseConnection {
-
-//	private static final String url = "jdbc:mysql://localhost:3306/";
-	private static final String url = "jdbc:mysql://192.168.178.27:3306/";
+	
 	private static String rootUser = "root";
+
+	private static final String url = "jdbc:mysql://192.168.178.27:3306/";
 	private static String rootPassword = "key";
-//	private static String rootPassword = "pass";
+	
+//	private static final String url = "jdbc:mysql://localhost:3306/";
 //	private static String rootPassword = "";
 	
 	private static Connection con;
@@ -88,6 +89,7 @@ public class DatabaseConnection {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("makeQuerry Exception");
 			return null;
 		}
 	}
@@ -106,6 +108,7 @@ public class DatabaseConnection {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("makeUpdateException");
 			return 0;
 		}
 		
@@ -124,21 +127,12 @@ public class DatabaseConnection {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("makeUpdateException");
 			return 0;
 		}
 	}
 	
-	public static String outputSet(ResultSet set) throws SQLException {
-		
-		String result = "";
-		
-		while(set.next()) {
-			result += set.getString("id") + " " + set.getString("name") + "\n";
-		}
-		
-		return result;
 	
-	}
 	
 	
 	
