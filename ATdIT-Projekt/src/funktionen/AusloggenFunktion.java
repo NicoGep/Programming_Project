@@ -4,9 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import master.Fenster;
-import screens.LoginScreen;
-import screens.MeinProfil;
-import screens.MenuScreen;
+import screens.*;
 
 public class AusloggenFunktion implements ActionListener {
 

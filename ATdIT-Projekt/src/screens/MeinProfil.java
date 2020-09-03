@@ -36,6 +36,8 @@ public class MeinProfil extends MasterScreen {
 	public Icon profilBild;
 
 	public MeinProfil() {
+		
+		profilBildAdresse = "./ui/images/github_profilbild.jpg";
 
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
