@@ -1,9 +1,6 @@
 package master;
 
 import javax.swing.*;
-
-import connection.Benutzer;
-
 import java.awt.event.*;
 import java.awt.*;
 
@@ -14,8 +11,6 @@ public class Fenster extends JFrame {
 	private static Fenster masterFrame;
 	private static Container content;
 	
-	private static Benutzer user;
-	
 	public Fenster() {
 		
 		masterFrame = this;
@@ -25,15 +20,6 @@ public class Fenster extends JFrame {
 		this.setBounds(0, 0, SIZE_X, SIZE_Y);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-	}
-	
-	public static Benutzer getUser() {
-		return Fenster.user;
-	}
-	
-	public static boolean setUser(Benutzer user) {
-		Fenster.user = user;
-		return true;		
 	}
 
 	public static void addToFrame(Body body) {

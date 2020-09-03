@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.*;
 
 import funktionen.AusloggenFunktion;
+import funktionen.FunktionMeinProfil;
 import funktionen.KarteFunktion;
 import funktionen.MountainBikeFunktion;
 import master.Fenster;
@@ -68,9 +69,10 @@ public class MenuScreen extends MasterScreen {
 		ausloggenButton.setBorderPainted(false);
 		ausloggenButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
+		
 		karteButton.addActionListener(new KarteFunktion());
 		mountainbikeKarteButton.addActionListener(new MountainBikeFunktion());
-		//meinProfilButton.addActionListener(new MeinProfilFunktion());
+		meinProfilButton.addActionListener(new FunktionMeinProfil());
 		ausloggenButton.addActionListener(new AusloggenFunktion());
 		this.add(menuPanel);
 		this.add(karteButton);
