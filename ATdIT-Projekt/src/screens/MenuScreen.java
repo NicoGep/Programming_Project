@@ -72,6 +72,8 @@ public class MenuScreen extends MasterScreen {
 		karteButton.addActionListener(new KarteFunktion());
 		mountainbikeKarteButton.addActionListener(new MountainBikeFunktion());
 		meinProfilButton.addActionListener(new MeinProfilFunktion());
+
+		//meinProfilButton.addActionListener(new MeinProfilFunktion());
 		ausloggenButton.addActionListener(new AusloggenFunktion());
 		this.add(menuPanel);
 		this.add(karteButton);
