@@ -75,7 +75,4 @@ public class MenuScreen extends MasterScreen {
 		this.add(meinProfilButton);
 		this.add(ausloggenButton);
 	}
-
-
-
 }
