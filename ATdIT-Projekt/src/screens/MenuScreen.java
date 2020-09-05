@@ -26,15 +26,10 @@ public class MenuScreen extends MasterScreen {
 	
 	
 	public MenuScreen( ) {
+		
+		//Definition UI-Layout
 		this.setBackground(Color.white);
 		this.setLayout(null);
-		
-//		menuPanel = new JPanel();
-//		menuPanel.setBounds(150, 25, 50, 50);
-//		menuPanel.setLayout(new BorderLayout());
-//		menuLabel = new JLabel("MENÜ");
-//		menuPanel.add(menuLabel, java.awt.BorderLayout.CENTER);
-//		this.add(menuPanel);
 		
 		menuPanel = new JPanel();
 		menuPanel.setBounds(75, 50, 300, 50);
@@ -69,11 +64,10 @@ public class MenuScreen extends MasterScreen {
 		ausloggenButton.setBorderPainted(false);
 		ausloggenButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
+		//Funktionsaufruf ActionListener für Buttons
 		karteButton.addActionListener(new KarteFunktion());
 		mountainbikeKarteButton.addActionListener(new MountainBikeFunktion());
 		meinProfilButton.addActionListener(new MeinProfilFunktion());
-
-		//meinProfilButton.addActionListener(new MeinProfilFunktion());
 		ausloggenButton.addActionListener(new AusloggenFunktion());
 		this.add(menuPanel);
 		this.add(karteButton);
