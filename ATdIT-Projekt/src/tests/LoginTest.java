@@ -9,6 +9,6 @@ public class LoginTest {
 
 	@Test (expected = LoginCredentialsException.class )
 	public void testLoginCredentials() throws LoginCredentialsException {
-		Benutzer.loginUser(null, null);
+		Benutzer.loginUser("", "");
 	}
 }
