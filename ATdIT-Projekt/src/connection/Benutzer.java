@@ -3,6 +3,7 @@ package connection;
 import java.sql.*;
 import java.util.*;
 
+import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
@@ -119,6 +120,19 @@ public class Benutzer {
 		loggedUser.name = neuerName;
 		
 		return true;
+	}
+	
+	public static boolean setPassword(String password) throws InputException {
+		
+		if(loggedUser == null)
+			return false;
+		
+		if(password.isBlank())
+			throw new InputException(5);
+		
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET password = " + AdminFunctions.encrypt(password) + " WHERE id = " + getID() + ";");
+			
+		return true;		
 	}
 	
 

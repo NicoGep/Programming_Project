@@ -124,6 +124,7 @@ public class AdminFunctions {
 		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.gTB + " SET niveau = '" + neuesNiveau + "' WHERE gruppenname = " + gruppenname + ";");
 	}
 	
+	
 	public static List<String> getAllGroups() {
 		
 		List<String> l = new LinkedList<String>();

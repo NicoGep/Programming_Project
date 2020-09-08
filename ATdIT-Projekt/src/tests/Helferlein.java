@@ -17,27 +17,62 @@ public class Helferlein {
 			e.printStackTrace();
 		}
 
-		
-		
 		try {
 		
 		
-		
-		ResultSet set = AdminFunctions.findGroup("TestGruppe");
-		
-		if(set == null)
-			System.out.println("Set ist null");
-		else 
-			System.out.println(set.getString("gruppenname"));
+			
+			
+//			AdminFunctions.addUser("Test", "pass");
+			
+
+			
+			Benutzer.loginUser("Test", "key");
+			
+//			Benutzer.setPassword("key");
+			
+//			Benutzer.loginUser("Test", "key");
+			
+			
+			System.out.println(Benutzer.getName() + " - " + Benutzer.getEmail());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 		
+//		ResultSet set = AdminFunctions.findGroup("TestGruppe");
+//		
+//		if(set == null)
+//			System.out.println("Set ist null");
+//		else 
+//			System.out.println(set.getString("gruppenname"));
 		
-		
+			
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-
 		try {
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
