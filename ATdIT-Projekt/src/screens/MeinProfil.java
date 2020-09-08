@@ -37,12 +37,11 @@ public class MeinProfil extends MasterScreen {
 
 	public MeinProfil() {
 		
-		profilBildAdresse = "./ui/images/github_profilbild.jpg";
 
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
 		ActionListener meinProfilAL = new FunktionMeinProfil();
-		new FunktionMeinProfil().datenLaden();
+//		new FunktionMeinProfil().datenLaden();
 		Image image = Toolkit.getDefaultToolkit().createImage(profilBildAdresse);
 		
 		
