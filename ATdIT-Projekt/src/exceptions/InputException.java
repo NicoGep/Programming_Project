@@ -14,7 +14,8 @@ public class InputException extends Exception {
 		case 2: System.out.println("Zwei User gefunden."); break;
 		case 3: System.out.println("Der Name Existiert bereits."); break;
 		case 4: System.out.println("Kein Name angegeben."); break;
-		case 5: System.out.println("Kein Passwort angegeben"); break;
+		case 5: System.out.println("Kein Passwort angegeben."); break;
+		case 6: System.out.println("Gruppe exitiert bereits."); break;
 		
 		}
 		

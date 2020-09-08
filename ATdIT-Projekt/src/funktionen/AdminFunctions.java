@@ -83,26 +83,54 @@ public class AdminFunctions {
 	
 	//----------------------------------------------------------- Gruppen-Funktionen ----------------------------------------------------------------------------
 	
-	public static void gruppeErstellen() {
+	public static ResultSet findGroup(String gruppenName) {
+		
+		try {
+			
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + " WHERE gruppenname = '" + gruppenName + "';");
+			
+			if(!set.first())
+				return null;
+			
+			return set;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 		
 	}
 	
+	public static void gruppeErstellen(String gruppenName) throws InputException {
+		
+		if(findGroup(gruppenName) != null)
+			throw new InputException(6);
+			
+		
+		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.gTB + " (gruppenname) VALUES ('" + gruppenName + "');");
+		
+		System.out.println("Gruppe " + gruppenName + " wurde erstellt.");
+	}
+	
+	public static void setGroupNiveau(String neuesNiveau, int gruppenID) {
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.gTB + " SET niveau = '" + neuesNiveau + "' WHERE gruppenid = " + gruppenID + ";");
+	}
 	
 	
 	
 	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
 	
-	public static String outputResultSet(ResultSet set) throws SQLException {
-		
-		String result = "";
-		
-		while(set.next()) {
-			result += set.getString("id") + " " + set.getString("name") + "\n";
-		}
-		
-		return result;
-	
-	}
+//	public static String outputResultSet(ResultSet set) throws SQLException {
+//		
+//		String result = "";
+//		
+//		while(set.next()) {
+//			result += set.getString("id") + " " + set.getString("name") + "\n";
+//		}
+//		
+//		return result;
+//	
+//	}
 		
 
 }

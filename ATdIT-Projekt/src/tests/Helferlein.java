@@ -12,23 +12,31 @@ public class Helferlein {
 	public static void main(String[] args) {
 
 		try {
-
 			DatabaseConnection.connectDatabase();
-			
-			AdminFunctions.addUser("TestUser", "test");
-
-			Benutzer.loginUser("NeuerName", "test");
-			
-			Benutzer.setName("TestUser");
-			
-			System.out.println(Benutzer.getName());
-			
-
-		} catch (Exception e) {
-			System.out.println("Exception");
+		} catch (DatabaseConnectException e) {
 			e.printStackTrace();
 		}
 
+		
+		
+		try {
+		
+		
+		
+		ResultSet set = AdminFunctions.findGroup("TestGruppe");
+		
+		if(set == null)
+			System.out.println("Set ist null");
+		else 
+			System.out.println(set.getString("gruppenname"));
+			
+		
+		
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 
 		try {
 			DatabaseConnection.disconnectDatabase();
