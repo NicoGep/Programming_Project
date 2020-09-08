@@ -9,12 +9,14 @@ import exceptions.LoginCredentialsException;
 public class AdminFunctions {
 	
 	
+	//------------------------------------------------------------------ Benutzer-Funktionen -----------------------------------------------------------------------
+	
 	private static void addUser(String name, int password) {
 		
 		
 		if(findUser(name) == null) {
 			
-			DatabaseConnection.makeUpdate("INSERT INTO benutzer(name, password) VALUES('" + name + "', '" + password + "');");
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.uTB + "(name, password) VALUES('" + name + "', '" + password + "');");
 			
 			System.out.println("Benutzer " + name + " hinzugefügt.");
 			
@@ -31,12 +33,12 @@ public class AdminFunctions {
 		
 		try {
 			
-			ResultSet set = DatabaseConnection.makeQuerry("SELECT id, name, password FROM benutzer WHERE name = '" + name + "';");
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.uTB + " WHERE name = '" + name + "';");
 		
 			if(!set.first())	
 				return null;
 			
-			return DatabaseConnection.makeQuerry("SELECT id, name, password FROM benutzer WHERE name = '" + name + "';");
+			return set;
 			
 			
 		} catch (SQLException e) {
@@ -63,7 +65,14 @@ public class AdminFunctions {
 	}
 	
 	
-	public static void addUser(String name, String password) {
+	public static void addUser(String name, String password) throws InputException {
+		
+		if(name.isBlank())
+			throw new InputException(4);
+		if(password.isBlank())
+			throw new InputException(5);
+		
+		
 		addUser(name, encrypt(password));
 	}
 	
@@ -72,6 +81,16 @@ public class AdminFunctions {
 		return st.hashCode();
 	}
 	
+	//----------------------------------------------------------- Gruppen-Funktionen ----------------------------------------------------------------------------
+	
+	public static void gruppeErstellen() {
+		
+	}
+	
+	
+	
+	
+	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
 	
 	public static String outputResultSet(ResultSet set) throws SQLException {
 		

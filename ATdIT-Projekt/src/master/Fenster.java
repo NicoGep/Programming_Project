@@ -5,7 +5,7 @@ import javax.swing.*;
 import connection.Benutzer;
 
 import java.awt.event.*;
-import java.util.LinkedList;
+import java.util.*;
 import java.awt.*;
 
 public class Fenster extends JFrame {
@@ -15,7 +15,6 @@ public class Fenster extends JFrame {
 	private static Fenster masterFrame;
 	private static Container content;
 	
-	private static LinkedList<Container> lastContent = new LinkedList<Container>();;
 	
 	public Fenster() {
 		
@@ -31,30 +30,27 @@ public class Fenster extends JFrame {
 
 	public static void addToFrame(Body body) {
 		
-		lastContent.add(content);
+//		lastContent.add(content);
 		
-		Panel p = new Panel(body);
-		
+		Panel p = new Panel(body);		
 		neuZeichnen(p);
 		
 	}
 	
 	public static void addToFrame(MasterScreen screen) {
 		
-		lastContent.add(content);
+//		lastContent.add(content);
 		
 		Panel p = new Panel(screen);
-
 		neuZeichnen(p);
 		
 	}
 	
 	public static void addToFrame(MasterScreen screen, MasterBanner banner) {
 		
-		lastContent.add(content);
+//		lastContent.add(content);
 
 		Panel p = new Panel(screen, banner);
-		
 		neuZeichnen(p);
 	
 	}
@@ -71,13 +67,5 @@ public class Fenster extends JFrame {
 		
 	}
 	
-	public static Container retrieveLastContent() {
-		return lastContent.removeLast();
-	}
-	
-//	public static void malen() {
-//		masterFrame.revalidate();
-//		masterFrame.repaint();
-//	}
 	
 }

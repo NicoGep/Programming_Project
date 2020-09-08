@@ -1,6 +1,7 @@
 package master;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,8 +30,18 @@ public class MasterBanner extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				
+//				if(!Fenster.lastContent.isEmpty())
+//					Fenster.neuZeichnen(Fenster.retrieveLastContent());
 
 				Fenster.addToFrame(new Login());
+//				
+//				Container c = Fenster.retrieveLastContent();
+//				
+//				Fenster.addToFrame(c);
+				
+//				Fenster.addToFrame(Fenster.retrieveLastContent());
 				
 				
 				

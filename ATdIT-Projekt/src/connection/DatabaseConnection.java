@@ -16,7 +16,19 @@ public class DatabaseConnection {
 	
 	private static Connection con;
 	
-	private static final String stdDB = "atdit";
+	public static final String stdDB = "atdit";
+	
+	
+	public static final String uTB = "benutzer";
+	public static final String gTB = "gruppen";
+	public static final String connectTB = "gruppenzugehoerigkeit";
+	
+	public static final String tTB = "testtabelle";
+	
+	
+	
+	
+	//------------------------------------------------------------------------------- Verbindung zur Datenbank ----------------------------------------------------------
 	
 	@SuppressWarnings("deprecation")
 	public static boolean connectDatabase() throws DatabaseConnectException {
@@ -27,7 +39,7 @@ public class DatabaseConnection {
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection(url, rootUser, rootPassword);	//----------------------------- NOCH ROOT CREDS --------------------------------
+			con = DriverManager.getConnection(url, rootUser, rootPassword);	//######### NOCH ROOT CREDS ############
 			System.out.println("Database connected\n\n");
 			return true;
 			
@@ -54,6 +66,8 @@ public class DatabaseConnection {
 		}
 		
 	}
+	
+	//----------------------------------------------------------------------------- Direkte Querys ----------------------------------------------------------------
 	
 	
 	public static ResultSet makeQuerry(String statement) {
@@ -134,13 +148,30 @@ public class DatabaseConnection {
 	
 	
 	
+	//-------------------------------------------------------------------- Spalte hinzufügen -------------------------------------------------------------
+	
+	public static void addColumn(String col, String dataType) {
+		addColumn(col, dataType, " ", "NOT NULL");
+	}
+	
+	public static void addColumn(String col, String dataType, int size) {
+		addColumn(col, dataType, size, "NOT NULL");
+	}
+	
+	public static void addColumn(String col, String dataType, int size, String arguments) {
+		addColumn(col, dataType, "(" + size + ") ", arguments);
+	}
+	
+	private static void addColumn(String col, String dataType, String size, String arguments) { //################ Eingabeprüfung einbauen #################
+		
+		String statement = "ALTER TABLE " + uTB + " ADD " + col + " " + dataType + size + arguments + ";";
+		System.out.println(statement);
+		makeUpdate(statement);
+		
+	}
 	
 	
-//	--------------------------------------------------------------- WIP -------------------------------------------
-//	public static ResultSet selectQuerry(String select) {
-//		
-//		return null;
-//	}
+	
 
 	
 	

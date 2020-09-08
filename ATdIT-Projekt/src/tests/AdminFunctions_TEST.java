@@ -2,40 +2,31 @@ package tests;
 
 import java.sql.ResultSet;
 
-import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import funktionen.AdminFunctions;
 
-public class Helferlein {
-
+public class AdminFunctions_TEST {
+	
 	public static void main(String[] args) {
-
+		
 		try {
-
 			DatabaseConnection.connectDatabase();
-			
-			AdminFunctions.addUser("TestUser", "test");
 
-			Benutzer.loginUser("NeuerName", "test");
-			
-			Benutzer.setName("TestUser");
-			
-			System.out.println(Benutzer.getName());
-			
+			ResultSet set = AdminFunctions.findUser("root");
 
-		} catch (Exception e) {
-			System.out.println("Exception");
-			e.printStackTrace();
-		}
+			if (set == null)
+				System.out.println("Das Set ist null");
 
+			set = AdminFunctions.findUser("test");
 
-		try {
+			if (set == null)
+				System.out.println("Das andere Set ist null");
+
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
 			e.printStackTrace();
 		}
-
 		
 	}
 
