@@ -3,9 +3,9 @@ package funktionen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import connection.Benutzer;
 import master.Fenster;
 import screens.*;
-
 
 public class FunktionProfilbildAendern implements ActionListener {
 
@@ -15,7 +15,8 @@ public class FunktionProfilbildAendern implements ActionListener {
 			Fenster.addToFrame(new ProfilBearbeiten());
 		}
 		if (e.getSource() == ProfilbildAendern.speichern) {
-			MeinProfil.profilBildAdresse = ProfilbildAendern.addresse.getText();
+
+			Benutzer.setProfilbild(ProfilbildAendern.addresse.getText());
 			Fenster.addToFrame(new ProfilBearbeiten());
 		}
 

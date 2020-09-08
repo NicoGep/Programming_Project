@@ -2,6 +2,8 @@ package screens;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeSet;
 
 import javax.swing.*;
@@ -19,7 +21,7 @@ public class GruppeBeitreten extends MasterScreen {
 
 	public static JComboBox<String> gruppen;
 	
-	public static TreeSet<String> gruppenListe = new TreeSet<String>();
+	public static List<String> gruppenListe;
 
 	JLabel gruppenNameLabel;
 	public static JLabel ergebnisse;

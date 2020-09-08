@@ -49,7 +49,7 @@ public class PasswortAendern extends MasterScreen {
 		neuesPasswortStimmtNichtUeberein.setForeground(Color.RED);
 		neuesPasswortStimmtNichtUeberein.setVisible(false);
 		
-		altesPasswortAngeben= new JLabel("Geben Sie Ihr altes Passwort an!");
+		altesPasswortAngeben= new JLabel("Altes Passwort ist falsch!");
 		altesPasswortAngeben.setBounds(0, 525, 450, 75);
 		altesPasswortAngeben.setBackground(Color.WHITE);
 		altesPasswortAngeben.setForeground(Color.RED);
