@@ -9,10 +9,6 @@ import screens.*;
 
 public class FunktionPasswortAendern implements ActionListener{
 
-	/**
-	 * ruft je nach Button den ProfilBearbeitenScreen auf oder speichert das Passwort ab.
-	 * Hierbei wird durch die if-Abfragen kontrolliert, dass das eingegebene Passwort überein stimmt
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == PasswortAendern.abbrechen) {
