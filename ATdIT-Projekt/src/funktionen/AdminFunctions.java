@@ -1,8 +1,11 @@
 package funktionen;
 
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 
@@ -101,19 +104,51 @@ public class AdminFunctions {
 		
 	}
 	
-	public static void gruppeErstellen(String gruppenName) throws InputException {
+	public static void gruppeErstellen(String gruppenName, String niveau) throws InputException {
 		
 		if(findGroup(gruppenName) != null)
 			throw new InputException(6);
 			
 		
-		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.gTB + " (gruppenname) VALUES ('" + gruppenName + "');");
+		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.gTB + " (gruppenname, niveau) VALUES ('" + gruppenName + "', '" + niveau + "');");
 		
 		System.out.println("Gruppe " + gruppenName + " wurde erstellt.");
 	}
 	
-	public static void setGroupNiveau(String neuesNiveau, int gruppenID) {
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.gTB + " SET niveau = '" + neuesNiveau + "' WHERE gruppenid = " + gruppenID + ";");
+	public static void gruppeErstellen(String gruppenName) throws InputException {
+		gruppeErstellen(gruppenName, "Anfänger");
+	}
+	
+	
+	public static void setGroupNiveau(String neuesNiveau, String gruppenname) {
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.gTB + " SET niveau = '" + neuesNiveau + "' WHERE gruppenname = " + gruppenname + ";");
+	}
+	
+	public static List<String> getAllGroups() {
+		
+		List<String> l = new LinkedList<String>();
+		
+		try {
+			
+			DatabaseConnection.connectDatabase();
+		
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.gTB + ";");
+		
+			while(set.next()) 
+				l.add(set.getString("gruppenname"));
+			
+			DatabaseConnection.disconnectDatabase();
+
+		} catch (DatabaseConnectException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(l.size() == 0)
+			return null;
+		
+		return l;
 	}
 	
 	

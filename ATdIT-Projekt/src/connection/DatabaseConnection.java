@@ -72,20 +72,22 @@ public class DatabaseConnection {
 	
 	public static ResultSet makeQuerry(String statement) {
 		
-		try {
-			
-			Statement s = con.createStatement();
-			
-			s.execute("USE " + stdDB);
-			
-			return s.executeQuery(statement);
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("makeQuerry Exception");
-			return null;
-		}
+		return makeQuerry(statement, stdDB);
+		
+//		try {
+//			
+//			Statement s = con.createStatement();
+//			
+//			s.execute("USE " + stdDB);
+//			
+//			return s.executeQuery(statement);
+//			
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("makeQuerry Exception");
+//			return null;
+//		}
 		
 	}
 	
@@ -111,20 +113,22 @@ public class DatabaseConnection {
 	
 	public static int makeUpdate(String statement) {
 		
-		try {
-			
-			Statement s = con.createStatement();
-			
-			s.execute("USE " + stdDB);
-			
-			return s.executeUpdate(statement);
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("makeUpdateException");
-			return 0;
-		}
+		return makeUpdate(statement, stdDB);
+		
+//		try {
+//			
+//			Statement s = con.createStatement();
+//			
+//			s.execute("USE " + stdDB);
+//			
+//			return s.executeUpdate(statement);
+//			
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("makeUpdateException");
+//			return 0;
+//		}
 		
 	}
 	
