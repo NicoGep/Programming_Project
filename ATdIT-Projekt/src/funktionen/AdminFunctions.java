@@ -8,9 +8,17 @@ import exceptions.LoginCredentialsException;
 
 public class AdminFunctions {
 	
+<<<<<<< Updated upstream
 	
 	//------------------------------------------------------------------ Benutzer-Funktionen -----------------------------------------------------------------------
 	
+=======
+	/**
+	 * Lässt den Nutzer einen neuen Benutzer in der Datenbank anlegen
+	 * @param name ist der zukünftige Name des Benutzerkontos
+	 * @param password ist das verschlüsselte Passwort des Benutzerkontos
+	 */
+>>>>>>> Stashed changes
 	private static void addUser(String name, int password) {
 		
 		
@@ -29,6 +37,11 @@ public class AdminFunctions {
 		
 	}
 	
+	/**
+	 * 
+	 * @param name stellt den zu suchenden Namen dar
+	 * @return wenn der Nutzer nach der Datenbankabfrage nicht als erster im Set steht null, wenn er als erster im Set steht, wird der Nutzer zurückgegeben
+	 */
 	public static ResultSet findUser(String name) {
 		
 		try {
@@ -48,6 +61,14 @@ public class AdminFunctions {
 	}
 	
 	
+	/**	Prüft, ob das Password zum Benutzer passt, indem das verschlüsselte Passwort verglichen wird
+	 * 
+	 * @param passwordHash
+	 * @param user
+	 * @return
+	 * @throws LoginCredentialsException
+	 * @throws SQLException
+	 */
 	public static boolean checkPassword(int passwordHash, ResultSet user) throws LoginCredentialsException, SQLException {
 
 		int passwordDB;
@@ -64,6 +85,7 @@ public class AdminFunctions {
 		return true;
 	}
 	
+<<<<<<< Updated upstream
 	
 	public static void addUser(String name, String password) throws InputException {
 		
@@ -73,17 +95,39 @@ public class AdminFunctions {
 			throw new InputException(5);
 		
 		
+=======
+	/** Fügt ein neues Benutzerkonto hinzu, verschlüsselt jedoch zunächst das Passwort bevor das Datenbankupdate in der obersten Funktion geschieht
+	 * 
+	 * @param name ist der Benutzername des Benutzerkontos
+	 * @param password ist das unverschlüsselte Passwort des Benutzerkontos, was hinzugefügt werden soll.
+	 */
+	public static void addUser(String name, String password) {
+>>>>>>> Stashed changes
 		addUser(name, encrypt(password));
 	}
 	
-	
+	/**
+	 * 
+	 * @param st verschlüsselt das Passwort
+	 * @return das übergebene passwort als int-Wert gehasht
+	 */
 	public static int encrypt(String st) {
 		return st.hashCode();
 	}
 	
+<<<<<<< Updated upstream
 	//----------------------------------------------------------- Gruppen-Funktionen ----------------------------------------------------------------------------
 	
 	public static ResultSet findGroup(String gruppenName) {
+=======
+	/**
+	 * 
+	 * @param set 
+	 * @return
+	 * @throws SQLException
+	 */
+	public static String outputResultSet(ResultSet set) throws SQLException {
+>>>>>>> Stashed changes
 		
 		try {
 			

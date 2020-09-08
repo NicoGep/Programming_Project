@@ -7,7 +7,10 @@ import master.Fenster;
 import screens.*;
 
 public class AusloggenFunktion implements ActionListener {
-
+	
+	/**
+	 *  Ruft beim Drücken des AusloggenButtons im Menü das LoginFenster auf
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == MenuScreen.ausloggenButton) {
