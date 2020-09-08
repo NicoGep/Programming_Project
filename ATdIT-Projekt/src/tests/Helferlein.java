@@ -20,20 +20,8 @@ public class Helferlein {
 		try {
 		
 		
-			
-			
-//			AdminFunctions.addUser("Test", "pass");
-			
 
 			
-			Benutzer.loginUser("Test", "key");
-			
-//			Benutzer.setPassword("key");
-			
-//			Benutzer.loginUser("Test", "key");
-			
-			
-			System.out.println(Benutzer.getName() + " - " + Benutzer.getEmail());
 			
 			
 			
@@ -41,31 +29,6 @@ public class Helferlein {
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-//		ResultSet set = AdminFunctions.findGroup("TestGruppe");
-//		
-//		if(set == null)
-//			System.out.println("Set ist null");
-//		else 
-//			System.out.println(set.getString("gruppenname"));
-		
 			
 			
 			

@@ -86,6 +86,14 @@ public class AdminFunctions {
 	
 	//----------------------------------------------------------- Gruppen-Funktionen ----------------------------------------------------------------------------
 	
+	
+	/**
+	 * Sucht die gewünschte Gruppe in der Datenbank.
+	 * Gibt null zurück, wenn sie nicht existiert.
+	 * 
+	 * @param gruppenName
+	 * @return Ein ResultSet der gesuchten Gruppe(n)
+	 */
 	public static ResultSet findGroup(String gruppenName) {
 		
 		try {
@@ -155,6 +163,8 @@ public class AdminFunctions {
 	
 	
 	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
+	
+	
 	
 //	public static String outputResultSet(ResultSet set) throws SQLException {
 //		

@@ -194,9 +194,110 @@ public class Benutzer {
 	
 	
 	
+	//------------------------------------------------------------------------------- Gruppen verwalten -------------------------------------------------------
+	
+	
+	public static boolean joinGroup(String gruppe) throws InputException {
+		
+		if(loggedUser == null)
+			return false;
+		
+		
+		
+		ResultSet group = AdminFunctions.findGroup(gruppe);
+		
+		
+		if(group == null)
+			throw new InputException(7);
+		
+		if(isInGroup(gruppe))
+			throw new InputException(8);
+		
+		
+		try {
+			
+			group.first();
+			
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.connectTB + " (gruppenid, id, gruppenname) VALUES (" + group.getInt("gruppenid") + ", " + getID() + ", '" + gruppe + "');");
+			
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
+	public static boolean leaveGroup(String group) throws InputException {
+		
+		if(loggedUser == null)
+			return false;
+		
+		
+		if(!isInGroup(group))
+			throw new InputException(9);
+		
+		//######################## Aufpassen, wenn die Spalte wieder rausgenommen wird! #######################
+		DatabaseConnection.makeUpdate("DELETE FROM " + DatabaseConnection.connectTB + " WHERE gruppenname = '" + group + "' AND id = " + getID() + ";");
+		
+		System.out.println("Gruppe " + group + " wurde verlassen.");
+		
+		return true;
+	}
+	
+	public static ResultSet getAllGroups() {
+		
+		if(loggedUser == null)
+			return null;
+		
+		//###################### Evtl. noch einen Fremdschlüssel drauß machen ####################
+//		ResultSet set = DatabaseConnection.makeQuerry("SELECT " + DatabaseConnection.gTB + ".* FROM " + DatabaseConnection.gTB + " LEFT JOIN " + DatabaseConnection.connectTB + " ON " 
+//						+ DatabaseConnection.gTB + ".gruppenid = " + DatabaseConnection.connectTB + ".gruppenid WHERE " + DatabaseConnection.connectTB + ".id = " + getID() + ";");
+		
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.connectTB + " WHERE id = " + getID() + ";");
+		 
+		
+		try {
+			if(!set.first())
+				return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return set;
+	}
+	
+	public static boolean isInGroup(String group) {	//################ Implementieren evtl. mit dem ResultSet ######################
+		
+		if(loggedUser == null)
+			return false;
+		
+		
+		ResultSet groups = getAllGroups();
+		
+		if(groups == null)
+			return false;
+		
+		try {
+			groups.beforeFirst();
+			while(groups.next()) {
+				if(groups.getString("gruppenname").equals(group))
+					return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return false;
+	}
 	
 	
 	
+	
+	//--------------------------------------------------------------------------------- Nilles -----------------------------------------------------------------
 	
 	/**
 	 * Gibt ein ResultSet mit allen Feldern die in der args-Liste stehen zurück
