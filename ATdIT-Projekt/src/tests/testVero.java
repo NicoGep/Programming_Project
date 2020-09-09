@@ -9,7 +9,7 @@ public class testVero {
 	public static void main(String[] args) {
 		try {
 		DatabaseConnection.connectDatabase();
-		AdminFunctions.addUser("Test2", "egal");
+		//AdminFunctions.addUser("Test2", "egal");
 		DatabaseConnection.disconnectDatabase();
 		}catch(DatabaseConnectException ec){
 			ec.printStackTrace();
