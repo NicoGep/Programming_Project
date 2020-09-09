@@ -23,16 +23,12 @@ public class Helferlein {
 		try {
 		
 		
-
-//			Benutzer.loginUser("Test", "key");
+			System.out.println(AdminFunctions.encrypt("password"));
+			AdminFunctions.addUser("Test", "test");
+			Benutzer.loginUser("Test", "test");
 //			
 //			Benutzer.updateParameter(15, 55);
 			
-			
-			JPanel b = new Body();
-			
-			
-			System.out.println(b.getClass());
 			
 			
 			

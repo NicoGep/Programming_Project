@@ -39,11 +39,11 @@ public class MeinProfil extends MasterScreen {
 	public Icon profilBild;
 
 	public MeinProfil() {
-
+	
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
 		ActionListener meinProfilAL = new FunktionMeinProfil();
-//		new FunktionMeinProfil().datenLaden();
+		new FunktionMeinProfil().datenLaden();
 		Image image = Toolkit.getDefaultToolkit().createImage(profilBildAdresse);
 
 		daten = new JPanel();
