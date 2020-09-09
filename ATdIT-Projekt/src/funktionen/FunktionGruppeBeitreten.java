@@ -17,6 +17,7 @@ public class FunktionGruppeBeitreten implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getSource() == GruppeBeitreten.suchen) {
 			GruppeBeitreten.gruppen.removeAllItems();
 

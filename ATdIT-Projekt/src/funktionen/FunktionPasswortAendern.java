@@ -19,7 +19,8 @@ public class FunktionPasswortAendern implements ActionListener {
 		if (e.getSource() == PasswortAendern.speichern) {
 			PasswortAendern.neuesPasswortStimmtNichtUeberein.setVisible(false);
 			PasswortAendern.altesPasswortAngeben.setVisible(false);
-
+			
+			// Passwortkontrolle mit Datenbankabfrage
 			if (PasswortAendern.neuesPasswort.getText().equals(PasswortAendern.neuesPasswortKontrolle.getText())
 					&& !(PasswortAendern.altesPasswort.getText().equals(""))) {
 				try {
