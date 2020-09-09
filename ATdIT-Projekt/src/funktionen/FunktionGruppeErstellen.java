@@ -11,7 +11,11 @@ import screens.GruppeErstellen;
 import screens.MeinProfil;
 
 public class FunktionGruppeErstellen implements ActionListener {
-
+	
+	/**
+	 *  Erstellt im Falle, dass der GruppenErstellen-Button gedrückt wird, eine neue Gruppe
+	 *  Falls der Abbrechen-Button gedrückt wird, öffnet sich der MeinProfil-Screen
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
