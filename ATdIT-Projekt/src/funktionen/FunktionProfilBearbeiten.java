@@ -7,6 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import connection.Benutzer;
+import connection.DatabaseConnection;
 import exceptions.InputException;
 import master.Fenster;
 import screens.MeinProfil;
@@ -18,32 +19,40 @@ public class FunktionProfilBearbeiten implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == ProfilBearbeiten.abbrechen) {
-			Fenster.addToFrame(new MeinProfil());
-		}
-		if (e.getSource() == ProfilBearbeiten.speichern) {
-			try {
-				if (ProfilBearbeiten.neuerName.getText() != "") {
-					Benutzer.setName(ProfilBearbeiten.neuerName.getText());
-				}
-				Benutzer.setNiveau((String) ProfilBearbeiten.niveauAuswahl
-						.getItemAt(ProfilBearbeiten.niveauAuswahl.getSelectedIndex()));
-				if (ProfilBearbeiten.neueemail.getText() != "") {
-					Benutzer.setEmail(ProfilBearbeiten.neueemail.getText());
-				}
-			} catch (InputException e1) {
-				e1.printStackTrace();
+		try {
+			DatabaseConnection.connectDatabase();
+			if (e.getSource() == ProfilBearbeiten.abbrechen) {
+				Fenster.addToFrame(new MeinProfil());
 			}
+			if (e.getSource() == ProfilBearbeiten.speichern) {
+				try {
+					if (ProfilBearbeiten.neuerName.getText() != "") {
+						Benutzer.setName(ProfilBearbeiten.neuerName.getText());
+					}
+					Benutzer.setNiveau((String) ProfilBearbeiten.niveauAuswahl
+							.getItemAt(ProfilBearbeiten.niveauAuswahl.getSelectedIndex()));
+					if (ProfilBearbeiten.neueemail.getText() != "") {
+						Benutzer.setEmail(ProfilBearbeiten.neueemail.getText());
+					}
+				} catch (InputException e1) {
+					e1.printStackTrace();
+				}
 
-			Fenster.addToFrame(new MeinProfil());
+				Fenster.addToFrame(new MeinProfil());
+			}
+			// Profilbild hinzufügen
+			if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
+				Fenster.addToFrame(new ProfilbildAendern());
+			}
+			// Passwort ändern
+			if (e.getSource() == ProfilBearbeiten.passwortAendern) {
+				Fenster.addToFrame(new PasswortAendern());
+			}
+			DatabaseConnection.disconnectDatabase();
 		}
-		//Profilbild hinzufügen
-		if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
-			Fenster.addToFrame(new ProfilbildAendern());
-		}
-		//Passwort ändern
-		if (e.getSource() == ProfilBearbeiten.passwortAendern) {
-			Fenster.addToFrame(new PasswortAendern());
+
+		catch (Exception eee) {
+			// TODO: handle exception
 		}
 
 	}

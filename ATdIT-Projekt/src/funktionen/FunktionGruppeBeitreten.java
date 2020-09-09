@@ -6,8 +6,10 @@ import java.util.Iterator;
 
 import javax.swing.JLabel;
 
+import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
+import exceptions.InputException;
 import master.Fenster;
 import screens.GruppeBeitreten;
 import screens.MeinProfil;
@@ -17,33 +19,39 @@ public class FunktionGruppeBeitreten implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		if (e.getSource() == GruppeBeitreten.suchen) {
-			GruppeBeitreten.gruppen.removeAllItems();
 
-			Iterator it = GruppeBeitreten.gruppenListe.iterator();
-			while (it.hasNext()) {
-				String item = (String) it.next();
-				String suche = GruppeBeitreten.gruppenName.getText();
-				if (item.contains(suche)) {
-					GruppeBeitreten.gruppen.addItem(item);
+		try {
+			DatabaseConnection.connectDatabase();
+			if (e.getSource() == GruppeBeitreten.suchen) {
+				GruppeBeitreten.gruppen.removeAllItems();
+				
+				Iterator it = GruppeBeitreten.gruppenListe.iterator();
+				while (it.hasNext()) {
+					String item = (String) it.next();
+					String suche = GruppeBeitreten.gruppenName.getText();
+					if (item.contains(suche)) {
+						GruppeBeitreten.gruppen.addItem(item);
+					}
 				}
+			}
+
+			if (e.getSource() == GruppeBeitreten.loeschen) {
+				Benutzer.leaveGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
+			}
+			if (e.getSource() == GruppeBeitreten.beitreten) {
+
+				Benutzer.joinGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
 
 			}
-			GruppeBeitreten.ergebnisse.setVisible(true);
-			GruppeBeitreten.gruppen.setVisible(true);
-		}
 
-		if (e.getSource() == GruppeBeitreten.loeschen) {
-			MeinProfil.gruppenListe
-					.remove(GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex()));
-		}
-		if (e.getSource() == GruppeBeitreten.beitreten) {
-			MeinProfil.gruppenListe.add(GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex()));
-		}
-
-		if (e.getSource() == GruppeBeitreten.zurueck) {
-			Fenster.addToFrame(new MeinProfil());
+			if (e.getSource() == GruppeBeitreten.zurueck) {
+				Fenster.addToFrame(new MeinProfil());
+			}
+			DatabaseConnection.disconnectDatabase();
+		}catch (DatabaseConnectException e1) {
+			e1.printStackTrace();
+		} catch (InputException e1) {
+			e1.printStackTrace();
 		}
 
 	}
