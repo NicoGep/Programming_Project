@@ -41,6 +41,12 @@ public class Benutzer {
 	}
 	//----------------------------------------------- Login & Logout -----------------------------------------------
 	
+	/** User Login in der Datenbank
+	 * 
+	 * @param name	Benutzername	
+	 * @param password Passwort
+	 * @throws LoginCredentialsException wenn die Eingaben nicht mit den Datenbankdaten übereinstimmen
+	 */
 	public static void loginUser(String name, String password) throws LoginCredentialsException {
 
 		if(name.isBlank())
@@ -198,7 +204,12 @@ public class Benutzer {
 	}
 	
 	
-
+	/** Legt ein neues Profilbild für den Benutzer fest
+	 * 
+	 * @param neuesProfilbild Dateipfad für das zu nutzende Bild
+	 * @return	true, wenn das Profilbild gesetzt werden konnte
+	 * 			false, wenn das Profilbild nicht gesetzt werden konnte
+	 */
 	public static boolean setProfilbild(String neuesProfilbild) {
 		
 		if(loggedUser == null)
@@ -277,7 +288,13 @@ public class Benutzer {
 	
 	//------------------------------------------------------------------------------- Gruppen verwalten -------------------------------------------------------
 	
-	
+	/**	Funktion, um einer Gruppe beizutreten.
+	 * 
+	 * @param gruppe Gruppenname
+	 * @return 	true, wenn der Gruppe beigetreten werden konnte
+	 * 			false, wenn der Gruppe nicht beigetreten werden konnte
+	 * @throws InputException wenn ungültige Daten eingegeben wurden
+	 */
 	public static boolean joinGroup(String gruppe) throws InputException {
 		
 		if(loggedUser == null)
@@ -310,6 +327,14 @@ public class Benutzer {
 		
 	}
 	
+	
+	/**	Funktion, um eine Gruppe zu verlassen
+	 * 
+	 * @param group Gruppenname
+	 * @return 	true, falls die Gruppe verlassen werden konnte
+	 * 			false, falls die Gruppe nicht verlassen werden konnte
+	 * @throws InputException bei ungültigen Eingaben
+	 */
 	public static boolean leaveGroup(String group) throws InputException {
 		
 		if(loggedUser == null)
@@ -350,6 +375,12 @@ public class Benutzer {
 		return set;
 	}
 	
+	/** Check, ob der Nutzer bereits in der Gruppe ist
+	 * 
+	 * @param group Gruppenname
+	 * @return 	true, wenn der Nutzer bereits in der Gruppe ist
+	 * 			false, wenn der Nutzer nicht in der Gruppe ists
+	 */
 	public static boolean isInGroup(String group) {	//################ Implementieren evtl. mit dem ResultSet ######################
 		
 		if(loggedUser == null)

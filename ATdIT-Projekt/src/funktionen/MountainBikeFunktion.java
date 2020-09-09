@@ -8,7 +8,10 @@ import screens.KarteScreen;
 import screens.MenuScreen;
 
 public class MountainBikeFunktion implements ActionListener {
-
+	/**
+	 * 	nicht ausimplementierte Funktion: 
+	 * 	öffnet den KarteScreen, da die Funktion dahinter ähnlich ist
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == MenuScreen.mountainbikeKarteButton) {
