@@ -40,9 +40,11 @@ public class FunktionProfilBearbeiten implements ActionListener {
 
 			Fenster.addToFrame(new MeinProfil());
 		}
+		//Profilbild hinzufügen
 		if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
 			Fenster.addToFrame(new ProfilbildAendern());
 		}
+		//Passwort ändern
 		if (e.getSource() == ProfilBearbeiten.passwortAendern) {
 			Fenster.addToFrame(new PasswortAendern());
 		}

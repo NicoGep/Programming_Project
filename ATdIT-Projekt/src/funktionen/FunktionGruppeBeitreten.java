@@ -19,11 +19,12 @@ public class FunktionGruppeBeitreten implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		try {
 			DatabaseConnection.connectDatabase();
 			if (e.getSource() == GruppeBeitreten.suchen) {
 				GruppeBeitreten.gruppen.removeAllItems();
-
+				
 				Iterator it = GruppeBeitreten.gruppenListe.iterator();
 				while (it.hasNext()) {
 					String item = (String) it.next();
@@ -31,10 +32,7 @@ public class FunktionGruppeBeitreten implements ActionListener {
 					if (item.contains(suche)) {
 						GruppeBeitreten.gruppen.addItem(item);
 					}
-
 				}
-				GruppeBeitreten.ergebnisse.setVisible(true);
-				GruppeBeitreten.gruppen.setVisible(true);
 			}
 
 			if (e.getSource() == GruppeBeitreten.loeschen) {
@@ -50,7 +48,7 @@ public class FunktionGruppeBeitreten implements ActionListener {
 				Fenster.addToFrame(new MeinProfil());
 			}
 			DatabaseConnection.disconnectDatabase();
-		} catch (DatabaseConnectException e1) {
+		}catch (DatabaseConnectException e1) {
 			e1.printStackTrace();
 		} catch (InputException e1) {
 			e1.printStackTrace();

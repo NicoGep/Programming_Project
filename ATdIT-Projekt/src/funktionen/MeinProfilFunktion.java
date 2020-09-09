@@ -9,6 +9,9 @@ import screens.MenuScreen;
 
 public class MeinProfilFunktion implements ActionListener {
 
+	/**
+	 * 	wird der mein Profil-Button gedrückt, so öffnet sich der Mein Profil-Screen
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == MenuScreen.meinProfilButton) {
