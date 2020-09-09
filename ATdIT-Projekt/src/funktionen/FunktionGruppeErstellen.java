@@ -3,6 +3,7 @@ package funktionen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
@@ -28,6 +29,7 @@ public class FunktionGruppeErstellen implements ActionListener {
 				AdminFunctions.gruppeErstellen(GruppeErstellen.gruppenName.getText(),
 						(String) GruppeErstellen.niveauAuswahl
 								.getItemAt(GruppeErstellen.niveauAuswahl.getSelectedIndex()));
+				Benutzer.joinGroup(GruppeErstellen.gruppenName.getText());
 				DatabaseConnection.disconnectDatabase();
 			} catch (InputException | DatabaseConnectException e1) {
 				e1.printStackTrace();

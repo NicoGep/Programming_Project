@@ -7,6 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import connection.Benutzer;
+import connection.DatabaseConnection;
 import exceptions.InputException;
 import master.Fenster;
 import screens.MeinProfil;
@@ -18,6 +19,8 @@ public class FunktionProfilBearbeiten implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		try {
+			DatabaseConnection.connectDatabase();
 		if (e.getSource() == ProfilBearbeiten.abbrechen) {
 			Fenster.addToFrame(new MeinProfil());
 		}
@@ -42,6 +45,12 @@ public class FunktionProfilBearbeiten implements ActionListener {
 		}
 		if (e.getSource() == ProfilBearbeiten.passwortAendern) {
 			Fenster.addToFrame(new PasswortAendern());
+		}
+		DatabaseConnection.disconnectDatabase();
+		}
+		
+		catch (Exception eee) {
+			// TODO: handle exception
 		}
 
 	}
