@@ -22,25 +22,12 @@ public class Helferlein {
 
 		try {
 		
-			
-
-			Benutzer.loginUser("Test3", "vero");
-			
-			
-			System.out.println(Benutzer.getParameter().getString("streckenlaenge") + " - " + Benutzer.getParameter().getString("hoehenunterschied"));
-			
-			Benutzer.updateParameter(20, 30);
-			
-			
-			
-			
-
-			System.out.println(Benutzer.getParameter().getString("streckenlaenge") + " - " + Benutzer.getParameter().getString("hoehenunterschied"));
-			
-			
-			
-			
-			
+		
+			System.out.println(AdminFunctions.encrypt("password"));
+			AdminFunctions.addUser("Test", "test");
+			Benutzer.loginUser("Test", "test");
+//			
+//			Benutzer.updateParameter(15, 55);
 			
 			
 			

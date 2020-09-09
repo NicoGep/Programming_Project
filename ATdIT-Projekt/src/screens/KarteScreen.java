@@ -26,6 +26,7 @@ public class KarteScreen extends MasterScreen {
 		JPanel kartePanel = new JPanel();
 		kartePanel.setBackground(Color.white);
 		kartePanel.setBounds(75, 150, 300, 50);
+		
 		JLabel karteLabel = new JLabel("KARTE");
 		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
 		karteLabel.setBackground(Color.white);
@@ -43,14 +44,17 @@ public class KarteScreen extends MasterScreen {
 		streckenLaengeSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 20, 10);
 		streckenLaengeSlider.setBounds(50, 425, 300, 50);
 		streckenLaengeSlider.setBackground(Color.white);
+		streckenLaengeSlider.addChangeListener(new KarteSliderFunktion(this));
 
 		JPanel hoehenunterschiedPanel = new JPanel();
 		hoehenunterschiedPanel.setBackground(Color.white);
 		hoehenunterschiedPanel.setBounds(10, 475, 400, 50);
+		
 		JLabel hoehenunterschiedLabel = new JLabel("Höhenunterschied (in Metern)");
 		hoehenunterschiedLabel.setFont(new Font("Calibri", Font.BOLD, 25));
 		hoehenunterschiedLabel.setBackground(Color.white);
 		hoehenunterschiedPanel.add(hoehenunterschiedLabel);
+		
 		hoehenunterschiedSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 1000, 250);
 		hoehenunterschiedSlider.setBounds(50, 525, 300, 50);
 		hoehenunterschiedSlider.setBackground(Color.white);
