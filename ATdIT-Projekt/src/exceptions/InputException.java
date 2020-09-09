@@ -19,6 +19,7 @@ public class InputException extends Exception {
 		case 7: System.out.println("Gruppe existiert nicht."); break;
 		case 8: System.out.println("Benutzer ist bereits in dieser Gruppe."); break;
 		case 9: System.out.println("Benutzer ist nicht in dieser Gruppe."); break;
+		case 10: System.out.println("Streckenlänge oder Höehenunterschied ist negativ.");
 		
 		}
 		

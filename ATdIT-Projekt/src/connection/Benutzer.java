@@ -7,6 +7,8 @@ import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
+import master.Fenster;
+import screens.Login;
 
 public class Benutzer {
 	
@@ -80,7 +82,32 @@ public class Benutzer {
 		
 	}
 	
-	//#################### Logout einfügen ###################
+	//#################### Logout einfügen + evtl. finalize Methode erweitern ###################
+	
+	public static boolean logoutUser() {
+		
+		if(loggedUser == null)
+			return false;
+		
+		
+		loggedUser = null;
+		
+//		Fenster.addToFrame(new Login());		
+		
+		return true;
+	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+
+		this.userID = -1;
+		this.name = null;
+		this.email = null;
+		this.niveau = null;
+		this.profilbild = null;
+		
+	}
+	
 	
 	//------------------------------------------------------------ Getter ------------------------------------------------
 	
@@ -193,6 +220,60 @@ public class Benutzer {
 	}
 	
 	
+	//--------------------------------------------------------------------------------- Parameter ------------------------------------------------------------
+	
+	
+	public static ResultSet getParameter() {
+		
+		if(loggedUser == null)
+			return null;
+		
+		
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.pTB + " WHERE userid = " + getID() + ";");
+		
+		
+		try {
+			
+			if(!set.first())
+				return null;
+			
+			
+			return set;			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
+	
+	
+	public static boolean updateParameter(int streckenL, int hoehenU) throws InputException {
+		
+		if(loggedUser == null)
+			return false;
+		
+		
+		if(streckenL < 0 || hoehenU < 0)
+			throw new InputException(10);
+		
+		
+		if(getParameter() == null) {
+			
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.pTB + " (userid, steckenlaenge, hoehenunterschied) VALUES (" + getID() + ", " + streckenL + ", " + hoehenU + ");");
+			System.out.println("Parameter hinzugefügt.");
+			return true;
+		} else {
+			
+			DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.pTB + " SET streckenlaenge = " + streckenL + ", hoehenunterschied = " + hoehenU + " WHERE userid = " + getID() + ";");
+			System.out.println("Parameter aktualisiert.");
+			return true;
+		}
+		
+	}
+	
+	
 	
 	//------------------------------------------------------------------------------- Gruppen verwalten -------------------------------------------------------
 	
@@ -289,7 +370,6 @@ public class Benutzer {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		
 		return false;
 	}

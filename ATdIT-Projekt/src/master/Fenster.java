@@ -6,6 +6,7 @@ import connection.Benutzer;
 
 import java.awt.event.*;
 import java.util.*;
+import java.util.List;
 import java.awt.*;
 
 public class Fenster extends JFrame {
@@ -14,6 +15,8 @@ public class Fenster extends JFrame {
 	
 	private static Fenster masterFrame;
 	private static Container content;
+	
+	private static Stack<Body> history = new Stack<Body>();
 	
 	
 	public Fenster() {
@@ -27,6 +30,23 @@ public class Fenster extends JFrame {
 		this.setResizable(false);
 		
 	}
+	
+//	private static void addToFrame(Container c) {
+//		
+//		switch(c.getClass().getSimpleName()) {
+//		
+//		case "Body": System.out.println("Test1");
+//		case "
+//		
+//		}
+//		
+//	}
+	
+	private static void addToHistory(Body body) {
+		
+		history.push(body);
+	}
+	
 
 	public static void addToFrame(Body body) {
 		

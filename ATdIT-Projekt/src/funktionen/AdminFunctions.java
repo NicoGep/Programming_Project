@@ -188,6 +188,12 @@ public class AdminFunctions {
 	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
 	
 	
+	public static List<String> makeToList() {
+		
+		return null;
+	}
+	
+	
 	
 //	public static String outputResultSet(ResultSet set) throws SQLException {
 //		

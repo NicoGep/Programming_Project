@@ -2,10 +2,13 @@ package tests;
 
 import java.sql.ResultSet;
 
+import javax.swing.JPanel;
+
 import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import funktionen.AdminFunctions;
+import master.Body;
 
 public class Helferlein {
 
@@ -21,10 +24,15 @@ public class Helferlein {
 		
 		
 
+//			Benutzer.loginUser("Test", "key");
+//			
+//			Benutzer.updateParameter(15, 55);
 			
 			
+			JPanel b = new Body();
 			
 			
+			System.out.println(b.getClass());
 			
 			
 			

@@ -22,6 +22,7 @@ public class DatabaseConnection {
 	public static final String uTB = "benutzer";
 	public static final String gTB = "gruppen";
 	public static final String connectTB = "gruppenzugehoerigkeit";
+	public static final String pTB = "parameter";
 	
 	public static final String tTB = "testtabelle";
 	
