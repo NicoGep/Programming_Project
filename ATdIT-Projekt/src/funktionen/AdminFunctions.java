@@ -14,6 +14,11 @@ public class AdminFunctions {
 	
 	//------------------------------------------------------------------ Benutzer-Funktionen -----------------------------------------------------------------------
 	
+	/**	Updatet die Datenbank und fügt einen neuen Benutzer mit dem dazugehörigen Passwort hinzu
+	 * 
+	 * @param name Benutzername des Nutzers
+	 * @param password Passwort als Hash-Wert
+	 */
 	private static void addUser(String name, int password) {
 		
 		
@@ -32,6 +37,12 @@ public class AdminFunctions {
 		
 	}
 	
+	/**	Methode zum finden eines Benutzers anhand seines Benutzernamens
+	 * 
+	 * @param name Benutzername
+	 * @return im Falle, falls der Benutzer nicht gefunden wird null
+	 * 		   Falls, der Benutzer gefinden wird, wird das gefüllte set mit dem Benutzer zurückgegeben
+	 */
 	public static ResultSet findUser(String name) {
 		
 		try {
@@ -50,7 +61,14 @@ public class AdminFunctions {
 		}		
 	}
 	
-	
+	/**	kontrolliert, ob das Passwort mit dem jeweiligen Benutzer übereinstimmt
+	 * 
+	 * @param passwordHash	gehashtes Passwort
+	 * @param user	Benutzer
+	 * @return	true, wenn das Passwort zum Benutzer passt
+	 * @throws LoginCredentialsException wird geworfen, falls das Passwort mit dem Passwort von der Datenbank übereinstimmt
+	 * @throws SQLException wird geworfen, falls
+	 */
 	public static boolean checkPassword(int passwordHash, ResultSet user) throws LoginCredentialsException, SQLException {
 
 		int passwordDB;
@@ -67,7 +85,12 @@ public class AdminFunctions {
 		return true;
 	}
 	
-	
+	/** Wandelt das Passwort in einen Hash-Wert um, damit das Passwort nicht VÖLLIG ungeschützt auf der Datenbank liegt
+	 * 
+	 * @param name Benutzername des Nutzers
+	 * @param password wird hier als String eingegeben
+	 * @throws InputException falls keine Daten eingegeben wurden
+	 */
 	public static void addUser(String name, String password) throws InputException {
 		
 		if(name.isBlank())
