@@ -57,7 +57,7 @@ public class FunktionGruppeBeitreten implements ActionListener {
 	}
 
 	public void gruppenLaden() {
-		GruppeBeitreten.gruppenListe = AdminFunctions.getAllGroups();
+		GruppeBeitreten.gruppenListe = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");
 
 	}
 

@@ -3,12 +3,9 @@ package connection;
 import java.sql.*;
 import java.util.*;
 
-import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
-import master.Fenster;
-import screens.Login;
 
 public class Benutzer {
 	
@@ -272,7 +269,7 @@ public class Benutzer {
 		
 		if(getParameter() == null) {
 			
-			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.pTB + " (userid, steckenlaenge, hoehenunterschied) VALUES (" + getID() + ", " + streckenL + ", " + hoehenU + ");");
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.pTB + " (userid, streckenlaenge, hoehenunterschied) VALUES (" + getID() + ", " + streckenL + ", " + hoehenU + ");");
 			System.out.println("Parameter hinzugefügt.");
 			return true;
 		} else {

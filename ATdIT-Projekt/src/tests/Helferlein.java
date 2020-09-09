@@ -22,17 +22,26 @@ public class Helferlein {
 
 		try {
 		
-		
+			
 
-//			Benutzer.loginUser("Test", "key");
-//			
-//			Benutzer.updateParameter(15, 55);
+			Benutzer.loginUser("Test3", "vero");
 			
 			
-			JPanel b = new Body();
+			System.out.println(Benutzer.getParameter().getString("streckenlaenge") + " - " + Benutzer.getParameter().getString("hoehenunterschied"));
+			
+			Benutzer.updateParameter(20, 30);
 			
 			
-			System.out.println(b.getClass());
+			
+			
+
+			System.out.println(Benutzer.getParameter().getString("streckenlaenge") + " - " + Benutzer.getParameter().getString("hoehenunterschied"));
+			
+			
+			
+			
+			
+			
 			
 			
 			

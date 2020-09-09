@@ -21,10 +21,10 @@ public class AdminFunctions_TEST {
 //			if (set == null)
 //				System.out.println("Das andere Set ist null");
 		
-		List<String> l = AdminFunctions.getAllGroups();
-		
-		for(int i = 0; i < l.size(); i++) 
-			System.out.println(l.get(i));
+//		List<String> l = AdminFunctions.getAllGroups();
+//		
+//		for(int i = 0; i < l.size(); i++) 
+//			System.out.println(l.get(i));
 		
 
 		

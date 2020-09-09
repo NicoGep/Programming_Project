@@ -2,6 +2,7 @@ package tests;
 
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
+import exceptions.InputException;
 import funktionen.AdminFunctions;
 
 public class testVero {
@@ -13,6 +14,8 @@ public class testVero {
 		DatabaseConnection.disconnectDatabase();
 		}catch(DatabaseConnectException ec){
 			ec.printStackTrace();
+		} catch (InputException e) {
+			e.printStackTrace();
 		}
 	}
 

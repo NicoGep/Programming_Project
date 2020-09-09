@@ -156,41 +156,83 @@ public class AdminFunctions {
 	}
 	
 	
-	public static List<String> getAllGroups() {
+//	public static List<String> getAllGroups() {
+//		
+//		List<String> l = new LinkedList<String>();
+//		
+//		try {
+//			
+//			DatabaseConnection.connectDatabase();
+//		
+//			ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.gTB + ";");
+//		
+//			while(set.next()) 
+//				l.add(set.getString("gruppenname"));
+//			
+//			DatabaseConnection.disconnectDatabase();
+//
+//		} catch (DatabaseConnectException e) {
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		if(l.size() == 0)
+//			return null;
+//		
+//		return l;
+//	}
+	
+	
+	
+	public static ResultSet getAllGroups() {
 		
-		List<String> l = new LinkedList<String>();
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + ";");
 		
 		try {
 			
-			DatabaseConnection.connectDatabase();
-		
-			ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.gTB + ";");
-		
-			while(set.next()) 
-				l.add(set.getString("gruppenname"));
+			if(!set.first())
+				return null;
 			
-			DatabaseConnection.disconnectDatabase();
+			return set;			
 
-		} catch (DatabaseConnectException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 		
-		if(l.size() == 0)
-			return null;
-		
-		return l;
 	}
+	
 	
 	
 	
 	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
 	
 	
-	public static List<String> makeToList() {
+	public static List<String> setToList(ResultSet set, String columnName) {
 		
-		return null;
+		List<String> list = new LinkedList<String>();
+		
+		try {
+			
+			if(!set.first())
+				return null;
+		
+			set.beforeFirst();
+		
+			while(set.next()) {
+			
+				list.add(set.getString(columnName));
+				
+			}
+			
+			return list;
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 	
