@@ -24,7 +24,10 @@ public class FunktionMeinProfil implements ActionListener {
 	public void gruppenHinzufügen() {
 		
 	}
-
+	
+	/**
+	 * je nach Button wird hier der Screen ProfilBearbeiten, GruppeErstellen oder Gruppe beitreten geöffnet
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == MeinProfil.profilBearbeiten) {
