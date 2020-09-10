@@ -55,6 +55,7 @@ public class Login extends Body {
 
 		JLabel passwort = new JLabel("Passwort");
 		passworttx = new JPasswordField();
+		passworttx.setText("key");
 
 		// JLabel leer0 = new JLabel();
 		JLabel leer = new JLabel();
