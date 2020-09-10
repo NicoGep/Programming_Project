@@ -20,5 +20,5 @@ public class Body extends JPanel {
 		this.add(screen);
 		
 	}
-
+	
 }

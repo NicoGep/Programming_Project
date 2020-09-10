@@ -3,6 +3,7 @@ package master;
 import javax.swing.*;
 
 import connection.Benutzer;
+import screens.Login;
 
 import java.awt.event.*;
 import java.util.*;
@@ -13,16 +14,17 @@ public class Fenster extends JFrame {
 	
 	private final int SIZE_X = 466, SIZE_Y = 839;
 	
+	private static final int MAX_HISTORY_SIZE = 5;
+	
 	private static Fenster masterFrame;
 	private static Container content;
 	
-	private static Stack<Body> history = new Stack<Body>();
+	private static Stack<Container> history = new Stack<Container>();
 	
 	
 	public Fenster() {
 		
 		masterFrame = this;
-		content = this.getContentPane();
 
 		this.setTitle("ATdIT Projekt");
 		this.setBounds(20, 20, SIZE_X, SIZE_Y);
@@ -31,56 +33,59 @@ public class Fenster extends JFrame {
 		
 	}
 	
-//	private static void addToFrame(Container c) {
-//		
-//		switch(c.getClass().getSimpleName()) {
-//		
-//		case "Body": System.out.println("Test1");
-//		case "
-//		
-//		}
-//		
-//	}
-	
-	private static void addToHistory(Body body) {
-		
-		history.push(body);
+	//TEMP
+	private static void printHistory() {
+		for(int i = 0; i < history.size(); i++)
+			System.out.println(history.get(i));
 	}
 	
+	public static void lastContent() {
+		neuZeichnen(history.pop());
+	}
+	
+	public static void clearHistory() {
+		history = new Stack<Container>();
+	}
+	
+	private static void addToHistory(Container cont) {
+		if(history.size() >= MAX_HISTORY_SIZE)
+			history.pop();
+		history.push(cont);
+	}
+	
+	public static void reset() {
+		Benutzer.logoutUser();
+		neuZeichnen(new Panel(new Login()));
+	}
+	
+	
+	//------------------------------------------------------------------- Add To Frame ----------------------------------------------------------
+	
+	private static void addToFrame(Panel p) {
+		addToHistory(content);
+		neuZeichnen(p);
+	}
 
 	public static void addToFrame(Body body) {
-		
-//		lastContent.add(content);
-		
-		Panel p = new Panel(body);		
-		neuZeichnen(p);
-		
+		addToFrame(new Panel(body));		
 	}
 	
 	public static void addToFrame(MasterScreen screen) {
-		
-//		lastContent.add(content);
-		
-		Panel p = new Panel(screen);
-		neuZeichnen(p);
-		
+		addToFrame(new Panel(screen));
 	}
 	
 	public static void addToFrame(MasterScreen screen, MasterBanner banner) {
-		
-//		lastContent.add(content);
-
-		Panel p = new Panel(screen, banner);
-		neuZeichnen(p);
-	
+		addToFrame(new Panel(screen, banner));
 	}
 	
 	
-	private static void neuZeichnen(Panel p) {
-
-		masterFrame.remove(content);
-		masterFrame.add(p);
+	private static void neuZeichnen(Container p) {
+	
 		content = p;
+		masterFrame.setContentPane(content);
+		
+		content.revalidate();
+		content.repaint();
 		
 		masterFrame.revalidate();
 		masterFrame.repaint();

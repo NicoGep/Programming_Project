@@ -34,8 +34,8 @@ public class DatabaseConnection {
 	@SuppressWarnings("deprecation")
 	public static boolean connectDatabase() throws DatabaseConnectException {
 		
-//		if(con != null) 
-//			throw new DatabaseConnectException(true);
+		if(con != null) 
+			throw new DatabaseConnectException(3);
 
 		try {
 			
@@ -46,7 +46,7 @@ public class DatabaseConnection {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-			return false;
+			throw new DatabaseConnectException(1);
 		}
 		
 	}
@@ -54,7 +54,7 @@ public class DatabaseConnection {
 	public static boolean disconnectDatabase() throws DatabaseConnectException {
 		
 		if(con == null) 
-			throw new DatabaseConnectException(false);
+			throw new DatabaseConnectException(4);
 		
 		try {
 			con.close();
@@ -63,7 +63,7 @@ public class DatabaseConnection {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			throw new DatabaseConnectException(2);
 		}
 		
 	}

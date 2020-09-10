@@ -107,6 +107,15 @@ public class AdminFunctions {
 		return st.hashCode();
 	}
 	
+	public static int encrypt(char[] c) {
+		String s = "";
+		
+		for(int i = 0; i < c.length; i++)
+			s += c[i];
+		
+		return encrypt(s);
+	}
+	
 	//----------------------------------------------------------- Gruppen-Funktionen ----------------------------------------------------------------------------
 	
 	
