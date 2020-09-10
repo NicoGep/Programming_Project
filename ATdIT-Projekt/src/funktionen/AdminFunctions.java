@@ -245,6 +245,9 @@ public class AdminFunctions {
 		
 		try {
 			
+			if(set == null)
+				return null;
+			
 			if(!set.first())
 				return null;
 		

@@ -122,20 +122,25 @@ public class MeinProfil extends MasterScreen {
 
 		daten.add(profilbildPanel);
 		daten.add(nameNiveau);
-
-		Iterator it = gruppenListe.iterator();
-		while (it.hasNext()) {
-			meineGruppenListe.add(new JLabel((String) it.next()));
+		
+		Iterator<String> it;
+		
+		if(gruppenListe != null) {
+			it = gruppenListe.iterator(); 
+		
+			while (it.hasNext()) {
+				meineGruppenListe.add(new JLabel((String) it.next()));
+			}
 		}
-
+			
 		gruppen.add(profilBearbeiten);
 		gruppen.add(gruppeBeitreten);
 		gruppen.add(gruppeErstellen);
 		gruppen.add(meineGruppen);
 		gruppen.add(meineGruppenListe);
-
+		
 		this.add(daten, BorderLayout.NORTH);
 		this.add(gruppen, BorderLayout.CENTER);
-
+		
 	}
 }
