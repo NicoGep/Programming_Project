@@ -16,8 +16,8 @@ public class AdminFunctions {
 	
 	/**	Updatet die Datenbank und fügt einen neuen Benutzer mit dem dazugehörigen Passwort hinzu
 	 * 
-	 * @param name Benutzername des Nutzers
-	 * @param password Passwort als Hash-Wert
+	 * @param name : String (Benutzername des Nutzers)
+	 * @param password : String  (Passwort als Hash-Wert)
 	 */
 	private static void addUser(String name, int password) {
 		
@@ -40,8 +40,8 @@ public class AdminFunctions {
 	/**	Methode zum finden eines Benutzers anhand seines Benutzernamens
 	 * 
 	 * @param name Benutzername
-	 * @return im Falle, falls der Benutzer nicht gefunden wird null
-	 * 		   Falls, der Benutzer gefinden wird, wird das gefüllte set mit dem Benutzer zurückgegeben
+	 * @return null , im Falle, falls der Benutzer nicht gefunden
+	 * 		   set, falls, der Benutzer gefinden wird, wird das gefüllte set mit dem Benutzer zurückgegeben
 	 */
 	public static ResultSet findUser(String name) {
 		
@@ -63,11 +63,11 @@ public class AdminFunctions {
 	
 	/**	kontrolliert, ob das Passwort mit dem jeweiligen Benutzer übereinstimmt
 	 * 
-	 * @param passwordHash	gehashtes Passwort
-	 * @param user	Benutzer
+	 * @param passwordHash : int	gehashtes Passwort
+	 * @param user : ResultSet	Benutzer
 	 * @return	true, wenn das Passwort zum Benutzer passt
 	 * @throws LoginCredentialsException wird geworfen, falls das Passwort mit dem Passwort von der Datenbank übereinstimmt
-	 * @throws SQLException wird geworfen, falls
+	 * @throws SQLException wird geworfen, falls die SQL-Abfrage inkorrekt ist
 	 */
 	public static boolean checkPassword(int passwordHash, ResultSet user) throws LoginCredentialsException, SQLException {
 
@@ -144,6 +144,12 @@ public class AdminFunctions {
 		
 	}
 	
+	/** Methode um eine Gruppe zu erstellen und diese auf der Datenbank zu registrieren
+	 * 
+	 * @param gruppenName : String (Name der Gruppe)
+	 * @param niveau : String (Niveau des Benutzers)
+	 * @throws InputException Falsche Eingaben
+	 */
 	public static void gruppeErstellen(String gruppenName, String niveau) throws InputException {
 		
 		if(findGroup(gruppenName) != null)
@@ -193,7 +199,11 @@ public class AdminFunctions {
 //	}
 	
 	
-	
+	/**	Gibt alle Gruppen zurück
+	 * 
+	 * @return null, wenn kein Benutzer im Set gefunden werden konnte
+	 * 			set, wenn Benutzer gefunden wurden
+	 */
 	public static ResultSet getAllGroups() {
 		
 		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + ";");
@@ -217,7 +227,13 @@ public class AdminFunctions {
 	
 	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
 	
-	
+	/** Methode um ein Set in eine Liste umzuwandeln
+	 * 
+	 * @param set : ResultSet (Benutzer-Set)
+	 * @param columnName : String (Column-Name)
+	 * @return null, wenn kein Set gefunden werden konnte
+	 * 			list, wenn das Set umgewandelt werden konnte
+	 */
 	public static List<String> setToList(ResultSet set, String columnName) {
 		
 		List<String> list = new LinkedList<String>();
