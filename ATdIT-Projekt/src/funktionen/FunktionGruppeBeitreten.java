@@ -35,15 +35,17 @@ public class FunktionGruppeBeitreten implements ActionListener {
 					}
 				}
 				GruppeBeitreten.gruppen.setVisible(true);
+				DatabaseConnection.disconnectDatabase();
 			}
 
 			if (e.getSource() == GruppeBeitreten.loeschen) {
 				Benutzer.leaveGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
+				DatabaseConnection.disconnectDatabase();
 			}
 			if (e.getSource() == GruppeBeitreten.beitreten) {
-
+				
 				Benutzer.joinGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
-
+				DatabaseConnection.disconnectDatabase();
 			}
 
 			if (e.getSource() == GruppeBeitreten.zurueck) {
