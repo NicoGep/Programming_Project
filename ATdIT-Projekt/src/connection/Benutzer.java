@@ -214,12 +214,6 @@ public class Benutzer {
 			return false;
 		
 		
-		if(!neuesProfilbild.contains("/"))		
-			return false;
-		
-		if(!neuesProfilbild.contains(".jpg") || !neuesProfilbild.contains(".png"))
-			return false;
-		
 		
 
 		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET profilbild = '" + neuesProfilbild + "' WHERE id = " + getID() + ";");
