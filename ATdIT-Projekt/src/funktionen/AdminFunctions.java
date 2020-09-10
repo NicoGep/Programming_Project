@@ -9,6 +9,11 @@ import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 
+/** Klasse mit Methoden, die in anderen Klassen aufgerufen werden, keine Methoden direkt für den Benutzer
+ * 
+ * @author I518230
+ *
+ */
 public class AdminFunctions {
 	
 	

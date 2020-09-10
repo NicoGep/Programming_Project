@@ -8,6 +8,11 @@ import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
 import master.Fenster;
 
+/**Benutzerklasse für Benutzerfunktionen
+ * 
+ * @author I518230
+ *
+ */
 public class Benutzer {
 	
 	private static Benutzer loggedUser;
