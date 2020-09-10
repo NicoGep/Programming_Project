@@ -41,9 +41,8 @@ public class FunktionGruppeBeitreten implements ActionListener {
 			else if (e.getSource() == GruppeBeitreten.loeschen) {
 				Benutzer.leaveGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
 				DatabaseConnection.disconnectDatabase();
-			}
-			else if (e.getSource() == GruppeBeitreten.beitreten) {
-				
+			} else if (e.getSource() == GruppeBeitreten.beitreten) {
+
 				Benutzer.joinGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
 				DatabaseConnection.disconnectDatabase();
 			}
@@ -51,8 +50,7 @@ public class FunktionGruppeBeitreten implements ActionListener {
 			else if (e.getSource() == GruppeBeitreten.zurueck) {
 				DatabaseConnection.disconnectDatabase();
 				Fenster.addToFrame(new MeinProfil());
-			}
-			else {
+			} else {
 				DatabaseConnection.disconnectDatabase();
 			}
 		} catch (DatabaseConnectException e1) {
@@ -63,7 +61,9 @@ public class FunktionGruppeBeitreten implements ActionListener {
 	}
 
 	public void gruppenLaden() {
+		if (AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname") != null) {
 			GruppeBeitreten.gruppenListe = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");
+		}
 	}
 
 }
