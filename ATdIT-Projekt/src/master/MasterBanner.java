@@ -24,7 +24,7 @@ public class MasterBanner extends JPanel {
 		this.setBackground(Color.GREEN);
 		
 		back = new JButton("Zurück");
-		start = new JButton("Anfang");
+		start = new JButton("Ausloggen");
 		
 		this.add(back);
 		this.add(start);
@@ -44,8 +44,7 @@ public class MasterBanner extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Fenster.addToFrame(new Login());
-				Fenster.clearHistory();
+				Fenster.reset();
 			}
 		});
 		

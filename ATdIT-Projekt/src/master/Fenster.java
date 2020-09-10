@@ -55,6 +55,7 @@ public class Fenster extends JFrame {
 	
 	public static void reset() {
 		Benutzer.logoutUser();
+		clearHistory();
 		neuZeichnen(new Panel(new Login()));
 	}
 	

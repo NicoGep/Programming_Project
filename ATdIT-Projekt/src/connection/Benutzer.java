@@ -214,7 +214,6 @@ public class Benutzer {
 			return false;
 		
 		
-		
 
 		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET profilbild = '" + neuesProfilbild + "' WHERE id = " + getID() + ";");
 		loggedUser.profilbild = neuesProfilbild;
