@@ -11,11 +11,15 @@ import exceptions.InputException;
  *
  */
 public class KarteUpdateFunktion extends Thread {
+	
+	/**
+	 *  Methode wird ausgeführt, sobald ein erstelltes Objekt KarteUpdateFunktion gestartet wird
+	 *  THREAD
+	 */
 	public void run() {
 		try {
 			Thread.sleep(30000);
 			Benutzer.updateParameter(KarteSliderFunktion.streckenLaenge, KarteSliderFunktion.hoehenMeter);
-			System.out.println("Update Database");
 		} catch (InterruptedException | InputException e) {
 			e.printStackTrace();
 		}

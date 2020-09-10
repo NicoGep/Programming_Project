@@ -15,8 +15,16 @@ import screens.GruppeBeitreten;
 import screens.MeinProfil;
 import screens.ProfilBearbeiten;
 
+/**	Diese Klasse stellt die Funktion für den Gruppe beitreten-Button bereit
+ * 
+ * @author I518230
+ *
+ */
 public class FunktionGruppeBeitreten implements ActionListener {
 
+	/**	Implementierung der Funktion für den Gruppe beitreten-Button
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -60,6 +68,9 @@ public class FunktionGruppeBeitreten implements ActionListener {
 		}
 	}
 
+	/**	Funktion um die vorhanden Gruppen zu laden
+	 * 
+	 */
 	public void gruppenLaden() {
 		if (AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname") != null) {
 			GruppeBeitreten.gruppenListe = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");

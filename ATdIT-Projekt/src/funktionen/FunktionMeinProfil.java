@@ -13,8 +13,16 @@ import screens.GruppeErstellen;
 import screens.MeinProfil;
 import screens.ProfilBearbeiten;
 
+/** Klasse die die Funktionen des Mein Profil-Screens festlegt
+ * 
+ * @author I518230
+ *
+ */
 public class FunktionMeinProfil implements ActionListener {
 
+	/**
+	 * Methode zum Laden der Benutzerdaten
+	 */
 	public void datenLaden() {
 		MeinProfil.name = Benutzer.getName();
 		MeinProfil.niveau = Benutzer.getNiveau();
@@ -23,7 +31,10 @@ public class FunktionMeinProfil implements ActionListener {
 //				"./ui/images/github_profilbild.jpg";
 		gruppenHinzufügen();
 	}
-
+	
+	/**
+	 * Methode zum Hinzufügen einer Gruppe
+	 */
 	public void gruppenHinzufügen() {
 		try {
 			DatabaseConnection.connectDatabase();
