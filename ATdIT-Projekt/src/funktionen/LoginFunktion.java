@@ -16,11 +16,21 @@ import screens.Registrierung;
 import screens.Login;
 import screens.MenuScreen;
 
+/** Klasse um die Funktion des Login-Screens bereitzustellen
+ * 
+ * @author I518230
+ *
+ */
 public class LoginFunktion implements ActionListener {
 	
 	private JTextField name;
 	private JPasswordField password;
 	
+	/** Datenbank wird gestartet
+	 * 
+	 * @param benutzertx : String (Benutzername)
+	 * @param passworttx : String (Passwort)
+	 */
 	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx) {
 		
 		try {
