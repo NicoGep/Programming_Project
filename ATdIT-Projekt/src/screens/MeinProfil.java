@@ -1,16 +1,12 @@
 package screens;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.Iterator;
-import java.util.TreeSet;
 
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Iterator;
 import javax.swing.*;
 
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
-import exceptions.InputException;
-import funktionen.AdminFunctions;
 import funktionen.FunktionMeinProfil;
 import master.MasterScreen;
 
@@ -20,7 +16,7 @@ public class MeinProfil extends MasterScreen {
 	public static String niveau;
 	public static String email;
 	public static String profilBildAdresse;
-	public static TreeSet<String> gruppenListe = new TreeSet<String>();
+	public static List<String> gruppenListe;
 
 	JPanel daten;
 	JPanel gruppen;

@@ -31,7 +31,9 @@ public class FunktionGruppeErstellen implements ActionListener {
 								.getItemAt(GruppeErstellen.niveauAuswahl.getSelectedIndex()));
 				Benutzer.joinGroup(GruppeErstellen.gruppenName.getText());
 				DatabaseConnection.disconnectDatabase();
-			} catch (InputException | DatabaseConnectException e1) {
+			} catch (DatabaseConnectException e1) {
+				e1.printStackTrace();
+			} catch (InputException e1) {
 				e1.printStackTrace();
 			}
 			Fenster.addToFrame(new MeinProfil());

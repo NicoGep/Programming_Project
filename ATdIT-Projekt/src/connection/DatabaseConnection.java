@@ -8,11 +8,11 @@ public class DatabaseConnection {
 	
 	private static String rootUser = "root";
 
-	private static final String url = "jdbc:mysql://192.168.178.27:3306/";
-	private static String rootPassword = "key";
+//	private static final String url = "jdbc:mysql://192.168.178.27:3306/";
+//	private static String rootPassword = "key";
 	
-//	private static final String url = "jdbc:mysql://localhost:3306/";
-//	private static String rootPassword = "";
+	private static final String url = "jdbc:mysql://localhost:3306/";
+	private static String rootPassword = "";
 	
 	private static Connection con;
 	

@@ -1,16 +1,12 @@
 package screens;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-
 import funktionen.KarteSliderFunktion;
 import master.MasterScreen;
 
@@ -36,14 +32,15 @@ public class KarteScreen extends MasterScreen {
 		streckenLaengePanel.setBackground(Color.white);
 		streckenLaengePanel.setBounds(10, 375, 400, 50);
 		
-		JLabel streckenLaengeLabel = new JLabel("Streckenlänge (in Kilometern)");
+		JLabel streckenLaengeLabel = new JLabel("Streckenlänge (in Metern)");
 		streckenLaengeLabel.setFont(new Font("Calibri", Font.BOLD, 25));
 		streckenLaengeLabel.setBackground(Color.white);
 		streckenLaengePanel.add(streckenLaengeLabel);
 		
-		streckenLaengeSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 20, 10);
+		streckenLaengeSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 20000, 10000);
 		streckenLaengeSlider.setBounds(50, 425, 300, 50);
 		streckenLaengeSlider.setBackground(Color.white);
+		streckenLaengeSlider.setMinorTickSpacing(500);
 		streckenLaengeSlider.addChangeListener(new KarteSliderFunktion(this));
 
 		JPanel hoehenunterschiedPanel = new JPanel();
@@ -58,6 +55,7 @@ public class KarteScreen extends MasterScreen {
 		hoehenunterschiedSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 1000, 250);
 		hoehenunterschiedSlider.setBounds(50, 525, 300, 50);
 		hoehenunterschiedSlider.setBackground(Color.white);
+		hoehenunterschiedSlider.setMinorTickSpacing(50);
 		hoehenunterschiedSlider.addChangeListener(new KarteSliderFunktion(this));
 
 		this.add(kartePanel);
@@ -65,9 +63,5 @@ public class KarteScreen extends MasterScreen {
 		this.add(hoehenunterschiedPanel);
 		this.add(streckenLaengeSlider);
 		this.add(hoehenunterschiedSlider);
-
-		int streckenLaenge = streckenLaengeSlider.getValue();
-		int hoehenunterschied = hoehenunterschiedSlider.getValue();
-
 	}
 }
