@@ -32,7 +32,7 @@ public class GruppeBeitreten extends MasterScreen {
 
 		this.setLayout(null);
 		ActionListener gruppeBeitretenAL = new FunktionGruppeBeitreten();
-		new FunktionGruppeBeitreten().gruppenLaden();
+//		new FunktionGruppeBeitreten().gruppenLaden();
 
 		gruppenNameLabel = new JLabel("Name der Gruppe:");
 		gruppenNameLabel.setBounds(0, 0, 450, 100);

@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import connection.Benutzer;
+import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import master.Fenster;
 import screens.GruppeBeitreten;
 import screens.GruppeErstellen;
@@ -23,7 +25,14 @@ public class FunktionMeinProfil implements ActionListener {
 	}
 
 	public void gruppenHinzufügen() {
-//		MeinProfil.gruppenListe = (List<String>) Benutzer.getAllGroups();
+		try {
+			DatabaseConnection.connectDatabase();
+			MeinProfil.gruppenListe = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
+			DatabaseConnection.disconnectDatabase();
+		} catch (DatabaseConnectException e) {	
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**

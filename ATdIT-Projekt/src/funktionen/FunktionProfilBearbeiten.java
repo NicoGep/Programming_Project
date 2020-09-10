@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import connection.Benutzer;
 import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import master.Fenster;
 import screens.MeinProfil;
@@ -19,14 +20,15 @@ public class FunktionProfilBearbeiten implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String zwischenspeicherName = ProfilBearbeiten.neuerName.getText();
 		try {
-			DatabaseConnection.connectDatabase();
 			if (e.getSource() == ProfilBearbeiten.abbrechen) {
 				Fenster.addToFrame(new MeinProfil());
 			}
 			if (e.getSource() == ProfilBearbeiten.speichern) {
 				try {
-					if (ProfilBearbeiten.neuerName.getText() != "") {
+					DatabaseConnection.connectDatabase();
+					if (ProfilBearbeiten.neuerName.getText() != "" && !(ProfilBearbeiten.neuerName.getText().equals(Benutzer.getName())) ) {
 						Benutzer.setName(ProfilBearbeiten.neuerName.getText());
 					}
 					Benutzer.setNiveau((String) ProfilBearbeiten.niveauAuswahl
@@ -34,11 +36,13 @@ public class FunktionProfilBearbeiten implements ActionListener {
 					if (ProfilBearbeiten.neueemail.getText() != "") {
 						Benutzer.setEmail(ProfilBearbeiten.neueemail.getText());
 					}
+					DatabaseConnection.disconnectDatabase();
+
+					Fenster.addToFrame(new MeinProfil());
 				} catch (InputException e1) {
-					e1.printStackTrace();
+					System.out.println("Name existiert schon!");
 				}
 
-				Fenster.addToFrame(new MeinProfil());
 			}
 			// Profilbild hinzufügen
 			if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
@@ -48,12 +52,12 @@ public class FunktionProfilBearbeiten implements ActionListener {
 			if (e.getSource() == ProfilBearbeiten.passwortAendern) {
 				Fenster.addToFrame(new PasswortAendern());
 			}
-			DatabaseConnection.disconnectDatabase();
 		}
 
-		catch (Exception eee) {
-			// TODO: handle exception
+		catch (DatabaseConnectException eee) {
+			System.out.println("Name gibt es schon");
 		}
+		
 
 	}
 
