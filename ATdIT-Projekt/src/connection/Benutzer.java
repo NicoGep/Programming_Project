@@ -6,6 +6,7 @@ import java.util.*;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
+import master.Fenster;
 
 public class Benutzer {
 	
@@ -51,6 +52,9 @@ public class Benutzer {
 		if(password.isBlank())
 			throw new LoginCredentialsException(4);
 		
+		if(loggedUser != null)
+			logoutUser();
+		
 		
 		ResultSet user;
 		
@@ -92,11 +96,8 @@ public class Benutzer {
 		if(loggedUser == null)
 			return false;
 		
-		
 		loggedUser = null;
-		
-//		Fenster.addToFrame(new Login());		
-		
+		Fenster.reset();
 		return true;
 	}
 	
