@@ -11,17 +11,8 @@ import exceptions.LoginCredentialsException;
 import master.Fenster;
 import screens.*;
 
-/**	Klasse um die Funktion bereitzustellen für den Passwort ändern-Button
- * 
- * @author I518230
- *
- */
 public class FunktionPasswortAendern implements ActionListener {
 
-	/**	ActionListener für den abbrechen-Button und den speichern-Button,
-	 * um die eingegebenen Daten zu kontrollieren
-	 * 
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
