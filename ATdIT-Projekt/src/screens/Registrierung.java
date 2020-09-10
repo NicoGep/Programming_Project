@@ -13,12 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
+import master.Body;
 import master.MasterScreen;
 
 
 
-public class Registrierung extends MasterScreen {
+public class Registrierung extends Body {
 
 	public Registrierung() {
 		
@@ -76,8 +76,5 @@ public class Registrierung extends MasterScreen {
 		setVisible(true);
 		}
 	
-	public static void main (String[] args) {
-		new Registrierung();
-	}
 	}
 

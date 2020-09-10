@@ -13,10 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import connection.Benutzer;
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
-import exceptions.LoginCredentialsException;
 import funktionen.LoginFunktion;
 import master.Body;
 
@@ -30,17 +26,6 @@ public class Login extends Body {
 	private JPasswordField passworttx;
 
 	public Login() {
-//		try {
-//			DatabaseConnection.connectDatabase();
-//			Benutzer.loginUser("Test2", "a");
-//			DatabaseConnection.disconnectDatabase();
-//		} catch (LoginCredentialsException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (DatabaseConnectException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(13, 1));
 		pan.setBounds(0, 0, 450, 800);

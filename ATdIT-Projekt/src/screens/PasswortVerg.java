@@ -11,9 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import master.Body;
 import master.MasterScreen;
 
-public class PasswortVerg extends MasterScreen {
+public class PasswortVerg extends Body {
 	
 	public PasswortVerg() {
 		
@@ -63,7 +64,4 @@ public class PasswortVerg extends MasterScreen {
 	setVisible(true);
 	}
 
-	public static void main (String[] args) {
-		new PasswortVerg();
-}
 }

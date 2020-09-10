@@ -54,8 +54,7 @@ public class DatabaseConnection {
 	public static boolean disconnectDatabase() throws DatabaseConnectException {
 		
 		if(con == null) 
-//			throw new DatabaseConnectException(4);
-			return false;
+			throw new DatabaseConnectException(4);
 		
 		try {
 			con.close();
@@ -75,21 +74,6 @@ public class DatabaseConnection {
 	public static ResultSet makeQuerry(String statement) {
 		
 		return makeQuerry(statement, stdDB);
-		
-//		try {
-//			
-//			Statement s = con.createStatement();
-//			
-//			s.execute("USE " + stdDB);
-//			
-//			return s.executeQuery(statement);
-//			
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			System.out.println("makeQuerry Exception");
-//			return null;
-//		}
 		
 	}
 	
@@ -116,21 +100,6 @@ public class DatabaseConnection {
 	public static int makeUpdate(String statement) {
 		
 		return makeUpdate(statement, stdDB);
-		
-//		try {
-//			
-//			Statement s = con.createStatement();
-//			
-//			s.execute("USE " + stdDB);
-//			
-//			return s.executeUpdate(statement);
-//			
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			System.out.println("makeUpdateException");
-//			return 0;
-//		}
 		
 	}
 	
