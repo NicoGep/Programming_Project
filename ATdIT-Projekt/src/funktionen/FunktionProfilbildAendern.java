@@ -26,7 +26,6 @@ public class FunktionProfilbildAendern implements ActionListener {
 			try {
 				DatabaseConnection.connectDatabase();
 				Benutzer.setProfilbild(ProfilbildAendern.addresse.getText());
-				System.out.println(Benutzer.loggedUser.profilbild);
 				DatabaseConnection.disconnectDatabase();
 				Fenster.addToFrame(new ProfilBearbeiten());
 			} catch (DatabaseConnectException e1) {
