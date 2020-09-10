@@ -20,6 +20,10 @@ public class Benutzer {
 	private String profilbild;
 	
 	
+	/**Konstruktor
+	 * 
+	 * @param set Benutzerset, das übergeben werden muss : ResultSet
+	 */
 	private Benutzer(ResultSet set) {
 		Benutzer.loggedUser = this;
 		
@@ -41,8 +45,8 @@ public class Benutzer {
 	
 	/** User Login in der Datenbank
 	 * 
-	 * @param name	Benutzername	
-	 * @param password Passwort
+	 * @param name	Benutzername : String
+	 * @param password Passwort : String
 	 * @throws LoginCredentialsException wenn die Eingaben nicht mit den Datenbankdaten übereinstimmen
 	 */
 	public static void loginUser(String name, String password) throws LoginCredentialsException {
@@ -91,6 +95,11 @@ public class Benutzer {
 	
 	//#################### Logout einfügen + evtl. finalize Methode erweitern ###################
 	
+	/**
+	 * loggt den Benutzer aus
+	 * @return	false, wenn kein Nutzer angemeldet ist
+	 * 			true, wenn der Nutzer erfolgreich abgemeldet werden konnte
+	 */
 	public static boolean logoutUser() {
 		
 		if(loggedUser == null)
@@ -101,6 +110,7 @@ public class Benutzer {
 		return true;
 	}
 	
+
 	@Override
 	protected void finalize() throws Throwable {
 
@@ -115,29 +125,54 @@ public class Benutzer {
 	
 	//------------------------------------------------------------ Getter ------------------------------------------------
 	
-	
+	/**	get-Methode für die Benutzer-ID
+	 * 
+	 * @return die User-ID des Benutzers : int
+	 */
 	public static int getID() {
 		return loggedUser.userID;
 	}
 	
+	/** get-Methode für den Namen des Benutzers
+	 * 
+	 * @return den Namen des Benutzers
+	 */
 	public static String getName() {
 		return loggedUser.name;
 	}
 	
+	/** get-Methode für die E-Mail-Adresse des Benutzers
+	 * 
+	 * @return die E-Mail-Adresse des Benutzers : String
+	 */
 	public static String getEmail() {
 		return loggedUser.email;
 	}
 
+	/**	get-Methode für das Niveau des Benutzers
+	 * 
+	 * @return Benutzer Niveau : String
+	 */
 	public static String getNiveau() {
 		return loggedUser.niveau;
 	}
 	
+	/**	get-Methode für Profilbild des Benutzers
+	 * 
+	 * @return	den Profilbildpfad : String
+	 */
 	public static String getProfilBild() {
 		return loggedUser.profilbild;
 	}
 	
 	//-------------------------------------------------------------- Setter ------------------################### Bessere Eingabe-Überprüfungen einbauen ###################
 	
+	/**	Methode zum Setzen des Namens des Benutzers
+	 * 
+	 * @param neuerName neuer Name : String
+	 * @return
+	 * @throws InputException
+	 */
 	public static boolean setName(String neuerName) throws InputException {
 		
 		if(loggedUser == null)
@@ -153,6 +188,13 @@ public class Benutzer {
 		return true;
 	}
 	
+	/** Passwort des Benutzers kann geändert werden
+	 * 
+	 * @param password : String
+	 * @return false, wenn kein Benutzer eingeloggt ist
+	 * 			true, wenn das Datenbankupdate funktioniert hat
+	 * @throws InputException kein Passwort übergeben wurde
+	 */
 	public static boolean setPassword(String password) throws InputException {
 		
 		if(loggedUser == null)
@@ -166,7 +208,13 @@ public class Benutzer {
 		return true;		
 	}
 	
-
+	
+	/** Methode zum Setzen der E-Mail-Adresse des Benutzers
+	 * 
+	 * @param neueEmail : String
+	 * @return false, wenn kein Benutzer gefunden werden konnte, die E-Mail-Adresse kein @ oder kein . besitzt
+	 * 			true, wenn das Datenbankupdate richtig funktioniert hat
+	 */
 	public static boolean setEmail(String neueEmail) {
 		
 		if(loggedUser == null)
@@ -187,7 +235,12 @@ public class Benutzer {
 		return true;
 	}
 	
-
+	/** Methode zum Setzen des Niveaus des Benutzers
+	 * 
+	 * @param neuesNiveau : String
+	 * @return false, wenn kein Benutzer angemeldet ist
+	 * 			true, wenn das Datenbankupdate richtig funktioniert hat
+	 */
 	public static boolean setNiveau(String neuesNiveau) {
 		
 		if(loggedUser == null)
@@ -204,7 +257,7 @@ public class Benutzer {
 	
 	/** Legt ein neues Profilbild für den Benutzer fest
 	 * 
-	 * @param neuesProfilbild Dateipfad für das zu nutzende Bild
+	 * @param neuesProfilbild Dateipfad für das zu nutzende Bild : String
 	 * @return	true, wenn das Profilbild gesetzt werden konnte
 	 * 			false, wenn das Profilbild nicht gesetzt werden konnte
 	 */
@@ -224,7 +277,11 @@ public class Benutzer {
 	
 	//--------------------------------------------------------------------------------- Parameter ------------------------------------------------------------
 	
-	
+	/** Methode um die Parameter Streckenlänge und Höhenmeter zum passenden Benutzer zu finden
+	 * 
+	 * @return false, wenn kein Benutzer angemeldet ist
+	 * 			true, wenn das Datenbankupdate richtig durchgeführt werden konnte
+	 */
 	public static ResultSet getParameter() {
 		
 		if(loggedUser == null)
@@ -250,7 +307,14 @@ public class Benutzer {
 	
 	
 	
-	
+	/**	Methode zum Ändern der Parameter Streckenlänge und Höhenmeter 
+	 * 
+	 * @param streckenL	: int (Streckenlänge)
+	 * @param hoehenU : int (Höhenmeter)
+	 * @return false, wenn kein Benutzer angemeldet ist
+	 * 			true, wenn das Datenbankupdate richtig durchgeführt werden konnte
+	 * @throws InputException wenn die Parameter unrealistisch sind
+	 */
 	public static boolean updateParameter(int streckenL, int hoehenU) throws InputException {
 		
 		if(loggedUser == null)
