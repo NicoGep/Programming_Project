@@ -27,7 +27,9 @@ public class FunktionMeinProfil implements ActionListener {
 	public void gruppenHinzufügen() {
 		try {
 			DatabaseConnection.connectDatabase();
+			if (AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname") != null ) {
 			MeinProfil.gruppenListe = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
+			}
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {	
 			e.printStackTrace();
