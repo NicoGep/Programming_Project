@@ -1,10 +1,13 @@
 package screens;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -17,8 +20,10 @@ import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
+import funktionen.AdminFunctions;
 import funktionen.LoginFunktion;
 import master.Body;
+import master.Fenster;
 
 public class Login extends Body {
 
@@ -26,21 +31,19 @@ public class Login extends Body {
 	public static JButton passVer;
 	public static JButton login;
 	
-	private JTextField benutzertx;
-	private JPasswordField passworttx;
 
 	public Login() {
-//		try {
-//			DatabaseConnection.connectDatabase();
-//			Benutzer.loginUser("Test2", "a");
-//			DatabaseConnection.disconnectDatabase();
-//		} catch (LoginCredentialsException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (DatabaseConnectException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			DatabaseConnection.connectDatabase();
+			Benutzer.loginUser("Test2", "a");
+			DatabaseConnection.disconnectDatabase();
+		} catch (LoginCredentialsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DatabaseConnectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(13, 1));
 		pan.setBounds(0, 0, 450, 800);
@@ -50,12 +53,10 @@ public class Login extends Body {
 		einlog.setFont(titel);
 
 		JLabel benutzer = new JLabel("Benutzername");
-		benutzertx = new JTextField();
-		benutzertx.setText("Test");
+		JTextField benutzertx = new JTextField();
 
 		JLabel passwort = new JLabel("Passwort");
-		passworttx = new JPasswordField();
-		passworttx.setText("key");
+		JPasswordField passworttx = new JPasswordField();
 
 		// JLabel leer0 = new JLabel();
 		JLabel leer = new JLabel();
@@ -65,7 +66,8 @@ public class Login extends Body {
 		reg = new JButton("Registrieren");
 		passVer = new JButton("Passwort vergessen?");
 		login = new JButton("Einloggen");
-
+	
+		
 		// pan.add(leer0);
 		pan.add(leer);
 		pan.add(einlog);
@@ -81,14 +83,11 @@ public class Login extends Body {
 		pan.add(passVer);
 		pan.add(leer2);
 		pan.add(login);
+		
 
 		this.add(pan);
 		
 		ActionListener aL = new LoginFunktion(benutzertx, passworttx);
-
-		reg.addActionListener(aL);
-		passVer.addActionListener(aL);
-		login.addActionListener(aL);
 
 	}
 
@@ -98,6 +97,13 @@ public class Login extends Body {
 		Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");
 		g.drawImage(img, 0, 0, null);
 		setVisible(true);
-		repaint();
+
+	
+		
+	}
+
+	public static void main(String[] args) {
+		new Login();
+
 	}
 }
