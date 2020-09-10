@@ -1,6 +1,9 @@
 package funktionen;
 
 import java.awt.event.*;
+import java.util.LinkedList;
+import java.util.List;
+
 import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
@@ -24,19 +27,19 @@ public class FunktionMeinProfil implements ActionListener {
 	public void gruppenHinzufügen() {
 		try {
 			DatabaseConnection.connectDatabase();
-			
-			if (AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname") != null ) {
-			MeinProfil.gruppenListe = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
+			if (AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname") != null) {
+				MeinProfil.gruppenListe = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
 			}
 			DatabaseConnection.disconnectDatabase();
-		} catch (DatabaseConnectException e) {	
+		} catch (DatabaseConnectException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	/**
-	 * je nach Button wird hier der Screen ProfilBearbeiten, GruppeErstellen oder Gruppe beitreten geöffnet
+	 * je nach Button wird hier der Screen ProfilBearbeiten, GruppeErstellen oder
+	 * Gruppe beitreten geöffnet
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
