@@ -54,7 +54,8 @@ public class DatabaseConnection {
 	public static boolean disconnectDatabase() throws DatabaseConnectException {
 		
 		if(con == null) 
-			throw new DatabaseConnectException(4);
+//			throw new DatabaseConnectException(4);
+			return false;
 		
 		try {
 			con.close();

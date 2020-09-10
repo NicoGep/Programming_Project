@@ -15,7 +15,7 @@ public class MasterBanner extends JPanel {
 	private final int SIZE_X = 450, SIZE_Y = 100;
 	
 	JButton back;
-	JButton start;
+	JButton logout;
 	
 	
 	public MasterBanner() {
@@ -24,23 +24,21 @@ public class MasterBanner extends JPanel {
 		this.setBackground(Color.GREEN);
 		
 		back = new JButton("Zurück");
-		start = new JButton("Ausloggen");
+		logout = new JButton("Ausloggen");
 		
 		this.add(back);
-		this.add(start);
+		this.add(logout);
 		
 		back.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				Fenster.lastContent();
-				
 			}
 			
 		});
 		
-		start.addActionListener(new ActionListener() {
+		logout.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {

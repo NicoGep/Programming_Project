@@ -111,7 +111,7 @@ public class Benutzer {
 			return false;
 		
 		loggedUser = null;
-		Fenster.reset();
+		
 		return true;
 	}
 	
