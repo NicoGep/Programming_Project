@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
+import funktionen.RegistierenFunktion;
 import master.Body;
 import master.MasterScreen;
 
@@ -20,10 +22,18 @@ import master.MasterScreen;
 
 public class Registrierung extends Body {
 
+	public static JTextField bnametx;
+	public static JPasswordField pwtx; 
+	public static JTextField mailtx;
+	
+	public static JButton reg;
+	public static JButton back;
+	
+	
 	public Registrierung() {
 		
 		JPanel pan = new JPanel();
-		pan.setLayout(new GridLayout(13,1));
+		pan.setLayout(new GridLayout(15,1));
 		pan.setBounds(0,0,450,800);
 		
 		JLabel registr = new JLabel ("Registrieren");
@@ -31,10 +41,10 @@ public class Registrierung extends Body {
 		registr.setFont(titel);
 		
 		JLabel mail = new JLabel("E-Mail Adresse: ");
-		JTextField mailtx = new JTextField();
+		 mailtx = new JTextField();
 		
 		JLabel bname = new JLabel("Benutzername: ");
-		JTextField bnametx = new JTextField();
+		bnametx = new JTextField();
 		
 		JLabel pw = new JLabel("Passwort: ");
 		JPasswordField pwtx = new JPasswordField();
@@ -44,10 +54,13 @@ public class Registrierung extends Body {
 		
 		JCheckBox agb = new JCheckBox("Ich stimme den AGB zu ...");
 		
-		JButton reg = new JButton("Registieren");
+		reg = new JButton("Registieren");
+		
+		back = new JButton("Zurück");
 		
 		JLabel leer = new JLabel();
 		JLabel leer1 = new JLabel();
+		JLabel leer2 = new JLabel();
 		
 		pan.add(leer);
 		pan.add(registr);
@@ -62,10 +75,15 @@ public class Registrierung extends Body {
 		pan.add(agb);
 		pan.add(leer1);
 		pan.add(reg);
+		pan.add(leer2);
+		pan.add(back);
 		
 		this.add(pan);
 			
-		
+
+		reg.addActionListener(new RegistierenFunktion());
+		back.addActionListener(new RegistierenFunktion());
+			
 	}
 
 	@Override
@@ -76,5 +94,6 @@ public class Registrierung extends Body {
 		setVisible(true);
 		}
 	
+
 	}
 
