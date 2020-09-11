@@ -24,6 +24,9 @@ public class Login extends Body {
 	
 	private JTextField benutzertx;
 	private JPasswordField passworttx;
+	
+	private JLabel wrongName;
+	private JLabel wrongPass;
 
 	public Login() {
 		JPanel pan = new JPanel();
@@ -66,10 +69,16 @@ public class Login extends Body {
 		pan.add(passVer);
 		pan.add(leer2);
 		pan.add(login);
+		
+		wrongName = new JLabel("");
+		wrongPass = new JLabel("");
+		
+		pan.add(wrongName);
+		pan.add(wrongPass);
 
 		this.add(pan);
 		
-		ActionListener aL = new LoginFunktion(benutzertx, passworttx);
+		ActionListener aL = new LoginFunktion(benutzertx, passworttx, wrongName, wrongPass);
 
 		reg.addActionListener(aL);
 		passVer.addActionListener(aL);

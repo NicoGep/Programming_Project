@@ -27,7 +27,7 @@ public class Fenster extends JFrame {
 		masterFrame = this;
 
 		this.setTitle("ATdIT Projekt");
-		this.setBounds(900, 20, SIZE_X, SIZE_Y);
+		this.setBounds(20, 20, SIZE_X, SIZE_Y);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
@@ -79,6 +79,9 @@ public class Fenster extends JFrame {
 		addToFrame(new Panel(screen, banner));
 	}
 	
+	public static void neuZeichnen() {
+		neuZeichnen(content);
+	}
 	
 	private static void neuZeichnen(Container p) {
 	

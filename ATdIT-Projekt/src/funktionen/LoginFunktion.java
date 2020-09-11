@@ -3,6 +3,7 @@ package funktionen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -26,12 +27,14 @@ public class LoginFunktion implements ActionListener {
 	private JTextField name;
 	private JPasswordField password;
 	
+	private JLabel wrongName, wrongPass;
+	
 	/** Datenbank wird gestartet
 	 * 
 	 * @param benutzertx : String (Benutzername)
 	 * @param passworttx : String (Passwort)
 	 */
-	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx) {
+	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx, JLabel wrongName, JLabel wrongPass) {
 		
 		try {
 			DatabaseConnection.connectDatabase();
@@ -41,6 +44,8 @@ public class LoginFunktion implements ActionListener {
 		
 		name = benutzertx;
 		password = passworttx;
+		this.wrongName = wrongName;
+		this.wrongPass = wrongPass;
 	}
 
 	
@@ -48,6 +53,9 @@ public class LoginFunktion implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		try {
+			
+			wrongName.setText("");
+			wrongPass.setText("");
 			
 			if (e.getSource() == Login.login) {
 				String s = "";
@@ -69,9 +77,11 @@ public class LoginFunktion implements ActionListener {
 			// Fehler ausgeben, z.B. Anscheinend keine Internetverbindung o.Ä.
 		} catch (LoginCredentialsException lE) {
 			switch(lE.getState()) {
-			case 1: break;			//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
-			case 2: break;
+			case 1: wrongName.setText("Benutzername falsch."); break;			//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
+			case 2: wrongPass.setText("Passwort falsch."); break;
+			default: break;
 			}
+			Fenster.neuZeichnen();
 		}
 	}
 }
