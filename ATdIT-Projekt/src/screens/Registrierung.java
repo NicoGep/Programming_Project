@@ -93,7 +93,10 @@ public class Registrierung extends Body {
 		back.addActionListener(new RegistierenFunktion());
 			
 	}
-
+	
+	/** Hintergrundbild wird gezeichnet
+	 * 
+	 */
 	@Override
 		protected void paintComponent (Graphics g) {
 		Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");	

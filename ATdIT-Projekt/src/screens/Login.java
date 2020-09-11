@@ -85,7 +85,10 @@ public class Login extends Body {
 		login.addActionListener(aL);
 
 	}
-
+	
+	/** Hintergrundbild wird gezeichnet
+	 * 
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

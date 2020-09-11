@@ -18,18 +18,29 @@ import screens.MenuScreen;
 import screens.PasswortAendern;
 import screens.Registrierung;
 
-
+/** Klasse um die Funktion des Registrierungs-Screens bereitzustellen.
+ * 
+ * @author Gruppe3
+ *
+ */
 
 public class RegistierenFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
+/** Funktion Zurückknopf.
+ * 
+ */		
 		if(e.getSource() == Registrierung.back) {
 			Benutzer.logoutUser();
 			Fenster.clearHistory();
 			Fenster.neuZeichnen(new Login());;
 		}
-
+		
+/** Datenbank wird gestartet.
+ * Benutzer wird mit Benutzernamen und Passwort in der Datenbank registriert.
+ * Entsprechende Fehlermeldungen bei bereits existierendem Benutzernamen und nicht übereinstimmigem Passwort.
+ */				
 		if (e.getSource() == Registrierung.registrierenB) {
 			JTextField name;
 			JPasswordField password;
@@ -38,8 +49,6 @@ public class RegistierenFunktion implements ActionListener {
 				Registrierung.benutzerExistiertBereits.setText("");
 				Registrierung.passwortStimmtNichtUeberein.setText("");
 				if(Registrierung.passwortWiederholentx.getText().equals(Registrierung.passworttx.getText())) {
-//				System.out.println(Registrierung.bnametx.getText());
-//				System.out.println(Registrierung.pwtx.getText());
 				password = Registrierung.passworttx;
 				name = Registrierung.benutzernametx;
 				String s = "";

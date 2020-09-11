@@ -20,7 +20,7 @@ import screens.MenuScreen;
 
 /** Klasse um die Funktion des Login-Screens bereitzustellen
  * 
- * @author I518230
+ * @author Gruppe3
  *
  */
 public class LoginFunktion implements ActionListener {
@@ -49,7 +49,11 @@ public class LoginFunktion implements ActionListener {
 		this.falschesPasswort = falschesPasswort;
 	}
 
-	
+	/** Buttonereignisse.
+	 *  Logindaten mit Datenbank überprüfen mit der entsprechenden Fehlermeldung bei falschem Namen/Passwort.
+	 *  Weiterleitung zu den Screens Menü, Passwort vergessen und Registrierung.
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -77,11 +81,11 @@ public class LoginFunktion implements ActionListener {
 			dbE.printStackTrace();
 			// Fehler ausgeben, z.B. Anscheinend keine Internetverbindung o.Ä.
 		} catch (LoginCredentialsException lE) {
-			switch(lE.getState()) {
+			switch(lE.getState()) {//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
 			case 1: falscherName.setText("Benutzername falsch."); 
 			falscherName.setBackground(Color.WHITE);
 			falscherName.setForeground(Color.RED);
-			break;			//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
+			break;			
 			
 			case 2: falschesPasswort.setText("Passwort falsch.");
 			falschesPasswort.setBackground(Color.WHITE);

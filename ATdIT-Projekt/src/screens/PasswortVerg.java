@@ -63,6 +63,9 @@ public class PasswortVerg extends Body {
 		back.addActionListener(new PasswortVergFunktion());
 	}
 	
+	/** Hintergrundbild wird gezeichnet
+	 * 
+	 */
 	@Override
 	protected void paintComponent (Graphics g) {
 	Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");	
