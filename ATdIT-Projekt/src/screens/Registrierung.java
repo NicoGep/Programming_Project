@@ -47,7 +47,7 @@ public class Registrierung extends Body {
 		bnametx = new JTextField();
 		
 		JLabel pw = new JLabel("Passwort: ");
-		JPasswordField pwtx = new JPasswordField();
+		pwtx = new JPasswordField();
 		
 		JLabel pwwied = new JLabel("Passwort wiederholen: ");
 		JPasswordField pwwiedtx = new JPasswordField();

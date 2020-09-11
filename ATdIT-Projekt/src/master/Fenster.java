@@ -83,7 +83,7 @@ public class Fenster extends JFrame {
 		neuZeichnen(content);
 	}
 	
-	private static void neuZeichnen(Container p) {
+	public static void neuZeichnen(Container p) {
 	
 		content = p;
 		masterFrame.setContentPane(content);

@@ -11,10 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import funktionen.PasswortVergFunktion;
 import master.Body;
 import master.MasterScreen;
 
 public class PasswortVerg extends Body {
+	
+	public static JButton back;
 	
 	public PasswortVerg() {
 		
@@ -36,10 +39,12 @@ public class PasswortVerg extends Body {
 		
 		
 		JButton einl = new JButton("Einloggen");
+		back = new JButton("Zurück");
 		
 		JLabel leer = new JLabel();
 		JLabel leer1 = new JLabel();
 		JLabel leer2 = new JLabel();
+		JLabel leer3 = new JLabel();
 		
 		pan.add(leer);
 		pan.add(passVerg);
@@ -51,9 +56,12 @@ public class PasswortVerg extends Body {
 		pan.add(c1);
 		pan.add(leer2);
 		pan.add(einl);
-		
-		
+		pan.add(leer3);
+		pan.add(back);
+	
 		this.add(pan);
+		
+		back.addActionListener(new PasswortVergFunktion());
 	}
 	
 	@Override

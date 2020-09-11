@@ -30,10 +30,19 @@ public class RegistierenFunktion implements ActionListener {
 		}
 
 		if (e.getSource() == Registrierung.reg) {
-			
+			JTextField name;
+			JPasswordField password;
 			try {
 				DatabaseConnection.connectDatabase();
-				AdminFunctions.addUser(Registrierung.bnametx.getText(), Registrierung.pwtx.getText());
+//				System.out.println(Registrierung.bnametx.getText());
+//				System.out.println(Registrierung.pwtx.getText());
+				password = Registrierung.pwtx;
+				name = Registrierung.bnametx;
+				String s = "";
+				char[] c = password.getPassword();
+				for(int i = 0; i < c.length; i++)
+					s += c[i];
+				AdminFunctions.addUser(name.getText(), s);
 				
 				
 				
