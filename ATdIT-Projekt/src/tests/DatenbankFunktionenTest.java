@@ -4,12 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.*;
 
-import connection.Benutzer;
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
-import exceptions.InputException;
-import exceptions.LoginCredentialsException;
-import funktionen.AdminFunctions;
+import connection.*;
+import exceptions.*;
+import funktionen.*;
 
 public class DatenbankFunktionenTest {
 	static String name = "Test";
@@ -139,4 +136,9 @@ public class DatenbankFunktionenTest {
 
 	}
 
+
+@Test (expected = DatabaseConnectException.class )
+public void databaseConnectExceptionTest() throws DatabaseConnectException {
+	DatabaseConnection.disconnectDatabase();
+}
 }
