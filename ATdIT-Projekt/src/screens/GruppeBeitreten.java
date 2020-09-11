@@ -12,6 +12,11 @@ import funktionen.FunktionGruppeBeitreten;
 
 import master.MasterScreen;
 
+/**
+ * 	UI für den Gruppe-Beitreten Screen
+ * @author I518230
+ *
+ */
 public class GruppeBeitreten extends MasterScreen {
 
 	public static JButton zurueck;
@@ -28,6 +33,17 @@ public class GruppeBeitreten extends MasterScreen {
 
 	public static JTextField gruppenName;
 
+	/**
+	 * Konstruktor GruppeBeitreten
+	 * @param gruppenNameLabel : JLabel
+	 * @param gruppenName : JTextField
+	 * @param ergebnisse : JLabel
+	 * @param gruppen : JComboBox<String>
+	 * @param suchen : JButton
+	 * @param beitreten : JButton
+	 * @param loeschen : JButton
+	 * @param zurueck : JButton
+	 */
 	public GruppeBeitreten() {
 
 		this.setLayout(null);

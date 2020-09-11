@@ -1,9 +1,18 @@
 package exceptions;
 
+/**
+ * 	Exception-Klasse für spezifische Angaben für falsche Eingaben
+ * @author I518230
+ *
+ */
 public class InputException extends Exception {
 	
 	private int state;
 	
+	/**
+	 *  Input-Exception für Angaben für falsche Benutzereingaben
+	 * @param state : int 
+	 */
 	public InputException(int state) {
 		
 		this.state = state;
