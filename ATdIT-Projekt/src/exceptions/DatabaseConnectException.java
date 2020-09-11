@@ -2,7 +2,7 @@ package exceptions;
 
 /**
  * 	Exception-Klasse um gescheiterte Datenbankverbindungen spezifisch anzugeben
- * @author I518230
+ * 
  *
  */
 public class DatabaseConnectException extends Exception {

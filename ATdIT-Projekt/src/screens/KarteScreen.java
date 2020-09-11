@@ -10,6 +10,11 @@ import javax.swing.SwingConstants;
 import funktionen.KarteSliderFunktion;
 import master.MasterScreen;
 
+/** 
+ * 
+ * @author I518230
+ *
+ */
 public class KarteScreen extends MasterScreen {
 
 	public JSlider streckenLaengeSlider;

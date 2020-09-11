@@ -9,8 +9,6 @@ import screens.KarteScreen;
 /** Klasse die die Funktion zu den Slidern der Karte festlegt
  * 	Erzeugt einen neuen Thread pro Aufruf, der dann nach 30 Sekunden die gewünschten Daten
  * 	für den Benutzer auf die Datenbank speichert
- * 
- * @author I518230
  *
  */
 public class KarteSliderFunktion implements ChangeListener {

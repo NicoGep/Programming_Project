@@ -15,8 +15,6 @@ import screens.ProfilBearbeiten;
 
 /** Klasse die die Funktionen des Mein Profil-Screens festlegt
  * 
- * @author I518230
- *
  */
 public class FunktionMeinProfil implements ActionListener {
 

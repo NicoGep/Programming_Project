@@ -10,7 +10,7 @@ import master.Fenster;
 
 /**Benutzerklasse für Benutzerfunktionen
  * 
- * @author I518230
+ * 
  *
  */
 public class Benutzer {

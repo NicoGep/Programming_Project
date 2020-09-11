@@ -8,8 +8,6 @@ import screens.KarteScreen;
 import screens.MenuScreen;
 
 /**	Klasse um die Funktion bereitzustellen das Kartenfenster zu öffnen
- * 
- * @author I518230
  *
  */
 public class KarteFunktion implements ActionListener {

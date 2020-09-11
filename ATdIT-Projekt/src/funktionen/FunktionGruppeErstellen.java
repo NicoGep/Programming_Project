@@ -12,8 +12,6 @@ import screens.GruppeErstellen;
 import screens.MeinProfil;
 
 /**	Klasse um die Funktion für den Gruppe erstellen-Button + abbrechen-Button
- * 
- * @author I518230
  *
  */
 public class FunktionGruppeErstellen implements ActionListener {
