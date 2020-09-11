@@ -10,6 +10,11 @@ import java.util.*;
 import java.util.List;
 import java.awt.*;
 
+/**
+ * 	Fensterklasse legt Größe des Fensters, Titel etc fest
+ * @author I518230
+ *
+ */
 public class Fenster extends JFrame {
 	
 	private final int SIZE_X = 466, SIZE_Y = 839;
@@ -19,14 +24,23 @@ public class Fenster extends JFrame {
 	private static Fenster masterFrame;
 	private static Container content;
 	
+	/**
+	 * Stack für die Fensterhistorie, damit der zurück-Button richtig funktioniert
+	 */
 	private static Stack<Container> history = new Stack<Container>();
 	
-	
+	/**
+	 * Konstruktor
+	 * legt Namen des Fensters fest
+	 * legt Fenstergröße fest
+	 * legt Exit-Funktion fest
+	 * legt fest, dass die Fenstergröße nicht verändert werden kann
+	 */
 	public Fenster() {
 		
 		masterFrame = this;
 
-		this.setTitle("ATdIT Projekt");
+		this.setTitle("wanderoo");
 		this.setBounds(20, 20, SIZE_X, SIZE_Y);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
@@ -39,20 +53,34 @@ public class Fenster extends JFrame {
 			System.out.println(history.get(i));
 	}
 	
+	/**
+	 *  Gibt das letzte Fenster vom Stack zurück
+	 */
 	public static void lastContent() {
 		neuZeichnen(history.pop());
 	}
 	
+	/**
+	 * History-Container wird geleert 
+	 */
 	public static void clearHistory() {
 		history = new Stack<Container>();
 	}
 	
+	/** Jetziges Fenster wird zum History-Stack hinzugefügt
+	 * 
+	 * @param cont : Container (Fenster-Container)
+	 */
 	private static void addToHistory(Container cont) {
 		if(history.size() >= MAX_HISTORY_SIZE)
 			history.pop();
 		history.push(cont);
 	}
 	
+	/**
+	 * 	Methode, um den Benutzer auszuloggen, den History-Stack zu leeren
+	 * 	und ein das Login-Fenster neu zu öffnen
+	 */
 	public static void reset() {
 		Benutzer.logoutUser();
 		clearHistory();

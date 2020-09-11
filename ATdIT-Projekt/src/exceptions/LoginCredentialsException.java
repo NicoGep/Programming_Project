@@ -1,9 +1,18 @@
 package exceptions;
 
+/**
+ * 	Exception-Klasse für falsche Benutzereingaben im Login-Screen
+ * @author I518230
+ *
+ */
 public class LoginCredentialsException extends Exception {
 	
 	private int state;
 	
+	/**
+	 *  Funktion zu Angabe für falsche Benutzereingaben im Login-Screen
+	 * @param state : int 
+	 */
 	public LoginCredentialsException(int state) {
 		
 		this.state = state;
