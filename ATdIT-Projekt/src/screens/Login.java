@@ -1,6 +1,5 @@
 package screens;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -19,24 +18,24 @@ import master.Body;
 
 public class Login extends Body {
 
-	public static JButton reg;
-	public static JButton passVer;
+	public static JButton registrieren;
+	public static JButton passwortVergessen;
 	public static JButton login;
 	
 	private JTextField benutzertx;
 	private JPasswordField passworttx;
 	
-	private JLabel wrongName;
-	private JLabel wrongPass;
+	private JLabel falscherName;
+	private JLabel falschesPasswort;
 
 	public Login() {
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(13, 1));
 		pan.setBounds(0, 0, 450, 800);
 
-		JLabel einlog = new JLabel("Log-In");
+		JLabel einloggen = new JLabel("Log-In");
 		Font titel = new Font("Segoe UI", Font.BOLD, 30);
-		einlog.setFont(titel);
+		einloggen.setFont(titel);
 
 		JLabel benutzer = new JLabel("Benutzername");
 		benutzertx = new JTextField();
@@ -51,13 +50,16 @@ public class Login extends Body {
 		JLabel leer1 = new JLabel();
 		JLabel leer2 = new JLabel();
 
-		reg = new JButton("Registrieren");
-		passVer = new JButton("Passwort vergessen?");
+		registrieren = new JButton("Registrieren");
+		passwortVergessen = new JButton("Passwort vergessen?");
 		login = new JButton("Einloggen");
 
+		falscherName = new JLabel("");
+		falschesPasswort = new JLabel("");
+	
 		// pan.add(leer0);
 		pan.add(leer);
-		pan.add(einlog);
+		pan.add(einloggen);
 
 		pan.add(benutzer);
 		pan.add(benutzertx);
@@ -66,24 +68,20 @@ public class Login extends Body {
 		pan.add(passworttx);
 
 		pan.add(leer1);
-		pan.add(reg);
-		pan.add(passVer);
+		pan.add(registrieren);
+		pan.add(passwortVergessen);
 		pan.add(leer2);
 		pan.add(login);
 		
-		wrongName = new JLabel("");
-		wrongPass = new JLabel("");
-	
-		
-		pan.add(wrongName);
-		pan.add(wrongPass);
+		pan.add(falscherName);
+		pan.add(falschesPasswort);
 
 		this.add(pan);
 		
-		ActionListener aL = new LoginFunktion(benutzertx, passworttx, wrongName, wrongPass);
+		ActionListener aL = new LoginFunktion(benutzertx, passworttx, falscherName, falschesPasswort);
 
-		reg.addActionListener(aL);
-		passVer.addActionListener(aL);
+		registrieren.addActionListener(aL);
+		passwortVergessen.addActionListener(aL);
 		login.addActionListener(aL);
 
 	}

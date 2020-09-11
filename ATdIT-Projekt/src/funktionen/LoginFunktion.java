@@ -28,14 +28,14 @@ public class LoginFunktion implements ActionListener {
 	private JTextField name;
 	private JPasswordField password;
 	
-	private JLabel wrongName, wrongPass;
+	private JLabel falscherName, falschesPasswort;
 	
 	/** Datenbank wird gestartet
 	 * 
 	 * @param benutzertx : String (Benutzername)
 	 * @param passworttx : String (Passwort)
 	 */
-	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx, JLabel wrongName, JLabel wrongPass) {
+	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx, JLabel falscherName, JLabel falschesPasswort) {
 		
 		try {
 			DatabaseConnection.connectDatabase();
@@ -45,8 +45,8 @@ public class LoginFunktion implements ActionListener {
 		
 		name = benutzertx;
 		password = passworttx;
-		this.wrongName = wrongName;
-		this.wrongPass = wrongPass;
+		this.falscherName = falscherName;
+		this.falschesPasswort = falschesPasswort;
 	}
 
 	
@@ -55,8 +55,8 @@ public class LoginFunktion implements ActionListener {
 
 		try {
 			
-			wrongName.setText("");
-			wrongPass.setText("");
+			falscherName.setText("");
+			falschesPasswort.setText("");
 			
 			if (e.getSource() == Login.login) {
 				String s = "";
@@ -65,9 +65,9 @@ public class LoginFunktion implements ActionListener {
 					s += c[i];
 				Benutzer.loginUser(name.getText().strip(), s);
 				Fenster.addToFrame(new MenuScreen());
-			} else if (e.getSource() == Login.passVer) {
+			} else if (e.getSource() == Login.passwortVergessen) {
 				Fenster.addToFrame(new PasswortVerg());
-			} else if (e.getSource() == Login.reg) {
+			} else if (e.getSource() == Login.registrieren) {
 				Fenster.addToFrame(new Registrierung());
 			}
 			
@@ -78,14 +78,14 @@ public class LoginFunktion implements ActionListener {
 			// Fehler ausgeben, z.B. Anscheinend keine Internetverbindung o.Ä.
 		} catch (LoginCredentialsException lE) {
 			switch(lE.getState()) {
-			case 1: wrongName.setText("Benutzername falsch."); 
-			wrongName.setBackground(Color.WHITE);
-			wrongName.setForeground(Color.RED);
+			case 1: falscherName.setText("Benutzername falsch."); 
+			falscherName.setBackground(Color.WHITE);
+			falscherName.setForeground(Color.RED);
 			break;			//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
 			
-			case 2: wrongPass.setText("Passwort falsch.");
-			wrongPass.setBackground(Color.WHITE);
-			wrongPass.setForeground(Color.RED);
+			case 2: falschesPasswort.setText("Passwort falsch.");
+			falschesPasswort.setBackground(Color.WHITE);
+			falschesPasswort.setForeground(Color.RED);
 			break;
 			
 			default: break;

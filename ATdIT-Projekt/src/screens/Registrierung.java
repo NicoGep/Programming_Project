@@ -16,72 +16,80 @@ import javax.swing.JTextField;
 
 import funktionen.RegistierenFunktion;
 import master.Body;
-import master.MasterScreen;
 
 
 
 public class Registrierung extends Body {
 
-	public static JTextField bnametx;
-	public static JPasswordField pwtx; 
+	public static JTextField benutzernametx;
+	public static JPasswordField passworttx; 
 	public static JTextField mailtx;
+	public static JPasswordField passwortWiederholentx;
 	
-	public static JButton reg;
+	public static JButton registrierenB;
 	public static JButton back;
+	
+	public static JLabel passwortStimmtNichtUeberein;
+	public static JLabel benutzerExistiertBereits;
 	
 	
 	public Registrierung() {
 		
 		JPanel pan = new JPanel();
-		pan.setLayout(new GridLayout(15,1));
+		pan.setLayout(new GridLayout(17,1));
 		pan.setBounds(0,0,450,800);
 		
-		JLabel registr = new JLabel ("Registrieren");
+		JLabel registrieren = new JLabel ("Registrieren");
 		Font titel = new Font ("Segoe UI", Font.BOLD, 30);
-		registr.setFont(titel);
+		registrieren.setFont(titel);
 		
 		JLabel mail = new JLabel("E-Mail Adresse: ");
-		 mailtx = new JTextField();
+		mailtx = new JTextField();
 		
-		JLabel bname = new JLabel("Benutzername: ");
-		bnametx = new JTextField();
+		JLabel benutzername = new JLabel("Benutzername: ");
+		benutzernametx = new JTextField();
 		
-		JLabel pw = new JLabel("Passwort: ");
-		pwtx = new JPasswordField();
+		JLabel passwort = new JLabel("Passwort: ");
+		passworttx = new JPasswordField();
 		
-		JLabel pwwied = new JLabel("Passwort wiederholen: ");
-		JPasswordField pwwiedtx = new JPasswordField();
+		JLabel passwortWiederholen = new JLabel("Passwort wiederholen: ");
+		passwortWiederholentx = new JPasswordField();
 		
 		JCheckBox agb = new JCheckBox("Ich stimme den AGB zu ...");
 		
-		reg = new JButton("Registieren");
+		registrierenB = new JButton("Registieren");
 		
 		back = new JButton("Zurück");
+		
+		passwortStimmtNichtUeberein = new JLabel("");
+		benutzerExistiertBereits = new JLabel("");
 		
 		JLabel leer = new JLabel();
 		JLabel leer1 = new JLabel();
 		JLabel leer2 = new JLabel();
 		
 		pan.add(leer);
-		pan.add(registr);
+		pan.add(registrieren);
 		pan.add(mail);
 		pan.add(mailtx);
-		pan.add(bname);
-		pan.add(bnametx);
-		pan.add(pw);
-		pan.add(pwtx);
-		pan.add(pwwied);
-		pan.add(pwwiedtx);
+		pan.add(benutzername);
+		pan.add(benutzernametx);
+		pan.add(passwort);
+		pan.add(passworttx);
+		pan.add(passwortWiederholen);
+		pan.add(passwortWiederholentx);
 		pan.add(agb);
 		pan.add(leer1);
-		pan.add(reg);
+		pan.add(registrierenB);
 		pan.add(leer2);
 		pan.add(back);
+		pan.add(passwortStimmtNichtUeberein);
+		pan.add(benutzerExistiertBereits);
 		
 		this.add(pan);
 			
 
-		reg.addActionListener(new RegistierenFunktion());
+		registrierenB.addActionListener(new RegistierenFunktion());
 		back.addActionListener(new RegistierenFunktion());
 			
 	}
