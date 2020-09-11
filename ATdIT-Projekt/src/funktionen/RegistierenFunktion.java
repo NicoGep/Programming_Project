@@ -35,6 +35,8 @@ public class RegistierenFunktion implements ActionListener {
 			JPasswordField password;
 			try {
 				DatabaseConnection.connectDatabase();
+				Registrierung.benutzerExistiertBereits.setText("");
+				Registrierung.passwortStimmtNichtUeberein.setText("");
 				if(Registrierung.passwortWiederholentx.getText().equals(Registrierung.passworttx.getText())) {
 //				System.out.println(Registrierung.bnametx.getText());
 //				System.out.println(Registrierung.pwtx.getText());
@@ -44,7 +46,7 @@ public class RegistierenFunktion implements ActionListener {
 				char[] c = password.getPassword();
 				for(int i = 0; i < c.length; i++)
 					s += c[i];
-				
+		
 					if(AdminFunctions.findUser(name.getText()) == null) {
 						AdminFunctions.addUser(name.getText(), s);
 						Fenster.addToFrame(new MenuScreen()); 
