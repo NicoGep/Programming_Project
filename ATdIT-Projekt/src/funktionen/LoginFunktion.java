@@ -1,5 +1,6 @@
 package funktionen;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -77,8 +78,16 @@ public class LoginFunktion implements ActionListener {
 			// Fehler ausgeben, z.B. Anscheinend keine Internetverbindung o.Ä.
 		} catch (LoginCredentialsException lE) {
 			switch(lE.getState()) {
-			case 1: wrongName.setText("Benutzername falsch."); break;			//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
-			case 2: wrongPass.setText("Passwort falsch."); break;
+			case 1: wrongName.setText("Benutzername falsch."); 
+			wrongName.setBackground(Color.WHITE);
+			wrongName.setForeground(Color.RED);
+			break;			//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
+			
+			case 2: wrongPass.setText("Passwort falsch.");
+			wrongPass.setBackground(Color.WHITE);
+			wrongPass.setForeground(Color.RED);
+			break;
+			
 			default: break;
 			}
 			Fenster.neuZeichnen();

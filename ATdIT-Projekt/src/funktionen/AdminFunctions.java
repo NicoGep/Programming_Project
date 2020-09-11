@@ -24,7 +24,7 @@ public class AdminFunctions {
 	 * @param name : String (Benutzername des Nutzers)
 	 * @param password : String  (Passwort als Hash-Wert)
 	 */
-	private static void addUser(String name, int password) {
+	static void addUser(String name, int password) {
 		
 		
 		if(findUser(name) == null) {

@@ -1,5 +1,6 @@
 package screens;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -72,6 +73,7 @@ public class Login extends Body {
 		
 		wrongName = new JLabel("");
 		wrongPass = new JLabel("");
+	
 		
 		pan.add(wrongName);
 		pan.add(wrongPass);
