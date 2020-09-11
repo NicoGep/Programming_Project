@@ -3,6 +3,9 @@ package funktionen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
@@ -30,13 +33,15 @@ public class RegistierenFunktion implements ActionListener {
 			
 			try {
 				DatabaseConnection.connectDatabase();
-				AdminFunctions.addUser(Registrierung.bnametx.getText(), 
-						(Integer) AdminFunctions.encrypt(Registrierung.pwtx.getText()));
+				AdminFunctions.addUser(Registrierung.bnametx.getText(), Registrierung.pwtx.getText());
 				
 				
 				
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e1) {
+				e1.printStackTrace();
+			} catch (InputException e1) {
+				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			Fenster.addToFrame(new MenuScreen());
