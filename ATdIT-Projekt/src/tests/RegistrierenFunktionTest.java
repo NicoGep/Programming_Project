@@ -20,13 +20,20 @@ public class RegistrierenFunktionTest {
 	public void registrierenTest() {
 		try {
 			DatabaseConnection.connectDatabase();
-			if (AdminFunctions.findUser(name) == null) {
-				AdminFunctions.addUser();
-				
+			if (AdminFunctions.findUser(name) == null) 
+				AdminFunctions.addUser(name, password);
+			DatabaseConnection.disconnectDatabase();	
 	
 	
+			} catch (DatabaseConnectException e1) {
+				e1.printStackTrace();
+			} catch (InputException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 	
+		
 	
-	
-	
-}
+		}	
+
+	}
