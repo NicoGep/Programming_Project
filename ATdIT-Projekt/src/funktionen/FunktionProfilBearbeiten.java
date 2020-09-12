@@ -16,6 +16,11 @@ import screens.PasswortAendern;
 import screens.ProfilBearbeiten;
 import screens.ProfilbildAendern;
 
+/** Klasse, um die Funktion des Profil bearbeiten-Screens bereitzustellen
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class FunktionProfilBearbeiten implements ActionListener {
 
 	@Override
