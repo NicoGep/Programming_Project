@@ -24,8 +24,8 @@ public class DatenbankFunktionenTest {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
-			}
-			else {
+			} else {
+				Benutzer.setPassword(password);
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
@@ -45,6 +45,7 @@ public class DatenbankFunktionenTest {
 		}
 
 	}
+
 	@Test
 	public void niveauTest() {
 		try {
@@ -54,8 +55,7 @@ public class DatenbankFunktionenTest {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
-			}
-			else {
+			} else {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
@@ -75,6 +75,7 @@ public class DatenbankFunktionenTest {
 		}
 
 	}
+
 	@Test
 	public void emailTest() {
 		try {
@@ -84,8 +85,7 @@ public class DatenbankFunktionenTest {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
-			}
-			else {
+			} else {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
@@ -105,6 +105,7 @@ public class DatenbankFunktionenTest {
 		}
 
 	}
+
 	@Test
 	public void profilbildTest() {
 		try {
@@ -114,8 +115,7 @@ public class DatenbankFunktionenTest {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
-			}
-			else {
+			} else {
 				Benutzer.setEmail(email);
 				Benutzer.setNiveau(niveau);
 				Benutzer.setProfilbild(profilbild);
@@ -136,9 +136,8 @@ public class DatenbankFunktionenTest {
 
 	}
 
-
-@Test (expected = DatabaseConnectException.class )
-public void databaseConnectExceptionTest() throws DatabaseConnectException {
-	DatabaseConnection.disconnectDatabase();
-}
+	@Test(expected = DatabaseConnectException.class)
+	public void databaseConnectExceptionTest() throws DatabaseConnectException {
+		DatabaseConnection.disconnectDatabase();
+	}
 }
