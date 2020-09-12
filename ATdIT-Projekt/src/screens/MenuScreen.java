@@ -15,6 +15,11 @@ import master.Fenster;
 import master.MasterBanner;
 import master.MasterScreen;
 
+/** UI Klasse zur Festlegung des Menu-Screens
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class MenuScreen extends MasterScreen {
 	
 	public JPanel menuPanel;
@@ -24,7 +29,9 @@ public class MenuScreen extends MasterScreen {
 	public static JButton meinProfilButton;
 	public static JButton ausloggenButton;
 	
-	
+	/**
+	 *  Konstruktor für die Erstellung des Menu-Screens ohne Layout
+	 */
 	public MenuScreen( ) {
 		
 		//Definition UI-Layout

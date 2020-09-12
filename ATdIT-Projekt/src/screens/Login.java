@@ -16,6 +16,11 @@ import javax.swing.JTextField;
 import funktionen.LoginFunktion;
 import master.Body;
 
+/**	UI-Klasse für den Login-Screen
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class Login extends Body {
 
 	public static JButton registrieren;
@@ -28,6 +33,20 @@ public class Login extends Body {
 	private JLabel falscherName;
 	private JLabel falschesPasswort;
 
+	/** Konstruktor zum erstellen des UI des Login-Screens
+	 *  @param pan : JPanel
+	 *  @param einloggen : JLabel
+	 *  @param benutzer : JLabel
+	 *  @param passwort : JLabel
+	 *  @param leer : JLabel
+	 *  @param leer1 : JLabel
+	 *  @param leer2 : JLabel
+	 *  @param registrieren: JButton
+	 *  @param passwortVergessen : new JButton
+	 *  @param login : JButton
+	 *  @param falscherName : JLabel
+	 *  @param falschesPasswort : JLabels
+	 */
 	public Login() {
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(13, 1));

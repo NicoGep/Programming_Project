@@ -6,9 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import funktionen.FunktionMeinProfil;
 import funktionen.FunktionProfilBearbeiten;
 
+/** UI-Klasse für den Profil bearbeiten-Screen
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class ProfilBearbeiten extends MasterScreen {
 	ActionListener ProfilBearbeitenAL = new FunktionProfilBearbeiten();
 	
@@ -26,7 +30,9 @@ public class ProfilBearbeiten extends MasterScreen {
 	public static JButton neuesProfilbild;
 	public static JButton passwortAendern;
 
-	
+	/**
+	 *  Konstruktor für den Mein Profil bearbeiten-Screen ohne Layout
+	 */
 	public ProfilBearbeiten() {
 		
 		this.setLayout(null);

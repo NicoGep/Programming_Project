@@ -18,7 +18,11 @@ import funktionen.RegistierenFunktion;
 import master.Body;
 
 
-
+/**	UI-Klasse für den Registrieren-Screen
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class Registrierung extends Body {
 
 	public static JTextField benutzernametx;
@@ -32,7 +36,9 @@ public class Registrierung extends Body {
 	public static JLabel passwortStimmtNichtUeberein;
 	public static JLabel benutzerExistiertBereits;
 	
-	
+	/**
+	 * Konstruktor für den Registrieren-Screen (GridLayout)
+	 */
 	public Registrierung() {
 		
 		JPanel pan = new JPanel();

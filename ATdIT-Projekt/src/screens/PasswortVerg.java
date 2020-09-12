@@ -14,10 +14,32 @@ import javax.swing.JTextField;
 import funktionen.PasswortVergFunktion;
 import master.Body;
 
+/** UI-Klasse für den Passwort Vergessen-Screen
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class PasswortVerg extends Body {
 	
 	public static JButton back;
 	
+	/**
+	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
+	 * @param pan : JPanel
+	 * @param passwortVergessenTitel : JLabel
+	 * @param passwortVergessenTitel2 : JLabel
+	 * @param titel : Font
+	 * @param text : JLabel
+	 * @param text1 : JLabel
+	 * @param text2 : JLabel
+	 * @param codetx : JTextField
+	 * @param einloggen : JButton
+	 * @param back : JButton
+	 * @param leer : JLabel
+	 * @param leer1 : JLabel
+	 * @param leer2 : JLabel
+	 * @param leer3 : JLabel
+	 */
 	public PasswortVerg() {
 		
 		JPanel pan = new JPanel();

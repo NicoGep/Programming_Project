@@ -10,9 +10,9 @@ import javax.swing.SwingConstants;
 import funktionen.KarteSliderFunktion;
 import master.MasterScreen;
 
-/** 
+/** UI-Klasse um das Kartenfenster zu definieren
  * 
- * @author I518230
+ * @author Gruppe 3
  *
  */
 public class KarteScreen extends MasterScreen {
@@ -20,6 +20,16 @@ public class KarteScreen extends MasterScreen {
 	public JSlider streckenLaengeSlider;
 	public JSlider hoehenunterschiedSlider;
 	
+	/**	Konstruktor ohne Layout für den Karte-Screen
+	 * @param kartePanel : JPanel
+	 * @param karteLabel : JLabel
+	 * @param streckenLaengePanel : JPanel
+	 * @param streckenLaengeLabel : JLabel
+	 * @param streckenLaengeSlider : JSlider
+	 * @param hoehenunterschiedPanel : JPanel
+	 * @param hoehenunterschiedLabel : JLabel
+	 * @param hoehenunterschiedSlider : JSlider
+	 */
 	public KarteScreen() {
 		this.setLayout(null);
 		this.setBackground(Color.white);

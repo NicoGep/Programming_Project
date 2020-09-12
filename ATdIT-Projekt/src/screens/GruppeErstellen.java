@@ -10,7 +10,7 @@ import master.MasterScreen;
 
 /**
  *  UI zum Gruppe Erstellen-Screen
- * @author I518230
+ * @author Gruppe 3
  *
  */
 public class GruppeErstellen extends MasterScreen {
