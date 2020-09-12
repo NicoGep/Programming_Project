@@ -22,10 +22,14 @@ import screens.ProfilbildAendern;
  *
  */
 public class FunktionProfilBearbeiten implements ActionListener {
-
+/**Methode, um Änderungen am Profil zu speichern.
+ * Wird der Abbrechen-Knopf gedrückt, so öffnet sich, ohne Speichern der Werte der "MeinProfil"-Screen
+ * Ist der eingegebene Name ungleich null und noch nicht vorhanden, so wird dieser gespeichert. Ansonsten bleibt es beim alten Namen
+ * und in der Konsole wird der Text "Name existiert schon!" ausgegeben.
+ * 
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String zwischenspeicherName = ProfilBearbeiten.neuerName.getText();
 		try {
 			if (e.getSource() == ProfilBearbeiten.abbrechen) {
 				Fenster.addToFrame(new MeinProfil());
