@@ -10,6 +10,11 @@ import javax.swing.*;
 
 import screens.Login;
 
+/** Klasse, um den MasterBanner bereitzustellen, um einheitliche Screens zu haben
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class MasterBanner extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 100;
@@ -17,7 +22,11 @@ public class MasterBanner extends JPanel {
 	JButton back;
 	JButton logout;
 	
-	
+	/**
+	 * Konstruktor zum Erstellen des allgemeinen Konstrukts
+	 * @param back : JButton
+	 * @param logout : JButton
+	 */
 	public MasterBanner() {
 
 		this.setBounds(0, 0, SIZE_X, SIZE_Y);
