@@ -1,14 +1,8 @@
 package tests;
 
-import java.sql.ResultSet;
-
-import javax.swing.JPanel;
-
 import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
-import funktionen.AdminFunctions;
-import master.Body;
 
 public class Helferlein {
 
