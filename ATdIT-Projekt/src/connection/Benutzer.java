@@ -9,6 +9,8 @@ import funktionen.AdminFunctions;
 import master.Fenster;
 
 /**Benutzerklasse für Benutzerfunktionen
+ * Benutzer ist ein Singleton.
+ * Die Benutzerfunktionen funktionieren nur, wenn ein Benutzer eingeloggt ist.
  * 
  * @author I518230
  *
@@ -98,8 +100,6 @@ public class Benutzer {
 		
 	}
 	
-	//#################### Logout einfügen + evtl. finalize Methode erweitern ###################
-	
 	/**
 	 * loggt den Benutzer aus
 	 * @return	false, wenn kein Nutzer angemeldet ist
@@ -116,6 +116,10 @@ public class Benutzer {
 	}
 	
 
+	/**
+	 * Löscht das letzte Benutzer-Objekt für höhere Sicherheit
+	 * 
+	 */
 	@Override
 	protected void finalize() throws Throwable {
 

@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
+import javax.swing.event.ChangeListener;
+
+import funktionen.FunktionKarte;
 import funktionen.KarteSliderFunktion;
 import master.MasterScreen;
 
@@ -20,7 +23,7 @@ public class KarteScreen extends MasterScreen {
 		this.setBackground(Color.white);
 
 		JPanel kartePanel = new JPanel();
-		kartePanel.setBackground(Color.white);
+		kartePanel.setBackground(Color.gray);
 		kartePanel.setBounds(75, 150, 300, 50);
 		
 		JLabel karteLabel = new JLabel("KARTE");
@@ -37,11 +40,17 @@ public class KarteScreen extends MasterScreen {
 		streckenLaengeLabel.setBackground(Color.white);
 		streckenLaengePanel.add(streckenLaengeLabel);
 		
+
+		ChangeListener cL = new KarteSliderFunktion(this);
+//		ChangeListener cL = new FunktionKarte(this);
+
+		hoehenunterschiedSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 1000, 250);
+		
 		streckenLaengeSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 20000, 10000);
 		streckenLaengeSlider.setBounds(50, 425, 300, 50);
 		streckenLaengeSlider.setBackground(Color.white);
 		streckenLaengeSlider.setMinorTickSpacing(500);
-		streckenLaengeSlider.addChangeListener(new KarteSliderFunktion(this));
+		streckenLaengeSlider.addChangeListener(cL);
 
 		JPanel hoehenunterschiedPanel = new JPanel();
 		hoehenunterschiedPanel.setBackground(Color.white);
@@ -52,11 +61,10 @@ public class KarteScreen extends MasterScreen {
 		hoehenunterschiedLabel.setBackground(Color.white);
 		hoehenunterschiedPanel.add(hoehenunterschiedLabel);
 		
-		hoehenunterschiedSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 1000, 250);
 		hoehenunterschiedSlider.setBounds(50, 525, 300, 50);
 		hoehenunterschiedSlider.setBackground(Color.white);
 		hoehenunterschiedSlider.setMinorTickSpacing(50);
-		hoehenunterschiedSlider.addChangeListener(new KarteSliderFunktion(this));
+		hoehenunterschiedSlider.addChangeListener(cL);
 
 		this.add(kartePanel);
 		this.add(streckenLaengePanel);
@@ -64,4 +72,5 @@ public class KarteScreen extends MasterScreen {
 		this.add(streckenLaengeSlider);
 		this.add(hoehenunterschiedSlider);
 	}
+	
 }

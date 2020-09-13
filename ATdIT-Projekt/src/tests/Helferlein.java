@@ -9,6 +9,8 @@ import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import funktionen.AdminFunctions;
 import master.Body;
+import master.Fenster;
+import screens.KarteScreen;
 
 public class Helferlein {
 
@@ -46,6 +48,38 @@ public class Helferlein {
 //			e.printStackTrace();
 //		}
 
+		
+//		
+//		
+//		Fenster f = new Fenster();
+//		
+//		Fenster.addToFrame(new KarteScreen());
+//		
+//		f.setVisible(true);
+		
+		
+		
+		
+//		try {
+//			
+//			DatabaseConnection.connectDatabase();
+//			
+//			Benutzer.loginUser("Test1", "123");
+//			
+//			Benutzer.leaveGroup("TestGrp");
+//			
+//			
+//			DatabaseConnection.disconnectDatabase();
+//			
+//			
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		
+		
+		
+		
 		
 		
 	}

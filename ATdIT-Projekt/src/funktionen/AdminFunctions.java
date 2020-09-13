@@ -24,7 +24,7 @@ public class AdminFunctions {
 	 * @param name : String (Benutzername des Nutzers)
 	 * @param password : String  (Passwort als Hash-Wert)
 	 */
-	static void addUser(String name, int password) {
+	static boolean addUser(String name, int password) {
 		
 		
 		if(findUser(name) == null) {
@@ -33,10 +33,13 @@ public class AdminFunctions {
 			
 			System.out.println("Benutzer " + name + " hinzugefügt.");
 			
+			return true;
+			
 		} else {
 			
 			System.out.println("Benutzer existiert bereits.");
 			
+			return false;
 		}
 		
 		
@@ -104,14 +107,28 @@ public class AdminFunctions {
 			throw new InputException(5);
 		
 		
-		addUser(name, encrypt(password));
+		if(addUser(name, encrypt(password)) == false)
+			throw new InputException(3);
 	}
 	
-	
+	/**
+	 * Verschlüsselt einen Input-String. 
+	 * (Für Passwort gedacht)
+	 * 
+	 * @param st
+	 * @return
+	 */
 	public static int encrypt(String st) {
 		return st.hashCode();
 	}
 	
+	/**
+	 * Verschlüsselt einen Input-char-Array
+	 * (Für Passwort gedacht)
+	 * 
+	 * @param c
+	 * @return
+	 */
 	public static int encrypt(char[] c) {
 		String s = "";
 		
@@ -176,34 +193,6 @@ public class AdminFunctions {
 	}
 	
 	
-//	public static List<String> getAllGroups() {
-//		
-//		List<String> l = new LinkedList<String>();
-//		
-//		try {
-//			
-//			DatabaseConnection.connectDatabase();
-//		
-//			ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.gTB + ";");
-//		
-//			while(set.next()) 
-//				l.add(set.getString("gruppenname"));
-//			
-//			DatabaseConnection.disconnectDatabase();
-//
-//		} catch (DatabaseConnectException e) {
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		if(l.size() == 0)
-//			return null;
-//		
-//		return l;
-//	}
-	
-	
 	/**	Gibt alle Gruppen zurück
 	 * 
 	 * @return null, wenn kein Benutzer im Set gefunden werden konnte
@@ -230,7 +219,7 @@ public class AdminFunctions {
 	
 	
 	
-	//-------------------------------------------------------------- Nilles ------------------------------------------------------------------------
+	//-------------------------------------------------------------- Misc ------------------------------------------------------------------------
 	
 	/** Methode um ein Set in eine Liste umzuwandeln
 	 * 
@@ -268,19 +257,4 @@ public class AdminFunctions {
 		
 	}
 	
-	
-	
-//	public static String outputResultSet(ResultSet set) throws SQLException {
-//		
-//		String result = "";
-//		
-//		while(set.next()) {
-//			result += set.getString("id") + " " + set.getString("name") + "\n";
-//		}
-//		
-//		return result;
-//	
-//	}
-		
-
 }
