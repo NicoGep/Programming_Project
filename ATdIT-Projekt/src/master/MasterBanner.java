@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import connection.Benutzer;
 import screens.Login;
 
 /** Klasse, um den MasterBanner bereitzustellen, um einheitliche Screens zu haben
@@ -22,6 +23,8 @@ public class MasterBanner extends JPanel {
 	JButton back;
 	JButton logout;
 	
+	JLabel nameLabel;
+	
 	/**
 	 * Konstruktor zum Erstellen des allgemeinen Konstrukts
 	 * @param back : JButton
@@ -34,9 +37,13 @@ public class MasterBanner extends JPanel {
 		
 		back = new JButton("Zurück");
 		logout = new JButton("Ausloggen");
+		nameLabel = new JLabel();
+		
+		nameLabel.setText("Hallo " + Benutzer.getName());
 		
 		this.add(back);
 		this.add(logout);
+		this.add(nameLabel);
 		
 		back.addActionListener(new ActionListener() {
 
