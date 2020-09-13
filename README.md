@@ -1,5 +1,6 @@
 # Programming_Project Gruppe 3 ATdIT
 
+Bei der Review bitte berücksichtigen, dass wir nur zu viert sind. (Veronika, Nicolas, Philipp, Lukas)
 Programmierprojekt für das Studium <br>
 ATdIT-Projekt: Source-Code, UML <br>
 presentation: Hier ist die Präsentation für Gruppe 3 zu finden <br>
