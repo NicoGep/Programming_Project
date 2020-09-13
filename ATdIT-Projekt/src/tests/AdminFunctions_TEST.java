@@ -16,8 +16,8 @@ import funktionen.AdminFunctions;
 public class AdminFunctions_TEST {
 	
 	/*
-	 * In der Datenbank wurden (einer) zwei Test-Benuzter angelegt.
-	 * User: "Test1" mit Pw: "123"										 ; und User: "Test2" mit Pw: "456"
+	 * In der Datenbank wurden ein Test-Benuzter angelegt.
+	 * User: "Test1" mit Pw: "123"
 	 * 
 	 * Auﬂerdem wurde noch eine TestGruppe angelegt, 
 	 * mit dem Namen: "TestGrp"
