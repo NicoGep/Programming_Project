@@ -8,8 +8,6 @@ import screens.MeinProfil;
 import screens.MenuScreen;
 
 /**	Klasse, die die Funktion bereitstellt einen Mein Profil-Screen zu öffnen
- * 
- * @author I518230
  *
  */
 public class MeinProfilFunktion implements ActionListener {

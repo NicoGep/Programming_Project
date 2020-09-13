@@ -12,8 +12,6 @@ import master.Fenster;
 import screens.*;
 
 /**	Klasse um die Funktion bereitzustellen für den Passwort ändern-Button
- * 
- * @author I518230
  *
  */
 public class FunktionPasswortAendern implements ActionListener {

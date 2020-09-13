@@ -14,7 +14,7 @@ import master.MasterScreen;
 
 /**
  * 	UI für den Gruppe-Beitreten Screen
- * @author I518230
+ * @author Gruppe3 
  *
  */
 public class GruppeBeitreten extends MasterScreen {

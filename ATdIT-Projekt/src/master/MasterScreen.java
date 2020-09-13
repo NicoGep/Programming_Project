@@ -2,6 +2,11 @@ package master;
 
 import javax.swing.*;
 
+/** Klasse, um den MasterScreen bereitzustellen
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class MasterScreen extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 700;

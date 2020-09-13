@@ -1,0 +1,3 @@
+Startanleitung für die App mit richtiger Datenbanknutzung steht im Wiki unter "Anleitung zum richtigen App Start
+
+https://github.com/NicoGep/Programming_Project/wiki/Anleitung-zum-richtigen-App-Start

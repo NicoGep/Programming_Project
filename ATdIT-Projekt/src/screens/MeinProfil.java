@@ -10,6 +10,11 @@ import javax.swing.*;
 import funktionen.FunktionMeinProfil;
 import master.MasterScreen;
 
+/** UI-Klasse zum festlegen des Mein Profil-Screens
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class MeinProfil extends MasterScreen {
 
 	public static String name;
@@ -33,7 +38,10 @@ public class MeinProfil extends MasterScreen {
 	public JLabel nameLabel;
 	public JLabel niveauLabel;
 	public Icon profilBild;
-
+	
+	/**
+	 * Konstruktor zur festlegen des Mein Profil-Screens ohne Layout
+	 */
 	public MeinProfil() {
 	
 		this.setBackground(Color.lightGray);

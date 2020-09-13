@@ -8,6 +8,11 @@ import javax.swing.*;
 import funktionen.FunktionGruppeErstellen;
 import master.MasterScreen;
 
+/**
+ *  UI zum Gruppe Erstellen-Screen
+ * @author Gruppe 3
+ *
+ */
 public class GruppeErstellen extends MasterScreen {
 
 	public static JButton abbrechen;
@@ -20,6 +25,16 @@ public class GruppeErstellen extends MasterScreen {
 	JLabel gruppenNameLabel;
 	JLabel niveauLabel;
 
+	/**
+	 * Konstruktor Gruppe Erstellen
+	 * Layout : null
+	 * @param gruppenNameLabel : JLabel
+	 * @param niveauLabel : JLabel
+	 * @param gruppenName : JTextField
+	 * @param niveauAuswahl : JComboBox<String>
+	 * @param speichern : JButton
+	 * @param abbrechen : JButton
+	 */
 	public GruppeErstellen() {
 
 		this.setLayout(null);

@@ -9,6 +9,11 @@ import funktionen.FunktionPasswortAendern;
 import funktionen.FunktionProfilBearbeiten;
 import master.MasterScreen;
 
+/** UI-Klasse zur Festlegung des PasswortAendern-Screens
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class PasswortAendern extends MasterScreen {
 	
 	public static JButton speichern;
@@ -24,6 +29,9 @@ public class PasswortAendern extends MasterScreen {
 	public static JLabel neuesPasswortStimmtNichtUeberein;
 	public static JLabel altesPasswortAngeben;
 	
+	/**
+	 * Konstruktor für den Passwort Ändern-Screen ohne Layout
+	 */
 	public PasswortAendern() {
 		this.setLayout(null);
 		ActionListener PasswortAendernAL = new FunktionPasswortAendern();

@@ -12,7 +12,7 @@ import master.Fenster;
  * Benutzer ist ein Singleton.
  * Die Benutzerfunktionen funktionieren nur, wenn ein Benutzer eingeloggt ist.
  * 
- * @author I518230
+ * 
  *
  */
 public class Benutzer {

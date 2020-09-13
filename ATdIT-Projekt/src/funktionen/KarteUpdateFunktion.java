@@ -6,8 +6,6 @@ import exceptions.InputException;
 /** Klasse nur als Thread gestartet werden kann, um die Datenbank nicht übermaßig zu belasten,
  * 	da erst nach dreißig Sekunden die Datenbank aktualisiert wird.
  *  Zunächst eine Zwischenlösung, da nur am Anfang einmalig die Werte geändert werden können.
- * 
- * @author I518230
  *
  */
 public class KarteUpdateFunktion extends Thread {

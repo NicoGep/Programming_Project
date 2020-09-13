@@ -1,21 +1,26 @@
 package funktionen;
 
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JPanel;
 
 import connection.Benutzer;
 import master.Fenster;
 import screens.Login;
 import screens.PasswortVerg;
-import screens.Registrierung;
+
+/** Klasse um die Funktion des PasswortVerg-Screens bereitzustellen
+ * 
+ * @author Gruppe3
+ *
+ */
 
 public class PasswortVergFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
+/** Funktion des Zurückknopfs 
+ * 
+ */
 		if(e.getSource() == PasswortVerg.back) {
 			Benutzer.logoutUser();
 			Fenster.clearHistory();

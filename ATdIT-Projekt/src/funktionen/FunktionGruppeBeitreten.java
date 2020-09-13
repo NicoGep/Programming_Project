@@ -16,8 +16,6 @@ import screens.MeinProfil;
 import screens.ProfilBearbeiten;
 
 /**	Diese Klasse stellt die Funktion für den Gruppe beitreten-Button bereit
- * 
- * @author I518230
  *
  */
 public class FunktionGruppeBeitreten implements ActionListener {

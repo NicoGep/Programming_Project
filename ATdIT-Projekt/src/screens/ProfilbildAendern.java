@@ -8,6 +8,11 @@ import javax.swing.*;
 import funktionen.FunktionProfilbildAendern;
 import master.MasterScreen;
 
+/** UI-Klasse zur Definition des Profilbild ändern-Screens
+ * 
+ * @author Gruppe 3
+ *
+ */
 public class ProfilbildAendern extends MasterScreen {
 	public static JButton speichern;
 	public static JButton abbrechen;
@@ -15,6 +20,9 @@ public class ProfilbildAendern extends MasterScreen {
 	JLabel addresseLabel;
 	public static JTextField addresse;
 
+	/**
+	 * Konstruktor, um den Profilbild ändern-Screen darzustellen (ohne Layout)
+	 */
 	public ProfilbildAendern() {
 		this.setLayout(null);
 		ActionListener ProfilbildAendernAL = new FunktionProfilbildAendern();
