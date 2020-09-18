@@ -1,0 +1,3 @@
+https://www.opencaching.de/ --> API
+
+An fehlendem Einblick in das Hobby Geocaching soll eine Funktionserweiterung nicht scheitern ;-)
