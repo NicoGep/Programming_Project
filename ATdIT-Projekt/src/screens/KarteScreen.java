@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeListener;
-
-import funktionen.FunktionKarte;
 import funktionen.KarteSliderFunktion;
 import master.MasterScreen;
 
