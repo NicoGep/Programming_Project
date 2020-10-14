@@ -17,7 +17,7 @@ import javax.swing.event.ChangeListener;
 import funktionen.KarteSliderFunktion;
 import master.MasterScreen;
 
-/** GUI class to define Karte-Screen
+/** UI for class "KarteScreen"
  * 
  * @author Group3
  *
@@ -27,42 +27,30 @@ public class KarteScreen extends MasterScreen {
 	public JSlider routelengthSlider;
 	public JSlider heightdifferenceSlider;
 	
-	/**	construcor without Layout for Karte-Screen
+	/**	constructor without Layout
 	 * @param mapPanel : JPanel
 	 * @param mapLabel : JLabel
-	 * @param routelenghtPanel : JPanel
+	 * @param routelengthPanel : JPanel
 	 * @param routelengthLabel : JLabel
 	 * @param routelengthSlider : JSlider
 	 * @param heightdifferencePanel : JPanel
 	 * @param heightdifferenceLabel : JLabel
-	 * @param heightdifferenceSlider : JSlider
+	 * @param heigtdifferenceSlider : JSlider
 	 */
 	public KarteScreen() {
 		this.setLayout(null);
 		this.setBackground(Color.white);
-<<<<<<< HEAD
 		
 //		Image mapImage = Toolkit.getDefaultToolkit().createImage("/.ui/images/mapImage.jpg");
 		Icon mapImage = new ImageIcon("./ui/images/mapImage.jpg");
-		JPanel kartePanel = new JPanel();
-		kartePanel.setBounds(75, 50, 300, 300);
+		JPanel mapPanel = new JPanel();
+		mapPanel.setBounds(75, 50, 300, 300);
 		
 		
-		JLabel karteLabel = new JLabel(mapImage);
+		JLabel mapLabel = new JLabel(mapImage);
 //		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
 //		karteLabel.setBackground(Color.white);
-		kartePanel.add(karteLabel);
-=======
-
-		JPanel mapPanel = new JPanel();
-		mapPanel.setBackground(Color.gray);
-		mapPanel.setBounds(75, 150, 300, 50);
-		
-		JLabel mapLabel = new JLabel("KARTE");
-		mapLabel.setFont(new Font("Calibri", Font.BOLD, 40));
-		mapLabel.setBackground(Color.white);
 		mapPanel.add(mapLabel);
->>>>>>> parent of b119c93... Revert "Übersetzung Code komplett englisch"
 
 		JPanel routelengthPanel = new JPanel();
 		routelengthPanel.setBackground(Color.white);
@@ -74,8 +62,8 @@ public class KarteScreen extends MasterScreen {
 		routelengthPanel.add(routelengthLabel);
 		
 
-		ChangeListener changelistener = new KarteSliderFunktion(this);
-//		ChangeListener changelistener = new FunktionKarte(this);
+		ChangeListener cL = new KarteSliderFunktion(this);
+//		ChangeListener cL = new FunktionKarte(this);
 
 		heightdifferenceSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 1000, 250);
 		
@@ -83,7 +71,7 @@ public class KarteScreen extends MasterScreen {
 		routelengthSlider.setBounds(50, 425, 300, 50);
 		routelengthSlider.setBackground(Color.white);
 		routelengthSlider.setMinorTickSpacing(500);
-		routelengthSlider.addChangeListener(changelistener);
+		routelengthSlider.addChangeListener(cL);
 
 		JPanel heightdifferencePanel = new JPanel();
 		heightdifferencePanel.setBackground(Color.white);
@@ -94,19 +82,12 @@ public class KarteScreen extends MasterScreen {
 		heightdifferenceLabel.setBackground(Color.white);
 		heightdifferenceLabel.add(heightdifferenceLabel);
 		
-<<<<<<< HEAD
-		hoehenunterschiedSlider.setBounds(50, 525, 300, 50);
-		hoehenunterschiedSlider.setBackground(Color.white);
-		hoehenunterschiedSlider.setMinorTickSpacing(50);
-		hoehenunterschiedSlider.addChangeListener(cL);
-		
-		
-=======
 		heightdifferenceSlider.setBounds(50, 525, 300, 50);
 		heightdifferenceSlider.setBackground(Color.white);
 		heightdifferenceSlider.setMinorTickSpacing(50);
-		heightdifferenceSlider.addChangeListener(changelistener);
->>>>>>> parent of b119c93... Revert "Übersetzung Code komplett englisch"
+		heightdifferenceSlider.addChangeListener(cL);
+		
+		
 
 		this.add(mapPanel);
 		this.add(routelengthPanel);
@@ -125,3 +106,4 @@ public class KarteScreen extends MasterScreen {
 //	}
 	
 }
+	
