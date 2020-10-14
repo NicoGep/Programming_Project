@@ -18,89 +18,89 @@ import funktionen.RegistierenFunktion;
 import master.Body;
 
 
-/**	UI-Klasse für den Registrieren-Screen
+/**	UI class for class "Registrierung"
  * 
- * @author Gruppe 3
+ * @author Group3
  *
  */
 public class Registrierung extends Body {
 
-	public static JTextField benutzernametx;
-	public static JPasswordField passworttx; 
-	public static JTextField mailtx;
-	public static JPasswordField passwortWiederholentx;
+	public static JTextField userTextfield;
+	public static JPasswordField passwordPasswordfield; 
+	public static JTextField mailTextfield;
+	public static JPasswordField repeatpasswordPasswordfield;
 	
-	public static JButton registrierenB;
-	public static JButton back;
+	public static JButton registerButton;
+	public static JButton backButton;
 	
-	public static JLabel passwortStimmtNichtUeberein;
-	public static JLabel benutzerExistiertBereits;
+	public static JLabel passworddoesnotmatchLabel;
+	public static JLabel userexistsLabel;
 	
 	/**
-	 * Konstruktor für den Registrieren-Screen (GridLayout)
+	 * constructor (GridLayout)
 	 */
 	public Registrierung() {
 		
-		JPanel pan = new JPanel();
-		pan.setLayout(new GridLayout(17,1));
-		pan.setBounds(0,0,450,800);
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(17,1));
+		panel.setBounds(0,0,450,800);
 		
-		JLabel registrieren = new JLabel ("Registrieren");
-		Font titel = new Font ("Segoe UI", Font.BOLD, 30);
-		registrieren.setFont(titel);
+		JLabel registerLabel = new JLabel ("Registrieren");
+		Font title = new Font ("Segoe UI", Font.BOLD, 30);
+		registerLabel.setFont(title);
 		
-		JLabel mail = new JLabel("E-Mail Adresse: ");
-		mailtx = new JTextField();
+		JLabel mailLabel = new JLabel("E-Mail Adresse: ");
+		mailTextfield = new JTextField();
 		
-		JLabel benutzername = new JLabel("Benutzername: ");
-		benutzernametx = new JTextField();
+		JLabel userLabel = new JLabel("Benutzername: ");
+		userTextfield = new JTextField();
 		
-		JLabel passwort = new JLabel("Passwort: ");
-		passworttx = new JPasswordField();
+		JLabel passwordLabel = new JLabel("Passwort: ");
+		passwordPasswordfield = new JPasswordField();
 		
-		JLabel passwortWiederholen = new JLabel("Passwort wiederholen: ");
-		passwortWiederholentx = new JPasswordField();
+		JLabel repeatpasswordLabel = new JLabel("Passwort wiederholen: ");
+		repeatpasswordPasswordfield = new JPasswordField();
 		
-		JCheckBox agb = new JCheckBox("Ich stimme den AGB zu ...");
+		JCheckBox agbCheckbox = new JCheckBox("Ich stimme den AGB zu ...");
 		
-		registrierenB = new JButton("Registieren");
+		registerButton = new JButton("Registieren");
 		
-		back = new JButton("Zurück");
+		backButton = new JButton("Zurück");
 		
-		passwortStimmtNichtUeberein = new JLabel("");
-		benutzerExistiertBereits = new JLabel("");
+		passworddoesnotmatchLabel = new JLabel("");
+		userexistsLabel = new JLabel("");
 		
-		JLabel leer = new JLabel();
-		JLabel leer1 = new JLabel();
-		JLabel leer2 = new JLabel();
+		JLabel space = new JLabel();
+		JLabel space1 = new JLabel();
+		JLabel space2 = new JLabel();
 		
-		pan.add(leer);
-		pan.add(registrieren);
-		pan.add(mail);
-		pan.add(mailtx);
-		pan.add(benutzername);
-		pan.add(benutzernametx);
-		pan.add(passwort);
-		pan.add(passworttx);
-		pan.add(passwortWiederholen);
-		pan.add(passwortWiederholentx);
-		pan.add(agb);
-		pan.add(leer1);
-		pan.add(registrierenB);
-		pan.add(leer2);
-		pan.add(back);
-		pan.add(passwortStimmtNichtUeberein);
-		pan.add(benutzerExistiertBereits);
+		panel.add(space);
+		panel.add(registerLabel);
+		panel.add(mailLabel);
+		panel.add(mailTextfield);
+		panel.add(userLabel);
+		panel.add(userTextfield);
+		panel.add(passwordLabel);
+		panel.add(passwordPasswordfield);
+		panel.add(repeatpasswordLabel);
+		panel.add(repeatpasswordPasswordfield);
+		panel.add(agbCheckbox);
+		panel.add(space1);
+		panel.add(registerButton);
+		panel.add(space2);
+		panel.add(backButton);
+		panel.add(passworddoesnotmatchLabel);
+		panel.add(userexistsLabel);
 		
-		this.add(pan);
+		this.add(panel);
 			
 
-		registrierenB.addActionListener(new RegistierenFunktion());
-		back.addActionListener(new RegistierenFunktion());
+		registerButton.addActionListener(new RegistierenFunktion());
+		backButton.addActionListener(new RegistierenFunktion());
 			
 	}
 	
-	/** Hintergrundbild wird gezeichnet
+	/** background image is drawn
 	 * 
 	 */
 	@Override

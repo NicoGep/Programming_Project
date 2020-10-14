@@ -15,22 +15,22 @@ import master.Fenster;
 import master.MasterBanner;
 import master.MasterScreen;
 
-/** UI Klasse zur Festlegung des Menu-Screens
+/** GUI class for "MenuScreen"
  * 
- * @author Gruppe 3
+ * @author group3
  *
  */
 public class MenuScreen extends MasterScreen {
 	
 	public JPanel menuPanel;
 	public JLabel menuLabel;
-	public static JButton karteButton;
-	public static JButton mountainbikeKarteButton;
-	public static JButton meinProfilButton;
-	public static JButton ausloggenButton;
+	public static JButton mapButton;
+	public static JButton mountainbikemapButton;
+	public static JButton myProfileButton;
+	public static JButton logoutButton;
 	
 	/**
-	 *  Konstruktor für die Erstellung des Menu-Screens ohne Layout
+	 * constructor for the creating of the menu screen without layout
 	 */
 	public MenuScreen( ) {
 		
@@ -47,39 +47,39 @@ public class MenuScreen extends MasterScreen {
 		menuPanel.setBackground(Color.white);
 		
 		
-		karteButton = new JButton("Karte");
-		karteButton.setBackground(Color.white);
-		karteButton.setBounds(75, 150, 300, 50);
-		karteButton.setBorderPainted(false);
-		karteButton.setFont(new Font("Calibri", Font.BOLD, 16));
+		mapButton = new JButton("Karte");
+		mapButton.setBackground(Color.white);
+		mapButton.setBounds(75, 150, 300, 50);
+		mapButton.setBorderPainted(false);
+		mapButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
-		mountainbikeKarteButton = new JButton("Mountainbiking");
-		mountainbikeKarteButton.setBackground(Color.white);
-		mountainbikeKarteButton.setBounds(75, 250, 300, 50);
-		mountainbikeKarteButton.setBorderPainted(false);
-		mountainbikeKarteButton.setFont(new Font("Calibri", Font.BOLD, 16));
+		mountainbikemapButton = new JButton("Mountainbiking");
+		mountainbikemapButton.setBackground(Color.white);
+		mountainbikemapButton.setBounds(75, 250, 300, 50);
+		mountainbikemapButton.setBorderPainted(false);
+		mountainbikemapButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
-		meinProfilButton = new JButton("Mein Profil");
-		meinProfilButton.setBounds(75, 350, 300, 50);
-		meinProfilButton.setBackground(Color.white);
-		meinProfilButton.setBorderPainted(false);
-		meinProfilButton.setFont(new Font("Calibri", Font.BOLD, 16));
+		myProfileButton = new JButton("Mein Profil");
+		myProfileButton.setBounds(75, 350, 300, 50);
+		myProfileButton.setBackground(Color.white);
+		myProfileButton.setBorderPainted(false);
+		myProfileButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
-		ausloggenButton = new JButton("Ausloggen");
-		ausloggenButton.setBackground(Color.white);
-		ausloggenButton.setBounds(170, 600, 125, 50);
-		ausloggenButton.setBorderPainted(false);
-		ausloggenButton.setFont(new Font("Calibri", Font.BOLD, 16));
+		logoutButton = new JButton("Ausloggen");
+		logoutButton.setBackground(Color.white);
+		logoutButton.setBounds(170, 600, 125, 50);
+		logoutButton.setBorderPainted(false);
+		logoutButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
 		//Funktionsaufruf ActionListener für Buttons
-		karteButton.addActionListener(new KarteFunktion());
-		mountainbikeKarteButton.addActionListener(new MountainBikeFunktion());
-		meinProfilButton.addActionListener(new MeinProfilFunktion());
-		ausloggenButton.addActionListener(new AusloggenFunktion());
+		mapButton.addActionListener(new KarteFunktion());
+		mountainbikemapButton.addActionListener(new MountainBikeFunktion());
+		myProfileButton.addActionListener(new MeinProfilFunktion());
+		logoutButton.addActionListener(new AusloggenFunktion());
 		this.add(menuPanel);
-		this.add(karteButton);
-		this.add(mountainbikeKarteButton);
-		this.add(meinProfilButton);
-		this.add(ausloggenButton);
+		this.add(mapButton);
+		this.add(mountainbikemapButton);
+		this.add(myProfileButton);
+		this.add(logoutButton);
 	}
 }

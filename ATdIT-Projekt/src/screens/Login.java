@@ -16,96 +16,96 @@ import javax.swing.JTextField;
 import funktionen.LoginFunktion;
 import master.Body;
 
-/**	UI-Klasse für den Login-Screen
+/**	UI class for the "Login" screen
  * 
- * @author Gruppe 3
+ * @author Group3
  *
  */
 public class Login extends Body {
 
-	public static JButton registrieren;
-	public static JButton passwortVergessen;
-	public static JButton login;
+	public static JButton registerButton;
+	public static JButton forgotpasswordButton;
+	public static JButton loginButton;
 	
-	private JTextField benutzertx;
-	private JPasswordField passworttx;
+	private JTextField userTextfield;
+	private JPasswordField passwordPasswordfield;
 	
-	private JLabel falscherName;
-	private JLabel falschesPasswort;
+	private JLabel wrongnameLabel;
+	private JLabel wrongpasswordLabel;
 
-	/** Konstruktor zum erstellen des UI des Login-Screens
-	 *  @param pan : JPanel
-	 *  @param einloggen : JLabel
-	 *  @param benutzer : JLabel
-	 *  @param passwort : JLabel
-	 *  @param leer : JLabel
-	 *  @param leer1 : JLabel
-	 *  @param leer2 : JLabel
-	 *  @param registrieren: JButton
-	 *  @param passwortVergessen : new JButton
-	 *  @param login : JButton
-	 *  @param falscherName : JLabel
-	 *  @param falschesPasswort : JLabels
+	/** constructor for creating UI of Login-Screen
+	 *  @param panel : JPanel
+	 *  @param loginLabel : JLabel
+	 *  @param userLabel : JLabel
+	 *  @param passwordLabel : JLabel
+	 *  @param space : JLabel
+	 *  @param space1 : JLabel
+	 *  @param space2 : JLabel
+	 *  @param registerButton: JButton
+	 *  @param forgotpasswordButton : new JButton
+	 *  @param loginButton : JButton
+	 *  @param wrongnameLabel : JLabel
+	 *  @param wrongpasswortLabel : JLabels
 	 */
 	public Login() {
-		JPanel pan = new JPanel();
-		pan.setLayout(new GridLayout(13, 1));
-		pan.setBounds(0, 0, 450, 800);
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(13, 1));
+		panel.setBounds(0, 0, 450, 800);
 
-		JLabel einloggen = new JLabel("Log-In");
-		Font titel = new Font("Segoe UI", Font.BOLD, 30);
-		einloggen.setFont(titel);
+		JLabel loginLabel = new JLabel("Log-In");
+		Font title = new Font("Segoe UI", Font.BOLD, 30);
+		loginLabel.setFont(title);
 
-		JLabel benutzer = new JLabel("Benutzername");
-		benutzertx = new JTextField();
-		benutzertx.setText("Test");
+		JLabel userLabel = new JLabel("Benutzername");
+		userTextfield = new JTextField();
+		userTextfield.setText("Test");
 
-		JLabel passwort = new JLabel("Passwort");
-		passworttx = new JPasswordField();
-		passworttx.setText("key");
+		JLabel passwordLabel = new JLabel("Passwort");
+		passwordPasswordfield = new JPasswordField();
+		passwordPasswordfield.setText("key");
 
-		// JLabel leer0 = new JLabel();
-		JLabel leer = new JLabel();
-		JLabel leer1 = new JLabel();
-		JLabel leer2 = new JLabel();
+		JLabel space = new JLabel();
+		JLabel space1 = new JLabel();
+		JLabel space2 = new JLabel();
 
-		registrieren = new JButton("Registrieren");
-		passwortVergessen = new JButton("Passwort vergessen?");
-		login = new JButton("Einloggen");
+		registerButton = new JButton("Registrieren");
+		forgotpasswordButton = new JButton("Passwort vergessen?");
+		loginButton = new JButton("Einloggen");
 
-		falscherName = new JLabel("");
-		falschesPasswort = new JLabel("");
+		wrongnameLabel = new JLabel("");
+		wrongpasswordLabel = new JLabel("");
 	
-		// pan.add(leer0);
-		pan.add(leer);
-		pan.add(einloggen);
+	
+		panel.add(space);
+		panel.add(loginLabel);
 
-		pan.add(benutzer);
-		pan.add(benutzertx);
+		panel.add(userLabel);
+		panel.add(userTextfield);
 
-		pan.add(passwort);
-		pan.add(passworttx);
+		panel.add(passwordLabel);
+		panel.add(passwordPasswordfield);
 
-		pan.add(leer1);
-		pan.add(registrieren);
-		pan.add(passwortVergessen);
-		pan.add(leer2);
-		pan.add(login);
+		panel.add(space1);
+		panel.add(registerButton);
+		panel.add(forgotpasswordButton);
+		panel.add(space2);
+		panel.add(loginButton);
 		
-		pan.add(falscherName);
-		pan.add(falschesPasswort);
+		panel.add(wrongnameLabel);
+		panel.add(wrongpasswordLabel);
 
-		this.add(pan);
+		this.add(panel);
 		
-		ActionListener aL = new LoginFunktion(benutzertx, passworttx, falscherName, falschesPasswort);
+		ActionListener aL = new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel);
 
-		registrieren.addActionListener(aL);
-		passwortVergessen.addActionListener(aL);
-		login.addActionListener(aL);
+		registerButton.addActionListener(aL);
+		forgotpasswordButton.addActionListener(aL);
+		loginButton.addActionListener(aL);
 
 	}
 	
-	/** Hintergrundbild wird gezeichnet
+	/** 
+	 * Background image is drawn
 	 * 
 	 */
 	@Override

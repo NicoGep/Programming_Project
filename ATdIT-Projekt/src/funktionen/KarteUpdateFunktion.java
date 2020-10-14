@@ -17,7 +17,7 @@ public class KarteUpdateFunktion extends Thread {
 	public void run() {
 		try {
 			Thread.sleep(30000);
-			Benutzer.updateParameter(KarteSliderFunktion.streckenLaenge, KarteSliderFunktion.hoehenMeter);
+			Benutzer.updateParameter(KarteSliderFunktion.routeLength, KarteSliderFunktion.heightMeter);
 		} catch (InterruptedException | InputException e) {
 			e.printStackTrace();
 		}

@@ -1,7 +1,7 @@
 package exceptions;
 
 /**
- * 	Exception-Klasse um gescheiterte Datenbankverbindungen spezifisch anzugeben
+ * Exception class to detect failed database connections 
  * 
  *
  */
@@ -9,7 +9,7 @@ public class DatabaseConnectException extends Exception {
 	
 	/**
 	 * 	
-	 * @param state : int (Conncetion-State um spezifische Angaben zu machen)
+	 * @param state : int (Connection state to provide specific information)
 	 */
 	public DatabaseConnectException(int state) {
 

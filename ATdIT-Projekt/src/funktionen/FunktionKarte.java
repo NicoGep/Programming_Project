@@ -10,21 +10,21 @@ import screens.KarteScreen;
 
 public class FunktionKarte implements Runnable, ChangeListener {
 	
-	private JSlider len, high;
+	private JSlider length, height;
 	
-	private Thread t;
+	private Thread thread;
 	
-	private int sLen = 0, hi = 0;
+	private int lengthValue = 0, heightValue = 0;
 	
 	
 	public FunktionKarte(KarteScreen screen) {
 
-		this.len = screen.streckenLaengeSlider;
-		this.high = screen.hoehenunterschiedSlider;
+		this.length = screen.routelengthSlider;
+		this.height = screen.heightdifferenceSlider;
 		
-		this.t = new Thread(this);
+		this.thread = new Thread(this);
 		
-		t.start();
+		thread.start();
 		
 	}
 
@@ -32,17 +32,17 @@ public class FunktionKarte implements Runnable, ChangeListener {
 	@Override
 	public void run() {
 
-		while(!t.isInterrupted()) {
+		while(!thread.isInterrupted()) {
 			
 			try {
 				
 				wait(10000);
 				
-				Benutzer.updateParameter(sLen, hi);
+				Benutzer.updateParameter(lengthValue, heightValue);
 				
 				
 			} catch (InterruptedException | InputException e) {
-				t.interrupt();
+				thread.interrupt();
 			}
 
 			
@@ -53,15 +53,15 @@ public class FunktionKarte implements Runnable, ChangeListener {
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		sLen = len.getValue();
-		hi = high.getValue();
+		lengthValue = length.getValue();
+		heightValue = height.getValue();
 	}
 	
 	
 	@Override
 	protected void finalize() throws Throwable {
 		super.finalize();
-		t.notify();
+		thread.notify();
 	}
 
 }
