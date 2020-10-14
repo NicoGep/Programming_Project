@@ -10,19 +10,19 @@ public class FlexTest {
 	
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
 		try { 
 		
 		DatabaseConnection.connectDatabase();
 		
 		System.out.print("Name: ");
-		String name = sc.next();
+		String name = scanner.next();
 		
 		System.out.print("Passwort: ");
-		String pass = sc.next();
+		String password = scanner.next();
 		
-		Benutzer.loginUser(name, pass);
+		Benutzer.loginUser(name, password);
 		
 		System.out.println("Logged in");
 		
@@ -51,6 +51,6 @@ public class FlexTest {
 		} catch(DatabaseConnectException dbE) {
 			dbE.printStackTrace();
 		}
-		sc.close();
+		scanner.close();
 	}
 }

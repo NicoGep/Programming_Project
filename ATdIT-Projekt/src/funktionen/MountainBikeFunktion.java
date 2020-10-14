@@ -9,12 +9,12 @@ import screens.MenuScreen;
 
 public class MountainBikeFunktion implements ActionListener {
 	/**
-	 * 	nicht ausimplementierte Funktion: 
-	 * 	öffnet den KarteScreen, da die Funktion dahinter ähnlich ist
+	 * 	Function not fully implemented:
+	 * opens the map screen, as the function behind it is similar
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == MenuScreen.mountainbikeKarteButton) {
+		if (e.getSource() == MenuScreen.mountainbikemapButton) {
 			Fenster.addToFrame(new KarteScreen());
 		}
 		

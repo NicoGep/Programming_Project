@@ -33,8 +33,8 @@ public class Benutzer_TEST {
 		
 		assertTrue(Benutzer.getName().equals("Test1"));
 //		assertTrue(Benutzer.getEmail().equals(""));
-		assertTrue(Benutzer.getNiveau().equals("Anfänger"));
-		assertNull(Benutzer.getProfilBild());
+		assertTrue(Benutzer.getLevel().equals("Anfänger"));
+		assertNull(Benutzer.getProfilePicture());
 		
 	}
 	
@@ -44,16 +44,16 @@ public class Benutzer_TEST {
 		try {
 		
 			Benutzer.setName("neuerName");
-			Benutzer.setEmail("a.b@c.de");
-			Benutzer.setNiveau("Amateur");
+			Benutzer.setMail("a.b@c.de");
+			Benutzer.setLevel("Amateur");
 
 			assertEquals("neuerName", Benutzer.getName());
-			assertEquals("a.b@c.de", Benutzer.getEmail());
-			assertEquals("Amateur", Benutzer.getNiveau());
+			assertEquals("a.b@c.de", Benutzer.getMail());
+			assertEquals("Amateur", Benutzer.getLevel());
 
 			Benutzer.setName("Test1");
-			Benutzer.setEmail("test@t.de");
-			Benutzer.setNiveau("Anfänger");
+			Benutzer.setMail("test@t.de");
+			Benutzer.setLevel("Anfänger");
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class Benutzer_TEST {
 	
 	
 	@Test
-	public void gruppenTests() {
+	public void groupTests() {
 		
 		
 		assertNotNull(AdminFunctions.findGroup("TestGrp"));

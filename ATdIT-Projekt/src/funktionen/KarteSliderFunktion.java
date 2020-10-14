@@ -6,40 +6,38 @@ import javax.swing.event.ChangeListener;
 
 import screens.KarteScreen;
 
-/** Klasse die die Funktion zu den Slidern der Karte festlegt
- * 	Erzeugt einen neuen Thread pro Aufruf, der dann nach 30 Sekunden die gewünschten Daten
- * 	für den Benutzer auf die Datenbank speichert
- *
+/**Class with the functions for class "KarteScreen"
+ * Generates a new thread per call, 
+ * which then saves the desired data for the user in the database after 30 seconds
  */
 public class KarteSliderFunktion implements ChangeListener {
-	JSlider sliderFunktionHoehe;
-	JSlider sliderFunktionLaenge;
-	protected static int streckenLaenge;
-	protected static int hoehenMeter;
+	JSlider sliderFunctionHeight;
+	JSlider sliderFunctionLength;
+	protected static int routeLength;
+	protected static int heightMeter;
 
-	/** Konstruktor: Erzeugen eines neuen Threads
-	 * 
-	 * @param karteScreen : KarteScreen (Ein KarteScreen-Objekt wird übergeben, in dem
-	 * 	die Daten der Slider vorhanden sind)
+	/** Constructor: creating a new thread
+	 * @param KarteScreen : KarteScreen 
+	 * (A KarteScreen object is transferred in which the data of the slider are available)
 	 */
-	public KarteSliderFunktion(KarteScreen karteScreen) {
-		sliderFunktionLaenge = karteScreen.streckenLaengeSlider;
-		sliderFunktionHoehe = karteScreen.hoehenunterschiedSlider;
-		KarteUpdateFunktion updateKarte = new KarteUpdateFunktion();
-		updateKarte.start();
+	public KarteSliderFunktion(KarteScreen mapScreen) {
+		sliderFunctionLength = mapScreen.routelengthSlider;
+		sliderFunctionHeight = mapScreen.heightdifferenceSlider;
+		KarteUpdateFunktion updateMap = new KarteUpdateFunktion();
+		updateMap.start();
 	}
 
 	/**
-	 * Werte der Slider werden in die Veriablen geschrieben
+	 * Values of the Slider are written in the variable
 	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		
-		if (e.getSource() == sliderFunktionLaenge) {
-			streckenLaenge = sliderFunktionLaenge.getValue();
+		if (e.getSource() == sliderFunctionLength) {
+			routeLength = sliderFunctionLength.getValue();
 		}
-		else if(e.getSource() == sliderFunktionHoehe) {
-			hoehenMeter = sliderFunktionHoehe.getValue();
+		else if(e.getSource() == sliderFunctionHeight) {
+			heightMeter = sliderFunctionHeight.getValue();
 		}
 		
 	}

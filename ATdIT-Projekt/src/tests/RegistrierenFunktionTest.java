@@ -14,10 +14,10 @@ import funktionen.AdminFunctions;
 public class RegistrierenFunktionTest {
 	static String name = "Test";
 	static String password = "password";
-	static String email = "email@test.de";
+	static String mail = "email@test.de";
 	
 	@Test
-	public void registrierenTest() {
+	public void registerTest() {
 		try {
 			DatabaseConnection.connectDatabase();
 			if (AdminFunctions.findUser(name) == null) 

@@ -7,17 +7,18 @@ import master.Fenster;
 import screens.MeinProfil;
 import screens.MenuScreen;
 
-/**	Klasse, die die Funktion bereitstellt einen Mein Profil-Screen zu öffnen
- *
+/** Class with the functions for class "MeinProfil"
+ * 
+ *  @author Group3
  */
 public class MeinProfilFunktion implements ActionListener {
 
 	/**
-	 * 	wird der mein Profil-Button gedrückt, so öffnet sich der Mein Profil-Screen
+	 * when the 'my profile' button is pressed, the 'MeinProfil' screen opens
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == MenuScreen.meinProfilButton) {
+		if (e.getSource() == MenuScreen.myProfileButton) {
 			Fenster.addToFrame(new MeinProfil());
 		}
 

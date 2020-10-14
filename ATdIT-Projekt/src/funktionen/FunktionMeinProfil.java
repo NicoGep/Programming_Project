@@ -13,31 +13,32 @@ import screens.GruppeErstellen;
 import screens.MeinProfil;
 import screens.ProfilBearbeiten;
 
-/** Klasse die die Funktionen des Mein Profil-Screens festlegt
+/** Class for the functions of the class "MeinProfil"
  * 
+ *  @author Group3
  */
 public class FunktionMeinProfil implements ActionListener {
 
 	/**
-	 * Methode zum Laden der Benutzerdaten
+	 * method to load user data
 	 */
-	public void datenLaden() {
+	public void loadData() {
 		MeinProfil.name = Benutzer.getName();
-		MeinProfil.niveau = Benutzer.getNiveau();
-		MeinProfil.email = Benutzer.getEmail();
-		MeinProfil.profilBildAdresse = Benutzer.getProfilBild();
+		MeinProfil.level = Benutzer.getLevel();
+		MeinProfil.mail = Benutzer.getMail();
+		MeinProfil.profilepictureaddress = Benutzer.getProfilePicture();
 //				"./ui/images/github_profilbild.jpg";
-		gruppenHinzufügen();
+		addGroups();
 	}
 	
 	/**
-	 * Methode zum Hinzufügen einer Gruppe
+	 * method to add groups
 	 */
-	public void gruppenHinzufügen() {
+	public void addGroups() {
 		try {
 			DatabaseConnection.connectDatabase();
 			if (AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname") != null) {
-				MeinProfil.gruppenListe = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
+				MeinProfil.groupList = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
 			}
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
@@ -47,18 +48,17 @@ public class FunktionMeinProfil implements ActionListener {
 	}
 
 	/**
-	 * je nach Button wird hier der Screen ProfilBearbeiten, GruppeErstellen oder
-	 * Gruppe beitreten geöffnet
+	 * the screens 'edit profile', 'create group' or 'group' will open when the associated button is clicked
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == MeinProfil.profilBearbeiten) {
+		if (e.getSource() == MeinProfil.editprofileButton) {
 			Fenster.addToFrame(new ProfilBearbeiten());
 		}
-		if (e.getSource() == MeinProfil.gruppeErstellen) {
+		if (e.getSource() == MeinProfil.creategroupButton) {
 			Fenster.addToFrame(new GruppeErstellen());
 		}
-		if (e.getSource() == MeinProfil.gruppeBeitreten) {
+		if (e.getSource() == MeinProfil.joingroupButton) {
 			Fenster.addToFrame(new GruppeBeitreten());
 		}
 

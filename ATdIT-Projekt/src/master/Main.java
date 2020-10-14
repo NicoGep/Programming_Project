@@ -2,14 +2,14 @@ package master;
 
 import screens.*;
 
-/** Main-Klasse: main-Methode starten, um die Applikation zu starten
+/** Main class : main method to start the Application
  * 
- * @author I518230
+ * @author Group3
  *
  */
 public class Main {
 	
-	/**	main-Methode
+	/**	main method
 	 * 
 	 * @param args : String[] (args-Array)
 	 */

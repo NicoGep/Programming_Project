@@ -18,9 +18,9 @@ import screens.Registrierung;
 import screens.Login;
 import screens.MenuScreen;
 
-/** Klasse um die Funktion des Login-Screens bereitzustellen
+/** Class with the functions of "Login"
  * 
- * @author Gruppe3
+ * @author Group3
  *
  */
 public class LoginFunktion implements ActionListener {
@@ -28,14 +28,14 @@ public class LoginFunktion implements ActionListener {
 	private JTextField name;
 	private JPasswordField password;
 	
-	private JLabel falscherName, falschesPasswort;
+	private JLabel wrongnameLabel, wrongpasswordLabel;
 	
-	/** Datenbank wird gestartet
+	/** Data base is started
 	 * 
-	 * @param benutzertx : String (Benutzername)
-	 * @param passworttx : String (Passwort)
+	 * @param userTextfield : String (user name)
+	 * @param passwordTextfield : String (password)
 	 */
-	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx, JLabel falscherName, JLabel falschesPasswort) {
+	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel, JLabel wrongpasswordLabel) {
 		
 		try {
 			DatabaseConnection.connectDatabase();
@@ -43,15 +43,14 @@ public class LoginFunktion implements ActionListener {
 			e.printStackTrace();
 		}
 		
-		name = benutzertx;
-		password = passworttx;
-		this.falscherName = falscherName;
-		this.falschesPasswort = falschesPasswort;
+		name = userTextfield;
+		password = passwordPasswordfield;
+		this.wrongnameLabel = wrongnameLabel;
+		this.wrongpasswordLabel = wrongpasswordLabel;
 	}
 
-	/** Buttonereignisse.
-	 *  Logindaten mit Datenbank überprüfen mit der entsprechenden Fehlermeldung bei falschem Namen/Passwort.
-	 *  Weiterleitung zu den Screens Menü, Passwort vergessen und Registrierung.
+	/** Check the login data with the database with the corresponding error message if the name / password is incorrect.
+	 * Forwarding to the screens menu, forgot password and registration.
 	 * 
 	 */
 	@Override
@@ -59,19 +58,19 @@ public class LoginFunktion implements ActionListener {
 
 		try {
 			
-			falscherName.setText("");
-			falschesPasswort.setText("");
+			wrongnameLabel.setText("");
+			wrongpasswordLabel.setText("");
 			
-			if (e.getSource() == Login.login) {
+			if (e.getSource() == Login.loginButton) {
 				String s = "";
 				char[] c = password.getPassword();
 				for(int i = 0; i < c.length; i++)
 					s += c[i];
 				Benutzer.loginUser(name.getText().strip(), s);
 				Fenster.addToFrame(new MenuScreen());
-			} else if (e.getSource() == Login.passwortVergessen) {
+			} else if (e.getSource() == Login.forgotpasswordButton) {
 				Fenster.addToFrame(new PasswortVerg());
-			} else if (e.getSource() == Login.registrieren) {
+			} else if (e.getSource() == Login.registerButton) {
 				Fenster.addToFrame(new Registrierung());
 			}
 			
@@ -79,22 +78,22 @@ public class LoginFunktion implements ActionListener {
 
 		} catch (DatabaseConnectException dbE) {
 			dbE.printStackTrace();
-			// Fehler ausgeben, z.B. Anscheinend keine Internetverbindung o.Ä.
+			// Output errors, e.g. Apparently no internet connection or the like.
 		} catch (LoginCredentialsException lE) {
 			switch(lE.getState()) {//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
-			case 1: falscherName.setText("Benutzername falsch."); 
-			falscherName.setBackground(Color.WHITE);
-			falscherName.setForeground(Color.RED);
+			case 1: wrongnameLabel.setText("Benutzername falsch."); 
+			wrongnameLabel.setBackground(Color.WHITE);
+			wrongnameLabel.setForeground(Color.RED);
 			break;			
 			
-			case 2: falschesPasswort.setText("Passwort falsch.");
-			falschesPasswort.setBackground(Color.WHITE);
-			falschesPasswort.setForeground(Color.RED);
+			case 2: wrongpasswordLabel.setText("Passwort falsch.");
+			wrongpasswordLabel.setBackground(Color.WHITE);
+			wrongpasswordLabel.setForeground(Color.RED);
 			break;
 			
 			default: break;
 			}
-			Fenster.neuZeichnen();
+			Fenster.newDraw();
 		}
 	}
 }

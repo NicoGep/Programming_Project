@@ -11,13 +11,14 @@ import exceptions.LoginCredentialsException;
 import master.Fenster;
 import screens.*;
 
-/**	Klasse um die Funktion bereitzustellen für den Passwort ändern-Button
+/**	Class for the functions for class "PasswortAendern"
+ * 
+ * @author Group3
  *
  */
 public class FunktionPasswortAendern implements ActionListener {
 
-	/**	ActionListener für den abbrechen-Button und den speichern-Button,
-	 * um die eingegebenen Daten zu kontrollieren
+	/**	ActionListener for the cancel button and the save button to control the entered data
 	 * 
 	 */
 	@Override
@@ -26,32 +27,32 @@ public class FunktionPasswortAendern implements ActionListener {
 
 			DatabaseConnection.connectDatabase();
 
-			if (e.getSource() == PasswortAendern.abbrechen) {
+			if (e.getSource() == PasswortAendern.cancelButton) {
 				Fenster.addToFrame(new ProfilBearbeiten());
 			}
-			if (e.getSource() == PasswortAendern.speichern) {
-				PasswortAendern.neuesPasswortStimmtNichtUeberein.setVisible(false);
-				PasswortAendern.altesPasswortAngeben.setVisible(false);
+			if (e.getSource() == PasswortAendern.saveButton) {
+				PasswortAendern.newpassworddoesnotmatchLabel.setVisible(false);
+				PasswortAendern.stateoldpasswordLabel.setVisible(false);
 
-				// Passwortkontrolle mit Datenbankabfrage
+				// password control with data query
 				try {
-					AdminFunctions.checkPassword(AdminFunctions.encrypt(PasswortAendern.altesPasswort.getText()),
+					AdminFunctions.checkPassword(AdminFunctions.encrypt(PasswortAendern.oldpasswordPasswordfield.getText()),
 							AdminFunctions.findUser(Benutzer.getName()));
-					if (PasswortAendern.neuesPasswort.getText()
-							.equals(PasswortAendern.neuesPasswortKontrolle.getText())) {
+					if (PasswortAendern.newpasswordPasswordfield.getText()
+							.equals(PasswortAendern.newpasswordPasswordfield.getText())) {
 
-						Benutzer.setPassword((String) PasswortAendern.neuesPasswort.getText());
+						Benutzer.setPassword((String) PasswortAendern.newpasswordPasswordfield.getText());
 
 						Fenster.addToFrame(new ProfilBearbeiten());
 					} else {
-						PasswortAendern.neuesPasswortStimmtNichtUeberein.setVisible(true);
+						PasswortAendern.newpassworddoesnotmatchLabel.setVisible(true);
 					}
 				} catch (LoginCredentialsException e1) {
-					if (!(PasswortAendern.neuesPasswort.getText()
-							.equals(PasswortAendern.neuesPasswortKontrolle.getText()))) {
-						PasswortAendern.neuesPasswortStimmtNichtUeberein.setVisible(true);
+					if (!(PasswortAendern.newpasswordPasswordfield.getText()
+							.equals(PasswortAendern.newpasswordcontrolPasswordfield.getText()))) {
+						PasswortAendern.newpassworddoesnotmatchLabel.setVisible(true);
 					}
-					PasswortAendern.altesPasswortAngeben.setVisible(true);
+					PasswortAendern.stateoldpasswordLabel.setVisible(true);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
