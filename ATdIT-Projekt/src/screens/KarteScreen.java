@@ -1,8 +1,14 @@
 package screens;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -34,14 +40,16 @@ public class KarteScreen extends MasterScreen {
 	public KarteScreen() {
 		this.setLayout(null);
 		this.setBackground(Color.white);
-
-		JPanel kartePanel = new JPanel();
-		kartePanel.setBackground(Color.gray);
-		kartePanel.setBounds(75, 150, 300, 50);
 		
-		JLabel karteLabel = new JLabel("KARTE");
-		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
-		karteLabel.setBackground(Color.white);
+//		Image mapImage = Toolkit.getDefaultToolkit().createImage("/.ui/images/mapImage.jpg");
+		Icon mapImage = new ImageIcon("./ui/images/mapImage.jpg");
+		JPanel kartePanel = new JPanel();
+		kartePanel.setBounds(75, 50, 300, 300);
+		
+		
+		JLabel karteLabel = new JLabel(mapImage);
+//		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
+//		karteLabel.setBackground(Color.white);
 		kartePanel.add(karteLabel);
 
 		JPanel streckenLaengePanel = new JPanel();
@@ -78,6 +86,8 @@ public class KarteScreen extends MasterScreen {
 		hoehenunterschiedSlider.setBackground(Color.white);
 		hoehenunterschiedSlider.setMinorTickSpacing(50);
 		hoehenunterschiedSlider.addChangeListener(cL);
+		
+		
 
 		this.add(kartePanel);
 		this.add(streckenLaengePanel);
@@ -85,5 +95,14 @@ public class KarteScreen extends MasterScreen {
 		this.add(streckenLaengeSlider);
 		this.add(hoehenunterschiedSlider);
 	}
+	
+//	@Override
+//	protected void paintComponent(Graphics g) {
+//		super.paintComponent(g);
+//		Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/mapImage.jpg");
+//		g.drawImage(img, 0, 0, null);
+//		setVisible(true);
+//		repaint();
+//	}
 	
 }
