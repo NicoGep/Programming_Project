@@ -7,19 +7,17 @@ import master.Fenster;
 import screens.KarteScreen;
 import screens.MenuScreen;
 
-/**	class with the functions for class "KarteScreen"
- * 
- * @author Group3
+/**	Klasse um die Funktion bereitzustellen das Kartenfenster zu öffnen
  *
  */
 public class KarteFunktion implements ActionListener {
 
 	/**
-	 * when the 'map' button is pressed, the screen 'map' will open 
+	 * Der KartenScreen wird nach Drücken des Karten-Buttons geöffnet
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == MenuScreen.mapButton) {
+		if (e.getSource() == MenuScreen.karteButton) {
 			Fenster.addToFrame(new KarteScreen());
 		}
 	}

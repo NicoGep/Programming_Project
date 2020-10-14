@@ -15,12 +15,12 @@ import screens.GruppeBeitreten;
 import screens.MeinProfil;
 import screens.ProfilBearbeiten;
 
-/**	class with functions for class "GruppeBeitreten"
+/**	Diese Klasse stellt die Funktion für den Gruppe beitreten-Button bereit
  *
  */
 public class FunktionGruppeBeitreten implements ActionListener {
 
-	/**	Implementation of the function for the join group button
+	/**	Implementierung der Funktion für den Gruppe beitreten-Button
 	 * 
 	 */
 	@Override
@@ -28,32 +28,32 @@ public class FunktionGruppeBeitreten implements ActionListener {
 
 		try {
 			DatabaseConnection.connectDatabase();
-			if (e.getSource() == GruppeBeitreten.searchButton) {
-				GruppeBeitreten.groups.removeAllItems();
-				loadGroups();
-				Iterator it = GruppeBeitreten.groupList.iterator();
+			if (e.getSource() == GruppeBeitreten.suchen) {
+				GruppeBeitreten.gruppen.removeAllItems();
+				gruppenLaden();
+				Iterator it = GruppeBeitreten.gruppenListe.iterator();
 				while (it.hasNext()) {
 					String item = (String) it.next();
-					String search = GruppeBeitreten.groupNameTextfield.getText();
-					if (item.contains(search)) {
-						GruppeBeitreten.groups.addItem(item);
+					String suche = GruppeBeitreten.gruppenName.getText();
+					if (item.contains(suche)) {
+						GruppeBeitreten.gruppen.addItem(item);
 						System.out.println(item);
 					}
 				}
-				GruppeBeitreten.groups.setVisible(true);
+				GruppeBeitreten.gruppen.setVisible(true);
 				DatabaseConnection.disconnectDatabase();
 			}
 
-			else if (e.getSource() == GruppeBeitreten.deleteButton) {
-				Benutzer.leaveGroup((GruppeBeitreten.groups.getItemAt(GruppeBeitreten.groups.getSelectedIndex())));
+			else if (e.getSource() == GruppeBeitreten.loeschen) {
+				Benutzer.leaveGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
 				DatabaseConnection.disconnectDatabase();
-			} else if (e.getSource() == GruppeBeitreten.joinButton) {
+			} else if (e.getSource() == GruppeBeitreten.beitreten) {
 
-				Benutzer.joinGroup((GruppeBeitreten.groups.getItemAt(GruppeBeitreten.groups.getSelectedIndex())));
+				Benutzer.joinGroup((GruppeBeitreten.gruppen.getItemAt(GruppeBeitreten.gruppen.getSelectedIndex())));
 				DatabaseConnection.disconnectDatabase();
 			}
 
-			else if (e.getSource() == GruppeBeitreten.backButton) {
+			else if (e.getSource() == GruppeBeitreten.zurueck) {
 				DatabaseConnection.disconnectDatabase();
 				Fenster.addToFrame(new MeinProfil());
 			} else {
@@ -66,12 +66,12 @@ public class FunktionGruppeBeitreten implements ActionListener {
 		}
 	}
 
-	/**Function to load existing groups
+	/**	Funktion um die vorhanden Gruppen zu laden
 	 * 
 	 */
-	public void loadGroups() {
+	public void gruppenLaden() {
 		if (AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname") != null) {
-			GruppeBeitreten.groupList = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");
+			GruppeBeitreten.gruppenListe = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");
 		}
 	}
 

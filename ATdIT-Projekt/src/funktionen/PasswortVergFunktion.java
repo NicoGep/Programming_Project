@@ -8,9 +8,9 @@ import master.Fenster;
 import screens.Login;
 import screens.PasswortVerg;
 
-/** Class for the function of class "PasswortVerg"
+/** Klasse um die Funktion des PasswortVerg-Screens bereitzustellen
  * 
- * @author Group3
+ * @author Gruppe3
  *
  */
 
@@ -18,13 +18,13 @@ public class PasswortVergFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-/** Function of the back button 
+/** Funktion des Zurückknopfs 
  * 
  */
-		if(e.getSource() == PasswortVerg.backButton) {
+		if(e.getSource() == PasswortVerg.back) {
 			Benutzer.logoutUser();
 			Fenster.clearHistory();
-			Fenster.newDraw(new Login());
+			Fenster.neuZeichnen(new Login());
 		}
 	}
 	

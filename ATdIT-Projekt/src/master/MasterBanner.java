@@ -11,23 +11,23 @@ import javax.swing.*;
 import connection.Benutzer;
 import screens.Login;
 
-/** Class for the MasterBanner to have uniform screens
+/** Klasse, um den MasterBanner bereitzustellen, um einheitliche Screens zu haben
  * 
- * @author Group 3
+ * @author Gruppe 3
  *
  */
 public class MasterBanner extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 100;
 	
-	JButton backButton;
-	JButton logoutButton;
+	JButton back;
+	JButton logout;
 	
 	JLabel nameLabel;
 	
 	/**
-	 * Constructor to create a general construct
-	 * @param backButton : JButton
+	 * Konstruktor zum Erstellen des allgemeinen Konstrukts
+	 * @param back : JButton
 	 * @param logout : JButton
 	 */
 	public MasterBanner() {
@@ -35,17 +35,17 @@ public class MasterBanner extends JPanel {
 		this.setBounds(0, 0, SIZE_X, SIZE_Y);
 		this.setBackground(Color.GREEN);
 		
-		backButton = new JButton("Zurück");
-		logoutButton = new JButton("Ausloggen");
+		back = new JButton("Zurück");
+		logout = new JButton("Ausloggen");
 		nameLabel = new JLabel();
 		
 		nameLabel.setText("Hallo " + Benutzer.getName());
 		
-		this.add(backButton);
-		this.add(logoutButton);
+		this.add(back);
+		this.add(logout);
 		this.add(nameLabel);
 		
-		backButton.addActionListener(new ActionListener() {
+		back.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -54,7 +54,7 @@ public class MasterBanner extends JPanel {
 			
 		});
 		
-		logoutButton.addActionListener(new ActionListener() {
+		logout.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {

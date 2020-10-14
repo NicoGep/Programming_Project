@@ -8,9 +8,9 @@ import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
 import master.Fenster;
 
-/**User class for user functions
- * User is a singleton.
- * The user functions only work when a user is logged in.
+/**Benutzerklasse für Benutzerfunktionen
+ * Benutzer ist ein Singleton.
+ * Die Benutzerfunktionen funktionieren nur, wenn ein Benutzer eingeloggt ist.
  * 
  * 
  *
@@ -22,15 +22,14 @@ public class Benutzer {
 	//-------------------------------------- WIP ---------------------------------------------------
 	private int userID;
 	private String name;
-	private String mail;
-	private String level;
-	private String profilepicture;
+	private String email;
+	private String niveau;
+	private String profilbild;
 	
 	
-	/**
-	 * Constructor
+	/**Konstruktor
 	 * 
-	 * @param set User set that must be passed: ResultSet
+	 * @param set Benutzerset, das übergeben werden muss : ResultSet
 	 */
 	private Benutzer(ResultSet set) {
 		Benutzer.loggedUser = this;
@@ -39,24 +38,23 @@ public class Benutzer {
 		
 		userID = set.getInt("id");
 		name = set.getString("name");
-		mail = set.getString("email");
-		level = set.getString("niveau");
-		profilepicture = set.getString("profilbild");
+		email = set.getString("email");
+		niveau = set.getString("niveau");
+		profilbild = set.getString("profilbild");
 		
-		} catch(SQLException sqlException) {
-			sqlException.printStackTrace();
+		} catch(SQLException sqlE) {
+			sqlE.printStackTrace();
 		}
 		
 		
 	}
 	//----------------------------------------------- Login & Logout -----------------------------------------------
 	
-	/** 
-	 * User login in the database
+	/** User Login in der Datenbank
 	 * 
-	 * @param name Username: String
-	 * @param password Password: String
-	 * @throws LoginCredentialsException if the entries do not match the database data
+	 * @param name	Benutzername : String
+	 * @param password Passwort : String
+	 * @throws LoginCredentialsException wenn die Eingaben nicht mit den Datenbankdaten übereinstimmen
 	 */
 	public static void loginUser(String name, String password) throws LoginCredentialsException {
 
@@ -93,8 +91,8 @@ public class Benutzer {
 		new Benutzer(user);
 		
 		
-		} catch(SQLException sqlException) {
-			sqlException.printStackTrace();
+		} catch(SQLException sqlE) {
+			sqlE.printStackTrace();
 			System.out.println("SQLException1");
 		} catch(InputException inputE) {
 			System.out.println("Da ist was richtig schief gegangen");
@@ -103,9 +101,9 @@ public class Benutzer {
 	}
 	
 	/**
-	 * logs the user out
-	 * @return false if no user is logged in
-	 * true if the user was successfully logged out
+	 * loggt den Benutzer aus
+	 * @return	false, wenn kein Nutzer angemeldet ist
+	 * 			true, wenn der Nutzer erfolgreich abgemeldet werden konnte
 	 */
 	public static boolean logoutUser() {
 		
@@ -119,7 +117,7 @@ public class Benutzer {
 	
 
 	/**
-	 * Deletes the last user object for greater security
+	 * Löscht das letzte Benutzer-Objekt für höhere Sicherheit
 	 * 
 	 */
 	@Override
@@ -127,81 +125,84 @@ public class Benutzer {
 
 		this.userID = -1;
 		this.name = null;
-		this.mail = null;
-		this.level = null;
-		this.profilepicture = null;
+		this.email = null;
+		this.niveau = null;
+		this.profilbild = null;
 		
 	}
 	
 	
 	//------------------------------------------------------------ Getter ------------------------------------------------
 	
-	/**	get method for the user ID
-	 *  @return the user ID of the user: int
+	/**	get-Methode für die Benutzer-ID
+	 * 
+	 * @return die User-ID des Benutzers : int
 	 */
 	public static int getID() {
 		return loggedUser.userID;
 	}
 	
-	/** get method for the name of the user
+	/** get-Methode für den Namen des Benutzers
 	 * 
-	 * @return the name of the user
+	 * @return den Namen des Benutzers
 	 */
 	public static String getName() {
 		return loggedUser.name;
 	}
 	
-	/** get method for the user's email address
-	 * @return the user's email address: String
+	/** get-Methode für die E-Mail-Adresse des Benutzers
+	 * 
+	 * @return die E-Mail-Adresse des Benutzers : String
 	 */
-	public static String getMail() {
-		return loggedUser.mail;
+	public static String getEmail() {
+		return loggedUser.email;
 	}
 
-	/**	get method for the level of the user
+	/**	get-Methode für das Niveau des Benutzers
 	 * 
-	 * @return user level: String
+	 * @return Benutzer Niveau : String
 	 */
-	public static String getLevel() {
-		return loggedUser.level;
+	public static String getNiveau() {
+		return loggedUser.niveau;
 	}
 	
-	/**get method for the user's profile picture
-	 * @return the profile picture path: String
+	/**	get-Methode für Profilbild des Benutzers
+	 * 
+	 * @return	den Profilbildpfad : String
 	 */
-	public static String getProfilePicture() {
-		return loggedUser.profilepicture;
+	public static String getProfilBild() {
+		return loggedUser.profilbild;
 	}
 	
 	//-------------------------------------------------------------- Setter ------------------################### Bessere Eingabe-Überprüfungen einbauen ###################
 	
-	/**	Method for setting the name of the user
+	/**	Methode zum Setzen des Namens des Benutzers
 	 * 
-	 * @param newname new name: String
+	 * @param neuerName neuer Name : String
 	 * @return
 	 * @throws InputException
 	 */
-	public static boolean setName(String newName) throws InputException {
+	public static boolean setName(String neuerName) throws InputException {
 		
 		if(loggedUser == null)
 			return false;
 		
-		if(AdminFunctions.findUser(newName) != null)
+		if(AdminFunctions.findUser(neuerName) != null)
 			throw new InputException(3);
 		
 		
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.userTable + " SET name = '" + newName + "' WHERE id = " + getID() + ";");
-		loggedUser.name = newName;
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET name = '" + neuerName + "' WHERE id = " + getID() + ";");
+		loggedUser.name = neuerName;
 		
 		return true;
 	}
 	
-	/** The user's password can be changed
+	/** Passwort des Benutzers kann geändert werden
 	 * 
-	 * @param password: String
-	 * @return false if no user is logged in
-	 * true if the database update worked
-	 * @throws InputException no password was passed
+	 * @param password : String
+	 * @return false, wenn kein Benutzer eingeloggt ist
+	 * 			true, wenn das Datenbankupdate funktioniert hat
+	 * @throws InputException kein Passwort übergeben wurde
 	 */
 	public static boolean setPassword(String password) throws InputException {
 		
@@ -211,73 +212,73 @@ public class Benutzer {
 		if(password.isBlank())
 			throw new InputException(5);
 		
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.userTable + " SET password = " + AdminFunctions.encrypt(password) + " WHERE id = " + getID() + ";");
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET password = " + AdminFunctions.encrypt(password) + " WHERE id = " + getID() + ";");
 			
 		return true;		
 	}
 	
 	
-	/** Method for setting the user's email address
+	/** Methode zum Setzen der E-Mail-Adresse des Benutzers
 	 * 
-	 * @param newEmail: String
-	 * @return false if no user could be found, the email address no @ or no. owns
-	 * true if the database update worked properly
+	 * @param neueEmail : String
+	 * @return false, wenn kein Benutzer gefunden werden konnte, die E-Mail-Adresse kein @ oder kein . besitzt
+	 * 			true, wenn das Datenbankupdate richtig funktioniert hat
 	 */
-	public static boolean setMail(String newMail) {
+	public static boolean setEmail(String neueEmail) {
 		
 		if(loggedUser == null)
 			return false;
 		
 		
-		if(!newMail.contains("@"))		
+		if(!neueEmail.contains("@"))		
 			return false;
 		
-		if(!newMail.contains("."))
+		if(!neueEmail.contains("."))
 			return false;
 		
 		
 
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.userTable + " SET email = '" + newMail + "' WHERE id = " + getID() + ";");
-		loggedUser.mail = newMail;
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET email = '" + neueEmail + "' WHERE id = " + getID() + ";");
+		loggedUser.email = neueEmail;
 		
 		return true;
 	}
 	
-	/** Method of setting the user's level
+	/** Methode zum Setzen des Niveaus des Benutzers
 	 * 
-	 * @param new level: String
-	 * @return false if no user is logged in
-	 * true if the database update worked properly
+	 * @param neuesNiveau : String
+	 * @return false, wenn kein Benutzer angemeldet ist
+	 * 			true, wenn das Datenbankupdate richtig funktioniert hat
 	 */
-	public static boolean setLevel(String newLevel) {
+	public static boolean setNiveau(String neuesNiveau) {
 		
 		if(loggedUser == null)
 			return false;
 		
 		
 
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.userTable + " SET niveau = '" + newLevel + "' WHERE id = " + getID() + ";");
-		loggedUser.level = newLevel;
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET niveau = '" + neuesNiveau + "' WHERE id = " + getID() + ";");
+		loggedUser.niveau = neuesNiveau;
 		
 		return true;
 	}
 	
 	
-	/** Defines a new profile picture for the user
+	/** Legt ein neues Profilbild für den Benutzer fest
 	 * 
-	 * @param new profile picture File path for the picture to be used: String
-	 * @return true, if the profile picture could be set
-	 * false if the profile picture could not be set
+	 * @param neuesProfilbild Dateipfad für das zu nutzende Bild : String
+	 * @return	true, wenn das Profilbild gesetzt werden konnte
+	 * 			false, wenn das Profilbild nicht gesetzt werden konnte
 	 */
-	public static boolean setProfilePicture(String newProfilepicture) {
+	public static boolean setProfilbild(String neuesProfilbild) {
 		
 		if(loggedUser == null)
 			return false;
 		
 		
 
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.userTable + " SET profilbild = '" + newProfilepicture + "' WHERE id = " + getID() + ";");
-		loggedUser.profilepicture = newProfilepicture;
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.uTB + " SET profilbild = '" + neuesProfilbild + "' WHERE id = " + getID() + ";");
+		loggedUser.profilbild = neuesProfilbild;
 		
 		return true;
 	}
@@ -285,10 +286,10 @@ public class Benutzer {
 	
 	//--------------------------------------------------------------------------------- Parameter ------------------------------------------------------------
 	
-	/** Method to find the parameters route length and altitude for the right user
+	/** Methode um die Parameter Streckenlänge und Höhenmeter zum passenden Benutzer zu finden
 	 * 
-	 * @return false if no user is logged in
-	 * true if the database update could be carried out correctly
+	 * @return false, wenn kein Benutzer angemeldet ist
+	 * 			true, wenn das Datenbankupdate richtig durchgeführt werden konnte
 	 */
 	public static ResultSet getParameter() {
 		
@@ -296,7 +297,7 @@ public class Benutzer {
 			return null;
 		
 		
-		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.parameterTable + " WHERE userid = " + getID() + ";");
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.pTB + " WHERE userid = " + getID() + ";");
 		
 		
 		try {
@@ -307,40 +308,40 @@ public class Benutzer {
 			
 			return set;			
 			
-		} catch (SQLException exception) {
-			exception.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
 	
 	
 	
-	/**
-	 * Method for changing the parameters route length and altitude
-	 * @param strackenL: int (path length)
-	 * @param hoehenU: int (altitude difference)
-	 * @return false if no user is logged in
-	 * true if the database update could be carried out correctly
-	 * @throws InputException if the parameters are unrealistic
+	/**	Methode zum Ändern der Parameter Streckenlänge und Höhenmeter 
+	 * 
+	 * @param streckenL	: int (Streckenlänge)
+	 * @param hoehenU : int (Höhenmeter)
+	 * @return false, wenn kein Benutzer angemeldet ist
+	 * 			true, wenn das Datenbankupdate richtig durchgeführt werden konnte
+	 * @throws InputException wenn die Parameter unrealistisch sind
 	 */
-	public static boolean updateParameter(int routeLength, int heightDifference) throws InputException {
+	public static boolean updateParameter(int streckenL, int hoehenU) throws InputException {
 		
 		if(loggedUser == null)
 			return false;
 		
 		
-		if(routeLength < 0 || heightDifference < 0)
+		if(streckenL < 0 || hoehenU < 0)
 			throw new InputException(10);
 		
 		
 		if(getParameter() == null) {
 			
-			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.parameterTable + " (userid, streckenlaenge, hoehenunterschied) VALUES (" + getID() + ", " + routeLength + ", " + heightDifference + ");");
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.pTB + " (userid, streckenlaenge, hoehenunterschied) VALUES (" + getID() + ", " + streckenL + ", " + hoehenU + ");");
 			System.out.println("Parameter hinzugefügt.");
 			return true;
 		} else {
 			
-			DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.parameterTable + " SET streckenlaenge = " + routeLength + ", hoehenunterschied = " + heightDifference + " WHERE userid = " + getID() + ";");
+			DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.pTB + " SET streckenlaenge = " + streckenL + ", hoehenunterschied = " + hoehenU + " WHERE userid = " + getID() + ";");
 			System.out.println("Parameter aktualisiert.");
 			return true;
 		}
@@ -351,53 +352,52 @@ public class Benutzer {
 	
 	//------------------------------------------------------------------------------- Gruppen verwalten -------------------------------------------------------
 	
-	/**	Function to join a group.
+	/**	Funktion, um einer Gruppe beizutreten.
 	 * 
-	 * @param group group name
-	 * @return true if the group could be joined
-	 * false if the group could not be joined
-	 * @throws InputException if invalid data was entered
+	 * @param gruppe Gruppenname
+	 * @return 	true, wenn der Gruppe beigetreten werden konnte
+	 * 			false, wenn der Gruppe nicht beigetreten werden konnte
+	 * @throws InputException wenn ungültige Daten eingegeben wurden
 	 */
-	public static boolean joinGroup(String group) throws InputException {
+	public static boolean joinGroup(String gruppe) throws InputException {
 		
 		if(loggedUser == null)
 			return false;
 		
 		
 		
-		ResultSet group1 = AdminFunctions.findGroup(group);
+		ResultSet group = AdminFunctions.findGroup(gruppe);
 		
 		
-		if(group1 == null)
+		if(group == null)
 			throw new InputException(7);
 		
-		if(isInGroup(group))
+		if(isInGroup(gruppe))
 			throw new InputException(8);
 		
 		
 		try {
 			
-			group1.first();
+			group.first();
 			
-			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.groupmembershipTable + " (gruppenid, id, gruppenname) VALUES (" + group1.getInt("gruppenid") + ", " + getID() + ", '" + group + "');");
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.connectTB + " (gruppenid, id, gruppenname) VALUES (" + group.getInt("gruppenid") + ", " + getID() + ", '" + gruppe + "');");
 			
 			return true;
 			
-		} catch (SQLException exception) {
-			exception.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 		
 	}
 	
 	
-	/**	
-	 * Function to leave a group
+	/**	Funktion, um eine Gruppe zu verlassen
 	 * 
-	 * @param group group name
-	 * @return true if the group could be left
-	 * false if the group could not be left
-	 * @throws InputException in the case of invalid inputs
+	 * @param group Gruppenname
+	 * @return 	true, falls die Gruppe verlassen werden konnte
+	 * 			false, falls die Gruppe nicht verlassen werden konnte
+	 * @throws InputException bei ungültigen Eingaben
 	 */
 	public static boolean leaveGroup(String group) throws InputException {
 		
@@ -408,8 +408,8 @@ public class Benutzer {
 		if(!isInGroup(group))
 			throw new InputException(9);
 		
-		//########################Be careful when the column is taken out again! #######################
-		DatabaseConnection.makeUpdate("DELETE FROM " + DatabaseConnection.groupmembershipTable + " WHERE gruppenname = '" + group + "' AND id = " + getID() + ";");
+		//######################## Aufpassen, wenn die Spalte wieder rausgenommen wird! #######################
+		DatabaseConnection.makeUpdate("DELETE FROM " + DatabaseConnection.connectTB + " WHERE gruppenname = '" + group + "' AND id = " + getID() + ";");
 		
 		System.out.println("Gruppe " + group + " wurde verlassen.");
 		
@@ -421,32 +421,31 @@ public class Benutzer {
 		if(loggedUser == null)
 			return null;
 		
-		//###################### Possibly. make another foreign key out ####################
+		//###################### Evtl. noch einen Fremdschlüssel drauß machen ####################
 //		ResultSet set = DatabaseConnection.makeQuerry("SELECT " + DatabaseConnection.gTB + ".* FROM " + DatabaseConnection.gTB + " LEFT JOIN " + DatabaseConnection.connectTB + " ON " 
 //						+ DatabaseConnection.gTB + ".gruppenid = " + DatabaseConnection.connectTB + ".gruppenid WHERE " + DatabaseConnection.connectTB + ".id = " + getID() + ";");
 		
-		ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.groupmembershipTable + " WHERE id = " + getID() + ";");
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT gruppenname FROM " + DatabaseConnection.connectTB + " WHERE id = " + getID() + ";");
 		 
 		
 		try {
 			if(!set.first())
 				return null;
-		} catch (SQLException exception) {
-			exception.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 		
 		return set;
 	}
 	
-	/** 
-	 * Check whether the user is already in the group
+	/** Check, ob der Nutzer bereits in der Gruppe ist
 	 * 
-	 * @param group group name
-	 * @return true if the user is already in the group
-	 * false if the user is not in the group
+	 * @param group Gruppenname
+	 * @return 	true, wenn der Nutzer bereits in der Gruppe ist
+	 * 			false, wenn der Nutzer nicht in der Gruppe ists
 	 */
-	public static boolean isInGroup(String group) {	//################ Implement possibly ResultSet ######################
+	public static boolean isInGroup(String group) {	//################ Implementieren evtl. mit dem ResultSet ######################
 		
 		if(loggedUser == null)
 			return false;
@@ -476,10 +475,10 @@ public class Benutzer {
 	//--------------------------------------------------------------------------------- Nilles -----------------------------------------------------------------
 	
 	/**
-	 * Returns a ResultSet with all fields in the args list
+	 * Gibt ein ResultSet mit allen Feldern die in der args-Liste stehen zurück
 	 * 
-	 * @param args A list of the required fields.
-	 * @return A ResultSet with the required fields.
+	 * @param args Eine Aufzählung der gewünschten Felder.
+	 * @return Ein ResultSet mit den gewünschten Feldern.
 	 */
 	public ResultSet getInfos(List<String> args) {
 		
@@ -494,11 +493,11 @@ public class Benutzer {
 		while(i < args.size()) 
 			querry = ", " + args.get(i++).strip();
 		
-		return DatabaseConnection.makeQuerry("SELECT " + querry + " FROM " + DatabaseConnection.userTable+ " WHERE id = '" + userID + "';");
+		return DatabaseConnection.makeQuerry("SELECT " + querry + " FROM " + DatabaseConnection.uTB + " WHERE id = '" + userID + "';");
 	}
 	
 	private ResultSet getAllInfos() {
-		return DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.userTable + " WHERE id = '" + userID + "';");
+		return DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.uTB + " WHERE id = '" + userID + "';");
 	}
 
 	

@@ -11,30 +11,28 @@ import master.Fenster;
 import screens.GruppeErstellen;
 import screens.MeinProfil;
 
-/**Class with the functions for class "GruppeErstellen"
- * 
- *  @author Group3
+/**	Klasse um die Funktion für den Gruppe erstellen-Button + abbrechen-Button
  *
  */
 public class FunktionGruppeErstellen implements ActionListener {
 	
 	/**
-	 *  Creates a new group when the create button is clicked 
-	 *  The screen of 'my profile' opens when the cancel button is clicked
+	 *  Erstellt im Falle, dass der GruppenErstellen-Button gedrückt wird, eine neue Gruppe
+	 *  Falls der Abbrechen-Button gedrückt wird, öffnet sich der MeinProfil-Screen
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == GruppeErstellen.cancelButton) {
+		if (e.getSource() == GruppeErstellen.abbrechen) {
 			Fenster.addToFrame(new MeinProfil());
 		}
-		if (e.getSource() == GruppeErstellen.saveButton) {
+		if (e.getSource() == GruppeErstellen.speichern) {
 			try {
 				DatabaseConnection.connectDatabase();
-				AdminFunctions.createGroup(GruppeErstellen.groupNameTextfield.getText(),
-						(String) GruppeErstellen.levelSelection
-								.getItemAt(GruppeErstellen.levelSelection.getSelectedIndex()));
-				Benutzer.joinGroup(GruppeErstellen.groupNameTextfield.getText());
+				AdminFunctions.gruppeErstellen(GruppeErstellen.gruppenName.getText(),
+						(String) GruppeErstellen.niveauAuswahl
+								.getItemAt(GruppeErstellen.niveauAuswahl.getSelectedIndex()));
+				Benutzer.joinGroup(GruppeErstellen.gruppenName.getText());
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e1) {
 				e1.printStackTrace();

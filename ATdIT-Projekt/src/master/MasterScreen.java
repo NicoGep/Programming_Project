@@ -2,9 +2,9 @@ package master;
 
 import javax.swing.*;
 
-/** Class for the MasterScreen
+/** Klasse, um den MasterScreen bereitzustellen
  * 
- * @author Group3
+ * @author Gruppe 3
  *
  */
 public class MasterScreen extends JPanel {

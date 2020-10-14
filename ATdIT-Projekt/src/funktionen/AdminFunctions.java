@@ -9,26 +9,26 @@ import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 
-/** class with methods that are used in other classes, no methods included that are directly for the user
+/** Klasse mit Methoden, die in anderen Klassen aufgerufen werden, keine Methoden direkt für den Benutzer
  * 
  *
  */
 public class AdminFunctions {
 	
 	
-	//------------------------------------------------------------------ user functions -----------------------------------------------------------------------
+	//------------------------------------------------------------------ Benutzer-Funktionen -----------------------------------------------------------------------
 	
-	/**	method does a data base update and add new user with the corresponding password
+	/**	Updatet die Datenbank und fügt einen neuen Benutzer mit dem dazugehörigen Passwort hinzu
 	 * 
-	 * @param name : String (user name)
-	 * @param password : String  (password as hash value)
+	 * @param name : String (Benutzername des Nutzers)
+	 * @param password : String  (Passwort als Hash-Wert)
 	 */
 	static boolean addUser(String name, int password) {
 		
 		
 		if(findUser(name) == null) {
 			
-			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.userTable + "(name, password) VALUES('" + name + "', '" + password + "');");
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.uTB + "(name, password) VALUES('" + name + "', '" + password + "');");
 			
 			System.out.println("Benutzer " + name + " hinzugefügt.");
 			
@@ -44,17 +44,17 @@ public class AdminFunctions {
 		
 	}
 	
-	/**	Method to find a user through his user name
+	/**	Methode zum finden eines Benutzers anhand seines Benutzernamens
 	 * 
-	 * @param name (user name)
-	 * @return null , if the user name cannot be found
-	 * 		   set, if the user is found, the filled set with the user is returned
+	 * @param name Benutzername
+	 * @return null , im Falle, falls der Benutzer nicht gefunden
+	 * 		   set, falls, der Benutzer gefinden wird, wird das gefüllte set mit dem Benutzer zurückgegeben
 	 */
 	public static ResultSet findUser(String name) {
 		
 		try {
 			
-			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.userTable + " WHERE name = '" + name + "';");
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.uTB + " WHERE name = '" + name + "';");
 		
 			if(!set.first())	
 				return null;
@@ -68,14 +68,13 @@ public class AdminFunctions {
 		}		
 	}
 	
-	/**	checks whether the password matches the respective user
+	/**	kontrolliert, ob das Passwort mit dem jeweiligen Benutzer übereinstimmt
 	 * 
-	 * 
-	 * @param passwordHash : int	(hashed password)
-	 * @param user : ResultSet	(user)
-	 * @return	true, if the user matches to the password
-	 * @throws LoginCredentialsException, if the password does not match with the passwort in the database
-	 * @throws SQLException, if the sql query is incorrect
+	 * @param passwordHash : int	gehashtes Passwort
+	 * @param user : ResultSet	Benutzer
+	 * @return	true, wenn das Passwort zum Benutzer passt
+	 * @throws LoginCredentialsException wird geworfen, falls das Passwort mit dem Passwort von der Datenbank übereinstimmt
+	 * @throws SQLException wird geworfen, falls die SQL-Abfrage inkorrekt ist
 	 */
 	public static boolean checkPassword(int passwordHash, ResultSet user) throws LoginCredentialsException, SQLException {
 
@@ -93,11 +92,11 @@ public class AdminFunctions {
 		return true;
 	}
 	
-	/** Converts the password into a hash value so that the password is not completely unprotected in the database
+	/** Wandelt das Passwort in einen Hash-Wert um, damit das Passwort nicht VÖLLIG ungeschützt auf der Datenbank liegt
 	 * 
-	 * @param name user name
-	 * @param password (String)
-	 * @throws InputException if no data has been entered
+	 * @param name Benutzername des Nutzers
+	 * @param password wird hier als String eingegeben
+	 * @throws InputException falls keine Daten eingegeben wurden
 	 */
 	public static void addUser(String name, String password) throws InputException {
 		
@@ -112,47 +111,47 @@ public class AdminFunctions {
 	}
 	
 	/**
-	 * encrypts an input string
-	 * (for passwords)
+	 * Verschlüsselt einen Input-String. 
+	 * (Für Passwort gedacht)
 	 * 
-	 * @param passwordString
+	 * @param st
 	 * @return
 	 */
-	public static int encrypt(String passwordString) {
-		return passwordString.hashCode();
+	public static int encrypt(String st) {
+		return st.hashCode();
 	}
 	
 	/**
-	 * encrypt an input char-Array
-	 * (for password)
+	 * Verschlüsselt einen Input-char-Array
+	 * (Für Passwort gedacht)
 	 * 
-	 * @param passwordCharArray
+	 * @param c
 	 * @return
 	 */
-	public static int encrypt(char[] passwordCharArray) {
+	public static int encrypt(char[] c) {
 		String s = "";
 		
-		for(int i = 0; i < passwordCharArray.length; i++)
-			s += passwordCharArray[i];
+		for(int i = 0; i < c.length; i++)
+			s += c[i];
 		
 		return encrypt(s);
 	}
 	
-	//----------------------------------------------------------- group functions ----------------------------------------------------------------------------
+	//----------------------------------------------------------- Gruppen-Funktionen ----------------------------------------------------------------------------
 	
 	
 	/**
-	 * Searches for the desired group in the database.
-	 * Returns null if it doesn't exist
+	 * Sucht die gewünschte Gruppe in der Datenbank.
+	 * Gibt null zurück, wenn sie nicht existiert.
 	 * 
-	 * @param groupName
-	 * @return a ResultSet of the searched group(s)
+	 * @param gruppenName
+	 * @return Ein ResultSet der gesuchten Gruppe(n)
 	 */
-	public static ResultSet findGroup(String groupName) {
+	public static ResultSet findGroup(String gruppenName) {
 		
 		try {
 			
-			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.groupTable + " WHERE gruppenname = '" + groupName + "';");
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + " WHERE gruppenname = '" + gruppenName + "';");
 			
 			if(!set.first())
 				return null;
@@ -166,41 +165,41 @@ public class AdminFunctions {
 		
 	}
 	
-	/** Method for creating a group and registering it in the database
+	/** Methode um eine Gruppe zu erstellen und diese auf der Datenbank zu registrieren
 	 * 
-	 * @param groupnName : String (name of the group)
-	 * @param level : String (level of the user)
-	 * @throws InputException wrong input
+	 * @param gruppenName : String (Name der Gruppe)
+	 * @param niveau : String (Niveau des Benutzers)
+	 * @throws InputException Falsche Eingaben
 	 */
-	public static void createGroup(String groupName, String level) throws InputException {
+	public static void gruppeErstellen(String gruppenName, String niveau) throws InputException {
 		
-		if(findGroup(groupName) != null)
+		if(findGroup(gruppenName) != null)
 			throw new InputException(6);
 			
 		
-		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.groupTable + " (gruppenname, niveau) VALUES ('" + groupName + "', '" + level + "');");
+		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.gTB + " (gruppenname, niveau) VALUES ('" + gruppenName + "', '" + niveau + "');");
 		
-		System.out.println("Gruppe " + groupName + " wurde erstellt.");
+		System.out.println("Gruppe " + gruppenName + " wurde erstellt.");
 	}
 	
-	public static void createGroup(String groupName) throws InputException {
-		createGroup(groupName, "Anfänger");
-	}
-	
-	
-	public static void setGroupLevel(String newLevel, String groupName) {
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.groupTable + " SET niveau = '" + newLevel + "' WHERE gruppenname = " + groupName + ";");
+	public static void gruppeErstellen(String gruppenName) throws InputException {
+		gruppeErstellen(gruppenName, "Anfänger");
 	}
 	
 	
-	/**	Returns all groups
+	public static void setGroupNiveau(String neuesNiveau, String gruppenname) {
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.gTB + " SET niveau = '" + neuesNiveau + "' WHERE gruppenname = " + gruppenname + ";");
+	}
+	
+	
+	/**	Gibt alle Gruppen zurück
 	 * 
-	 * @return null, if no user could be found in the set
-	 * 			set, if user can be found
+	 * @return null, wenn kein Benutzer im Set gefunden werden konnte
+	 * 			set, wenn Benutzer gefunden wurden
 	 */
 	public static ResultSet getAllGroups() {
 		
-		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.groupTable + ";");
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + ";");
 		
 		try {
 			
@@ -221,12 +220,12 @@ public class AdminFunctions {
 	
 	//-------------------------------------------------------------- Misc ------------------------------------------------------------------------
 	
-	/** Method to convert a set into a list
+	/** Methode um ein Set in eine Liste umzuwandeln
 	 * 
-	 * @param set : ResultSet (user set)
-	 * @param columnName : String (column name)
-	 * @return null, if no set could be found
-	 * 		   list, if the set could be converted
+	 * @param set : ResultSet (Benutzer-Set)
+	 * @param columnName : String (Column-Name)
+	 * @return null, wenn kein Set gefunden werden konnte
+	 * 			list, wenn das Set umgewandelt werden konnte
 	 */
 	public static List<String> setToList(ResultSet set, String columnName) {
 		

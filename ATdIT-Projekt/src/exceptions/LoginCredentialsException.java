@@ -1,7 +1,7 @@
 package exceptions;
 
 /**
- * 	Exception class for wrong user input in the login screen
+ * 	Exception-Klasse für falsche Benutzereingaben im Login-Screen
  *
  */
 public class LoginCredentialsException extends Exception {
@@ -9,7 +9,7 @@ public class LoginCredentialsException extends Exception {
 	private int state;
 	
 	/**
-	 *  Function for specifying incorrect user entries in the login screen
+	 *  Funktion zu Angabe für falsche Benutzereingaben im Login-Screen
 	 * @param state : int 
 	 */
 	public LoginCredentialsException(int state) {

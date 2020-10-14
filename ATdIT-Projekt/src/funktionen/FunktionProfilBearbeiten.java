@@ -16,35 +16,34 @@ import screens.PasswortAendern;
 import screens.ProfilBearbeiten;
 import screens.ProfilbildAendern;
 
-/** Class for the function of class "ProfilBearbeiten"
+/** Klasse, um die Funktion des Profil bearbeiten-Screens bereitzustellen
  * 
- * @author Group3
+ * @author Gruppe 3
  *
  */
 public class FunktionProfilBearbeiten implements ActionListener {
-/**
- * Method for saving changes to the profile.
- * If the cancel button is pressed, the "MyProfile" screen opens without saving the values. 
- * If the name entered is not zero and does not yet exist, it will be saved. 
- * Otherwise the old name remains and the text "Name already exists!" issued.
+/**Methode, um Änderungen am Profil zu speichern.
+ * Wird der Abbrechen-Knopf gedrückt, so öffnet sich, ohne Speichern der Werte der "MeinProfil"-Screen
+ * Ist der eingegebene Name ungleich null und noch nicht vorhanden, so wird dieser gespeichert. Ansonsten bleibt es beim alten Namen
+ * und in der Konsole wird der Text "Name existiert schon!" ausgegeben.
  * 
  */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			if (e.getSource() == ProfilBearbeiten.cancelButton) {
+			if (e.getSource() == ProfilBearbeiten.abbrechen) {
 				Fenster.addToFrame(new MeinProfil());
 			}
-			if (e.getSource() == ProfilBearbeiten.saveButton) {
+			if (e.getSource() == ProfilBearbeiten.speichern) {
 				try {
 					DatabaseConnection.connectDatabase();
-					if (ProfilBearbeiten.newnameTextfield.getText() != "" && !(ProfilBearbeiten.newnameTextfield.getText().equals(Benutzer.getName())) ) {
-						Benutzer.setName(ProfilBearbeiten.newnameTextfield.getText());
+					if (ProfilBearbeiten.neuerName.getText() != "" && !(ProfilBearbeiten.neuerName.getText().equals(Benutzer.getName())) ) {
+						Benutzer.setName(ProfilBearbeiten.neuerName.getText());
 					}
-					Benutzer.setLevel((String) ProfilBearbeiten.levelSelection
-							.getItemAt(ProfilBearbeiten.levelSelection.getSelectedIndex()));
-					if (ProfilBearbeiten.newmailTextfield.getText() != "") {
-						Benutzer.setMail(ProfilBearbeiten.newmailTextfield.getText());
+					Benutzer.setNiveau((String) ProfilBearbeiten.niveauAuswahl
+							.getItemAt(ProfilBearbeiten.niveauAuswahl.getSelectedIndex()));
+					if (ProfilBearbeiten.neueemail.getText() != "") {
+						Benutzer.setEmail(ProfilBearbeiten.neueemail.getText());
 					}
 					DatabaseConnection.disconnectDatabase();
 
@@ -54,12 +53,12 @@ public class FunktionProfilBearbeiten implements ActionListener {
 				}
 
 			}
-			// add profile picture
-			if (e.getSource() == ProfilBearbeiten.newprofilepictureButton) {
+			// Profilbild hinzufügen
+			if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
 				Fenster.addToFrame(new ProfilbildAendern());
 			}
-			// change password
-			if (e.getSource() == ProfilBearbeiten.changepasswordButton) {
+			// Passwort ändern
+			if (e.getSource() == ProfilBearbeiten.passwortAendern) {
 				Fenster.addToFrame(new PasswortAendern());
 			}
 		}

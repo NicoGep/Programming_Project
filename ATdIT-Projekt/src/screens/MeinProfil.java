@@ -10,143 +10,145 @@ import javax.swing.*;
 import funktionen.FunktionMeinProfil;
 import master.MasterScreen;
 
-/** UI class for class "MeinProfil"
+/** UI-Klasse zum festlegen des Mein Profil-Screens
  * 
- * @author Group3
+ * @author Gruppe 3
  *
  */
 public class MeinProfil extends MasterScreen {
 
 	public static String name;
-	public static String level;
-	public static String mail;
-	public static String profilepictureaddress;
-	public static List<String> groupList;
+	public static String niveau;
+	public static String email;
+	public static String profilBildAdresse;
+	public static List<String> gruppenListe;
 
-	JPanel dataPanel;
-	JPanel groupsPanel;
-	JPanel profilepicturePanel;
-	JPanel namelevelPanel;
-	JPanel mygrouplistPanel;
+	JPanel daten;
+	JPanel gruppen;
+	JPanel profilbildPanel;
+	JPanel nameNiveau;
+	JPanel meineGruppenListe;
 
-	public static JButton editprofileButton;
-	public static JButton joingroupButton;
-	public static JButton creategroupButton;
+	public static JButton profilBearbeiten;
+	public static JButton gruppeBeitreten;
+	public static JButton gruppeErstellen;
 
-	public JLabel profilepictureLabel;
-	public JLabel mygroupsLabel;
+	public JLabel profilbildLabel;
+	public JLabel meineGruppen;
 	public JLabel nameLabel;
-	public JLabel levelLabel;
-	public Icon profilepictureIcon;
+	public JLabel niveauLabel;
+	public Icon profilBild;
 	
 	/**
-	 * constructor without Layout
+	 * Konstruktor zur festlegen des Mein Profil-Screens ohne Layout
 	 */
 	public MeinProfil() {
 	
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
 		ActionListener meinProfilAL = new FunktionMeinProfil();
-		new FunktionMeinProfil().loadData();
-		Image image = Toolkit.getDefaultToolkit().createImage(profilepictureaddress);
+		new FunktionMeinProfil().datenLaden();
+		Image image = Toolkit.getDefaultToolkit().createImage(profilBildAdresse);
 
-		dataPanel = new JPanel();
-		dataPanel.setBounds(0, 0, 450, 100);
-		dataPanel.setLayout(new GridLayout(0, 2));
-		dataPanel.setBackground(Color.GRAY);
+		daten = new JPanel();
+		daten.setBounds(0, 0, 450, 100);
+		daten.setLayout(new GridLayout(0, 2));
+		daten.setBackground(Color.GRAY);
 
-		groupsPanel = new JPanel();
-		groupsPanel.setLayout(null);
-		groupsPanel.setBounds(0, 100, 450, 600);
+		gruppen = new JPanel();
+		gruppen.setLayout(null);
+		gruppen.setBounds(0, 100, 450, 600);
 
-		profilepicturePanel = new JPanel();
-		profilepicturePanel.setLayout(null);
-		profilepicturePanel.setBackground(Color.GRAY);
+		profilbildPanel = new JPanel();
+		profilbildPanel.setLayout(null);
+		profilbildPanel.setBackground(Color.GRAY);
 
-		namelevelPanel = new JPanel();
-		namelevelPanel.setLayout(null);
-		namelevelPanel.setBackground(Color.GRAY);
+		nameNiveau = new JPanel();
+		nameNiveau.setLayout(null);
+		nameNiveau.setBackground(Color.GRAY);
 
-		mygrouplistPanel = new JPanel();
-		mygrouplistPanel.setBounds(0, 200, 450, 400);
-		mygrouplistPanel.setLayout(new GridLayout(0, 1));
-		mygrouplistPanel.setBackground(Color.WHITE);
-
-		/**
-		 * Creation of the Button including the position and background color
-		 **/
-		editprofileButton = new JButton("Profil bearbeiten");
-		editprofileButton.setBounds(0, 0, 450, 50);
-		editprofileButton.setBackground(Color.LIGHT_GRAY);
-
-		editprofileButton.addActionListener(meinProfilAL);
-
-		joingroupButton = new JButton("Gruppe beitreten oder löschen");
-		joingroupButton.setBounds(0, 50, 450, 50);
-		joingroupButton.setBackground(Color.LIGHT_GRAY);
-		joingroupButton.addActionListener(meinProfilAL);
-
-		creategroupButton = new JButton("Gruppe erstellen");
-		creategroupButton.setBounds(0, 100, 450, 50);
-		creategroupButton.setBackground(Color.LIGHT_GRAY);
-		creategroupButton.addActionListener(meinProfilAL);
-
-		profilepictureIcon = new ImageIcon(profilepictureaddress);
+		meineGruppenListe = new JPanel();
+		meineGruppenListe.setBounds(0, 200, 450, 400);
+		meineGruppenListe.setLayout(new GridLayout(0, 1));
+		meineGruppenListe.setBackground(Color.WHITE);
 
 		/**
-		 * Creation of the Labels including position and background color
+		 * Erstellen der Knöpfe inklusive Einstellen der jeweiligen Position und der
+		 * Hintergrundfarbe
 		 **/
-		mygroupsLabel = new JLabel("Meine Gruppen");
-		mygroupsLabel.setBounds(175, 150, 450, 50);
-		mygroupsLabel.setBackground(Color.GRAY);
-		mygroupsLabel.setFont(new Font("Ueberschrift", Font.BOLD, 14));
+		profilBearbeiten = new JButton("Profil bearbeiten");
+		profilBearbeiten.setBounds(0, 0, 450, 50);
+		profilBearbeiten.setBackground(Color.LIGHT_GRAY);
 
-		profilepictureLabel = new JLabel(new ImageIcon(image));
-		profilepictureLabel.setBounds(75, 0, 100, 100);
-		profilepictureLabel.setBackground(Color.GRAY);
+		profilBearbeiten.addActionListener(meinProfilAL);
 
-		JLabel nameLabeling = new JLabel("Name:");
-		nameLabeling.setBounds(0, 0, 75, 50);
-		nameLabeling.setFont(new Font("Ueberschrift", Font.BOLD, 14));
+		gruppeBeitreten = new JButton("Gruppe beitreten oder löschen");
+		gruppeBeitreten.setBounds(0, 50, 450, 50);
+		gruppeBeitreten.setBackground(Color.LIGHT_GRAY);
+		gruppeBeitreten.addActionListener(meinProfilAL);
+
+		gruppeErstellen = new JButton("Gruppe erstellen");
+		gruppeErstellen.setBounds(0, 100, 450, 50);
+		gruppeErstellen.setBackground(Color.LIGHT_GRAY);
+		gruppeErstellen.addActionListener(meinProfilAL);
+
+		profilBild = new ImageIcon(profilBildAdresse);
+
+		/**
+		 * Erstellen der Beschriftungen inklusive Einstellen der jeweiligen Position und
+		 * der Hintergrundfarbe
+		 **/
+		meineGruppen = new JLabel("Meine Gruppen");
+		meineGruppen.setBounds(175, 150, 450, 50);
+		meineGruppen.setBackground(Color.GRAY);
+		meineGruppen.setFont(new Font("Ueberschrift", Font.BOLD, 14));
+
+		profilbildLabel = new JLabel(new ImageIcon(image));
+		profilbildLabel.setBounds(75, 0, 100, 100);
+		profilbildLabel.setBackground(Color.GRAY);
+
+		JLabel nameBeschriftung = new JLabel("Name:");
+		nameBeschriftung.setBounds(0, 0, 75, 50);
+		nameBeschriftung.setFont(new Font("Ueberschrift", Font.BOLD, 14));
 
 		nameLabel = new JLabel(name);
 		nameLabel.setBounds(100, 0, 100, 50);
 
-		JLabel levelLabeling = new JLabel("Niveau:");
-		levelLabeling.setBounds(0, 50, 75, 50);
-		levelLabeling.setFont(new Font("Ueberschrift", Font.BOLD, 14));
+		JLabel niveauBeschriftung = new JLabel("Niveau:");
+		niveauBeschriftung.setBounds(0, 50, 75, 50);
+		niveauBeschriftung.setFont(new Font("Ueberschrift", Font.BOLD, 14));
 
-		levelLabel = new JLabel(level);
-		levelLabel.setBounds(100, 50, 100, 50);
+		niveauLabel = new JLabel(niveau);
+		niveauLabel.setBounds(100, 50, 100, 50);
 
-		profilepicturePanel.add(profilepictureLabel);
+		profilbildPanel.add(profilbildLabel);
 
-		namelevelPanel.add(nameLabeling);
-		namelevelPanel.add(nameLabel);
-		namelevelPanel.add(levelLabeling);
-		namelevelPanel.add(levelLabel);
+		nameNiveau.add(nameBeschriftung);
+		nameNiveau.add(nameLabel);
+		nameNiveau.add(niveauBeschriftung);
+		nameNiveau.add(niveauLabel);
 
-		dataPanel.add(profilepicturePanel);
-		dataPanel.add(namelevelPanel);
+		daten.add(profilbildPanel);
+		daten.add(nameNiveau);
 		
 		Iterator<String> it;
 		
-		if(groupList != null) {
-			it = groupList.iterator(); 
+		if(gruppenListe != null) {
+			it = gruppenListe.iterator(); 
 		
 			while (it.hasNext()) {
-				mygrouplistPanel.add(new JLabel((String) it.next()));
+				meineGruppenListe.add(new JLabel((String) it.next()));
 			}
 		}
 			
-		groupsPanel.add(editprofileButton);
-		groupsPanel.add(joingroupButton);
-		groupsPanel.add(creategroupButton);
-		groupsPanel.add(mygroupsLabel);
-		groupsPanel.add(mygrouplistPanel);
+		gruppen.add(profilBearbeiten);
+		gruppen.add(gruppeBeitreten);
+		gruppen.add(gruppeErstellen);
+		gruppen.add(meineGruppen);
+		gruppen.add(meineGruppenListe);
 		
-		this.add(dataPanel, BorderLayout.NORTH);
-		this.add(groupsPanel, BorderLayout.CENTER);
+		this.add(daten, BorderLayout.NORTH);
+		this.add(gruppen, BorderLayout.CENTER);
 		
 	}
 }

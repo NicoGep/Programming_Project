@@ -19,9 +19,9 @@ public class Helferlein {
 		
 			
 			
-			Benutzer.setMail(DatenbankFunktionenTest.mail);
-			Benutzer.setLevel(DatenbankFunktionenTest.level);
-			Benutzer.setProfilePicture(DatenbankFunktionenTest.profilepicture);
+			Benutzer.setEmail(DatenbankFunktionenTest.email);
+			Benutzer.setNiveau(DatenbankFunktionenTest.niveau);
+			Benutzer.setProfilbild(DatenbankFunktionenTest.profilbild);
 			
 			
 			

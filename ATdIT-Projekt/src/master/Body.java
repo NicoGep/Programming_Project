@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Master class, to set a general window size
- * @author Group3
+ * 	Masterklasse, um einheitliche Fenstergröße festzulegen
+ * @author I518230
  *
  */
 public class Body extends JPanel {
@@ -14,7 +14,7 @@ public class Body extends JPanel {
 	private final int SIZE_X = 450, SIZE_Y = 800;
 	
 	/**
-	 * constructor
+	 * Konstruktor
 	 */
 	public Body() {
 
@@ -24,7 +24,7 @@ public class Body extends JPanel {
 	}
 	
 	/**
-	 * Function to add a MasterScreen to the Body
+	 * Funktion um einen MasterScreen zum Body hinzuzufügen
 	 * @param screen : MasterScreen
 	 */
 	protected void addToBody(MasterScreen screen) {

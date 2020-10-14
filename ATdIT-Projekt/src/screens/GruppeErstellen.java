@@ -9,75 +9,74 @@ import funktionen.FunktionGruppeErstellen;
 import master.MasterScreen;
 
 /**
- *  UI for screen "GruppeErstellen"
- *  
- * @author Group3
+ *  UI zum Gruppe Erstellen-Screen
+ * @author Gruppe 3
  *
  */
 public class GruppeErstellen extends MasterScreen {
 
-	public static JButton cancelButton;
-	public static JButton saveButton;
+	public static JButton abbrechen;
+	public static JButton speichern;
 
-	public static JComboBox<String> levelSelection;
+	public static JComboBox<String> niveauAuswahl;
 
-	public static JTextField groupNameTextfield;
+	public static JTextField gruppenName;
 
-	JLabel groupNameLabel;
-	JLabel levelLabel;
+	JLabel gruppenNameLabel;
+	JLabel niveauLabel;
 
 	/**
-	 * constructor Gruppe Erstellen
+	 * Konstruktor Gruppe Erstellen
 	 * Layout : null
-	 * @param groupNameLabel : JLabel
-	 * @param levelLabel : JLabel
-	 * @param groupName : JTextField
-	 * @param levelSelection : JComboBox<String>
-	 * @param saveButton : JButton
-	 * @param cancelButton : JButton
+	 * @param gruppenNameLabel : JLabel
+	 * @param niveauLabel : JLabel
+	 * @param gruppenName : JTextField
+	 * @param niveauAuswahl : JComboBox<String>
+	 * @param speichern : JButton
+	 * @param abbrechen : JButton
 	 */
 	public GruppeErstellen() {
 
 		this.setLayout(null);
 		ActionListener GruppeErstellenAL = new FunktionGruppeErstellen();
 
-		groupNameLabel = new JLabel("Name der Gruppe:");
-		groupNameLabel.setBounds(0, 0, 450, 100);
-		groupNameLabel.setBackground(Color.LIGHT_GRAY);
-		groupNameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		gruppenNameLabel = new JLabel("Name der Gruppe:");
+		gruppenNameLabel.setBounds(0, 0, 450, 100);
+		gruppenNameLabel.setBackground(Color.LIGHT_GRAY);
+		gruppenNameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 		
-		levelLabel = new JLabel("Niveau der Gruppe:");
-		levelLabel.setBounds(0, 150, 450, 100);
-		levelLabel.setBackground(Color.LIGHT_GRAY);
-		levelLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		niveauLabel = new JLabel("Niveau der Gruppe:");
+		niveauLabel.setBounds(0, 150, 450, 100);
+		niveauLabel.setBackground(Color.LIGHT_GRAY);
+		niveauLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 		
-		groupNameTextfield = new JTextField();
-		groupNameTextfield.setBounds(0, 100, 450, 50);
+		gruppenName = new JTextField();
+		gruppenName.setBounds(0, 100, 450, 50);
 
-		levelSelection = new JComboBox<String>();
-		levelSelection.addItem("Anfänger");
-		levelSelection.addItem("Medium");
-		levelSelection.addItem("Professionell");
-		levelSelection.setBounds(0, 250, 450, 50);
+		niveauAuswahl = new JComboBox<String>();
+		niveauAuswahl.addItem("Anfänger");
+		niveauAuswahl.addItem("Medium");
+		niveauAuswahl.addItem("Professionell");
+		niveauAuswahl.setBounds(0, 250, 450, 50);
 
-		saveButton = new JButton("Speichern");
-		saveButton.setBackground(Color.GREEN);
-		saveButton.setBounds(225, 600, 225, 100);
-		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		saveButton.addActionListener(GruppeErstellenAL);
+		speichern = new JButton("Speichern");
+		speichern.setBackground(Color.GREEN);
+		speichern.setBounds(225, 600, 225, 100);
+		speichern.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		speichern.addActionListener(GruppeErstellenAL);
 
-		cancelButton = new JButton("Abbrechen");
-		cancelButton.setBackground(Color.RED);
-		cancelButton.setBounds(0, 600, 225, 100);
-		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		cancelButton.addActionListener(GruppeErstellenAL);
+		abbrechen = new JButton("Abbrechen");
+		abbrechen.setBackground(Color.RED);
+		abbrechen.setBounds(0, 600, 225, 100);
+		abbrechen.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		abbrechen.addActionListener(GruppeErstellenAL);
 		
-		this.add(groupNameLabel);
-		this.add(groupNameTextfield);
-		this.add(levelLabel);
-		this.add(levelSelection);
-		this.add(cancelButton);
-		this.add(saveButton);
+		this.add(gruppenNameLabel);
+		this.add(gruppenName);
+		this.add(niveauLabel);
+		this.add(niveauAuswahl);
+		this.add(abbrechen);
+		this.add(speichern);
 
 	}
 }

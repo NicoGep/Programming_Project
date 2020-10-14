@@ -9,103 +9,103 @@ import funktionen.FunktionPasswortAendern;
 import funktionen.FunktionProfilBearbeiten;
 import master.MasterScreen;
 
-/** UI for "PasswortAendern" screen
+/** UI-Klasse zur Festlegung des PasswortAendern-Screens
  * 
- * @author Group3
+ * @author Gruppe 3
  *
  */
 public class PasswortAendern extends MasterScreen {
 	
-	public static JButton saveButton;
-	public static JButton cancelButton;
+	public static JButton speichern;
+	public static JButton abbrechen;
 	
-	public static JPasswordField oldpasswordPasswordfield;
-	public static JPasswordField newpasswordPasswordfield;
-	public static JPasswordField newpasswordcontrolPasswordfield;
+	public static JPasswordField altesPasswort;
+	public static JPasswordField neuesPasswort;
+	public static JPasswordField neuesPasswortKontrolle;
 	
-	JLabel oldpasswordLabel;
-	JLabel newpasswordLabel;
-	JLabel newpasswordcontrolLabel;
-	public static JLabel newpassworddoesnotmatchLabel;
-	public static JLabel stateoldpasswordLabel;
+	JLabel altesPasswortLabel;
+	JLabel neuesPasswortLabel;
+	JLabel neuesPasswortKontrolleLabel;
+	public static JLabel neuesPasswortStimmtNichtUeberein;
+	public static JLabel altesPasswortAngeben;
 	
 	/**
-	 * constructor without Layout
+	 * Konstruktor für den Passwort Ändern-Screen ohne Layout
 	 */
 	public PasswortAendern() {
 		this.setLayout(null);
 		ActionListener PasswortAendernAL = new FunktionPasswortAendern();
 		
-		oldpasswordLabel = new JLabel("Altes Passwort: ");
-		oldpasswordLabel.setBounds(0, 0, 450, 100);
-		oldpasswordLabel.setBackground(Color.LIGHT_GRAY);
-		oldpasswordLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		altesPasswortLabel = new JLabel("Altes Passwort: ");
+		altesPasswortLabel.setBounds(0, 0, 450, 100);
+		altesPasswortLabel.setBackground(Color.LIGHT_GRAY);
+		altesPasswortLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 		
-		newpasswordLabel = new JLabel("Neues Passwort: ");
-		newpasswordLabel.setBounds(0, 150, 450, 100);
-		newpasswordLabel.setBackground(Color.LIGHT_GRAY);
-		newpasswordLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		neuesPasswortLabel = new JLabel("Neues Passwort: ");
+		neuesPasswortLabel.setBounds(0, 150, 450, 100);
+		neuesPasswortLabel.setBackground(Color.LIGHT_GRAY);
+		neuesPasswortLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 		
-		newpasswordcontrolLabel = new JLabel("Wiederholen Sie Ihr neues Passwort: ");
-		newpasswordcontrolLabel.setBounds(0, 300, 450, 100);
-		newpasswordcontrolLabel.setBackground(Color.LIGHT_GRAY);
-		newpasswordcontrolLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		neuesPasswortKontrolleLabel = new JLabel("Wiederholen Sie Ihr neues Passwort: ");
+		neuesPasswortKontrolleLabel.setBounds(0, 300, 450, 100);
+		neuesPasswortKontrolleLabel.setBackground(Color.LIGHT_GRAY);
+		neuesPasswortKontrolleLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 		
-		newpassworddoesnotmatchLabel= new JLabel("Das neue Passwort stimmt nicht überein!");
-		newpassworddoesnotmatchLabel.setBounds(0, 450, 450, 75);
-		newpassworddoesnotmatchLabel.setBackground(Color.WHITE);
-		newpassworddoesnotmatchLabel.setForeground(Color.RED);
-		newpassworddoesnotmatchLabel.setVisible(false);
+		neuesPasswortStimmtNichtUeberein= new JLabel("Das neue Passwort stimmt nicht überein!");
+		neuesPasswortStimmtNichtUeberein.setBounds(0, 450, 450, 75);
+		neuesPasswortStimmtNichtUeberein.setBackground(Color.WHITE);
+		neuesPasswortStimmtNichtUeberein.setForeground(Color.RED);
+		neuesPasswortStimmtNichtUeberein.setVisible(false);
 		
-		stateoldpasswordLabel= new JLabel("Altes Passwort ist falsch!");
-		stateoldpasswordLabel.setBounds(0, 525, 450, 75);
-		stateoldpasswordLabel.setBackground(Color.WHITE);
-		stateoldpasswordLabel.setForeground(Color.RED);
-		stateoldpasswordLabel.setVisible(false);
+		altesPasswortAngeben= new JLabel("Altes Passwort ist falsch!");
+		altesPasswortAngeben.setBounds(0, 525, 450, 75);
+		altesPasswortAngeben.setBackground(Color.WHITE);
+		altesPasswortAngeben.setForeground(Color.RED);
+		altesPasswortAngeben.setVisible(false);
 	
-		oldpasswordPasswordfield = new JPasswordField();
-		oldpasswordPasswordfield.setBounds(0, 100, 450, 50);
+		altesPasswort = new JPasswordField();
+		altesPasswort.setBounds(0, 100, 450, 50);
 		
-		newpasswordPasswordfield = new JPasswordField();
-		newpasswordPasswordfield.setBounds(0, 250, 450, 50);
+		neuesPasswort = new JPasswordField();
+		neuesPasswort.setBounds(0, 250, 450, 50);
 		
-		newpasswordcontrolPasswordfield = new JPasswordField();
-		newpasswordcontrolPasswordfield.setBounds(0, 400, 450, 50);
+		neuesPasswortKontrolle = new JPasswordField();
+		neuesPasswortKontrolle.setBounds(0, 400, 450, 50);
 		
-		saveButton = new JButton("Speichern");
-		saveButton.setBackground(Color.GREEN);
-		saveButton.setBounds(225, 600, 225, 100);
-		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		saveButton.addActionListener(PasswortAendernAL);
+		speichern = new JButton("Speichern");
+		speichern.setBackground(Color.GREEN);
+		speichern.setBounds(225, 600, 225, 100);
+		speichern.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		speichern.addActionListener(PasswortAendernAL);
 		
-		cancelButton = new JButton("Abbrechen");		
-		cancelButton.setBackground(Color.RED);
-		cancelButton.setBounds(0, 600, 225, 100);
-		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		cancelButton.addActionListener(PasswortAendernAL);
+		abbrechen = new JButton("Abbrechen");		
+		abbrechen.setBackground(Color.RED);
+		abbrechen.setBounds(0, 600, 225, 100);
+		abbrechen.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		abbrechen.addActionListener(PasswortAendernAL);
 		
-		this.add(oldpasswordLabel);
-		this.add(oldpasswordPasswordfield);
-		this.add(newpasswordLabel);
-		this.add(newpasswordPasswordfield);
-		this.add(newpasswordcontrolLabel);
-		this.add(newpasswordcontrolPasswordfield);
-		this.add(newpassworddoesnotmatchLabel);
-		this.add(stateoldpasswordLabel);
-		this.add(cancelButton);
-		this.add(saveButton);
+		this.add(altesPasswortLabel);
+		this.add(altesPasswort);
+		this.add(neuesPasswortLabel);
+		this.add(neuesPasswort);
+		this.add(neuesPasswortKontrolleLabel);
+		this.add(neuesPasswortKontrolle);
+		this.add(neuesPasswortStimmtNichtUeberein);
+		this.add(altesPasswortAngeben);
+		this.add(abbrechen);
+		this.add(speichern);
 	}
 
-	public static JPasswordField getOldPassword() {
-		return oldpasswordPasswordfield;
+	public static JPasswordField getAltesPasswort() {
+		return altesPasswort;
 	}
 
-	public static JPasswordField getNewPassword() {
-		return newpasswordPasswordfield;
+	public static JPasswordField getNeuesPasswort() {
+		return neuesPasswort;
 	}
 
-	public static JPasswordField getNewPasswordControl() {
-		return newpasswordcontrolPasswordfield;
+	public static JPasswordField getNeuesPasswortKontrolle() {
+		return neuesPasswortKontrolle;
 	}
 
 

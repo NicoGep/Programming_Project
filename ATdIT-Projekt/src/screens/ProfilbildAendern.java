@@ -8,49 +8,49 @@ import javax.swing.*;
 import funktionen.FunktionProfilbildAendern;
 import master.MasterScreen;
 
-/** UI class for class "ProfilbildAendern"
+/** UI-Klasse zur Definition des Profilbild ändern-Screens
  * 
- * @author Group3
+ * @author Gruppe 3
  *
  */
 public class ProfilbildAendern extends MasterScreen {
-	public static JButton saveButton;
-	public static JButton cancelButton;
+	public static JButton speichern;
+	public static JButton abbrechen;
 
-	JLabel addressLabel;
-	public static JTextField addressTextfield;
+	JLabel addresseLabel;
+	public static JTextField addresse;
 
 	/**
-	 * constructor without layout 
+	 * Konstruktor, um den Profilbild ändern-Screen darzustellen (ohne Layout)
 	 */
 	public ProfilbildAendern() {
 		this.setLayout(null);
 		ActionListener ProfilbildAendernAL = new FunktionProfilbildAendern();
 
-		addressLabel = new JLabel("Adresse des neuen Profilbilds: ");
-		addressLabel.setBounds(0, 0, 450, 100);
-		addressLabel.setBackground(Color.LIGHT_GRAY);
-		addressLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		addresseLabel = new JLabel("Adresse des neuen Profilbilds: ");
+		addresseLabel.setBounds(0, 0, 450, 100);
+		addresseLabel.setBackground(Color.LIGHT_GRAY);
+		addresseLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		addressTextfield = new JTextField(MeinProfil.profilepictureaddress);
-		addressTextfield.setBounds(0, 100, 450, 50);
+		addresse = new JTextField(MeinProfil.profilBildAdresse);
+		addresse.setBounds(0, 100, 450, 50);
 
-		saveButton = new JButton("Speichern");
-		saveButton.setBackground(Color.GREEN);
-		saveButton.setBounds(225, 600, 225, 100);
-		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		saveButton.addActionListener(ProfilbildAendernAL);
+		speichern = new JButton("Speichern");
+		speichern.setBackground(Color.GREEN);
+		speichern.setBounds(225, 600, 225, 100);
+		speichern.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		speichern.addActionListener(ProfilbildAendernAL);
 
-		cancelButton = new JButton("Abbrechen");
-		cancelButton.setBackground(Color.RED);
-		cancelButton.setBounds(0, 600, 225, 100);
-		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		cancelButton.addActionListener(ProfilbildAendernAL);
+		abbrechen = new JButton("Abbrechen");
+		abbrechen.setBackground(Color.RED);
+		abbrechen.setBounds(0, 600, 225, 100);
+		abbrechen.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		abbrechen.addActionListener(ProfilbildAendernAL);
 		
-		this.add(addressLabel);
-		this.add(addressTextfield);
-		this.add(cancelButton);
-		this.add(saveButton);
+		this.add(addresseLabel);
+		this.add(addresse);
+		this.add(abbrechen);
+		this.add(speichern);
 	}
 
 }

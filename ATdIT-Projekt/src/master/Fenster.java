@@ -11,8 +11,8 @@ import java.util.List;
 import java.awt.*;
 
 /**
- * Window class sets size of the window, title and more
- * @author Group3
+ * 	Fensterklasse legt Größe des Fensters, Titel etc fest
+ * @author I518230
  *
  */
 public class Fenster extends JFrame {
@@ -25,17 +25,16 @@ public class Fenster extends JFrame {
 	private static Container content;
 	
 	/**
-	 * Stack for the window history so that the back button can function perfectly
+	 * Stack für die Fensterhistorie, damit der zurück-Button richtig funktioniert
 	 */
 	private static Stack<Container> history = new Stack<Container>();
 	
 	/**
-	 * constructor
-	 * sets the name of the window
-	 * sets the size of the window
-	 * sets the exit function
-	 * specifies that the window size cannot be changed
-	 * 
+	 * Konstruktor
+	 * legt Namen des Fensters fest
+	 * legt Fenstergröße fest
+	 * legt Exit-Funktion fest
+	 * legt fest, dass die Fenstergröße nicht verändert werden kann
 	 */
 	public Fenster() {
 		
@@ -55,36 +54,37 @@ public class Fenster extends JFrame {
 	}
 	
 	/**
-	 *  return the last window of the stack
+	 *  Gibt das letzte Fenster vom Stack zurück
 	 */
 	public static void lastContent() {
-		newDraw(history.pop());
+		neuZeichnen(history.pop());
 	}
 	
 	/**
-	 * History-Container is emptied
+	 * History-Container wird geleert 
 	 */
 	public static void clearHistory() {
 		history = new Stack<Container>();
 	}
 	
-	/** current window is added to the History-Stack
+	/** Jetziges Fenster wird zum History-Stack hinzugefügt
 	 * 
-	 * @param container : Container (window-container)
+	 * @param cont : Container (Fenster-Container)
 	 */
-	private static void addToHistory(Container container) {
+	private static void addToHistory(Container cont) {
 		if(history.size() >= MAX_HISTORY_SIZE)
 			history.pop();
-		history.push(container);
+		history.push(cont);
 	}
 	
 	/**
-	 * method to logout the user, empty the history-stack and open a new login window
+	 * 	Methode, um den Benutzer auszuloggen, den History-Stack zu leeren
+	 * 	und ein das Login-Fenster neu zu öffnen
 	 */
 	public static void reset() {
 		Benutzer.logoutUser();
 		clearHistory();
-		newDraw(new Panel(new Login()));
+		neuZeichnen(new Panel(new Login()));
 	}
 	
 	
@@ -92,7 +92,7 @@ public class Fenster extends JFrame {
 	
 	private static void addToFrame(Panel p) {
 		addToHistory(content);
-		newDraw(p);
+		neuZeichnen(p);
 	}
 
 	public static void addToFrame(Body body) {
@@ -107,11 +107,11 @@ public class Fenster extends JFrame {
 		addToFrame(new Panel(screen, banner));
 	}
 	
-	public static void newDraw() {
-		newDraw(content);
+	public static void neuZeichnen() {
+		neuZeichnen(content);
 	}
 	
-	public static void newDraw(Container p) {
+	public static void neuZeichnen(Container p) {
 	
 		content = p;
 		masterFrame.setContentPane(content);

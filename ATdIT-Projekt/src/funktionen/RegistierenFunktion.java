@@ -18,9 +18,9 @@ import screens.MenuScreen;
 import screens.PasswortAendern;
 import screens.Registrierung;
 
-/** Class for the function of class "Registrierung"
+/** Klasse um die Funktion des Registrierungs-Screens bereitzustellen.
  * 
- * @author Group3
+ * @author Gruppe3
  *
  */
 
@@ -28,29 +28,29 @@ public class RegistierenFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-/** Function back button.
+/** Funktion Zurückknopf.
  * 
  */		
-		if(e.getSource() == Registrierung.backButton) {
+		if(e.getSource() == Registrierung.back) {
 			Benutzer.logoutUser();
 			Fenster.clearHistory();
-			Fenster.newDraw(new Login());;
+			Fenster.neuZeichnen(new Login());;
 		}
 		
-/** Database is started.
- * User is registered in the database with a user name and password.
- * Corresponding error messages if the user name already exists and the password does not match.
+/** Datenbank wird gestartet.
+ * Benutzer wird mit Benutzernamen und Passwort in der Datenbank registriert.
+ * Entsprechende Fehlermeldungen bei bereits existierendem Benutzernamen und nicht übereinstimmigem Passwort.
  */				
-		if (e.getSource() == Registrierung.registerButton) {
+		if (e.getSource() == Registrierung.registrierenB) {
 			JTextField name;
 			JPasswordField password;
 			try {
 				DatabaseConnection.connectDatabase();
-				Registrierung.userexistsLabel.setText("");
-				Registrierung.passworddoesnotmatchLabel.setText("");
-				if(Registrierung.repeatpasswordPasswordfield.getText().equals(Registrierung.passwordPasswordfield.getText())) {
-				password = Registrierung.passwordPasswordfield;
-				name = Registrierung.userTextfield;
+				Registrierung.benutzerExistiertBereits.setText("");
+				Registrierung.passwortStimmtNichtUeberein.setText("");
+				if(Registrierung.passwortWiederholentx.getText().equals(Registrierung.passworttx.getText())) {
+				password = Registrierung.passworttx;
+				name = Registrierung.benutzernametx;
 				String s = "";
 				char[] c = password.getPassword();
 				for(int i = 0; i < c.length; i++)
@@ -61,15 +61,15 @@ public class RegistierenFunktion implements ActionListener {
 						Fenster.addToFrame(new MenuScreen()); 
 						}
 					else {
-						Registrierung.userexistsLabel.setText("Benutzer existiert bereits!");
-						Registrierung.userexistsLabel.setBackground(Color.WHITE);
-						Registrierung.userexistsLabel.setForeground(Color.RED);
+						Registrierung.benutzerExistiertBereits.setText("Benutzer existiert bereits!");
+						Registrierung.benutzerExistiertBereits.setBackground(Color.WHITE);
+						Registrierung.benutzerExistiertBereits.setForeground(Color.RED);
 				
 					}
 				}else {
-					Registrierung.passworddoesnotmatchLabel.setText("Passwort stimmt nicht überrein!");
-					Registrierung.passworddoesnotmatchLabel.setBackground(Color.WHITE);
-					Registrierung.passworddoesnotmatchLabel.setForeground(Color.RED);
+					Registrierung.passwortStimmtNichtUeberein.setText("Passwort stimmt nicht überrein!");
+					Registrierung.passwortStimmtNichtUeberein.setBackground(Color.WHITE);
+					Registrierung.passwortStimmtNichtUeberein.setForeground(Color.RED);
 				}
 				
 				DatabaseConnection.disconnectDatabase();
