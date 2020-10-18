@@ -16,6 +16,7 @@ import master.Panel;
 import screens.Login;
 import screens.MenuScreen;
 import screens.PasswortAendern;
+import screens.ProfilBearbeiten;
 import screens.Registrierung;
 
 /** Class for the function of class "Registrierung"
@@ -43,21 +44,33 @@ public class RegistierenFunktion implements ActionListener {
  */				
 		if (e.getSource() == Registrierung.registerButton) {
 			JTextField name;
-			JPasswordField password;
+//			JPasswordField password;
 			try {
 				DatabaseConnection.connectDatabase();
 				Registrierung.userexistsLabel.setText("");
 				Registrierung.passworddoesnotmatchLabel.setText("");
-				if(Registrierung.repeatpasswordPasswordfield.getText().equals(Registrierung.passwordPasswordfield.getText())) {
-				password = Registrierung.passwordPasswordfield;
+				
+				String userPassword = "";
+				char[] passwordLetters = Registrierung.passwordPasswordfield.getPassword();
+				for (int i = 0; i < passwordLetters.length; i++)
+					userPassword += passwordLetters[i];
+				
+				String userControlPassword = "";
+				passwordLetters = Registrierung.repeatpasswordPasswordfield.getPassword();
+				for (int i = 0; i < passwordLetters.length; i++)
+					userControlPassword += passwordLetters[i];
+				
+				if(userControlPassword.equals(userPassword)) {
+//				password = Registrierung.passwordPasswordfield;
 				name = Registrierung.userTextfield;
-				String s = "";
-				char[] c = password.getPassword();
-				for(int i = 0; i < c.length; i++)
-					s += c[i];
+//				String s = "";
+//				char[] c = password.getPassword();
+//				for(int i = 0; i < c.length; i++)
+//					s += c[i];
 		
 					if(AdminFunctions.findUser(name.getText()) == null) {
-						AdminFunctions.addUser(name.getText(), s);
+						AdminFunctions.addUser(name.getText(), userPassword);
+						Benutzer.setMail(Registrierung.mailTextfield.getText());
 						Fenster.addToFrame(new MenuScreen()); 
 						}
 					else {
