@@ -3,10 +3,7 @@ package screens;
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.*;
-import funktionen.AusloggenFunktion;
-import funktionen.KarteFunktion;
-import funktionen.MeinProfilFunktion;
-import funktionen.MountainBikeFunktion;
+import master.Fenster;
 import master.MasterScreen;
 
 /** GUI class for "MenuScreen"
@@ -66,10 +63,11 @@ public class MenuScreen extends MasterScreen {
 		logoutButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
 		//Funktionsaufruf ActionListener für Buttons
-		mapButton.addActionListener(new KarteFunktion());
-		mountainbikemapButton.addActionListener(new MountainBikeFunktion());
-		myProfileButton.addActionListener(new MeinProfilFunktion());
-		logoutButton.addActionListener(new AusloggenFunktion());
+		
+		mapButton.addActionListener(w -> { Fenster.addToFrame(new KarteScreen()); });
+		mountainbikemapButton.addActionListener(x -> {Fenster.addToFrame(new KarteScreen());});
+		myProfileButton.addActionListener(y -> {Fenster.addToFrame(new MeinProfil());});
+		logoutButton.addActionListener(z -> { Fenster.addToFrame(new Login()); });
 		this.add(menuPanel);
 		this.add(mapButton);
 		this.add(mountainbikemapButton);
