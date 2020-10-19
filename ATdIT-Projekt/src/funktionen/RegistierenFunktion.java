@@ -11,6 +11,7 @@ import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
+import exceptions.LoginCredentialsException;
 import master.Fenster;
 import master.Panel;
 import screens.Login;
@@ -71,6 +72,12 @@ public class RegistierenFunktion implements ActionListener {
 					if(AdminFunctions.findUser(name.getText()) == null) {
 						AdminFunctions.addUser(name.getText(), userPassword);
 						Benutzer.setMail(Registrierung.mailTextfield.getText());
+						try {
+							Benutzer.loginUser(name.getText(), userPassword);
+						} catch (LoginCredentialsException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						Fenster.addToFrame(new MenuScreen()); 
 						}
 					else {
