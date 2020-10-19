@@ -1,15 +1,11 @@
 package screens;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
 import connection.DatabaseConnection;
 import exceptions.ChangePasswordException;
 import exceptions.DatabaseConnectException;
 import funktionen.FunktionPasswortAendern;
-import funktionen.FunktionProfilBearbeiten;
 import master.Fenster;
 import master.MasterScreen;
 

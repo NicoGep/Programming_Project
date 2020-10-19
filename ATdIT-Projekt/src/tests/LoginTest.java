@@ -1,7 +1,6 @@
 package tests;
-import static org.junit.Assert.*;
-import org.junit.*;
 
+import org.junit.*;
 import connection.Benutzer;
 import exceptions.LoginCredentialsException;
 

@@ -1,8 +1,8 @@
 package master;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+
+
 
 /**
  * Master class, to set a general window size

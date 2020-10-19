@@ -1,15 +1,11 @@
 package master;
 
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
 import connection.Benutzer;
-import screens.Login;
+
 
 /** Class for the MasterBanner to have uniform screens
  * 

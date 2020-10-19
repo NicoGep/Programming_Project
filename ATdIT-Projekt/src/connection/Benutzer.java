@@ -6,7 +6,7 @@ import java.util.*;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import funktionen.AdminFunctions;
-import master.Fenster;
+
 
 /**User class for user functions
  * User is a singleton.

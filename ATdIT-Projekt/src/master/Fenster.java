@@ -1,13 +1,9 @@
 package master;
 
 import javax.swing.*;
-
 import connection.Benutzer;
 import screens.Login;
-
-import java.awt.event.*;
 import java.util.*;
-import java.util.List;
 import java.awt.*;
 
 /**

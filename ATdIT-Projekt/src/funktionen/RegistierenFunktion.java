@@ -3,21 +3,15 @@ package funktionen;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
 import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import master.Fenster;
-import master.Panel;
 import screens.Login;
 import screens.MenuScreen;
-import screens.PasswortAendern;
-import screens.ProfilBearbeiten;
 import screens.Registrierung;
 
 /** Class for the function of class "Registrierung"
