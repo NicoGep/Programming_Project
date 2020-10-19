@@ -1,31 +1,31 @@
 package screens;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
-import funktionen.FunktionProfilbildAendern;
+import connection.Benutzer;
+import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
+import master.Fenster;
 import master.MasterScreen;
 
-/** UI class for class "ProfilbildAendern"
+/**
+ * UI class for class "ProfilbildAendern"
  * 
  * @author Group3
  *
  */
 public class ProfilbildAendern extends MasterScreen {
-	public static JButton saveButton;
-	public static JButton cancelButton;
+	public JButton saveButton;
+	public JButton cancelButton;
 
 	JLabel addressLabel;
 	public static JTextField addressTextfield;
 
 	/**
-	 * constructor without layout 
+	 * constructor without layout
 	 */
 	public ProfilbildAendern() {
 		this.setLayout(null);
-		ActionListener ProfilbildAendernAL = new FunktionProfilbildAendern();
 
 		addressLabel = new JLabel("Adresse des neuen Profilbilds: ");
 		addressLabel.setBounds(0, 0, 450, 100);
@@ -39,14 +39,25 @@ public class ProfilbildAendern extends MasterScreen {
 		saveButton.setBackground(Color.GREEN);
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		saveButton.addActionListener(ProfilbildAendernAL);
+		saveButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
+				Benutzer.setProfilePicture(ProfilbildAendern.addressTextfield.getText());
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
+			Fenster.addToFrame(new ProfilBearbeiten());
+		});
 
 		cancelButton = new JButton("Abbrechen");
 		cancelButton.setBackground(Color.RED);
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		cancelButton.addActionListener(ProfilbildAendernAL);
-		
+		cancelButton.addActionListener(l -> {
+			Fenster.addToFrame(new ProfilBearbeiten());
+		});
+
 		this.add(addressLabel);
 		this.add(addressTextfield);
 		this.add(cancelButton);

@@ -1,77 +1,59 @@
 package funktionen;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Iterator;
-
-import javax.swing.JLabel;
-
 import connection.Benutzer;
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
 import exceptions.InputException;
-import master.Fenster;
 import screens.GruppeBeitreten;
-import screens.MeinProfil;
-import screens.ProfilBearbeiten;
 
-/**	class with functions for class "GruppeBeitreten"
+/**
+ * class with functions for class "GruppeBeitreten"
  *
  */
-public class FunktionGruppeBeitreten implements ActionListener {
+public class FunktionGruppeBeitreten {
 
-	/**	Implementation of the function for the join group button
+	/**
+	 * Implementation of the function for the join group button
 	 * 
 	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
 
+	public static void search() {
+		GruppeBeitreten.groups.removeAllItems();
+		new FunktionGruppeBeitreten().loadGroups();
+		Iterator<String> it = GruppeBeitreten.allGroupsList.iterator();
+		while (it.hasNext()) {
+			String item = (String) it.next();
+			String search = GruppeBeitreten.groupNameTextfield.getText();
+			if (item.contains(search)) {
+				GruppeBeitreten.groups.addItem(item);
+				System.out.println(item);
+			}
+		}
+		GruppeBeitreten.groups.setVisible(true);
+	}
+
+	public static void leaveGroup() {
 		try {
-			DatabaseConnection.connectDatabase();
-			if (e.getSource() == GruppeBeitreten.searchButton) {
-				GruppeBeitreten.groups.removeAllItems();
-				loadGroups();
-				Iterator it = GruppeBeitreten.groupList.iterator();
-				while (it.hasNext()) {
-					String item = (String) it.next();
-					String search = GruppeBeitreten.groupNameTextfield.getText();
-					if (item.contains(search)) {
-						GruppeBeitreten.groups.addItem(item);
-						System.out.println(item);
-					}
-				}
-				GruppeBeitreten.groups.setVisible(true);
-				DatabaseConnection.disconnectDatabase();
-			}
-
-			else if (e.getSource() == GruppeBeitreten.deleteButton) {
-				Benutzer.leaveGroup((GruppeBeitreten.groups.getItemAt(GruppeBeitreten.groups.getSelectedIndex())));
-				DatabaseConnection.disconnectDatabase();
-			} else if (e.getSource() == GruppeBeitreten.joinButton) {
-
-				Benutzer.joinGroup((GruppeBeitreten.groups.getItemAt(GruppeBeitreten.groups.getSelectedIndex())));
-				DatabaseConnection.disconnectDatabase();
-			}
-
-			else if (e.getSource() == GruppeBeitreten.backButton) {
-				DatabaseConnection.disconnectDatabase();
-				Fenster.addToFrame(new MeinProfil());
-			} else {
-				DatabaseConnection.disconnectDatabase();
-			}
-		} catch (DatabaseConnectException e1) {
-			e1.printStackTrace();
-		} catch (InputException e1) {
-			e1.printStackTrace();
+			Benutzer.leaveGroup((GruppeBeitreten.groups.getItemAt(GruppeBeitreten.groups.getSelectedIndex())));
+		} catch (InputException e) {
+			System.out.println("Fehler beim Verlassen der Gruppe");
 		}
 	}
 
-	/**Function to load existing groups
+	public static void joinGroup() {
+		try {
+			Benutzer.joinGroup((GruppeBeitreten.groups.getItemAt(GruppeBeitreten.groups.getSelectedIndex())));
+		} catch (InputException e) {
+
+		}
+	}
+
+	/**
+	 * Function to load existing groups
 	 * 
 	 */
 	public void loadGroups() {
 		if (AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname") != null) {
-			GruppeBeitreten.groupList = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");
+			GruppeBeitreten.allGroupsList = AdminFunctions.setToList(AdminFunctions.getAllGroups(), "gruppenname");
 		}
 	}
 

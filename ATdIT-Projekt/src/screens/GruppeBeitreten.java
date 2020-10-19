@@ -1,33 +1,30 @@
 package screens;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeSet;
-
 import javax.swing.*;
-
+import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import funktionen.FunktionGruppeBeitreten;
-
+import master.Fenster;
 import master.MasterScreen;
 
 /**
  * GUI for screen "GruppeBeitreten"
  * 
- * @author Group3 
+ * @author Group3
  *
  */
 public class GruppeBeitreten extends MasterScreen {
 
-	public static JButton backButton;
-	public static JButton joinButton;
-	public static JButton deleteButton;
-	public static JButton searchButton;
+	public JButton backButton;
+	public JButton joinButton;
+	public JButton deleteButton;
+	public JButton searchButton;
 
 	public static JComboBox<String> groups;
-	
-	public static List<String> groupList;
+
+	public static List<String> allGroupsList;
 
 	JLabel groupNameLabel;
 	public static JLabel results;
@@ -36,20 +33,19 @@ public class GruppeBeitreten extends MasterScreen {
 
 	/**
 	 * constructor GruppeBeitreten
-	 * @param groupNameLabel : JLabel
+	 * 
+	 * @param groupNameLabel     : JLabel
 	 * @param groupNameTextfield : JTextField
-	 * @param results : JLabel
-	 * @param groups : JComboBox<String>
-	 * @param searchButton : JButton
-	 * @param joinButton : JButton
-	 * @param deleteButton : JButton
-	 * @param backButton : JButton
+	 * @param results            : JLabel
+	 * @param groups             : JComboBox<String>
+	 * @param searchButton       : JButton
+	 * @param joinButton         : JButton
+	 * @param deleteButton       : JButton
+	 * @param backButton         : JButton
 	 */
 	public GruppeBeitreten() {
 
 		this.setLayout(null);
-		ActionListener gruppeBeitretenAL = new FunktionGruppeBeitreten();
-//		new FunktionGruppeBeitreten().gruppenLaden();
 
 		groupNameLabel = new JLabel("Name der Gruppe:");
 		groupNameLabel.setBounds(0, 0, 450, 100);
@@ -68,30 +64,57 @@ public class GruppeBeitreten extends MasterScreen {
 		groups = new JComboBox<String>();
 		groups.setBounds(0, 250, 450, 50);
 		groups.setVisible(false);
-		
+
 		searchButton = new JButton("Suchen");
 		searchButton.setBackground(Color.BLUE);
 		searchButton.setBounds(0, 400, 450, 100);
 		searchButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		searchButton.addActionListener(gruppeBeitretenAL);
+		searchButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
+				FunktionGruppeBeitreten.search();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
+
+		});
 
 		joinButton = new JButton("Beitreten");
 		joinButton.setBackground(Color.LIGHT_GRAY);
 		joinButton.setBounds(225, 500, 225, 100);
 		joinButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		joinButton.addActionListener(gruppeBeitretenAL);
+		joinButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
+				FunktionGruppeBeitreten.joinGroup();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
+		});
 
 		deleteButton = new JButton("Austreten");
 		deleteButton.setBackground(Color.LIGHT_GRAY);
 		deleteButton.setBounds(0, 500, 225, 100);
 		deleteButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		deleteButton.addActionListener(gruppeBeitretenAL);		
+		deleteButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
+				FunktionGruppeBeitreten.leaveGroup();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
+		});
 
 		backButton = new JButton("Zurück");
 		backButton.setBackground(Color.RED);
 		backButton.setBounds(0, 600, 450, 100);
 		backButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		backButton.addActionListener(gruppeBeitretenAL);
+		backButton.addActionListener(l -> {
+			Fenster.addToFrame(new MeinProfil());
+		});
 
 		this.add(groupNameLabel);
 		this.add(groupNameTextfield);

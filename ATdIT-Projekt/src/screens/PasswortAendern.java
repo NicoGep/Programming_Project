@@ -21,8 +21,8 @@ import master.MasterScreen;
  */
 public class PasswortAendern extends MasterScreen {
 
-	public static JButton saveButton;
-	public static JButton cancelButton;
+	public JButton saveButton;
+	public JButton cancelButton;
 
 	public static JPasswordField oldpasswordPasswordfield;
 	public static JPasswordField newpasswordPasswordfield;

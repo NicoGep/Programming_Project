@@ -1,12 +1,9 @@
 package funktionen;
 
-import java.awt.event.*;
-import java.sql.SQLException;
 
+import java.sql.SQLException;
 import connection.Benutzer;
-import connection.DatabaseConnection;
 import exceptions.ChangePasswordException;
-import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import master.Fenster;

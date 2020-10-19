@@ -2,15 +2,16 @@ package screens;
 
 import java.awt.*;
 
-import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Iterator;
 import javax.swing.*;
 
 import funktionen.FunktionMeinProfil;
+import master.Fenster;
 import master.MasterScreen;
 
-/** UI class for class "MeinProfil"
+/**
+ * UI class for class "MeinProfil"
  * 
  * @author Group3
  *
@@ -29,24 +30,23 @@ public class MeinProfil extends MasterScreen {
 	JPanel namelevelPanel;
 	JPanel mygrouplistPanel;
 
-	public static JButton editprofileButton;
-	public static JButton joingroupButton;
-	public static JButton creategroupButton;
+	public JButton editprofileButton;
+	public JButton joingroupButton;
+	public JButton creategroupButton;
 
 	public JLabel profilepictureLabel;
 	public JLabel mygroupsLabel;
 	public JLabel nameLabel;
 	public JLabel levelLabel;
 	public Icon profilepictureIcon;
-	
+
 	/**
 	 * constructor without Layout
 	 */
 	public MeinProfil() {
-	
+
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
-		ActionListener meinProfilAL = new FunktionMeinProfil();
 		new FunktionMeinProfil().loadData();
 		Image image = Toolkit.getDefaultToolkit().createImage(profilepictureaddress);
 
@@ -79,17 +79,23 @@ public class MeinProfil extends MasterScreen {
 		editprofileButton.setBounds(0, 0, 450, 50);
 		editprofileButton.setBackground(Color.LIGHT_GRAY);
 
-		editprofileButton.addActionListener(meinProfilAL);
+		editprofileButton.addActionListener(l -> {
+			Fenster.addToFrame(new ProfilBearbeiten());
+		});
 
 		joingroupButton = new JButton("Gruppe beitreten oder löschen");
 		joingroupButton.setBounds(0, 50, 450, 50);
 		joingroupButton.setBackground(Color.LIGHT_GRAY);
-		joingroupButton.addActionListener(meinProfilAL);
+		joingroupButton.addActionListener(l -> {
+			Fenster.addToFrame(new GruppeBeitreten());
+		});
 
 		creategroupButton = new JButton("Gruppe erstellen");
 		creategroupButton.setBounds(0, 100, 450, 50);
 		creategroupButton.setBackground(Color.LIGHT_GRAY);
-		creategroupButton.addActionListener(meinProfilAL);
+		creategroupButton.addActionListener(l -> {
+			Fenster.addToFrame(new GruppeErstellen());
+		});
 
 		profilepictureIcon = new ImageIcon(profilepictureaddress);
 
@@ -128,25 +134,25 @@ public class MeinProfil extends MasterScreen {
 
 		dataPanel.add(profilepicturePanel);
 		dataPanel.add(namelevelPanel);
-		
+
 		Iterator<String> it;
-		
-		if(groupList != null) {
-			it = groupList.iterator(); 
-		
+
+		if (groupList != null) {
+			it = groupList.iterator();
+
 			while (it.hasNext()) {
 				mygrouplistPanel.add(new JLabel((String) it.next()));
 			}
 		}
-			
+
 		groupsPanel.add(editprofileButton);
 		groupsPanel.add(joingroupButton);
 		groupsPanel.add(creategroupButton);
 		groupsPanel.add(mygroupsLabel);
 		groupsPanel.add(mygrouplistPanel);
-		
+
 		this.add(dataPanel, BorderLayout.NORTH);
 		this.add(groupsPanel, BorderLayout.CENTER);
-		
+
 	}
 }
