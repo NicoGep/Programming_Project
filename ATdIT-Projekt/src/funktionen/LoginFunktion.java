@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import connection.Benutzer;
 import connection.DatabaseConnection;
+import connection.Validator;
 import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
 import master.Fenster;
@@ -34,14 +35,17 @@ public class LoginFunktion implements ActionListener {
 	 * 
 	 * @param benutzertx : String (Benutzername)
 	 * @param passworttx : String (Passwort)
+	 * @throws DatabaseConnectException 
 	 */
-	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx, JLabel falscherName, JLabel falschesPasswort) {
+	public LoginFunktion(JTextField benutzertx, JPasswordField passworttx, JLabel falscherName, JLabel falschesPasswort) throws DatabaseConnectException {
 		
-		try {
-			DatabaseConnection.connectDatabase();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			DatabaseConnection.connectDatabase();
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		
+//		Validator.createValidator();
 		
 		name = benutzertx;
 		password = passworttx;
@@ -67,7 +71,7 @@ public class LoginFunktion implements ActionListener {
 				char[] c = password.getPassword();
 				for(int i = 0; i < c.length; i++)
 					s += c[i];
-				Benutzer.loginUser(name.getText().strip(), s);
+				Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
 				Fenster.addToFrame(new MenuScreen());
 			} else if (e.getSource() == Login.passwortVergessen) {
 				Fenster.addToFrame(new PasswortVerg());
@@ -75,12 +79,13 @@ public class LoginFunktion implements ActionListener {
 				Fenster.addToFrame(new Registrierung());
 			}
 			
-			DatabaseConnection.disconnectDatabase();
+//			DatabaseConnection.disconnectDatabase();
 
-		} catch (DatabaseConnectException dbE) {
-			dbE.printStackTrace();
+		} /*catch (DatabaseConnectException dbE) {
+//			dbE.printStackTrace();
+			System.out.println("No verbindungo");
 			// Fehler ausgeben, z.B. Anscheinend keine Internetverbindung o.Ä.
-		} catch (LoginCredentialsException lE) {
+		} */catch (LoginCredentialsException lE) {
 			switch(lE.getState()) {//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
 			case 1: falscherName.setText("Benutzername falsch."); 
 			falscherName.setBackground(Color.WHITE);

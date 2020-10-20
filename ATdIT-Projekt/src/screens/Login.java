@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exceptions.DatabaseConnectException;
 import funktionen.LoginFunktion;
 import master.Body;
 
@@ -97,7 +98,13 @@ public class Login extends Body {
 
 		this.add(pan);
 		
-		ActionListener aL = new LoginFunktion(benutzertx, passworttx, falscherName, falschesPasswort);
+		ActionListener aL;
+		try {
+			aL = new LoginFunktion(benutzertx, passworttx, falscherName, falschesPasswort);
+		} catch (DatabaseConnectException e) {
+			aL = null;
+			System.out.println("NONONONONONONO");
+		}
 
 		registrieren.addActionListener(aL);
 		passwortVergessen.addActionListener(aL);

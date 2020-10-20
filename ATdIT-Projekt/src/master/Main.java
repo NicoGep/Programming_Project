@@ -1,6 +1,6 @@
 package master;
 
-import screens.*;
+import connection.Validator;
 
 /** Main-Klasse: main-Methode starten, um die Applikation zu starten
  * 
@@ -14,9 +14,23 @@ public class Main {
 	 * @param args : String[] (args-Array)
 	 */
 	public static void main(String[] args) {
+		
+		Validator.createValidator();
+		
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e1) {		}
+		
 		Fenster frame = new Fenster();
-		frame.setVisible(true);
 		Fenster.reset();
+		frame.setVisible(true);
+		
+
+		
+		
 	}
+	
+	
+	//########################### Zugriff von mehreren Geräten ##########################
 	
 }

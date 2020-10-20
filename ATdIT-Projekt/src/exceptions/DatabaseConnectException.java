@@ -7,12 +7,15 @@ package exceptions;
  */
 public class DatabaseConnectException extends Exception {
 	
+	private int state;
+	
 	/**
 	 * 	
 	 * @param state : int (Conncetion-State um spezifische Angaben zu machen)
 	 */
 	public DatabaseConnectException(int state) {
 
+		this.state = state;
 
 		switch(state) {
 		
@@ -23,6 +26,10 @@ public class DatabaseConnectException extends Exception {
 		
 		}
 		
+	}
+	
+	public int getState() {
+		return state;
 	}
 
 }

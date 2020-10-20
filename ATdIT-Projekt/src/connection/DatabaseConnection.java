@@ -3,8 +3,29 @@ package connection;
 import java.sql.*;
 
 import exceptions.DatabaseConnectException;
+import master.ErrorFrame;
 
 public class DatabaseConnection {
+	
+	public enum Databases {
+		wanderoo, test;
+		
+		public String getDatabase(Databases d) {
+			switch(d) {
+			case wanderoo: return "wanderoo";
+			case test: return "test";
+			default: return "";
+			}
+		}
+		
+	}
+	
+	public enum Tables {
+		users, groups
+	}
+	
+	
+	
 	
 	private static String rootUser = "root";
 
@@ -16,95 +37,89 @@ public class DatabaseConnection {
 	
 	private static Connection con;
 	
-	public static final String stdDB = "atdit";
+	
+	private static final int timeOut = 15000;
 	
 	
-	public static final String uTB = "benutzer";
-	public static final String gTB = "gruppen";
-	public static final String connectTB = "gruppenzugehoerigkeit";
+	public static final String standardDatabase = "wanderoo";
+	
+	
+	public static final String usersTable = "users";
+	public static final String groupsTable = "groups";
+	public static final String users_groupsTable = "users_groups";
+	public static final String usercredentialsTable = "usercredentials";
+	
 	public static final String pTB = "parameter";
-	
-	public static final String tTB = "testtabelle";
 	
 	
 	
 	
 	//------------------------------------------------------------------------------- Verbindung zur Datenbank ----------------------------------------------------------
 	
-	/**
-	 * Stellt eine Verbindung zu der SQL-Datenbank her.
-	 * 
-	 * @return true, wenn Verbindung erfolgreich
-	 * @throws DatabaseConnectException
-	 */
-	@SuppressWarnings("deprecation")
-	public static boolean connectDatabase() throws DatabaseConnectException {
-		
-		if(con != null) 
-			throw new DatabaseConnectException(3);
+	
+	public static void connectDatabase() throws DatabaseConnectException {
+
+		DatabaseConnection.disconnectDatabase();
 
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
 			con = DriverManager.getConnection(url, rootUser, rootPassword);	//######### NOCH ROOT CREDS ############
 			
-			if(con == null)
-				throw new DatabaseConnectException(1);
-
-			System.out.println("Database connected\n\n");
-			
-			return true;
 			
 		} catch(Exception e) {
-//			e.printStackTrace();
+			new ErrorFrame(e);
+		}
+		
+		if(!DatabaseConnection.testConnection())
 			throw new DatabaseConnectException(1);
+
+		System.out.println("Database connected\n\n");
+		
+	}
+	
+	
+	public static void disconnectDatabase() {
+		
+		try {
+			if(con != null)
+				con.close();
+			con = null;
+			System.out.println("\n\nDatabase disconnected");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 	}
 	
-	/**
-	 * Trennt die aktuelle Verbindung zur Datenbank
-	 * 
-	 * @return true, wenn die Trennung erfolgreich war
-	 * @throws DatabaseConnectException
-	 */
-	public static boolean disconnectDatabase() throws DatabaseConnectException {
-		
-		if(con == null) 
-			throw new DatabaseConnectException(4);
+	
+	public static boolean testConnection() {
 		
 		try {
-			con.close();
-			con = null;
-			System.out.println("\n\nDatabase disconnected");
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DatabaseConnectException(2);
+			
+			if(con == null)
+				return false;
+			
+			if(con.isValid(timeOut))
+				return true;
+			else
+				return false;
+		
+		} catch(SQLException e) {
+			return false;
 		}
 		
 	}
+	
 	
 	//----------------------------------------------------------------------------- Direkte Querys ----------------------------------------------------------------
 	
-	/**
-	 * Einfache Datenbankabfrage. Ausführung einer Query auf dem Server.
-	 * (Erlaubt sind alle Select-Abfragen o.Ä.)
-	 * 
-	 * @param statement
-	 * @return Die Ergebnis-Relation als ResultSet
-	 */
+	
 	public static ResultSet makeQuerry(String statement) {
-		return makeQuerry(statement, stdDB);	
+		return makeQuerry(statement, standardDatabase);	
 	}
 	
-	/**
-	 * Einfache Datenbankabfrage. Ausführung einer Query auf dem Server.
-	 * (Erlaubt sind alle Select-Abfragen o.Ä.)
-	 * 
-	 * @param statement
-	 * @return Die Ergebnis-Relation als ResultSet
-	 */
 	public static ResultSet makeQuerry(String statement, String database) {      //################## Null returnen, wenn Set leer #####################
 		
 		try {
@@ -123,25 +138,14 @@ public class DatabaseConnection {
 		}
 	}
 	
-	/**
-	 * Einfache Datenmanipulations-Query.
-	 * (Erlaubt sind alle Update-Funktionen o.Ä.)
-	 * 
-	 * @param statement
-	 * @return
-	 */
+	
+	
+	
 	public static int makeUpdate(String statement) {
-		return makeUpdate(statement, stdDB);	
+		return makeUpdate(statement, standardDatabase);	
 	}
 	
 	
-	/**
-	 * Einfache Datenmanipulations-Query.
-	 * (Erlaubt sind alle Update-Funktionen o.Ä.)
-	 * 
-	 * @param statement
-	 * @return
-	 */
 	public static int makeUpdate(String statement, String database) {
 		
 		try {
@@ -158,38 +162,6 @@ public class DatabaseConnection {
 			System.out.println("makeUpdateException");
 			return 0;
 		}
-	}
-	
-	
-	
-	//-------------------------------------------------------------------- Spalte hinzufügen -------------------------------------------------------------
-	
-	public static void addColumn(String col, String dataType) {
-		addColumn(col, dataType, " ", "NOT NULL");
-	}
-	
-	public static void addColumn(String col, String dataType, int size) {
-		addColumn(col, dataType, size, "NOT NULL");
-	}
-	
-	public static void addColumn(String col, String dataType, int size, String arguments) {
-		addColumn(col, dataType, "(" + size + ") ", arguments);
-	}
-	
-	/**
-	 * Fügt einer Tabelle eine Spalte hinzu.
-	 * 
-	 * @param col Spaltenname
-	 * @param dataType DatenTyp des Attributs
-	 * @param size Größe des Attributs (in Byte)
-	 * @param arguments Argumente (z.B. NOT NULL)
-	 */
-	private static void addColumn(String col, String dataType, String size, String arguments) { //################ Eingabeprüfung einbauen #################
-		
-		String statement = "ALTER TABLE " + uTB + " ADD " + col + " " + dataType + size + arguments + ";";
-		System.out.println(statement);
-		makeUpdate(statement);
-		
 	}
 	
 	

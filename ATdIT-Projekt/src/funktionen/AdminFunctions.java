@@ -28,7 +28,7 @@ public class AdminFunctions {
 		
 		if(findUser(name) == null) {
 			
-			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.uTB + "(name, password) VALUES('" + name + "', '" + password + "');");
+			DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.usersTable + "(name, password) VALUES('" + name + "', '" + password + "');");
 			
 			System.out.println("Benutzer " + name + " hinzugefügt.");
 			
@@ -54,7 +54,7 @@ public class AdminFunctions {
 		
 		try {
 			
-			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.uTB + " WHERE name = '" + name + "';");
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.usersTable + " WHERE name = '" + name + "';");
 		
 			if(!set.first())	
 				return null;
@@ -151,7 +151,7 @@ public class AdminFunctions {
 		
 		try {
 			
-			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + " WHERE gruppenname = '" + gruppenName + "';");
+			ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.groupsTable + " WHERE gruppenname = '" + gruppenName + "';");
 			
 			if(!set.first())
 				return null;
@@ -177,7 +177,7 @@ public class AdminFunctions {
 			throw new InputException(6);
 			
 		
-		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.gTB + " (gruppenname, niveau) VALUES ('" + gruppenName + "', '" + niveau + "');");
+		DatabaseConnection.makeUpdate("INSERT INTO " + DatabaseConnection.groupsTable + " (gruppenname, niveau) VALUES ('" + gruppenName + "', '" + niveau + "');");
 		
 		System.out.println("Gruppe " + gruppenName + " wurde erstellt.");
 	}
@@ -188,7 +188,7 @@ public class AdminFunctions {
 	
 	
 	public static void setGroupNiveau(String neuesNiveau, String gruppenname) {
-		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.gTB + " SET niveau = '" + neuesNiveau + "' WHERE gruppenname = " + gruppenname + ";");
+		DatabaseConnection.makeUpdate("UPDATE " + DatabaseConnection.groupsTable + " SET niveau = '" + neuesNiveau + "' WHERE gruppenname = " + gruppenname + ";");
 	}
 	
 	
@@ -199,7 +199,7 @@ public class AdminFunctions {
 	 */
 	public static ResultSet getAllGroups() {
 		
-		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.gTB + ";");
+		ResultSet set = DatabaseConnection.makeQuerry("SELECT * FROM " + DatabaseConnection.groupsTable + ";");
 		
 		try {
 			

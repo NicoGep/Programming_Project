@@ -64,7 +64,7 @@ public class KarteScreen extends MasterScreen {
 		streckenLaengeSlider.setBackground(Color.white);
 		streckenLaengeSlider.setMinorTickSpacing(500);
 		streckenLaengeSlider.addChangeListener(cL);
-
+		
 		JPanel hoehenunterschiedPanel = new JPanel();
 		hoehenunterschiedPanel.setBackground(Color.white);
 		hoehenunterschiedPanel.setBounds(10, 475, 400, 50);

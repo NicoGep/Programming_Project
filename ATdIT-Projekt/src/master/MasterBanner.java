@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import connection.Benutzer;
-import screens.Login;
 
 /** Klasse, um den MasterBanner bereitzustellen, um einheitliche Screens zu haben
  * 
@@ -39,7 +38,7 @@ public class MasterBanner extends JPanel {
 		logout = new JButton("Ausloggen");
 		nameLabel = new JLabel();
 		
-		nameLabel.setText("Hallo " + Benutzer.getName());
+//		nameLabel.setText("Hallo " + Benutzer.getName());
 		
 		this.add(back);
 		this.add(logout);
