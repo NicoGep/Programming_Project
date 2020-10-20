@@ -105,11 +105,7 @@ public class Login extends Body {
 		forgotpasswordButton.addActionListener(l -> {
 			Fenster.addToFrame(new PasswortVerg());
 			});
-		loginButton.addActionListener(l -> {
-			DatabaseConnection.connectDatabase();
-			LoginFunktion.login();
-			DatabaseConnection.disconnectDatabase();
-		});
+		loginButton.addActionListener(aL);
 
 	}
 	

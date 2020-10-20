@@ -55,22 +55,26 @@ public class LoginFunktion implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-	
-	public static void login() {
+
 		try {
+			
 			wrongnameLabel.setText("");
 			wrongpasswordLabel.setText("");
-			String s = "";
-			char[] c = password.getPassword();
-			for(int i = 0; i < c.length; i++)
-			s += c[i];
-			Benutzer.loginUser(name.getText().strip(), s);
-			Fenster.addToFrame(new MenuScreen());
-//			} else if (e.getSource() == Login.forgotpasswordButton) {
-//				Fenster.addToFrame(new PasswortVerg());
-//			} else if (e.getSource() == Login.registerButton) {
-//				Fenster.addToFrame(new Registrierung());
+			
+			if (e.getSource() == Login.loginButton) {
+				String s = "";
+				char[] c = password.getPassword();
+				for(int i = 0; i < c.length; i++)
+					s += c[i];
+				Benutzer.loginUser(name.getText().strip(), s);
+				Fenster.addToFrame(new MenuScreen());
+			} else if (e.getSource() == Login.forgotpasswordButton) {
+				Fenster.addToFrame(new PasswortVerg());
+			} else if (e.getSource() == Login.registerButton) {
+				Fenster.addToFrame(new Registrierung());
 			}
+			
+			DatabaseConnection.disconnectDatabase();
 
 		} catch (DatabaseConnectException dbE) {
 			dbE.printStackTrace();
@@ -90,7 +94,6 @@ public class LoginFunktion implements ActionListener {
 			default: break;
 			}
 			Fenster.newDraw();
-			}
 		}
 	}
 }
