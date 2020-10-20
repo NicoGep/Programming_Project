@@ -13,18 +13,13 @@ import master.MasterScreen;
  */
 public class MenuScreen extends MasterScreen {
 	
-	public JPanel menuPanel;
-	public JLabel menuLabel;
-	public static JButton mapButton;
-	public static JButton mountainbikemapButton;
-	public static JButton myProfileButton;
-	public static JButton logoutButton;
-	
 	/**
 	 * constructor for the creating of the menu screen without layout
 	 */
 	public MenuScreen( ) {
 		
+		JPanel menuPanel;
+		JLabel menuLabel;
 		//Definition UI-Layout
 		this.setBackground(Color.white);
 		this.setLayout(null);
@@ -37,25 +32,28 @@ public class MenuScreen extends MasterScreen {
 		menuPanel.add(menuLabel);
 		menuPanel.setBackground(Color.white);
 		
-		
+		JButton mapButton;
 		mapButton = new JButton("Karte");
 		mapButton.setBackground(Color.white);
 		mapButton.setBounds(75, 150, 300, 50);
 		mapButton.setBorderPainted(false);
 		mapButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
+		JButton mountainbikemapButton;
 		mountainbikemapButton = new JButton("Mountainbiking");
 		mountainbikemapButton.setBackground(Color.white);
 		mountainbikemapButton.setBounds(75, 250, 300, 50);
 		mountainbikemapButton.setBorderPainted(false);
 		mountainbikemapButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
+		JButton myProfileButton;
 		myProfileButton = new JButton("Mein Profil");
 		myProfileButton.setBounds(75, 350, 300, 50);
 		myProfileButton.setBackground(Color.white);
 		myProfileButton.setBorderPainted(false);
 		myProfileButton.setFont(new Font("Calibri", Font.BOLD, 16));
 		
+		JButton logoutButton;
 		logoutButton = new JButton("Ausloggen");
 		logoutButton.setBackground(Color.white);
 		logoutButton.setBounds(170, 600, 125, 50);
