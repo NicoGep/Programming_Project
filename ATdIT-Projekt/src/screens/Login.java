@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import funktionen.LoginFunktion;
 import master.Body;
+import master.Fenster;
 
 /**	UI class for the "Login" screen
  * 
