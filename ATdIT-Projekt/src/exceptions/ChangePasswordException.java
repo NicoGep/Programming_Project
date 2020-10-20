@@ -1,6 +1,6 @@
 package exceptions;
 
-import screens.ChangePassword;
+import screens.PasswortAendern;
 
 /**
  * Exception class to detect failed change of password
@@ -21,14 +21,14 @@ public class ChangePasswordException extends Exception {
 
 		switch (state) {		
 		case 1:
-			ChangePassword.newpassworddoesnotmatchLabel.setVisible(true);
+			PasswortAendern.newpassworddoesnotmatchLabel.setVisible(true);
 			break;
 		case 2:
-			ChangePassword.stateoldpasswordLabel.setVisible(true);
+			PasswortAendern.stateoldpasswordLabel.setVisible(true);
 			break;
 		case 3:
-			ChangePassword.newpassworddoesnotmatchLabel.setVisible(true);
-			ChangePassword.stateoldpasswordLabel.setVisible(true);
+			PasswortAendern.newpassworddoesnotmatchLabel.setVisible(true);
+			PasswortAendern.stateoldpasswordLabel.setVisible(true);
 			break;
 		}
 

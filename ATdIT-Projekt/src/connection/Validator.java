@@ -96,7 +96,7 @@ public final class Validator extends Thread {
 	//-------------------------------------------------------- Methoden -----------------------------------------------------
 	
 	//return null if doesnt exit
-	public User getUser(String name) {
+	public Benutzer getUser(String name) {
 		
 		String statement = "SELECT * FROM " + DatabaseConnection.usersTable + " WHERE username = '" + name + "';";
 		
@@ -110,11 +110,11 @@ public final class Validator extends Thread {
 			return null;
 		}
 		
-		return new User(set);
+		return new Benutzer(set);
 	}
 	
 	
-	public void updateUser(User user) {
+	public void updateUser(Benutzer user) {
 		
 		String statement = 
 				"UPDATE " + DatabaseConnection.usersTable + " SET " +
@@ -152,7 +152,7 @@ public final class Validator extends Thread {
 	}
 	
 	
-	public boolean checkPassword(User user, String password) {
+	public boolean checkPassword(Benutzer user, String password) {
 		
 //		ResultSet set = DatabaseConnection.makeQuerry("SELECT userpassword FROM " + DatabaseConnection.usercredentialsTable + " INNER JOIN " + Database);
 		

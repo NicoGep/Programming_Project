@@ -5,17 +5,17 @@ import java.util.List;
 import javax.swing.*;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
-import funktionen.JoinGroupFunction;
-import master.Window;
+import funktionen.FunktionGruppeBeitreten;
+import master.Fenster;
 import master.MasterScreen;
 
 /**
- * GUI for screen "JoinGroup"
+ * GUI for screen "GruppeBeitreten"
  * 
  * @author Group3
  *
  */
-public class JoinGroup extends MasterScreen {
+public class GruppeBeitreten extends MasterScreen {
 
 	public JButton backButton;
 	public JButton joinButton;
@@ -32,7 +32,7 @@ public class JoinGroup extends MasterScreen {
 	public static JTextField groupNameTextfield;
 
 	/**
-	 * constructor JoinGroup
+	 * constructor GruppeBeitreten
 	 * 
 	 * @param groupNameLabel     : JLabel
 	 * @param groupNameTextfield : JTextField
@@ -43,7 +43,7 @@ public class JoinGroup extends MasterScreen {
 	 * @param deleteButton       : JButton
 	 * @param backButton         : JButton
 	 */
-	public JoinGroup() {
+	public GruppeBeitreten() {
 
 		this.setLayout(null);
 
@@ -72,7 +72,7 @@ public class JoinGroup extends MasterScreen {
 		searchButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				JoinGroupFunction.search();
+				FunktionGruppeBeitreten.search();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
@@ -87,7 +87,7 @@ public class JoinGroup extends MasterScreen {
 		joinButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				JoinGroupFunction.joinGroup();
+				FunktionGruppeBeitreten.joinGroup();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
@@ -101,7 +101,7 @@ public class JoinGroup extends MasterScreen {
 		deleteButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				JoinGroupFunction.leaveGroup();
+				FunktionGruppeBeitreten.leaveGroup();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
@@ -113,7 +113,7 @@ public class JoinGroup extends MasterScreen {
 		backButton.setBounds(0, 600, 450, 100);
 		backButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		backButton.addActionListener(l -> {
-			Fenster.addToFrame(new MyProfile());
+			Fenster.addToFrame(new MeinProfil());
 		});
 
 		this.add(groupNameLabel);

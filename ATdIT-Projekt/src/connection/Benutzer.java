@@ -15,9 +15,9 @@ import master.Fenster;
  * 
  *
  */
-public class User {
+public class Benutzer {
 	
-	private static User loggedUser;
+	private static Benutzer loggedUser;
 	
 	
 	private int userID;
@@ -36,7 +36,7 @@ public class User {
 	 * @param set Benutzerset, das übergeben werden muss : ResultSet
 	 * @throws DatabaseConnectException 
 	 */
-	protected User(ResultSet set) {
+	protected Benutzer(ResultSet set) {
 		
 		try {
 		
@@ -58,7 +58,7 @@ public class User {
 	//----------------------------------------------- Login & Logout -----------------------------------------------
 	
 	
-	public static void loginUser(User user, String password) throws LoginCredentialsException {
+	public static void loginUser(Benutzer user, String password) throws LoginCredentialsException {
 		
 		if(loggedUser != null)
 			logoutUser();
@@ -70,7 +70,7 @@ public class User {
 			throw new LoginCredentialsException(2);
 		
 		
-		User.loggedUser = user;
+		Benutzer.loggedUser = user;
 		
 	}
 	
@@ -98,7 +98,7 @@ public class User {
 
 		DatabaseConnection.makeUpdate(statementUserEntry);
 		
-		User temp = Validator.getValidator().getUser(name);
+		Benutzer temp = Validator.getValidator().getUser(name);
 		
 		int encr_Pass = Validator.encrypt(password);
 		
@@ -133,8 +133,8 @@ public class User {
 	
 	//------------------------------------------------------------ Getter ------------------------------------------------
 	
-	public static User getLoggedUser() {
-		return User.loggedUser;
+	public static Benutzer getLoggedUser() {
+		return Benutzer.loggedUser;
 	}
 	
 	public boolean isInGroup(Groups group) {

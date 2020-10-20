@@ -2,11 +2,11 @@ package funktionen;
 
 
 import java.sql.SQLException;
-import connection.User;
+import connection.Benutzer;
 import exceptions.ChangePasswordException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
-import master.Window;
+import master.Fenster;
 import screens.*;
 
 /**
@@ -15,7 +15,7 @@ import screens.*;
  * @author Group3
  *
  */
-public class ChangePasswordFunction {
+public class FunktionPasswortAendern {
 
 	/**
 	 * ActionListener for the cancel button and the save button to control the
@@ -27,30 +27,30 @@ public class ChangePasswordFunction {
 
 	public static void changePassword() throws ChangePasswordException {
 
-		ChangePassword.newpassworddoesnotmatchLabel.setVisible(false);
-		ChangePassword.stateoldpasswordLabel.setVisible(false);
+		PasswortAendern.newpassworddoesnotmatchLabel.setVisible(false);
+		PasswortAendern.stateoldpasswordLabel.setVisible(false);
 
 		String oldpassword = "";
-		char[] passwordLetters = ChangePassword.oldpasswordPasswordfield.getPassword();
+		char[] passwordLetters = PasswortAendern.oldpasswordPasswordfield.getPassword();
 		for (int i = 0; i < passwordLetters.length; i++)
 			oldpassword += passwordLetters[i];
 
 		String newpassword = "";
-		passwordLetters = ChangePassword.newpasswordPasswordfield.getPassword();
+		passwordLetters = PasswortAendern.newpasswordPasswordfield.getPassword();
 		for (int i = 0; i < passwordLetters.length; i++)
 			newpassword += passwordLetters[i];
 
 		String controlpassword = "";
-		passwordLetters = ChangePassword.newpasswordcontrolPasswordfield.getPassword();
+		passwordLetters = PasswortAendern.newpasswordcontrolPasswordfield.getPassword();
 		for (int i = 0; i < passwordLetters.length; i++)
 			controlpassword += passwordLetters[i];
 		// password control with data query
 		try {
 			AdminFunctions.checkPassword(AdminFunctions.encrypt(oldpassword),
-					AdminFunctions.findUser(User.getName()));
+					AdminFunctions.findUser(Benutzer.getName()));
 			if (newpassword.equals(controlpassword)) {
-				User.setPassword(newpassword);
-				Window.addToFrame(new EditProfile());
+				Benutzer.setPassword(newpassword);
+				Fenster.addToFrame(new ProfilBearbeiten());
 			} else {
 
 				throw new ChangePasswordException(1);

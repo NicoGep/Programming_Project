@@ -4,23 +4,23 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
-import connection.User;
+import connection.Benutzer;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
-import master.Window;
+import master.Fenster;
 import screens.Login;
-import screens.Menu;
-import screens.Register;
+import screens.MenuScreen;
+import screens.Registrierung;
 
-/** Class for the function of class "Register"
+/** Class for the function of class "Registrierung"
  * 
  * @author Group3
  *
  */
 
-public class RegisterFunction implements ActionListener {
+public class RegistierenFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -34,22 +34,22 @@ public class RegisterFunction implements ActionListener {
 			JTextField name;
 //			JPasswordField password;
 				DatabaseConnection.connectDatabase();
-				Register.userexistsLabel.setText("");
-				Register.passworddoesnotmatchLabel.setText("");
+				Registrierung.userexistsLabel.setText("");
+				Registrierung.passworddoesnotmatchLabel.setText("");
 				
 				String userPassword = "";
-				char[] passwordLetters = Register.passwordPasswordfield.getPassword();
+				char[] passwordLetters = Registrierung.passwordPasswordfield.getPassword();
 				for (int i = 0; i < passwordLetters.length; i++)
 					userPassword += passwordLetters[i];
 				
 				String userControlPassword = "";
-				passwordLetters = Register.repeatpasswordPasswordfield.getPassword();
+				passwordLetters = Registrierung.repeatpasswordPasswordfield.getPassword();
 				for (int i = 0; i < passwordLetters.length; i++)
 					userControlPassword += passwordLetters[i];
 				
 				if(userControlPassword.equals(userPassword)) {
 //				password = Registrierung.passwordPasswordfield;
-				name = Register.userTextfield;
+				name = Registrierung.userTextfield;
 //				String s = "";
 //				char[] c = password.getPassword();
 //				for(int i = 0; i < c.length; i++)
@@ -57,25 +57,25 @@ public class RegisterFunction implements ActionListener {
 		
 					if(AdminFunctions.findUser(name.getText()) == null) {
 						AdminFunctions.addUser(name.getText(), userPassword);
-						User.setMail(Register.mailTextfield.getText());
+						Benutzer.setMail(Registrierung.mailTextfield.getText());
 						try {
-							User.loginUser(name.getText(), userPassword);
+							Benutzer.loginUser(name.getText(), userPassword);
 						} catch (LoginCredentialsException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						Window.addToFrame(new Menu()); 
+						Fenster.addToFrame(new MenuScreen()); 
 						}
 					else {
-						Register.userexistsLabel.setText("Benutzer existiert bereits!");
-						Register.userexistsLabel.setBackground(Color.WHITE);
-						Register.userexistsLabel.setForeground(Color.RED);
+						Registrierung.userexistsLabel.setText("Benutzer existiert bereits!");
+						Registrierung.userexistsLabel.setBackground(Color.WHITE);
+						Registrierung.userexistsLabel.setForeground(Color.RED);
 				
 					}
 				}else {
-					Register.passworddoesnotmatchLabel.setText("Passwort stimmt nicht überrein!");
-					Register.passworddoesnotmatchLabel.setBackground(Color.WHITE);
-					Register.passworddoesnotmatchLabel.setForeground(Color.RED);
+					Registrierung.passworddoesnotmatchLabel.setText("Passwort stimmt nicht überrein!");
+					Registrierung.passworddoesnotmatchLabel.setBackground(Color.WHITE);
+					Registrierung.passworddoesnotmatchLabel.setForeground(Color.RED);
 				}
 				
 		}
