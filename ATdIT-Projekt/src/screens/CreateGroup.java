@@ -4,17 +4,17 @@ import java.awt.*;
 import javax.swing.*;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
-import funktionen.FunktionGruppeErstellen;
-import master.Fenster;
+import funktionen.CreateGroupFunction;
+import master.Window;
 import master.MasterScreen;
 
 /**
- * UI for screen "GruppeErstellen"
+ * UI for screen "CreateGroup"
  * 
  * @author Group3
  *
  */
-public class GruppeErstellen extends MasterScreen {
+public class CreateGroup extends MasterScreen {
 
 	public JButton cancelButton;
 	public JButton saveButton;
@@ -27,7 +27,7 @@ public class GruppeErstellen extends MasterScreen {
 	JLabel levelLabel;
 
 	/**
-	 * constructor Gruppe Erstellen Layout : null
+	 * constructor CreateGroup Layout : null
 	 * 
 	 * @param groupNameLabel : JLabel
 	 * @param levelLabel     : JLabel
@@ -36,7 +36,7 @@ public class GruppeErstellen extends MasterScreen {
 	 * @param saveButton     : JButton
 	 * @param cancelButton   : JButton
 	 */
-	public GruppeErstellen() {
+	public CreateGroup() {
 
 		this.setLayout(null);
 
@@ -66,12 +66,12 @@ public class GruppeErstellen extends MasterScreen {
 		saveButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				FunktionGruppeErstellen.save();
+				CreateGroupFunction.save();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
 			}
-			Fenster.addToFrame(new MeinProfil());
+			Window.addToFrame(new MyProfile());
 		});
 
 		cancelButton = new JButton("Abbrechen");
@@ -79,7 +79,7 @@ public class GruppeErstellen extends MasterScreen {
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		cancelButton.addActionListener(l -> {
-			Fenster.addToFrame(new MeinProfil());
+			Window.addToFrame(new MyProfile());
 		});
 
 		this.add(groupNameLabel);

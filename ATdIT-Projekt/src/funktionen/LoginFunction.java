@@ -8,22 +8,22 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import connection.Benutzer;
+import connection.User;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
-import master.Fenster;
-import screens.PasswortVerg;
-import screens.Registrierung;
+import master.Window;
+import screens.ForgotPassword;
+import screens.Register;
 import screens.Login;
-import screens.MenuScreen;
+import screens.Menu;
 
 /** Class with the functions of "Login"
  * 
  * @author Group3
  *
  */
-public class LoginFunktion implements ActionListener {
+public class LoginFunction implements ActionListener {
 	
 	private JTextField name;
 	private JPasswordField password;
@@ -35,7 +35,7 @@ public class LoginFunktion implements ActionListener {
 	 * @param userTextfield : String (user name)
 	 * @param passwordTextfield : String (password)
 	 */
-	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel, JLabel wrongpasswordLabel) {
+	public LoginFunction(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel, JLabel wrongpasswordLabel) {
 		
 		try {
 			DatabaseConnection.connectDatabase();
@@ -66,12 +66,12 @@ public class LoginFunktion implements ActionListener {
 				char[] c = password.getPassword();
 				for(int i = 0; i < c.length; i++)
 					s += c[i];
-				Benutzer.loginUser(name.getText().strip(), s);
-				Fenster.addToFrame(new MenuScreen());
+				User.loginUser(name.getText().strip(), s);
+				Window.addToFrame(new Menu());
 			} else if (e.getSource() == Login.forgotpasswordButton) {
-				Fenster.addToFrame(new PasswortVerg());
+				Window.addToFrame(new ForgotPassword());
 			} else if (e.getSource() == Login.registerButton) {
-				Fenster.addToFrame(new Registrierung());
+				Window.addToFrame(new Register());
 			}
 			
 			DatabaseConnection.disconnectDatabase();
@@ -93,7 +93,7 @@ public class LoginFunktion implements ActionListener {
 			
 			default: break;
 			}
-			Fenster.newDraw();
+			Window.newDraw();
 		}
 	}
 }

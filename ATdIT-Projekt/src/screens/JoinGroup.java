@@ -5,17 +5,17 @@ import java.util.List;
 import javax.swing.*;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
-import funktionen.FunktionGruppeBeitreten;
-import master.Fenster;
+import funktionen.JoinGroupFunction;
+import master.Window;
 import master.MasterScreen;
 
 /**
- * GUI for screen "GruppeBeitreten"
+ * GUI for screen "JoinGroup"
  * 
  * @author Group3
  *
  */
-public class GruppeBeitreten extends MasterScreen {
+public class JoinGroup extends MasterScreen {
 
 	public JButton backButton;
 	public JButton joinButton;
@@ -32,7 +32,7 @@ public class GruppeBeitreten extends MasterScreen {
 	public static JTextField groupNameTextfield;
 
 	/**
-	 * constructor GruppeBeitreten
+	 * constructor JoinGroup
 	 * 
 	 * @param groupNameLabel     : JLabel
 	 * @param groupNameTextfield : JTextField
@@ -43,7 +43,7 @@ public class GruppeBeitreten extends MasterScreen {
 	 * @param deleteButton       : JButton
 	 * @param backButton         : JButton
 	 */
-	public GruppeBeitreten() {
+	public JoinGroup() {
 
 		this.setLayout(null);
 
@@ -72,7 +72,7 @@ public class GruppeBeitreten extends MasterScreen {
 		searchButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				FunktionGruppeBeitreten.search();
+				JoinGroupFunction.search();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
@@ -87,7 +87,7 @@ public class GruppeBeitreten extends MasterScreen {
 		joinButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				FunktionGruppeBeitreten.joinGroup();
+				JoinGroupFunction.joinGroup();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
@@ -101,7 +101,7 @@ public class GruppeBeitreten extends MasterScreen {
 		deleteButton.addActionListener(l -> {
 			try {
 				DatabaseConnection.connectDatabase();
-				FunktionGruppeBeitreten.leaveGroup();
+				JoinGroupFunction.leaveGroup();
 				DatabaseConnection.disconnectDatabase();
 			} catch (DatabaseConnectException e) {
 
@@ -113,7 +113,7 @@ public class GruppeBeitreten extends MasterScreen {
 		backButton.setBounds(0, 600, 450, 100);
 		backButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		backButton.addActionListener(l -> {
-			Fenster.addToFrame(new MeinProfil());
+			Fenster.addToFrame(new MyProfile());
 		});
 
 		this.add(groupNameLabel);
