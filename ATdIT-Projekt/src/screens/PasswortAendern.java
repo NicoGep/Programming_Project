@@ -77,9 +77,17 @@ public class PasswortAendern extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(d -> {
+			try {
+				DatabaseConnection.connectDatabase();
 				try {
 					FunktionPasswortAendern.changePassword();
-				} catch (ChangePasswordException e) {}				
+				} catch (ChangePasswordException e) {
+
+				}
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
 		});
 
 		cancelButton = new JButton("Abbrechen");

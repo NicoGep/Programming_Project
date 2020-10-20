@@ -91,7 +91,14 @@ public class ProfilBearbeiten extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-				FunktionProfilBearbeiten.saveChanges();				
+
+			try {
+				DatabaseConnection.connectDatabase();
+				FunktionProfilBearbeiten.saveChanges();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
 			Fenster.addToFrame(new MeinProfil());
 		});
 
