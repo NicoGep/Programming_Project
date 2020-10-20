@@ -24,9 +24,9 @@ import master.Fenster;
  */
 public class Login extends Body {
 
-	public JButton registerButton;
-	public JButton forgotpasswordButton;
-	public JButton loginButton;
+	public static JButton registerButton;
+	public static JButton forgotpasswordButton;
+	public static JButton loginButton;
 	
 	private JTextField userTextfield;
 	private JPasswordField passwordPasswordfield;
@@ -97,7 +97,7 @@ public class Login extends Body {
 
 		this.add(panel);
 		
-		ActionListener aL = new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel);
+		
 
 		registerButton.addActionListener(l -> {
 			Fenster.addToFrame(new Registrierung());
@@ -105,7 +105,9 @@ public class Login extends Body {
 		forgotpasswordButton.addActionListener(l -> {
 			Fenster.addToFrame(new PasswortVerg());
 			});
-		loginButton.addActionListener(aL);
+		loginButton.addActionListener(l -> {
+			new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
+		});
 
 	}
 	
