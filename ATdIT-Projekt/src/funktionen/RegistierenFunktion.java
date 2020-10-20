@@ -55,7 +55,7 @@ public class RegistierenFunktion {
 		
 					if(AdminFunctions.findUser(name.getText()) == null) {
 						try {
-							Benutzer.addNewUser(name, email, niveau, profilePic, routeLength, heightDifference, password);(name.getText(), userPassword);
+//							Benutzer.addNewUser(name, email, niveau, profilePic, routeLength, heightDifference, password);(name.getText(), userPassword);
 						} catch (InputException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
