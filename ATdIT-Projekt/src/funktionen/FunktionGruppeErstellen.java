@@ -1,6 +1,8 @@
 package funktionen;
 
 import connection.Benutzer;
+import connection.Groups;
+import connection.Validator;
 import exceptions.InputException;
 import screens.GruppeErstellen;
 
@@ -19,10 +21,10 @@ public class FunktionGruppeErstellen {
 
 	public static void save() {
 		try {
-			AdminFunctions.createGroup(GruppeErstellen.groupNameTextfield.getText(),
+			Groups.addNewGroup(GruppeErstellen.groupNameTextfield.getText(),
 					(String) GruppeErstellen.levelSelection
 							.getItemAt(GruppeErstellen.levelSelection.getSelectedIndex()));
-			Benutzer.joinGroup(GruppeErstellen.groupNameTextfield.getText());
+			Benutzer.addToGroup(GruppeErstellen.groupNameTextfield.getText());
 		} catch (InputException e) {
 
 		}
