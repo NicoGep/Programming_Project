@@ -16,11 +16,11 @@ import funktionen.AdminFunctions;
 public class AdminFunctions_TEST {
 	
 	/*
-	 * In der Datenbank wurden ein Test-Benuzter angelegt.
-	 * User: "Test1" mit Pw: "123"
+	 * A test user was created in the database.
+	 * User: "Test1" with Pw: "123"
 	 * 
-	 * Auﬂerdem wurde noch eine TestGruppe angelegt, 
-	 * mit dem Namen: "TestGrp"
+	 * In addition, a test group was created
+	 * with the name: "TestGrp"
 	 */
 
 	public AdminFunctions_TEST() {
@@ -42,19 +42,19 @@ public class AdminFunctions_TEST {
 		set = AdminFunctions.findUser("Test1");
 		
 		String name;
-		int pass;
+		int password;
 		
 		assertFalse(set == null);
 		
 		try {
 			set.first();
 			name = set.getString("name");
-			pass = set.getInt("password");
+			password = set.getInt("password");
 			
 			assertFalse(set.next());
 			
 			assertTrue(name.equals("Test1"));
-			assertTrue(pass == AdminFunctions.encrypt("123"));
+			assertTrue(password == AdminFunctions.encrypt("123"));
 			
 			
 			set = AdminFunctions.findUser("aaa");

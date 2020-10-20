@@ -1,7 +1,8 @@
 package exceptions;
 
 /**
- * 	Exception-Klasse für spezifische Angaben für falsche Eingaben
+ * 	
+Exception class for specific information for incorrect inputs
  * 
  *
  */
@@ -10,7 +11,7 @@ public class InputException extends Exception {
 	private int state;
 	
 	/**
-	 *  Input-Exception für Angaben für falsche Benutzereingaben
+	 *  Input-Exception for specific information for incorrect user inputs 
 	 * @param state : int 
 	 */
 	public InputException(int state) {

@@ -1,73 +1,38 @@
 package funktionen;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.*;
-import javax.swing.*;
-
 import connection.Benutzer;
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
 import exceptions.InputException;
-import master.Fenster;
-import screens.MeinProfil;
-import screens.PasswortAendern;
 import screens.ProfilBearbeiten;
-import screens.ProfilbildAendern;
 
-/** Klasse, um die Funktion des Profil bearbeiten-Screens bereitzustellen
+/**
+ * Class for the function of class "ProfilBearbeiten"
  * 
- * @author Gruppe 3
+ * @author Group3
  *
  */
-public class FunktionProfilBearbeiten implements ActionListener {
-/**Methode, um Änderungen am Profil zu speichern.
- * Wird der Abbrechen-Knopf gedrückt, so öffnet sich, ohne Speichern der Werte der "MeinProfil"-Screen
- * Ist der eingegebene Name ungleich null und noch nicht vorhanden, so wird dieser gespeichert. Ansonsten bleibt es beim alten Namen
- * und in der Konsole wird der Text "Name existiert schon!" ausgegeben.
- * 
- */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		try {
-			if (e.getSource() == ProfilBearbeiten.abbrechen) {
-				Fenster.addToFrame(new MeinProfil());
-			}
-			if (e.getSource() == ProfilBearbeiten.speichern) {
-				try {
-					DatabaseConnection.connectDatabase();
-					if (ProfilBearbeiten.neuerName.getText() != "" && !(ProfilBearbeiten.neuerName.getText().equals(Benutzer.getName())) ) {
-						Benutzer.setName(ProfilBearbeiten.neuerName.getText());
-					}
-					Benutzer.setNiveau((String) ProfilBearbeiten.niveauAuswahl
-							.getItemAt(ProfilBearbeiten.niveauAuswahl.getSelectedIndex()));
-					if (ProfilBearbeiten.neueemail.getText() != "") {
-						Benutzer.setEmail(ProfilBearbeiten.neueemail.getText());
-					}
-					DatabaseConnection.disconnectDatabase();
+public class FunktionProfilBearbeiten {
+	/**
+	 * Method for saving changes to the profile. If the cancel button is pressed,
+	 * the "MyProfile" screen opens without saving the values. If the name entered
+	 * is not zero and does not yet exist, it will be saved. Otherwise the old name
+	 * remains and the text "Name already exists!" issued.
+	 * 
+	 */
 
-					Fenster.addToFrame(new MeinProfil());
-				} catch (InputException e1) {
-					System.out.println("Name existiert schon!");
-				}
-
-			}
-			// Profilbild hinzufügen
-			if (e.getSource() == ProfilBearbeiten.neuesProfilbild) {
-				Fenster.addToFrame(new ProfilbildAendern());
-			}
-			// Passwort ändern
-			if (e.getSource() == ProfilBearbeiten.passwortAendern) {
-				Fenster.addToFrame(new PasswortAendern());
+	public static void saveChanges() {
+		if (ProfilBearbeiten.newnameTextfield.getText() != ""
+				&& !(ProfilBearbeiten.newnameTextfield.getText().equals(Benutzer.getName()))) {
+			try {
+				Benutzer.setName(ProfilBearbeiten.newnameTextfield.getText());
+			} catch (InputException e) {
+				System.out.println("Name existiert schon!");
 			}
 		}
-
-		catch (DatabaseConnectException eee) {
-			System.out.println("Name gibt es schon");
+		Benutzer.setLevel(
+				(String) ProfilBearbeiten.levelSelection.getItemAt(ProfilBearbeiten.levelSelection.getSelectedIndex()));
+		if (ProfilBearbeiten.newmailTextfield.getText() != "") {
+			Benutzer.setMail(ProfilBearbeiten.newmailTextfield.getText());
 		}
-		
-
 	}
 
 }

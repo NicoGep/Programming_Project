@@ -1,32 +1,29 @@
 package master;
 
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
 import connection.Benutzer;
 
-/** Klasse, um den MasterBanner bereitzustellen, um einheitliche Screens zu haben
+
+/** Class for the MasterBanner to have uniform screens
  * 
- * @author Gruppe 3
+ * @author Group 3
  *
  */
 public class MasterBanner extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 100;
 	
-	JButton back;
-	JButton logout;
+	JButton backButton;
+	JButton logoutButton;
 	
 	JLabel nameLabel;
 	
 	/**
-	 * Konstruktor zum Erstellen des allgemeinen Konstrukts
-	 * @param back : JButton
+	 * Constructor to create a general construct
+	 * @param backButton : JButton
 	 * @param logout : JButton
 	 */
 	public MasterBanner() {
@@ -34,17 +31,17 @@ public class MasterBanner extends JPanel {
 		this.setBounds(0, 0, SIZE_X, SIZE_Y);
 		this.setBackground(Color.GREEN);
 		
-		back = new JButton("Zurück");
-		logout = new JButton("Ausloggen");
+		backButton = new JButton("Zurück");
+		logoutButton = new JButton("Ausloggen");
 		nameLabel = new JLabel();
 		
 //		nameLabel.setText("Hallo " + Benutzer.getName());
 		
-		this.add(back);
-		this.add(logout);
+		this.add(backButton);
+		this.add(logoutButton);
 		this.add(nameLabel);
 		
-		back.addActionListener(new ActionListener() {
+		backButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -53,7 +50,7 @@ public class MasterBanner extends JPanel {
 			
 		});
 		
-		logout.addActionListener(new ActionListener() {
+		logoutButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {

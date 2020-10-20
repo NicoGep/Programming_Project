@@ -3,87 +3,80 @@ package screens;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.SwingConstants;
-import javax.swing.event.ChangeListener;
-import funktionen.KarteSliderFunktion;
+import javax.swing.JTextField;
 import master.MasterScreen;
 
-/** UI-Klasse um das Kartenfenster zu definieren
+/** UI for class "KarteScreen"
  * 
- * @author Gruppe 3
+ * @author Group3
  *
  */
 public class KarteScreen extends MasterScreen {
-
-	public JSlider streckenLaengeSlider;
-	public JSlider hoehenunterschiedSlider;
 	
-	/**	Konstruktor ohne Layout für den Karte-Screen
-	 * @param kartePanel : JPanel
-	 * @param karteLabel : JLabel
-	 * @param streckenLaengePanel : JPanel
-	 * @param streckenLaengeLabel : JLabel
-	 * @param streckenLaengeSlider : JSlider
-	 * @param hoehenunterschiedPanel : JPanel
-	 * @param hoehenunterschiedLabel : JLabel
-	 * @param hoehenunterschiedSlider : JSlider
+	/**	constructor without Layout
+	 * @param mapPanel : JPanel
+	 * @param mapLabel : JLabel
+	 * @param routelengthPanel : JPanel
+	 * @param routelengthLabel : JLabel
+	 * @param routelengthSlider : JSlider
+	 * @param heightdifferencePanel : JPanel
+	 * @param heightdifferenceLabel : JLabel
+	 * @param heigtdifferenceSlider : JSlider
 	 */
 	public KarteScreen() {
 		this.setLayout(null);
 		this.setBackground(Color.white);
+		
+//		Image mapImage = Toolkit.getDefaultToolkit().createImage("/.ui/images/mapImage.jpg");
+		Icon mapImage = new ImageIcon("./ui/images/mapImage.jpg");
+		JPanel mapPanel = new JPanel();
+		mapPanel.setBounds(75, 50, 300, 300);
+		
+		
+		JLabel mapLabel = new JLabel(mapImage);
+//		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
+//		karteLabel.setBackground(Color.white);
+		mapPanel.add(mapLabel);
 
-		JPanel kartePanel = new JPanel();
-		kartePanel.setBackground(Color.gray);
-		kartePanel.setBounds(75, 150, 300, 50);
+		JPanel routelengthPanel = new JPanel();
+		routelengthPanel.setBackground(Color.white);
+		routelengthPanel.setBounds(7, 375, 400, 50);
 		
-		JLabel karteLabel = new JLabel("KARTE");
-		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
-		karteLabel.setBackground(Color.white);
-		kartePanel.add(karteLabel);
-
-		JPanel streckenLaengePanel = new JPanel();
-		streckenLaengePanel.setBackground(Color.white);
-		streckenLaengePanel.setBounds(10, 375, 400, 50);
+		JLabel routelengthLabel = new JLabel("Streckenlänge (in Metern):");
+		routelengthLabel.setFont(new Font("Calibri", Font.BOLD, 25));
+		routelengthLabel.setBackground(Color.white);
+		routelengthPanel.add(routelengthLabel);
 		
-		JLabel streckenLaengeLabel = new JLabel("Streckenlänge (in Metern)");
-		streckenLaengeLabel.setFont(new Font("Calibri", Font.BOLD, 25));
-		streckenLaengeLabel.setBackground(Color.white);
-		streckenLaengePanel.add(streckenLaengeLabel);
+		JTextField routelengthTextField = new JTextField();
+		routelengthTextField.setBounds(70, 425, 300, 50);
+		routelengthTextField.setBackground(Color.white);
 		
 
-		ChangeListener cL = new KarteSliderFunktion(this);
-//		ChangeListener cL = new FunktionKarte(this);
+		JPanel heightdifferencePanel = new JPanel();
+		heightdifferencePanel.setBackground(Color.white);
+		heightdifferencePanel.setBounds(30, 490, 400, 50);
+		
+		
+		JLabel heightdifferenceLabel = new JLabel("Höhenunterschied (in Metern):");
+		heightdifferenceLabel.setFont(new Font("Calibri", Font.BOLD, 25));
+		heightdifferenceLabel.setBackground(Color.white);
+		heightdifferencePanel.add(heightdifferenceLabel);
+		
+		JTextField heightdifferenceTextField = new JTextField();
+		heightdifferenceTextField.setBackground(Color.white);
+		heightdifferenceTextField.setBounds(70, 530, 300, 50);
+		
+		
 
-		hoehenunterschiedSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 1000, 250);
-		
-		streckenLaengeSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 20000, 10000);
-		streckenLaengeSlider.setBounds(50, 425, 300, 50);
-		streckenLaengeSlider.setBackground(Color.white);
-		streckenLaengeSlider.setMinorTickSpacing(500);
-		streckenLaengeSlider.addChangeListener(cL);
-		
-		JPanel hoehenunterschiedPanel = new JPanel();
-		hoehenunterschiedPanel.setBackground(Color.white);
-		hoehenunterschiedPanel.setBounds(10, 475, 400, 50);
-		
-		JLabel hoehenunterschiedLabel = new JLabel("Höhenunterschied (in Metern)");
-		hoehenunterschiedLabel.setFont(new Font("Calibri", Font.BOLD, 25));
-		hoehenunterschiedLabel.setBackground(Color.white);
-		hoehenunterschiedPanel.add(hoehenunterschiedLabel);
-		
-		hoehenunterschiedSlider.setBounds(50, 525, 300, 50);
-		hoehenunterschiedSlider.setBackground(Color.white);
-		hoehenunterschiedSlider.setMinorTickSpacing(50);
-		hoehenunterschiedSlider.addChangeListener(cL);
-
-		this.add(kartePanel);
-		this.add(streckenLaengePanel);
-		this.add(hoehenunterschiedPanel);
-		this.add(streckenLaengeSlider);
-		this.add(hoehenunterschiedSlider);
-	}
-	
+		this.add(mapPanel);
+		this.add(routelengthPanel);
+		this.add(heightdifferencePanel);
+		this.add(routelengthTextField);
+		this.add(heightdifferenceTextField);
+	}	
 }
+	

@@ -1,82 +1,93 @@
 package screens;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
+import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import funktionen.FunktionGruppeErstellen;
+import master.Fenster;
 import master.MasterScreen;
 
 /**
- *  UI zum Gruppe Erstellen-Screen
- * @author Gruppe 3
+ * UI for screen "GruppeErstellen"
+ * 
+ * @author Group3
  *
  */
 public class GruppeErstellen extends MasterScreen {
 
-	public static JButton abbrechen;
-	public static JButton speichern;
+	public JButton cancelButton;
+	public JButton saveButton;
 
-	public static JComboBox<String> niveauAuswahl;
+	public static JComboBox<String> levelSelection;
 
-	public static JTextField gruppenName;
+	public static JTextField groupNameTextfield;
 
-	JLabel gruppenNameLabel;
-	JLabel niveauLabel;
+	JLabel groupNameLabel;
+	JLabel levelLabel;
 
 	/**
-	 * Konstruktor Gruppe Erstellen
-	 * Layout : null
-	 * @param gruppenNameLabel : JLabel
-	 * @param niveauLabel : JLabel
-	 * @param gruppenName : JTextField
-	 * @param niveauAuswahl : JComboBox<String>
-	 * @param speichern : JButton
-	 * @param abbrechen : JButton
+	 * constructor Gruppe Erstellen Layout : null
+	 * 
+	 * @param groupNameLabel : JLabel
+	 * @param levelLabel     : JLabel
+	 * @param groupName      : JTextField
+	 * @param levelSelection : JComboBox<String>
+	 * @param saveButton     : JButton
+	 * @param cancelButton   : JButton
 	 */
 	public GruppeErstellen() {
 
 		this.setLayout(null);
-		ActionListener GruppeErstellenAL = new FunktionGruppeErstellen();
 
-		gruppenNameLabel = new JLabel("Name der Gruppe:");
-		gruppenNameLabel.setBounds(0, 0, 450, 100);
-		gruppenNameLabel.setBackground(Color.LIGHT_GRAY);
-		gruppenNameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
-		
-		niveauLabel = new JLabel("Niveau der Gruppe:");
-		niveauLabel.setBounds(0, 150, 450, 100);
-		niveauLabel.setBackground(Color.LIGHT_GRAY);
-		niveauLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
-		
-		gruppenName = new JTextField();
-		gruppenName.setBounds(0, 100, 450, 50);
+		groupNameLabel = new JLabel("Name der Gruppe:");
+		groupNameLabel.setBounds(0, 0, 450, 100);
+		groupNameLabel.setBackground(Color.LIGHT_GRAY);
+		groupNameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		niveauAuswahl = new JComboBox<String>();
-		niveauAuswahl.addItem("Anfänger");
-		niveauAuswahl.addItem("Medium");
-		niveauAuswahl.addItem("Professionell");
-		niveauAuswahl.setBounds(0, 250, 450, 50);
+		levelLabel = new JLabel("Niveau der Gruppe:");
+		levelLabel.setBounds(0, 150, 450, 100);
+		levelLabel.setBackground(Color.LIGHT_GRAY);
+		levelLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		speichern = new JButton("Speichern");
-		speichern.setBackground(Color.GREEN);
-		speichern.setBounds(225, 600, 225, 100);
-		speichern.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		speichern.addActionListener(GruppeErstellenAL);
+		groupNameTextfield = new JTextField();
+		groupNameTextfield.setBounds(0, 100, 450, 50);
 
-		abbrechen = new JButton("Abbrechen");
-		abbrechen.setBackground(Color.RED);
-		abbrechen.setBounds(0, 600, 225, 100);
-		abbrechen.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		abbrechen.addActionListener(GruppeErstellenAL);
-		
-		this.add(gruppenNameLabel);
-		this.add(gruppenName);
-		this.add(niveauLabel);
-		this.add(niveauAuswahl);
-		this.add(abbrechen);
-		this.add(speichern);
+		levelSelection = new JComboBox<String>();
+		levelSelection.addItem("Anfänger");
+		levelSelection.addItem("Medium");
+		levelSelection.addItem("Professionell");
+		levelSelection.setBounds(0, 250, 450, 50);
+
+		saveButton = new JButton("Speichern");
+		saveButton.setBackground(Color.GREEN);
+		saveButton.setBounds(225, 600, 225, 100);
+		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		saveButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
+				FunktionGruppeErstellen.save();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
+			Fenster.addToFrame(new MeinProfil());
+		});
+
+		cancelButton = new JButton("Abbrechen");
+		cancelButton.setBackground(Color.RED);
+		cancelButton.setBounds(0, 600, 225, 100);
+		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
+		cancelButton.addActionListener(l -> {
+			Fenster.addToFrame(new MeinProfil());
+		});
+
+		this.add(groupNameLabel);
+		this.add(groupNameTextfield);
+		this.add(levelLabel);
+		this.add(levelSelection);
+		this.add(cancelButton);
+		this.add(saveButton);
 
 	}
 }
