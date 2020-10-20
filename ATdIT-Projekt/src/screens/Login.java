@@ -24,9 +24,9 @@ import master.Fenster;
  */
 public class Login extends Body {
 
-	public JButton registerButton;
-	public JButton forgotpasswordButton;
-	public JButton loginButton;
+	public static JButton registerButton;
+	public static JButton forgotpasswordButton;
+	public static JButton loginButton;
 	
 	private JTextField userTextfield;
 	private JPasswordField passwordPasswordfield;

@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import connection.Benutzer;
 import connection.DatabaseConnection;
+import connection.Validator;
 import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
 import master.Fenster;
@@ -36,13 +37,6 @@ public class LoginFunktion implements ActionListener {
 	 * @param passwordTextfield : String (password)
 	 */
 	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel, JLabel wrongpasswordLabel) {
-		
-		try {
-			DatabaseConnection.connectDatabase();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
 		name = userTextfield;
 		password = passwordPasswordfield;
 		this.wrongnameLabel = wrongnameLabel;
@@ -66,7 +60,7 @@ public class LoginFunktion implements ActionListener {
 				char[] c = password.getPassword();
 				for(int i = 0; i < c.length; i++)
 					s += c[i];
-				Benutzer.loginUser(name.getText().strip(), s);
+				Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
 				Fenster.addToFrame(new MenuScreen());
 			} else if (e.getSource() == Login.forgotpasswordButton) {
 				Fenster.addToFrame(new PasswortVerg());
@@ -74,11 +68,8 @@ public class LoginFunktion implements ActionListener {
 				Fenster.addToFrame(new Registrierung());
 			}
 			
-			DatabaseConnection.disconnectDatabase();
+		
 
-		} catch (DatabaseConnectException dbE) {
-			dbE.printStackTrace();
-			// Output errors, e.g. Apparently no internet connection or the like.
 		} catch (LoginCredentialsException lE) {
 			switch(lE.getState()) {// Label which is shown when the user or password is wrong
 			case 1: wrongnameLabel.setText("Benutzername falsch."); 

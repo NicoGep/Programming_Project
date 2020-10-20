@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import connection.Benutzer;
 import connection.DatabaseConnection;
+import connection.Validator;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
@@ -20,10 +21,8 @@ import screens.Registrierung;
  *
  */
 
-public class RegistierenFunktion implements ActionListener {
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
+public class RegistierenFunktion {
+	
 		
 /** Database is started.
  * User is registered in the database with a user name and password.
@@ -33,7 +32,6 @@ public class RegistierenFunktion implements ActionListener {
 			
 			JTextField name;
 //			JPasswordField password;
-				DatabaseConnection.connectDatabase();
 				Registrierung.userexistsLabel.setText("");
 				Registrierung.passworddoesnotmatchLabel.setText("");
 				
@@ -56,10 +54,15 @@ public class RegistierenFunktion implements ActionListener {
 //					s += c[i];
 		
 					if(AdminFunctions.findUser(name.getText()) == null) {
-						AdminFunctions.addUser(name.getText(), userPassword);
-						Benutzer.setMail(Registrierung.mailTextfield.getText());
 						try {
-							Benutzer.loginUser(name.getText(), userPassword);
+							Benutzer.addNewUser(name, email, niveau, profilePic, routeLength, heightDifference, password);(name.getText(), userPassword);
+						} catch (InputException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						Benutzer.getLoggedUser().setEmail(Registrierung.mailTextfield.getText());
+						try {
+							Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
 						} catch (LoginCredentialsException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -82,4 +85,4 @@ public class RegistierenFunktion implements ActionListener {
 	
 	}
 
-}
+
