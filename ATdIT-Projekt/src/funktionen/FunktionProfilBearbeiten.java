@@ -20,18 +20,15 @@ public class FunktionProfilBearbeiten {
 	 */
 
 	public static void saveChanges() {
+		Benutzer user = Benutzer.getLoggedUser();
 		if (ProfilBearbeiten.newnameTextfield.getText() != ""
-				&& !(ProfilBearbeiten.newnameTextfield.getText().equals(Benutzer.getName()))) {
-			try {
-				Benutzer.setName(ProfilBearbeiten.newnameTextfield.getText());
-			} catch (InputException e) {
-				System.out.println("Name existiert schon!");
-			}
+				&& !(ProfilBearbeiten.newnameTextfield.getText().equals(user.getName()))) {
+			user.setName(ProfilBearbeiten.newnameTextfield.getText());
 		}
-		Benutzer.setLevel(
+		user.setNiveau(
 				(String) ProfilBearbeiten.levelSelection.getItemAt(ProfilBearbeiten.levelSelection.getSelectedIndex()));
 		if (ProfilBearbeiten.newmailTextfield.getText() != "") {
-			Benutzer.setMail(ProfilBearbeiten.newmailTextfield.getText());
+			user.setEmail(ProfilBearbeiten.newmailTextfield.getText());
 		}
 	}
 
