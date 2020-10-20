@@ -80,7 +80,7 @@ public class LoginFunktion implements ActionListener {
 			dbE.printStackTrace();
 			// Output errors, e.g. Apparently no internet connection or the like.
 		} catch (LoginCredentialsException lE) {
-			switch(lE.getState()) {//Hier z.B. roten Text ausgeben, wenn Passwort bzw. Benutzername falsch war.
+			switch(lE.getState()) {// Label which is shown when the user or password is wrong
 			case 1: wrongnameLabel.setText("Benutzername falsch."); 
 			wrongnameLabel.setBackground(Color.WHITE);
 			wrongnameLabel.setForeground(Color.RED);
