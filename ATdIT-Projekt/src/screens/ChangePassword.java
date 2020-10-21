@@ -5,8 +5,8 @@ import javax.swing.*;
 import connection.DatabaseConnection;
 import exceptions.ChangePasswordException;
 import exceptions.DatabaseConnectException;
-import funktionen.FunktionPasswortAendern;
-import master.Fenster;
+import funktionen.ChangePasswordFunction;
+import master.Window;
 import master.MasterScreen;
 
 /**
@@ -15,7 +15,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-public class PasswortAendern extends MasterScreen {
+public class ChangePassword extends MasterScreen {
 
 	public JButton saveButton;
 	public JButton cancelButton;
@@ -33,7 +33,7 @@ public class PasswortAendern extends MasterScreen {
 	/**
 	 * constructor without Layout
 	 */
-	public PasswortAendern() {
+	public ChangePassword() {
 		this.setLayout(null);
 
 		oldpasswordLabel = new JLabel("Altes Passwort: ");
@@ -78,7 +78,7 @@ public class PasswortAendern extends MasterScreen {
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(d -> {
 				try {
-					FunktionPasswortAendern.changePassword();
+					ChangePasswordFunction.changePassword();
 				} catch (ChangePasswordException e) {}				
 		});
 
@@ -87,7 +87,7 @@ public class PasswortAendern extends MasterScreen {
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		cancelButton.addActionListener(d -> {
-			Fenster.addToFrame(new ProfilBearbeiten());
+			Window.addToFrame(new EditProfile());
 		});
 
 		this.add(oldpasswordLabel);

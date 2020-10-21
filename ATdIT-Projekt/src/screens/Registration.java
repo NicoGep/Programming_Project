@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import connection.Benutzer;
-import funktionen.RegistierenFunktion;
+import connection.User;
+import funktionen.RegisterFunction;
 import master.Body;
-import master.Fenster;
+import master.Window;
 
 /**
  * UI class for class "Registrierung"
@@ -24,7 +24,7 @@ import master.Fenster;
  * @author Group3
  *
  */
-public class Registrierung extends Body {
+public class Registration extends Body {
 
 	public static JTextField userTextfield;
 	public static JPasswordField passwordPasswordfield;
@@ -40,7 +40,7 @@ public class Registrierung extends Body {
 	/**
 	 * constructor (GridLayout)
 	 */
-	public Registrierung() {
+	public Registration() {
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(17, 1));
@@ -97,14 +97,14 @@ public class Registrierung extends Body {
 
 		registerButton.addActionListener(l -> {
 
-			new RegistierenFunktion(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
+			new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
 					.register();
 		});
 
 		backButton.addActionListener(l -> {
-			Benutzer.logoutUser();
-			Fenster.clearHistory();
-			Fenster.newDraw(new Login());
+			User.logoutUser();
+			Window.clearHistory();
+			Window.newDraw(new Login());
 		});
 
 	}

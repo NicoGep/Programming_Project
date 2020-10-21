@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import connection.Benutzer;
+import connection.User;
 
 
 /** Class for the MasterBanner to have uniform screens
@@ -45,7 +45,7 @@ public class MasterBanner extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Fenster.lastContent();
+				Window.lastContent();
 			}
 			
 		});
@@ -54,7 +54,7 @@ public class MasterBanner extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Fenster.reset();
+				Window.reset();
 			}
 		});
 		

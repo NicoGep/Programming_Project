@@ -4,9 +4,10 @@ import java.awt.*;
 import java.util.List;
 import javax.swing.*;
 import connection.DatabaseConnection;
+import connection.Groups;
 import exceptions.DatabaseConnectException;
-import funktionen.FunktionGruppeBeitreten;
-import master.Fenster;
+import funktionen.JoinLeaveGroupFunction;
+import master.Window;
 import master.MasterScreen;
 
 /**
@@ -15,7 +16,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-public class GruppeBeitreten extends MasterScreen {
+public class EditGroup extends MasterScreen {
 
 	public JButton backButton;
 	public JButton joinButton;
@@ -24,7 +25,7 @@ public class GruppeBeitreten extends MasterScreen {
 
 	public static JComboBox<String> groups;
 
-	public static List<String> allGroupsList;
+	public static List<Groups> allGroupsList;
 
 	JLabel groupNameLabel;
 	public static JLabel results;
@@ -43,7 +44,7 @@ public class GruppeBeitreten extends MasterScreen {
 	 * @param deleteButton       : JButton
 	 * @param backButton         : JButton
 	 */
-	public GruppeBeitreten() {
+	public EditGroup() {
 
 		this.setLayout(null);
 
@@ -70,7 +71,7 @@ public class GruppeBeitreten extends MasterScreen {
 		searchButton.setBounds(0, 400, 450, 100);
 		searchButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		searchButton.addActionListener(l -> {
-				FunktionGruppeBeitreten.search();
+				JoinLeaveGroupFunction.search();
 		});
 
 		joinButton = new JButton("Beitreten");
@@ -78,7 +79,7 @@ public class GruppeBeitreten extends MasterScreen {
 		joinButton.setBounds(225, 500, 225, 100);
 		joinButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		joinButton.addActionListener(l -> {			
-				FunktionGruppeBeitreten.joinGroup();
+				JoinLeaveGroupFunction.joinGroup();
 		});
 
 		deleteButton = new JButton("Austreten");
@@ -86,7 +87,7 @@ public class GruppeBeitreten extends MasterScreen {
 		deleteButton.setBounds(0, 500, 225, 100);
 		deleteButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		deleteButton.addActionListener(l -> {
-				FunktionGruppeBeitreten.leaveGroup();
+				JoinLeaveGroupFunction.leaveGroup();
 		});
 
 		backButton = new JButton("Zurück");
@@ -94,7 +95,7 @@ public class GruppeBeitreten extends MasterScreen {
 		backButton.setBounds(0, 600, 450, 100);
 		backButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		backButton.addActionListener(l -> {
-			Fenster.addToFrame(new MeinProfil());
+			Window.addToFrame(new MyProfile());
 		});
 
 		this.add(groupNameLabel);

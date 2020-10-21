@@ -13,9 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import funktionen.LoginFunktion;
+import funktionen.LoginFunction;
 import master.Body;
-import master.Fenster;
+import master.Window;
 
 /**	UI class for the "Login" screen
  * 
@@ -99,13 +99,13 @@ public class Login extends Body {
 		
 
 		registerButton.addActionListener(l -> {
-			Fenster.addToFrame(new Registrierung());
+			Window.addToFrame(new Registration());
 			});
 		forgotpasswordButton.addActionListener(l -> {
-			Fenster.addToFrame(new PasswortVerg());
+			Window.addToFrame(new ForgotPassword());
 			});
 		loginButton.addActionListener(l -> {
-			new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
+			new LoginFunction(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
 		});
 
 

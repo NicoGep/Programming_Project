@@ -4,8 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
-import funktionen.FunktionGruppeErstellen;
-import master.Fenster;
+import funktionen.CreateGroupFunction;
+import master.Window;
 import master.MasterScreen;
 
 /**
@@ -14,7 +14,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-public class GruppeErstellen extends MasterScreen {
+public class CreateGroup extends MasterScreen {
 
 	public JButton cancelButton;
 	public JButton saveButton;
@@ -36,7 +36,7 @@ public class GruppeErstellen extends MasterScreen {
 	 * @param saveButton     : JButton
 	 * @param cancelButton   : JButton
 	 */
-	public GruppeErstellen() {
+	public CreateGroup() {
 
 		this.setLayout(null);
 
@@ -64,8 +64,8 @@ public class GruppeErstellen extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-			FunktionGruppeErstellen.save();
-			Fenster.addToFrame(new MeinProfil());
+			CreateGroupFunction.save();
+			Window.addToFrame(new MyProfile());
 		});
 
 		cancelButton = new JButton("Abbrechen");
@@ -73,7 +73,7 @@ public class GruppeErstellen extends MasterScreen {
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		cancelButton.addActionListener(l -> {
-			Fenster.addToFrame(new MeinProfil());
+			Window.addToFrame(new MyProfile());
 		});
 
 		this.add(groupNameLabel);

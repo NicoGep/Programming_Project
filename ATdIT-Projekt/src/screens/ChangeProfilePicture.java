@@ -2,10 +2,10 @@ package screens;
 
 import java.awt.*;
 import javax.swing.*;
-import connection.Benutzer;
+import connection.User;
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;
-import master.Fenster;
+import master.Window;
 import master.MasterScreen;
 
 /**
@@ -14,7 +14,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-public class ProfilbildAendern extends MasterScreen {
+public class ChangeProfilePicture extends MasterScreen {
 	public JButton saveButton;
 	public JButton cancelButton;
 
@@ -24,7 +24,7 @@ public class ProfilbildAendern extends MasterScreen {
 	/**
 	 * constructor without layout
 	 */
-	public ProfilbildAendern() {
+	public ChangeProfilePicture() {
 		this.setLayout(null);
 
 		addressLabel = new JLabel("Adresse des neuen Profilbilds: ");
@@ -32,7 +32,7 @@ public class ProfilbildAendern extends MasterScreen {
 		addressLabel.setBackground(Color.LIGHT_GRAY);
 		addressLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		addressTextfield = new JTextField(MeinProfil.profilepictureaddress);
+		addressTextfield = new JTextField(MyProfile.profilepictureaddress);
 		addressTextfield.setBounds(0, 100, 450, 50);
 
 		saveButton = new JButton("Speichern");
@@ -40,8 +40,8 @@ public class ProfilbildAendern extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {			
-			Benutzer.getLoggedUser().setProfilePic(ProfilbildAendern.addressTextfield.getText());
-			Fenster.addToFrame(new ProfilBearbeiten());
+			User.getLoggedUser().setProfilePic(ChangeProfilePicture.addressTextfield.getText());
+			Window.addToFrame(new EditProfile());
 		});
 
 		cancelButton = new JButton("Abbrechen");
@@ -49,7 +49,7 @@ public class ProfilbildAendern extends MasterScreen {
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		cancelButton.addActionListener(l -> {
-			Fenster.addToFrame(new ProfilBearbeiten());
+			Window.addToFrame(new EditProfile());
 		});
 
 		this.add(addressLabel);

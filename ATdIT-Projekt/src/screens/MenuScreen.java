@@ -3,7 +3,7 @@ package screens;
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.*;
-import master.Fenster;
+import master.Window;
 import master.MasterScreen;
 
 /** GUI class for "MenuScreen"
@@ -62,10 +62,10 @@ public class MenuScreen extends MasterScreen {
 		
 		//Funktionsaufruf ActionListener für Buttons
 		
-		mapButton.addActionListener(w -> { Fenster.addToFrame(new KarteScreen()); });
-		mountainbikemapButton.addActionListener(x -> {Fenster.addToFrame(new KarteScreen());});
-		myProfileButton.addActionListener(y -> {Fenster.addToFrame(new MeinProfil());});
-		logoutButton.addActionListener(z -> { Fenster.addToFrame(new Login()); });
+		mapButton.addActionListener(w -> { Window.addToFrame(new Map()); });
+		mountainbikemapButton.addActionListener(x -> {Window.addToFrame(new Map());});
+		myProfileButton.addActionListener(y -> {Window.addToFrame(new MyProfile());});
+		logoutButton.addActionListener(z -> { Window.addToFrame(new Login()); });
 		this.add(menuPanel);
 		this.add(mapButton);
 		this.add(mountainbikemapButton);

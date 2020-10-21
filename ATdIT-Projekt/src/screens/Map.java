@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import connection.Benutzer;
+import connection.User;
 import master.MasterScreen;
 
 /** UI for class "KarteScreen"
@@ -18,7 +18,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-public class KarteScreen extends MasterScreen {
+public class Map extends MasterScreen {
 	
 	/**	constructor without Layout
 	 * @param mapPanel : JPanel
@@ -30,7 +30,7 @@ public class KarteScreen extends MasterScreen {
 	 * @param heightdifferenceLabel : JLabel
 	 * @param heigtdifferenceSlider : JSlider
 	 */
-	public KarteScreen() {
+	public Map() {
 		this.setLayout(null);
 		this.setBackground(Color.white);
 		
@@ -77,7 +77,7 @@ public class KarteScreen extends MasterScreen {
 		confirmButton.setBounds(200, 600, 100, 50);
 		confirmButton.setBackground(Color.white);
 		confirmButton.addActionListener(w -> {
-			Benutzer user = Benutzer.getLoggedUser();
+			User user = User.getLoggedUser();
 			if (routelengthTextField != null && heightdifferenceTextField != null) {
 				confirmButton.setBackground(Color.green);
 				user.setRouteLength(Integer.parseInt(routelengthTextField.getText()));
