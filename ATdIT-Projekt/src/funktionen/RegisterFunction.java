@@ -29,8 +29,7 @@ public class RegisterFunction {
 	public JTextField userTextfield, mailTextfield;
 	public JPasswordField passwordPasswordfield, repeatpasswordPasswordfield;
 
-	public RegisterFunction(JTextField user, JTextField mail, JPasswordField password,
-			JPasswordField repeatpassword) {
+	public RegisterFunction(JTextField user, JTextField mail, JPasswordField password, JPasswordField repeatpassword) {
 		userTextfield = user;
 		mailTextfield = mail;
 		passwordPasswordfield = password;
@@ -76,11 +75,21 @@ public class RegisterFunction {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (LoginCredentialsException e) {
-					System.out.println("Test");				}
+					System.out.println("Test");
+				}
 				Window.newDraw();
 				Window.addToFrame(new MenuScreen());
+			} else {
+				Registration.userexistsLabel.setText("Benutzer existiert bereits!");
+				Registration.userexistsLabel.setBackground(Color.WHITE);
+				Registration.userexistsLabel.setForeground(Color.RED);
 			}
 
+		}
+		else {
+			Registration.passworddoesnotmatchLabel.setText("Passwort stimmt nicht überrein!");
+			Registration.passworddoesnotmatchLabel.setBackground(Color.WHITE);
+			Registration.passworddoesnotmatchLabel.setForeground(Color.RED);
 		}
 	}
 }
