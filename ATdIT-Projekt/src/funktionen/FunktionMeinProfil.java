@@ -16,11 +16,10 @@ public class FunktionMeinProfil {
 	 * method to load user data
 	 */
 	public void loadData() {
-		Benutzer b = Benutzer.getLoggedUser();
-		MeinProfil.name = b.getName();
-		MeinProfil.level = b.getNiveau();
-		MeinProfil.mail = b.getEmail();
-		MeinProfil.profilepictureaddress = b.getProfilBild();
+		MeinProfil.name = Benutzer.getName();
+		MeinProfil.level = Benutzer.getLevel();
+		MeinProfil.mail = Benutzer.getMail();
+		MeinProfil.profilepictureaddress = Benutzer.getProfilePicture();
 		addGroups();
 	}
 
@@ -28,7 +27,14 @@ public class FunktionMeinProfil {
 	 * method to add groups
 	 */
 	public void addGroups() {
-//			MeinProfil.groupList = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
+		try {
+			DatabaseConnection.connectDatabase();
+			MeinProfil.groupList = AdminFunctions.setToList(Benutzer.getAllGroups(), "gruppenname");
+			DatabaseConnection.disconnectDatabase();
+		} catch (DatabaseConnectException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	/**

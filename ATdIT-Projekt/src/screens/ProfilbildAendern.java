@@ -39,8 +39,14 @@ public class ProfilbildAendern extends MasterScreen {
 		saveButton.setBackground(Color.GREEN);
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		saveButton.addActionListener(l -> {			
-			Benutzer.getLoggedUser().setProfilePic(ProfilbildAendern.addressTextfield.getText());
+		saveButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
+				Benutzer.setProfilePicture(ProfilbildAendern.addressTextfield.getText());
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
 			Fenster.addToFrame(new ProfilBearbeiten());
 		});
 

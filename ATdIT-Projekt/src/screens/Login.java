@@ -96,23 +96,11 @@ public class Login extends Body {
 
 		this.add(panel);
 		
-		
+		ActionListener aL = new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel);
 
-<<<<<<< HEAD
 		registerButton.addActionListener(aL);
 		forgotpasswordButton.addActionListener(aL);
 		loginButton.addActionListener(aL);
-=======
-		registerButton.addActionListener(l -> {
-			Fenster.addToFrame(new Registrierung());
-			});
-		forgotpasswordButton.addActionListener(l -> {
-			Fenster.addToFrame(new PasswortVerg());
-			});
-		loginButton.addActionListener(l -> {
-			new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
-		});
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 
 	}
 	

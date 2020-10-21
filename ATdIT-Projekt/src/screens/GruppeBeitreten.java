@@ -70,15 +70,28 @@ public class GruppeBeitreten extends MasterScreen {
 		searchButton.setBounds(0, 400, 450, 100);
 		searchButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		searchButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
 				FunktionGruppeBeitreten.search();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
+
 		});
 
 		joinButton = new JButton("Beitreten");
 		joinButton.setBackground(Color.LIGHT_GRAY);
 		joinButton.setBounds(225, 500, 225, 100);
 		joinButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		joinButton.addActionListener(l -> {			
+		joinButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
 				FunktionGruppeBeitreten.joinGroup();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
 		});
 
 		deleteButton = new JButton("Austreten");
@@ -86,7 +99,13 @@ public class GruppeBeitreten extends MasterScreen {
 		deleteButton.setBounds(0, 500, 225, 100);
 		deleteButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		deleteButton.addActionListener(l -> {
+			try {
+				DatabaseConnection.connectDatabase();
 				FunktionGruppeBeitreten.leaveGroup();
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e) {
+
+			}
 		});
 
 		backButton = new JButton("Zurück");
