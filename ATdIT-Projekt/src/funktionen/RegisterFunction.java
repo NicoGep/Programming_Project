@@ -68,27 +68,17 @@ public class RegisterFunction {
 		if (userControlPassword.equals(userPassword)) {
 			name = userTextfield;
 
-			if (AdminFunctions.findUser(name.getText()) == null) {
+			if (Validator.getValidator().getUser(name.getText()) == null) {
 				try {
-					User.addNewUser(name.getText(), "test@test.de", "Anfänger", "", 10, 10, userPassword);
+					User.addNewUser(name.getText().strip(), Registration.mailTextfield.getText(), userPassword);
+					User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
 				} catch (InputException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-				User.getLoggedUser().setEmail(mailTextfield.getText());
-				try {
-					User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
-				} catch (LoginCredentialsException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
-				/**
-				 * Database is started. User is registered in the database with a user name and
-				 * password. Corresponding error messages if the user name already exists and
-				 * the password does not match.
-				 */
-
+				} catch (LoginCredentialsException e) {
+					System.out.println("Test");				}
+				Window.newDraw();
+				Window.addToFrame(new MenuScreen());
 			}
 
 		}

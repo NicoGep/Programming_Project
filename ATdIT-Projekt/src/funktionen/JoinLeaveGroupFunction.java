@@ -34,11 +34,11 @@ public class JoinLeaveGroupFunction {
 	}
 
 	public static void leaveGroup() {
-		try {
-			User.leaveGroup((EditGroup.groups.getItemAt(EditGroup.groups.getSelectedIndex())));
-		} catch (InputException e) {
-			System.out.println("Fehler beim Verlassen der Gruppe");
-		}
+//		try {
+//			User.leaveGroup((EditGroup.groups.getItemAt(EditGroup.groups.getSelectedIndex())));
+//		} catch (InputException e) {
+//			System.out.println("Fehler beim Verlassen der Gruppe");
+//		}
 	}
 
 	public static void joinGroup() {
