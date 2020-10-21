@@ -29,7 +29,7 @@ public class Groups {
 	}
 	
 	
-	public static void addNewGroup(String name, String niveau) throws InputException {
+	public static Groups addNewGroup(String name, String niveau) throws InputException {
 		
 		if(Validator.getValidator().getGroup(name) != null)
 			throw new InputException(4);
@@ -42,6 +42,23 @@ public class Groups {
 		
 		DatabaseConnection.makeUpdate(statement);
 		
+		return Validator.getValidator().getGroup(name);
+	}
+	
+	public static Groups addNewGroup(String name) throws InputException {
+		
+		if(Validator.getValidator().getGroup(name) != null)
+			throw new InputException(4);
+		
+		String statement = 
+				"INSERT INTO " + DatabaseConnection.groupsTable + 
+				"(groupname) " +
+				"VALUES ('" + name + "');"
+				;
+		
+		DatabaseConnection.makeUpdate(statement);
+		
+		return Validator.getValidator().getGroup(name);
 	}
 	
 	public static List<Groups> getAllGroups() {
