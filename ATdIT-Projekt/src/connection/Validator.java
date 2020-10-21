@@ -190,18 +190,20 @@ public final class Validator extends Thread {
 		}
 		
 	}
-
-	public static int encrypt(String password) {
-		return password.hashCode();
-	}
 	
-	public static int encrypt(char[] c) {
+	public boolean checkPassword(Benutzer user, char[] c) {
+		
 		String s = "";
 		
 		for(int i = 0; i < c.length; i++)
 			s += c[i];
 		
-		return encrypt(s);
-	}	
+		return checkPassword(user, s);
+	}
+
+	public static int encrypt(String password) {
+		return password.hashCode();
+	}
+	
 	
 }

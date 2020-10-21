@@ -59,11 +59,11 @@ public class Login extends Body {
 
 		JLabel userLabel = new JLabel("Benutzername");
 		userTextfield = new JTextField();
-		userTextfield.setText("Test");
+		userTextfield.setText("TestBenutzer1");
 
 		JLabel passwordLabel = new JLabel("Passwort");
 		passwordPasswordfield = new JPasswordField();
-		passwordPasswordfield.setText("key");
+		passwordPasswordfield.setText("pass");
 
 		JLabel space = new JLabel();
 		JLabel space1 = new JLabel();
@@ -96,7 +96,6 @@ public class Login extends Body {
 		panel.add(wrongpasswordLabel);
 
 		this.add(panel);
-		
 		
 
 		registerButton.addActionListener(l -> {
