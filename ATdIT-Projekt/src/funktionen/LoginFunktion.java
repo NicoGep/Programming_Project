@@ -9,7 +9,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import connection.Benutzer;
+<<<<<<< HEAD
 import connection.Validator;
+=======
+import connection.DatabaseConnection;
+import connection.Validator;
+import exceptions.DatabaseConnectException;
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 import exceptions.LoginCredentialsException;
 import master.Fenster;
 import screens.PasswortVerg;
@@ -17,40 +23,54 @@ import screens.Registrierung;
 import screens.Login;
 import screens.MenuScreen;
 
-/** Class with the functions of "Login"
+/**
+ * Class with the functions of "Login"
  * 
  * @author Group3
  *
  */
-public class LoginFunktion implements ActionListener {
-	
+public class LoginFunktion {
+
 	private JTextField name;
 	private JPasswordField password;
-	
+
 	private JLabel wrongnameLabel, wrongpasswordLabel;
-	
-	/** Data base is started
+
+	/**
+	 * Data base is started
 	 * 
-	 * @param userTextfield : String (user name)
+	 * @param userTextfield     : String (user name)
 	 * @param passwordTextfield : String (password)
 	 */
+<<<<<<< HEAD
 	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel, JLabel wrongpasswordLabel) {
 		
 		
+=======
+	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel,
+			JLabel wrongpasswordLabel) {
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 		name = userTextfield;
 		password = passwordPasswordfield;
 		this.wrongnameLabel = wrongnameLabel;
 		this.wrongpasswordLabel = wrongpasswordLabel;
 	}
 
-	/** Check the login data with the database with the corresponding error message if the name / password is incorrect.
-	 * Forwarding to the screens menu, forgot password and registration.
+	/**
+	 * Check the login data with the database with the corresponding error message
+	 * if the name / password is incorrect. Forwarding to the screens menu, forgot
+	 * password and registration.
 	 * 
 	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
+	public void login() {
+		wrongnameLabel.setText("");
+		wrongpasswordLabel.setText("");
+		String s = "";
+		char[] c = this.password.getPassword();
+		for (int i = 0; i < c.length; i++)
+			s += c[i];
 		try {
+<<<<<<< HEAD
 			
 			wrongnameLabel.setText("");
 			wrongpasswordLabel.setText("");
@@ -69,21 +89,29 @@ public class LoginFunktion implements ActionListener {
 			}
 			
 
+=======
+			Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 		} catch (LoginCredentialsException lE) {
-			switch(lE.getState()) {// Label which is shown when the user or password is wrong
-			case 1: wrongnameLabel.setText("Benutzername falsch."); 
-			wrongnameLabel.setBackground(Color.WHITE);
-			wrongnameLabel.setForeground(Color.RED);
-			break;			
-			
-			case 2: wrongpasswordLabel.setText("Passwort falsch.");
-			wrongpasswordLabel.setBackground(Color.WHITE);
-			wrongpasswordLabel.setForeground(Color.RED);
-			break;
-			
-			default: break;
+			switch (lE.getState()) {// Label which is shown when the user or password is wrong
+			case 1:
+				wrongnameLabel.setText("Benutzername falsch.");
+				wrongnameLabel.setBackground(Color.WHITE);
+				wrongnameLabel.setForeground(Color.RED);
+				break;
+
+			case 2:
+				wrongpasswordLabel.setText("Passwort falsch.");
+				wrongpasswordLabel.setBackground(Color.WHITE);
+				wrongpasswordLabel.setForeground(Color.RED);
+				break;
+
+			default:
+				break;
 			}
 			Fenster.newDraw();
 		}
+		Fenster.addToFrame(new MenuScreen());
 	}
+
 }
