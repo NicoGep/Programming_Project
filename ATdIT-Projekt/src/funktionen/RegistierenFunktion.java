@@ -37,6 +37,7 @@ public class RegistierenFunktion {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Function back button.
  * 
  */		
@@ -147,6 +148,47 @@ public class RegistierenFunktion {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+=======
+	/**
+	 * Database is started. User is registered in the database with a user name and
+	 * password. Corresponding error messages if the user name already exists and
+	 * the password does not match.
+	 */
+	public void register() {
+
+		JTextField name;
+//			JPasswordField password;
+		Registrierung.userexistsLabel.setText("");
+		Registrierung.passworddoesnotmatchLabel.setText("");
+
+		String userPassword = "";
+		char[] passwordLetters = passwordPasswordfield.getPassword();
+		for (int i = 0; i < passwordLetters.length; i++)
+			userPassword += passwordLetters[i];
+
+		String userControlPassword = "";
+		passwordLetters = repeatpasswordPasswordfield.getPassword();
+		for (int i = 0; i < passwordLetters.length; i++)
+			userControlPassword += passwordLetters[i];
+
+		if (userControlPassword.equals(userPassword)) {
+			name = userTextfield;
+
+			if (AdminFunctions.findUser(name.getText()) == null) {
+				try {
+							Benutzer.addNewUser(name.getText(),"test@test.de", "Anfänger", "", 10, 10, userPassword);
+				} catch (InputException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Benutzer.getLoggedUser().setEmail(mailTextfield.getText());
+				try {
+					Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
+				} catch (LoginCredentialsException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 				Fenster.addToFrame(new MenuScreen());
 			} else {
 				Registrierung.userexistsLabel.setText("Benutzer existiert bereits!");
@@ -158,6 +200,9 @@ public class RegistierenFunktion {
 			Registrierung.passworddoesnotmatchLabel.setText("Passwort stimmt nicht überrein!");
 			Registrierung.passworddoesnotmatchLabel.setBackground(Color.WHITE);
 			Registrierung.passworddoesnotmatchLabel.setForeground(Color.RED);
+<<<<<<< HEAD
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
+=======
 >>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 		}
 

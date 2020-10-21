@@ -27,6 +27,7 @@ import master.Fenster;
 public class Registrierung extends Body {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public static JTextField userTextfield;
 	public static JPasswordField passwordPasswordfield; 
 	public static JTextField mailTextfield;
@@ -36,6 +37,8 @@ public class Registrierung extends Body {
 	public static JButton backButton;
 	
 =======
+=======
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 	public JTextField userTextfield;
 	public JPasswordField passwordPasswordfield;
 	public JTextField mailTextfield;
@@ -44,6 +47,9 @@ public class Registrierung extends Body {
 	public JButton registerButton;
 	public JButton backButton;
 
+<<<<<<< HEAD
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
+=======
 >>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;
@@ -106,12 +112,15 @@ public class Registrierung extends Body {
 
 		this.add(panel);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			
 
 		registerButton.addActionListener(new RegistierenFunktion());
 		backButton.addActionListener(new RegistierenFunktion());
 			
 =======
+=======
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 
 		registerButton.addActionListener(l -> {
 
@@ -125,6 +134,9 @@ public class Registrierung extends Body {
 			Fenster.newDraw(new Login());
 		});
 
+<<<<<<< HEAD
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
+=======
 >>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 	}
 

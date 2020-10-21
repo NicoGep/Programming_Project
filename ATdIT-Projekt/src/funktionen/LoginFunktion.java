@@ -39,8 +39,11 @@ public class LoginFunktion {
 	 * @param userTextfield     : String (user name)
 	 * @param passwordTextfield : String (password)
 	 */
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel,
 			JLabel wrongpasswordLabel) {
 		name = userTextfield;
@@ -63,6 +66,7 @@ public class LoginFunktion {
 		for (int i = 0; i < c.length; i++)
 			s += c[i];
 		try {
+<<<<<<< HEAD
 			
 			wrongnameLabel.setText("");
 			wrongpasswordLabel.setText("");
@@ -81,6 +85,8 @@ public class LoginFunktion {
 			}
 			
 
+=======
+>>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 			Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
