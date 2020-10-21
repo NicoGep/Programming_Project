@@ -5,6 +5,7 @@ import java.awt.Font;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -72,12 +73,25 @@ public class KarteScreen extends MasterScreen {
 		heightdifferenceTextField.setBackground(Color.white);
 		heightdifferenceTextField.setBounds(70, 530, 300, 50);
 		
+		JButton confirmButton = new JButton("confirm");
+		confirmButton.setBounds(200, 600, 100, 50);
+		confirmButton.setBackground(Color.white);
+		confirmButton.addActionListener(w -> {
+			Benutzer user = Benutzer.getLoggedUser();
+			if (routelengthTextField != null && heightdifferenceTextField != null) {
+				confirmButton.setBackground(Color.green);
+				user.setRouteLength(Integer.parseInt(routelengthTextField.getText()));
+				user.setHeightDifference(Integer.parseInt(heightdifferenceTextField.getText()));
+			}
+		});
+		
 
 		this.add(mapPanel);
 		this.add(routelengthPanel);
 		this.add(heightdifferencePanel);
 		this.add(routelengthTextField);
 		this.add(heightdifferenceTextField);
+		this.add(confirmButton);
 	}	
 }
 	
