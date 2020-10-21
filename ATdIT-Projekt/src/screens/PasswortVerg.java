@@ -11,8 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import funktionen.PasswortVergFunktion;
+import connection.Benutzer;
 import master.Body;
+import master.Fenster;
 
 /** UI for screen "PasswortVerg"
  * 

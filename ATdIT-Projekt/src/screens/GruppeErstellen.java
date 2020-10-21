@@ -64,13 +64,7 @@ public class GruppeErstellen extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-			try {
-				DatabaseConnection.connectDatabase();
-				FunktionGruppeErstellen.save();
-				DatabaseConnection.disconnectDatabase();
-			} catch (DatabaseConnectException e) {
-
-			}
+			FunktionGruppeErstellen.save();
 			Fenster.addToFrame(new MeinProfil());
 		});
 

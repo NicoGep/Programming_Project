@@ -3,11 +3,14 @@ package funktionen;
 
 import java.sql.SQLException;
 import connection.Benutzer;
+import connection.Validator;
 import exceptions.ChangePasswordException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import master.Fenster;
 import screens.*;
+
+
 
 /**
  * Class for the functions for class "PasswortAendern"
@@ -26,6 +29,8 @@ public class FunktionPasswortAendern {
 	 */
 
 	public static void changePassword() throws ChangePasswordException {
+		
+		Benutzer user = Benutzer.getLoggedUser();
 
 		PasswortAendern.newpassworddoesnotmatchLabel.setVisible(false);
 		PasswortAendern.stateoldpasswordLabel.setVisible(false);
@@ -47,9 +52,10 @@ public class FunktionPasswortAendern {
 		// password control with data query
 		try {
 			AdminFunctions.checkPassword(AdminFunctions.encrypt(oldpassword),
-					AdminFunctions.findUser(Benutzer.getName()));
+					Benutzer.findUser(user.getName()));
+			
 			if (newpassword.equals(controlpassword)) {
-				Benutzer.setPassword(newpassword);
+				user.setPassword(newpassword);
 				Fenster.addToFrame(new ProfilBearbeiten());
 			} else {
 
