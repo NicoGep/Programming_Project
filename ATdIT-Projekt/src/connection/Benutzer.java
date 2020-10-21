@@ -204,6 +204,26 @@ public class Benutzer {
 		
 	}
 	
+	public void removeFromGroup(Groups group) throws InputException {
+		
+		if(!isInGroup(group)) {
+			throw new InputException(5);
+		}
+		
+		int groupID = group.getGroupID();
+		int userID = getID();
+		
+		
+		String statement =
+				"DELETE FROM " + DatabaseConnection.users_groupsTable + " WHERE " +
+				"userid = '" + userID + "' AND " +
+				"groupid = '" + groupID + "';"
+				;
+		
+		DatabaseConnection.makeUpdate(statement);
+		
+	}
+	
 	//------------------------------------------- Getter ---------------------------------------------
 	
 	public int getID() {
