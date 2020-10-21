@@ -49,8 +49,6 @@ public class DatabaseConnection {
 	public static final String users_groupsTable = "users_groups";
 	public static final String usercredentialsTable = "usercredentials";
 	
-	public static final String pTB = "parameter";
-	
 	
 	
 	

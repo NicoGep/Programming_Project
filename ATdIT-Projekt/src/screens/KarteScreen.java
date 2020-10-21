@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import connection.Benutzer;
 import master.MasterScreen;
 
 /** UI for class "KarteScreen"
@@ -69,7 +71,6 @@ public class KarteScreen extends MasterScreen {
 		JTextField heightdifferenceTextField = new JTextField();
 		heightdifferenceTextField.setBackground(Color.white);
 		heightdifferenceTextField.setBounds(70, 530, 300, 50);
-		
 		
 
 		this.add(mapPanel);

@@ -114,7 +114,7 @@ public final class Validator extends Thread {
 	}
 	
 	
-	public void updateUser(Benutzer user) {
+	protected void updateUser(Benutzer user) {
 		
 		String statement = 
 				"UPDATE " + DatabaseConnection.usersTable + " SET " +
@@ -125,6 +125,19 @@ public final class Validator extends Thread {
 				"userroutelength = '" + user.getRouteLength() + "', " +
 				"userheightdifference = '" + user.getHeightDifference() + "' " +
 				"WHERE userid = '" + user.getID() + "';"
+				;
+		
+		DatabaseConnection.makeUpdate(statement);
+		
+	}
+	
+	protected void updateGroup(Groups group) {
+		
+		String statement = 
+				"UPDATE " + DatabaseConnection.groupsTable + " SET " +
+				"groupname = '" + group.getGroupName() + "', " +
+				"groupniveau = '" + group.getGroupNiveau() + "' " +
+				"WHERE groupid = '" + group.getGroupID() + "';"
 				;
 		
 		DatabaseConnection.makeUpdate(statement);
@@ -182,6 +195,13 @@ public final class Validator extends Thread {
 		return password.hashCode();
 	}
 	
-	
+	public static int encrypt(char[] c) {
+		String s = "";
+		
+		for(int i = 0; i < c.length; i++)
+			s += c[i];
+		
+		return encrypt(s);
+	}	
 	
 }

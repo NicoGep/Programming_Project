@@ -84,8 +84,37 @@ public class Benutzer {
 		loggedUser = null;
 	}
 	
+	
+	public static Benutzer addNewUser(String name, String email, String password) throws InputException {
+		
+		if(Validator.getValidator().getUser(name) != null)
+			throw new InputException(3);
+		
+		String statementUserEntry = 
+				"INSERT INTO " + DatabaseConnection.usersTable + 
+				"(username, useremail) "
+				+ "VALUES ('" + name + "', '" + email + "');"
+				;
 
-	public static void addNewUser(String name, String email, String niveau, String profilePic, int routeLength, int heightDifference, String password) throws InputException {
+		DatabaseConnection.makeUpdate(statementUserEntry);
+		
+		Benutzer temp = Validator.getValidator().getUser(name);
+		
+		int encr_Pass = Validator.encrypt(password);
+		
+		String statementPasswordEntry =
+				"INSERT INTO " + DatabaseConnection.usercredentialsTable +
+				"(userid, userpassword) "
+				+ "VALUES ('" + temp.getID() + "', '" + encr_Pass + "');"
+				;
+		
+		DatabaseConnection.makeUpdate(statementPasswordEntry);
+		
+		return Validator.getValidator().getUser(name);
+	}
+	
+
+	public static Benutzer addNewUser(String name, String email, String niveau, String profilePic, int routeLength, int heightDifference, String password) throws InputException {
 		
 		if(Validator.getValidator().getUser(name) != null)
 			throw new InputException(3);
@@ -110,6 +139,7 @@ public class Benutzer {
 		
 		DatabaseConnection.makeUpdate(statementPasswordEntry);
 		
+		return Validator.getValidator().getUser(name);
 	}
 	
 	
@@ -199,6 +229,17 @@ public class Benutzer {
 	}
 	
 	//---------------------------------------------------- Setter -------------------------------------------------
+	
+	public void changePassword(String password) {
+		
+		String statement = 
+				"UPDATE " + DatabaseConnection.usercredentialsTable + 
+				"SET userpassword = '" + Validator.encrypt(password) + "' " +
+				"WHERE userid = '" + this.getID() + "';"
+				;
+		
+		DatabaseConnection.makeUpdate(statement);
+	}
 	
 	public void setName(String name) {
 		this.name = name;
