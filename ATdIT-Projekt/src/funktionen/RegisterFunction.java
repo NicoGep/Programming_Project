@@ -6,16 +6,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import connection.Benutzer;
+import connection.User;
 import connection.DatabaseConnection;
 import connection.Validator;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
-import master.Fenster;
+import master.Window;
 import screens.Login;
 import screens.MenuScreen;
-import screens.Registrierung;
+import screens.Registration;
 
 /**
  * Class for the function of class "Registrierung"
@@ -24,12 +24,12 @@ import screens.Registrierung;
  *
  */
 
-public class RegistierenFunktion {
+public class RegisterFunction {
 
 	public JTextField userTextfield, mailTextfield;
 	public JPasswordField passwordPasswordfield, repeatpasswordPasswordfield;
 
-	public RegistierenFunktion(JTextField user, JTextField mail, JPasswordField password,
+	public RegisterFunction(JTextField user, JTextField mail, JPasswordField password,
 			JPasswordField repeatpassword) {
 		userTextfield = user;
 		mailTextfield = mail;
@@ -52,8 +52,8 @@ public class RegistierenFunktion {
 
 		JTextField name;
 
-		Registrierung.userexistsLabel.setText("");
-		Registrierung.passworddoesnotmatchLabel.setText("");
+		Registration.userexistsLabel.setText("");
+		Registration.passworddoesnotmatchLabel.setText("");
 
 		String userPassword = "";
 		char[] passwordLetters = passwordPasswordfield.getPassword();
@@ -70,14 +70,14 @@ public class RegistierenFunktion {
 
 			if (AdminFunctions.findUser(name.getText()) == null) {
 				try {
-					Benutzer.addNewUser(name.getText(), "test@test.de", "Anfänger", "", 10, 10, userPassword);
+					User.addNewUser(name.getText(), "test@test.de", "Anfänger", "", 10, 10, userPassword);
 				} catch (InputException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				Benutzer.getLoggedUser().setEmail(mailTextfield.getText());
+				User.getLoggedUser().setEmail(mailTextfield.getText());
 				try {
-					Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
+					User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
 				} catch (LoginCredentialsException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

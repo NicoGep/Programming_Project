@@ -8,15 +8,15 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import connection.Benutzer;
+import connection.User;
 import connection.Validator;
 import connection.DatabaseConnection;
 import connection.Validator;
 import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
-import master.Fenster;
-import screens.PasswortVerg;
-import screens.Registrierung;
+import master.Window;
+import screens.ForgotPassword;
+import screens.Registration;
 import screens.Login;
 import screens.MenuScreen;
 
@@ -26,7 +26,7 @@ import screens.MenuScreen;
  * @author Group3
  *
  */
-public class LoginFunktion {
+public class LoginFunction {
 
 	private JTextField name;
 	private JPasswordField password;
@@ -40,7 +40,7 @@ public class LoginFunktion {
 	 * @param passwordTextfield : String (password)
 	 */
 
-	public LoginFunktion(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel,
+	public LoginFunction(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel,
 			JLabel wrongpasswordLabel) {
 		name = userTextfield;
 		password = passwordPasswordfield;
@@ -63,7 +63,7 @@ public class LoginFunktion {
 			s += c[i];
 
 		try {
-			Benutzer.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
+			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
 			case 1:
@@ -81,9 +81,9 @@ public class LoginFunktion {
 			default:
 				break;
 			}
-			Fenster.newDraw();
+			Window.newDraw();
 		}
-		Fenster.addToFrame(new MenuScreen());
+		Window.addToFrame(new MenuScreen());
 	}
 
 }

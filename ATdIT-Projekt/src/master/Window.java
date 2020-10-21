@@ -1,7 +1,7 @@
 package master;
 
 import javax.swing.*;
-import connection.Benutzer;
+import connection.User;
 import screens.Login;
 import java.util.*;
 import java.awt.*;
@@ -11,13 +11,13 @@ import java.awt.*;
  * @author Group3
  *
  */
-public class Fenster extends JFrame {
+public class Window extends JFrame {
 	
 	private final int SIZE_X = 466, SIZE_Y = 839;
 	
 	private static final int MAX_HISTORY_SIZE = 5;
 	
-	private static Fenster masterFrame;
+	private static Window masterFrame;
 	private static Container content;
 	
 	/**
@@ -33,7 +33,7 @@ public class Fenster extends JFrame {
 	 * specifies that the window size cannot be changed
 	 * 
 	 */
-	public Fenster() {
+	public Window() {
 		
 		masterFrame = this;
 
@@ -78,7 +78,7 @@ public class Fenster extends JFrame {
 	 * method to logout the user, empty the history-stack and open a new login window
 	 */
 	public static void reset() {
-		Benutzer.logoutUser();
+		User.logoutUser();
 		clearHistory();
 		newDraw(new Panel(new Login()));
 	}

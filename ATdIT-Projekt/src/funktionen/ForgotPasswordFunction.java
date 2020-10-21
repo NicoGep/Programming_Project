@@ -3,10 +3,10 @@ package funktionen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import connection.Benutzer;
-import master.Fenster;
+import connection.User;
+import master.Window;
 import screens.Login;
-import screens.PasswortVerg;
+import screens.ForgotPassword;
 
 /** Class for the function of class "PasswortVerg"
  * 
@@ -14,17 +14,17 @@ import screens.PasswortVerg;
  *
  */
 
-public class PasswortVergFunktion implements ActionListener {
+public class ForgotPasswordFunction implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 /** Function of the back button 
  * 
  */
-		if(e.getSource() == PasswortVerg.backButton) {
-			Benutzer.logoutUser();
-			Fenster.clearHistory();
-			Fenster.newDraw(new Login());
+		if(e.getSource() == ForgotPassword.backButton) {
+			User.logoutUser();
+			Window.clearHistory();
+			Window.newDraw(new Login());
 		}
 	}
 	

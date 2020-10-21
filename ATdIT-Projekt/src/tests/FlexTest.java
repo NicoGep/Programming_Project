@@ -22,7 +22,7 @@ public class FlexTest {
 		System.out.print("Passwort: ");
 		String password = scanner.next();
 		
-		Benutzer.loginUser(name, password);
+		User.loginUser(name, password);
 		
 		System.out.println("Logged in");
 		

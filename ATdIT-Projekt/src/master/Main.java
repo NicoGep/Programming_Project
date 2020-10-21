@@ -21,8 +21,8 @@ public class Main {
 //			Thread.sleep(1000);
 //		} catch (InterruptedException e1) {		}
 		
-		Fenster frame = new Fenster();
-		Fenster.reset();
+		Window frame = new Window();
+		Window.reset();
 		frame.setVisible(true);
 		
 

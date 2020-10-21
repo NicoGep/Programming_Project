@@ -1,10 +1,10 @@
 package funktionen;
 
-import connection.Benutzer;
+import connection.User;
 import connection.Groups;
 import connection.Validator;
 import exceptions.InputException;
-import screens.GruppeErstellen;
+import screens.CreateGroup;
 
 /**
  * Class with the functions for class "GruppeErstellen"
@@ -12,7 +12,7 @@ import screens.GruppeErstellen;
  * @author Group3
  *
  */
-public class FunktionGruppeErstellen {
+public class CreateGroupFunction {
 
 	/**
 	 * Creates a new group when the create button is clicked The screen of 'my
@@ -21,10 +21,10 @@ public class FunktionGruppeErstellen {
 
 	public static void save() {
 		try {
-			Groups.addNewGroup(GruppeErstellen.groupNameTextfield.getText(),
-					(String) GruppeErstellen.levelSelection
-							.getItemAt(GruppeErstellen.levelSelection.getSelectedIndex()));
-			Benutzer.addToGroup(GruppeErstellen.groupNameTextfield.getText());
+			User.getLoggedUser()
+					.addToGroup(Groups.addNewGroup(CreateGroup.groupNameTextfield.getText(),
+							(String) CreateGroup.levelSelection
+									.getItemAt(CreateGroup.levelSelection.getSelectedIndex())));
 		} catch (InputException e) {
 
 		}

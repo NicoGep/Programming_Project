@@ -21,17 +21,17 @@ public class DatenbankFunktionenTest {
 			DatabaseConnection.connectDatabase();
 			if (AdminFunctions.findUser(name) == null) {
 				AdminFunctions.addUser(name, password);
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			} else {
-				Benutzer.setPassword(password);
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setPassword(password);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			}
-			Benutzer.loginUser(name, password);
-			assertEquals(name, Benutzer.getName());
+			User.loginUser(name, password);
+			assertEquals(name, User.getName());
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
 			// TODO Auto-generated catch block
@@ -52,16 +52,16 @@ public class DatenbankFunktionenTest {
 			DatabaseConnection.connectDatabase();
 			if (AdminFunctions.findUser(name) == null) {
 				AdminFunctions.addUser(name, password);
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			} else {
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			}
-			Benutzer.loginUser(name, password);
-			assertEquals(level, Benutzer.getLevel());
+			User.loginUser(name, password);
+			assertEquals(level, User.getLevel());
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
 			// TODO Auto-generated catch block
@@ -82,16 +82,16 @@ public class DatenbankFunktionenTest {
 			DatabaseConnection.connectDatabase();
 			if (AdminFunctions.findUser(name) == null) {
 				AdminFunctions.addUser(name, password);
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			} else {
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			}
-			Benutzer.loginUser(name, password);
-			assertEquals(mail, Benutzer.getMail());
+			User.loginUser(name, password);
+			assertEquals(mail, User.getMail());
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
 			// TODO Auto-generated catch block
@@ -112,16 +112,16 @@ public class DatenbankFunktionenTest {
 			DatabaseConnection.connectDatabase();
 			if (AdminFunctions.findUser(name) == null) {
 				AdminFunctions.addUser(name, password);
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			} else {
-				Benutzer.setMail(mail);
-				Benutzer.setLevel(level);
-				Benutzer.setProfilePicture(profilepicture);
+				User.setMail(mail);
+				User.setLevel(level);
+				User.setProfilePicture(profilepicture);
 			}
-			Benutzer.loginUser(name, password);
-			assertEquals(profilepicture, Benutzer.getProfilePicture());
+			User.loginUser(name, password);
+			assertEquals(profilepicture, User.getProfilePicture());
 			DatabaseConnection.disconnectDatabase();
 		} catch (DatabaseConnectException e) {
 			// TODO Auto-generated catch block

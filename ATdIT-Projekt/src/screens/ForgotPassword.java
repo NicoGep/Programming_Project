@@ -11,17 +11,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import connection.Benutzer;
-import funktionen.PasswortVergFunktion;
+import connection.User;
+import funktionen.ForgotPasswordFunction;
 import master.Body;
-import master.Fenster;
+import master.Window;
 
 /** UI for screen "PasswortVerg"
  * 
  * @author Group3
  *
  */
-public class PasswortVerg extends Body {
+public class ForgotPassword extends Body {
 	
 	public static JButton backButton;
 	
@@ -42,7 +42,7 @@ public class PasswortVerg extends Body {
 	 * @param space2 : JLabel
 	 * @param space3 : JLabel
 	 */
-	public PasswortVerg() {
+	public ForgotPassword() {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(13,1));
@@ -84,7 +84,7 @@ public class PasswortVerg extends Body {
 	
 		this.add(panel);
 		
-		backButton.addActionListener(new PasswortVergFunktion());
+		backButton.addActionListener(new ForgotPasswordFunction());
 	}
 	
 	/** background image is drawn

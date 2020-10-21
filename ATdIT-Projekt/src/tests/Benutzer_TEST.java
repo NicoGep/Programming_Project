@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 import org.junit.*;
 
-import connection.Benutzer;
+import connection.User;
 import connection.DatabaseConnection;
 import exceptions.InputException;
 import funktionen.AdminFunctions;
@@ -19,7 +19,7 @@ public class Benutzer_TEST {
 			
 			DatabaseConnection.connectDatabase();
 			
-			Benutzer.loginUser("Test1", "123");
+			User.loginUser("Test1", "123");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -31,10 +31,10 @@ public class Benutzer_TEST {
 	@Test
 	public void getterTest() {
 		
-		assertTrue(Benutzer.getName().equals("Test1"));
+		assertTrue(User.getName().equals("Test1"));
 //		assertTrue(Benutzer.getEmail().equals(""));
-		assertTrue(Benutzer.getLevel().equals("Anfänger"));
-		assertNull(Benutzer.getProfilePicture());
+		assertTrue(User.getLevel().equals("Anfänger"));
+		assertNull(User.getProfilePicture());
 		
 	}
 	
@@ -43,17 +43,17 @@ public class Benutzer_TEST {
 		
 		try {
 		
-			Benutzer.setName("neuerName");
-			Benutzer.setMail("a.b@c.de");
-			Benutzer.setLevel("Amateur");
+			User.setName("neuerName");
+			User.setMail("a.b@c.de");
+			User.setLevel("Amateur");
 
-			assertEquals("neuerName", Benutzer.getName());
-			assertEquals("a.b@c.de", Benutzer.getMail());
-			assertEquals("Amateur", Benutzer.getLevel());
+			assertEquals("neuerName", User.getName());
+			assertEquals("a.b@c.de", User.getMail());
+			assertEquals("Amateur", User.getLevel());
 
-			Benutzer.setName("Test1");
-			Benutzer.setMail("test@t.de");
-			Benutzer.setLevel("Anfänger");
+			User.setName("Test1");
+			User.setMail("test@t.de");
+			User.setLevel("Anfänger");
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,9 +66,9 @@ public class Benutzer_TEST {
 		
 		try {
 			
-			Benutzer.updateParameter(10, 20);
+			User.updateParameter(10, 20);
 			
-			ResultSet set = Benutzer.getParameter();
+			ResultSet set = User.getParameter();
 			set.first();
 			
 			assertEquals(10, set.getInt("steckenlaenge"));
@@ -92,13 +92,13 @@ public class Benutzer_TEST {
 		
 		try {
 			
-			Benutzer.joinGroup("TestGrp");
+			User.joinGroup("TestGrp");
 			
-			assertTrue(Benutzer.isInGroup("TestGrp"));
+			assertTrue(User.isInGroup("TestGrp"));
 			
-			Benutzer.leaveGroup("TestGrp");
+			User.leaveGroup("TestGrp");
 			
-			assertFalse(Benutzer.isInGroup("TestGrp"));
+			assertFalse(User.isInGroup("TestGrp"));
 
 		} catch (InputException e) {
 			// TODO Auto-generated catch block
