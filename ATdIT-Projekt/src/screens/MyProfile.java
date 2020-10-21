@@ -90,7 +90,7 @@ public class MyProfile extends MasterScreen {
 		joingroupButton.setBounds(0, 50, 450, 50);
 		joingroupButton.setBackground(Color.LIGHT_GRAY);
 		joingroupButton.addActionListener(l -> {
-			Window.addToFrame(new EditGroup());
+			Window.addToFrame(new JoinLeaveGroup());
 		});
 
 		creategroupButton = new JButton("Gruppe erstellen");

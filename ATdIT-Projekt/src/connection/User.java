@@ -8,9 +8,9 @@ import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import master.Window;
 
-/**Benutzerklasse für Benutzerfunktionen
- * Benutzer ist ein Singleton.
- * Die Benutzerfunktionen funktionieren nur, wenn ein Benutzer eingeloggt ist.
+/**User-Class for Userfunctions
+ * Benutzer is a Singleton.
+ * Userfunctions will only run if a User is currently logged in.
  * 
  * 
  *

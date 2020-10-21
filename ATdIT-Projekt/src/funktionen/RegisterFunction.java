@@ -18,7 +18,7 @@ import screens.MenuScreen;
 import screens.Registration;
 
 /**
- * Class for the function of class "Registrierung"
+ * Class for the function of class "Registration"
  * 
  * @author Group3
  *
@@ -35,11 +35,6 @@ public class RegisterFunction {
 		passwordPasswordfield = password;
 		repeatpasswordPasswordfield = repeatpassword;
 	}
-
-	/**
-	 * Function back button.
-	 * 
-	 */
 
 	/**
 	 * Database is started. User is registered in the database with a user name and
