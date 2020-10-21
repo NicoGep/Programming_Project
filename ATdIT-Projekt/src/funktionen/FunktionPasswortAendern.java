@@ -29,7 +29,7 @@ public class FunktionPasswortAendern {
 	 */
 
 	public static void changePassword() throws ChangePasswordException {
-		
+		Validator val = Validator.getValidator();
 		Benutzer user = Benutzer.getLoggedUser();
 
 		PasswortAendern.newpassworddoesnotmatchLabel.setVisible(false);
@@ -49,27 +49,14 @@ public class FunktionPasswortAendern {
 		passwordLetters = PasswortAendern.newpasswordcontrolPasswordfield.getPassword();
 		for (int i = 0; i < passwordLetters.length; i++)
 			controlpassword += passwordLetters[i];
-		// password control with data query
-		try {
-			AdminFunctions.checkPassword(AdminFunctions.encrypt(oldpassword),
-					Benutzer.findUser(user.getName()));
-			
-			if (newpassword.equals(controlpassword)) {
-				user.setPassword(newpassword);
-				Fenster.addToFrame(new ProfilBearbeiten());
-			} else {
+		val.checkPassword(user, oldpassword);
+		
+		if (newpassword.equals(controlpassword)) {
+			user.changePassword(newpassword);
+			Fenster.addToFrame(new ProfilBearbeiten());
+		} else {
 
-				throw new ChangePasswordException(1);
-			}
-		} catch (LoginCredentialsException e1) {
-			if (!(newpassword.equals(controlpassword))) {
-				throw new ChangePasswordException(3);
-			}
-			throw new ChangePasswordException(2);
-		} catch (SQLException e) {
-
-		} catch (InputException e) {
-
+			throw new ChangePasswordException(1);
 		}
 
 	}
