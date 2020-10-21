@@ -24,15 +24,23 @@ public class RegistierenFunktion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
+/** Function back button.
+ * 
+ */		
+		if(e.getSource() == Registrierung.backButton) {
+			Benutzer.logoutUser();
+			Fenster.clearHistory();
+			Fenster.newDraw(new Login());;
+		}
 		
 /** Database is started.
  * User is registered in the database with a user name and password.
  * Corresponding error messages if the user name already exists and the password does not match.
- */		
-		public static void register() {
-			
+ */				
+		if (e.getSource() == Registrierung.registerButton) {
 			JTextField name;
 //			JPasswordField password;
+			try {
 				DatabaseConnection.connectDatabase();
 				Registrierung.userexistsLabel.setText("");
 				Registrierung.passworddoesnotmatchLabel.setText("");
@@ -78,8 +86,16 @@ public class RegistierenFunktion implements ActionListener {
 					Registrierung.passworddoesnotmatchLabel.setForeground(Color.RED);
 				}
 				
+				DatabaseConnection.disconnectDatabase();
+			} catch (DatabaseConnectException e1) {
+				e1.printStackTrace();
+			} catch (InputException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
-	
+
 	}
 
 }

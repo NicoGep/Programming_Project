@@ -21,7 +21,7 @@ import master.Body;
  */
 public class PasswortVerg extends Body {
 	
-	public JButton backButton;
+	public static JButton backButton;
 	
 	/**
 	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
@@ -82,15 +82,7 @@ public class PasswortVerg extends Body {
 	
 		this.add(panel);
 		
-	/** 
-	 * Function of back button
-	 */
-		
-		backButton.addActionListener(L -> {
-			Benutzer.logoutUser();
-			Fenster.clearHistory();
-			Fenster.newDraw(new Login());
-		});
+		backButton.addActionListener(new PasswortVergFunktion());
 	}
 	
 	/** background image is drawn

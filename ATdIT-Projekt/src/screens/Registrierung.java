@@ -30,8 +30,8 @@ public class Registrierung extends Body {
 	public static JTextField mailTextfield;
 	public static JPasswordField repeatpasswordPasswordfield;
 	
-	public JButton registerButton;
-	public JButton backButton;
+	public static JButton registerButton;
+	public static JButton backButton;
 	
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;
@@ -94,21 +94,9 @@ public class Registrierung extends Body {
 		
 		this.add(panel);
 			
-		registerButton.addActionListener(l -> {
-		try {
-			DatabaseConnection.connectDatabase();
-			RegistrierenFunktion.register();
-			DatabaseConnection.disconnectDatabase();
-		{ catch (DatabaseConnectException e){
-			
-		}
-		});
-		
-		backButton.addActionListener(l -> {
-			Benutzer.logoutUser();
-			Fenster.clearHistory();
-			Fenster.newDraw(new Login());
-		});
+
+		registerButton.addActionListener(new RegistierenFunktion());
+		backButton.addActionListener(new RegistierenFunktion());
 			
 	}
 	
