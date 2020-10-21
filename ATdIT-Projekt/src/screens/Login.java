@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import funktionen.LoginFunktion;
 import master.Body;
+import master.Fenster;
 
 /**	UI class for the "Login" screen
  * 
@@ -98,11 +99,6 @@ public class Login extends Body {
 		
 		
 
-<<<<<<< HEAD
-		registerButton.addActionListener(aL);
-		forgotpasswordButton.addActionListener(aL);
-		loginButton.addActionListener(aL);
-=======
 		registerButton.addActionListener(l -> {
 			Fenster.addToFrame(new Registrierung());
 			});
@@ -112,10 +108,7 @@ public class Login extends Body {
 		loginButton.addActionListener(l -> {
 			new LoginFunktion(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
 		});
-<<<<<<< HEAD
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
-=======
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
+
 
 	}
 	

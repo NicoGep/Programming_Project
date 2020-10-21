@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import connection.Benutzer;
+import funktionen.PasswortVergFunktion;
 import master.Body;
 import master.Fenster;
 

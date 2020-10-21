@@ -26,31 +26,14 @@ import master.Fenster;
  */
 public class Registrierung extends Body {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 	public static JTextField userTextfield;
-	public static JPasswordField passwordPasswordfield; 
+	public static JPasswordField passwordPasswordfield;
 	public static JTextField mailTextfield;
 	public static JPasswordField repeatpasswordPasswordfield;
-	
+
 	public static JButton registerButton;
 	public static JButton backButton;
-	
-=======
-=======
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
-	public JTextField userTextfield;
-	public JPasswordField passwordPasswordfield;
-	public JTextField mailTextfield;
-	public JPasswordField repeatpasswordPasswordfield;
 
-	public JButton registerButton;
-	public JButton backButton;
-
-<<<<<<< HEAD
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
-=======
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;
 
@@ -111,21 +94,11 @@ public class Registrierung extends Body {
 		panel.add(userexistsLabel);
 
 		this.add(panel);
-<<<<<<< HEAD
-<<<<<<< HEAD
-			
-
-		registerButton.addActionListener(new RegistierenFunktion());
-		backButton.addActionListener(new RegistierenFunktion());
-			
-=======
-=======
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 
 		registerButton.addActionListener(l -> {
 
-			new RegistierenFunktion(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield).register();
-
+			new RegistierenFunktion(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
+					.register();
 		});
 
 		backButton.addActionListener(l -> {
@@ -134,10 +107,6 @@ public class Registrierung extends Body {
 			Fenster.newDraw(new Login());
 		});
 
-<<<<<<< HEAD
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
-=======
->>>>>>> parent of e0b47bc... Revert "Merge branch 'master' of https://github.com/NicoGep/Programming_Project"
 	}
 
 	/**
