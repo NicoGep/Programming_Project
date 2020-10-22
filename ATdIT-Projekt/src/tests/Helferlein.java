@@ -10,9 +10,7 @@ public class Helferlein {
 		
 		Validator.createValidator();
 		
-		Thread.sleep(5000);
-		
-		System.out.println(Groups.getAllGroups().toString());
+		Thread.sleep(1000);
 		
 	}
 	

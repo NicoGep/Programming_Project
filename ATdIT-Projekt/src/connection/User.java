@@ -253,7 +253,7 @@ public class User {
 	public void changePassword(String password) {
 		
 		String statement = 
-				"UPDATE " + DatabaseConnection.usercredentialsTable + 
+				"UPDATE " + DatabaseConnection.usercredentialsTable + " " +
 				"SET userpassword = '" + Validator.encrypt(password) + "' " +
 				"WHERE userid = '" + this.getID() + "';"
 				;
