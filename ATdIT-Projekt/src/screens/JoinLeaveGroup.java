@@ -16,7 +16,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-public class EditGroup extends MasterScreen {
+public class JoinLeaveGroup extends MasterScreen {
 
 	public JButton backButton;
 	public JButton joinButton;
@@ -44,7 +44,7 @@ public class EditGroup extends MasterScreen {
 	 * @param deleteButton       : JButton
 	 * @param backButton         : JButton
 	 */
-	public EditGroup() {
+	public JoinLeaveGroup() {
 
 		this.setLayout(null);
 

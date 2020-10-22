@@ -13,7 +13,7 @@ import screens.*;
 
 
 /**
- * Class for the functions for class "PasswortAendern"
+ * Class for the functions for class "ChangePassword"
  * 
  * @author Group3
  *
@@ -49,13 +49,18 @@ public class ChangePasswordFunction {
 		passwordLetters = ChangePassword.newpasswordcontrolPasswordfield.getPassword();
 		for (int i = 0; i < passwordLetters.length; i++)
 			controlpassword += passwordLetters[i];
-		val.checkPassword(user, oldpassword);
+		
+		if(!val.checkPassword(user, oldpassword)) {
+			if (!newpassword.equals(controlpassword)) {
+				throw new ChangePasswordException(3);
+			}
+			throw new ChangePasswordException(2);
+		}
 		
 		if (newpassword.equals(controlpassword)) {
 			user.changePassword(newpassword);
 			Window.addToFrame(new EditProfile());
 		} else {
-
 			throw new ChangePasswordException(1);
 		}
 
