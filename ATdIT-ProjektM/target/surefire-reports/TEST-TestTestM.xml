@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestTestM" time="0.027" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestTestM" time="0.016" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\I518230\OneDrive - SAP SE\Lukas Werner Folder\2_Semester\AktuelleThemenDerIT\workspace\ATdIT-ProjektM\target\test-classes;C:\Users\I518230\OneDrive - SAP SE\Lukas Werner Folder\2_Semester\AktuelleThemenDerIT\workspace\ATdIT-ProjektM\target\classes;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\I518230\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\I518230\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\I518230\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
+    <property name="java.class.path" value="C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\I518230\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\I518230\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\I518230\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -16,9 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\I518230\Documents\2_Semester\AktuelleThemenDerIT\jdk-13.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\I518230\AppData\Local\Temp\surefire15784922828225024164\surefirebooter2302669911709273898.jar C:\Users\I518230\AppData\Local\Temp\surefire15784922828225024164 2020-10-23T13-10-47_639-jvmRun1 surefire2574793775426735084tmp surefire_012970340190766992362tmp"/>
+    <property name="sun.java.command" value="C:\Users\I518230\AppData\Local\Temp\surefire10711893192250586847\surefirebooter8665882183264443254.jar C:\Users\I518230\AppData\Local\Temp\surefire10711893192250586847 2020-10-24T11-37-45_305-jvmRun1 surefire15422381852986621486tmp surefire_06789072190163219982tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\I518230\OneDrive - SAP SE\Lukas Werner Folder\2_Semester\AktuelleThemenDerIT\workspace\ATdIT-ProjektM\target\test-classes;C:\Users\I518230\OneDrive - SAP SE\Lukas Werner Folder\2_Semester\AktuelleThemenDerIT\workspace\ATdIT-ProjektM\target\classes;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\I518230\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\I518230\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\I518230\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\I518230\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\I518230\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\I518230\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\I518230\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\I518230"/>
     <property name="user.language" value="en"/>
@@ -26,12 +26,12 @@
     <property name="java.version.date" value="2020-01-14"/>
     <property name="java.home" value="C:\Users\I518230\Documents\2_Semester\AktuelleThemenDerIT\jdk-13.0.2"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\I518230\OneDrive - SAP SE\Lukas Werner Folder\2_Semester\AktuelleThemenDerIT\workspace\ATdIT-ProjektM"/>
+    <property name="basedir" value="C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\I518230\AppData\Local\Temp\surefire15784922828225024164\surefirebooter2302669911709273898.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\I518230\AppData\Local\Temp\surefire10711893192250586847\surefirebooter8665882183264443254.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="13.0.2+8"/>
@@ -45,7 +45,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\I518230\AppData\Local\Temp\"/>
     <property name="java.version" value="13.0.2"/>
-    <property name="user.dir" value="C:\Users\I518230\OneDrive - SAP SE\Lukas Werner Folder\2_Semester\AktuelleThemenDerIT\workspace\ATdIT-ProjektM"/>
+    <property name="user.dir" value="C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.language.format" value="de"/>
@@ -57,5 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="testtest" classname="TestTestM" time="0.018"/>
+  <testcase name="testtest" classname="TestTestM" time="0.01"/>
 </testsuite>
