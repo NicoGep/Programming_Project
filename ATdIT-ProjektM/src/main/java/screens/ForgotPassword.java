@@ -23,7 +23,7 @@ import master.Window;
  */
 public class ForgotPassword extends Body {
 	
-	public static JButton backButton;
+	public JButton backButton;
 	
 	/**
 	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
@@ -84,7 +84,11 @@ public class ForgotPassword extends Body {
 	
 		this.add(panel);
 		
-		backButton.addActionListener(new ForgotPasswordFunction());
+		backButton.addActionListener(l -> {
+			User.logoutUser();
+			Window.clearHistory();
+			Window.newDraw(new Login());
+		});
 	}
 	
 	/** background image is drawn
