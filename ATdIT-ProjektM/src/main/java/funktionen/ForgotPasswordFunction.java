@@ -15,6 +15,7 @@ import screens.ForgotPassword;
  */
 
 public class ForgotPasswordFunction implements ActionListener {
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
