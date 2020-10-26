@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import connection.User;
-import funktionen.ForgotPasswordFunction;
 import master.Body;
 import master.Window;
 
