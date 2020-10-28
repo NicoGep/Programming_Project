@@ -20,6 +20,7 @@ import master.Window;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class ForgotPassword extends Body {
 	
 	public JButton backButton;

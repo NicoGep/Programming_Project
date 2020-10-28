@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import connection.User;
+
 
 
 /** Class for the MasterBanner to have uniform screens
@@ -12,6 +12,7 @@ import connection.User;
  * @author Group 3
  *
  */
+@SuppressWarnings("serial")
 public class MasterBanner extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 100;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestTestM" time="0.014" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestTestM" time="0.009" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="DE"/>
     <property name="sun.boot.library.path" value="C:\jdk-13.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\Philipp\AppData\Local\Temp\surefire10040428253461063758\surefirebooter17655850725195520927.jar C:\Users\Philipp\AppData\Local\Temp\surefire10040428253461063758 2020-10-26T12-43-58_546-jvmRun1 surefire10975546072459734234tmp surefire_018026291990840687498tmp"/>
+    <property name="sun.java.command" value="C:\Users\Philipp\AppData\Local\Temp\surefire2643713669764347784\surefirebooter350700927619445897.jar C:\Users\Philipp\AppData\Local\Temp\surefire2643713669764347784 2020-10-28T11-28-16_494-jvmRun1 surefire6929578505610655929tmp surefire_04653080551599724785tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\Philipp\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\Philipp\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Philipp\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Philipp\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\Philipp\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\Philipp\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\Philipp\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Philipp\AppData\Local\Temp\surefire10040428253461063758\surefirebooter17655850725195520927.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Philipp\AppData\Local\Temp\surefire2643713669764347784\surefirebooter350700927619445897.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="13.0.2+8"/>
@@ -48,12 +48,12 @@
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\jdk-13.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/jdk-13.0.2/bin/server;C:/jdk-13.0.2/bin;C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Philipp\OneDrive\Desktop\apache-maven-3.6.3\bin;C:\Users\Philipp\AppData\Local\Microsoft\WindowsApps;C:\Users\Philipp\AppData\Local\GitHubDesktop\bin;C:\eclipse\eclipse;;."/>
+    <property name="java.library.path" value="C:\jdk-13.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/jdk-13.0.2/bin/server;C:/jdk-13.0.2/bin;C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Philipp\OneDrive\Desktop\apache-maven-3.6.3\bin;C:\Users\Philipp\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Philipp\AppData\Local\Programs\Python\Python39\;C:\Users\Philipp\AppData\Local\Microsoft\WindowsApps;C:\Users\Philipp\AppData\Local\GitHubDesktop\bin;C:\eclipse\eclipse;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="java.vm.version" value="13.0.2+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="testtest" classname="TestTestM" time="0.01"/>
+  <testcase name="testtest" classname="TestTestM" time="0.005"/>
 </testsuite>

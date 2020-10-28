@@ -8,7 +8,6 @@ import javax.swing.*;
 
 import connection.User;
 import connection.Groups;
-import connection.Validator;
 import funktionen.MyProfileFunction;
 import master.Window;
 import master.MasterScreen;
@@ -19,6 +18,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class MyProfile extends MasterScreen {
 
 	public static String name;

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
+
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,11 +22,12 @@ import master.Window;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Login extends Body {
 
-	public static JButton registerButton;
-	public static JButton forgotpasswordButton;
-	public static JButton loginButton;
+	public JButton registerButton;
+	public JButton forgotpasswordButton;
+	public JButton loginButton;
 	
 	private JTextField userTextfield;
 	private JPasswordField passwordPasswordfield;
