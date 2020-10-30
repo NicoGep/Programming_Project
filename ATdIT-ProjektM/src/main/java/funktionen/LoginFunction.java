@@ -61,6 +61,7 @@ public class LoginFunction {
 
 		try {
 			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
+			Window.addToFrame(new MenuScreen());
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
 			case 1:
@@ -80,7 +81,7 @@ public class LoginFunction {
 			}
 			Window.newDraw();
 		}
-		Window.addToFrame(new MenuScreen());
+		
 	}
 
 }

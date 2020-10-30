@@ -119,10 +119,11 @@ public class Registration extends Body {
 	 */
 	@Override
 	protected void paintComponent(Graphics g) {
-		Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");
 		super.paintComponent(g);
+		Image img = Toolkit.getDefaultToolkit().getImage("./src/main/resources/images/wandern (2).jpg");
 		g.drawImage(img, 0, 0, null);
 		setVisible(true);
+		repaint();
 	}
 
 }
