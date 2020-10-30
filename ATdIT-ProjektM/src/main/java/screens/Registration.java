@@ -65,7 +65,7 @@ public class Registration extends Body {
 
 		JCheckBox agbCheckbox = new JCheckBox("Ich stimme den AGB zu ...");
 
-		registerButton = new JButton("Registieren");
+		registerButton = new JButton("Registrieren");
 
 		backButton = new JButton("Zurück");
 
