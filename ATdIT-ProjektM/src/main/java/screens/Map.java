@@ -2,6 +2,7 @@ package screens;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ResourceBundle;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -22,6 +23,7 @@ import master.MasterScreen;
 public class Map extends MasterScreen {
 	
 	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/mapImage.jpg";
+	private final ResourceBundle STRING_TEXT;
 	
 	/**	constructor without Layout
 	 * @param mapPanel : JPanel
@@ -34,6 +36,7 @@ public class Map extends MasterScreen {
 	 * @param heigtdifferenceSlider : JSlider
 	 */
 	public Map() {
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/Map/map");
 		this.setLayout(null);
 		this.setBackground(Color.white);
 		
@@ -53,7 +56,7 @@ public class Map extends MasterScreen {
 		routelengthPanel.setBackground(Color.white);
 		routelengthPanel.setBounds(7, 375, 400, 50);
 		
-		JLabel routelengthLabel = new JLabel("Streckenlänge (in Metern):");
+		JLabel routelengthLabel = new JLabel(STRING_TEXT.getString("routelength"));
 		routelengthLabel.setFont(new Font("Calibri", Font.BOLD, 25));
 		routelengthLabel.setBackground(Color.white);
 		routelengthPanel.add(routelengthLabel);
@@ -68,7 +71,7 @@ public class Map extends MasterScreen {
 		heightdifferencePanel.setBounds(30, 490, 400, 50);
 		
 		
-		JLabel heightdifferenceLabel = new JLabel("Höhenunterschied (in Metern):");
+		JLabel heightdifferenceLabel = new JLabel(STRING_TEXT.getString("heightdifference"));
 		heightdifferenceLabel.setFont(new Font("Calibri", Font.BOLD, 25));
 		heightdifferenceLabel.setBackground(Color.white);
 		heightdifferencePanel.add(heightdifferenceLabel);
@@ -77,7 +80,7 @@ public class Map extends MasterScreen {
 		heightdifferenceTextField.setBackground(Color.white);
 		heightdifferenceTextField.setBounds(70, 530, 300, 50);
 		
-		JButton confirmButton = new JButton("confirm");
+		JButton confirmButton = new JButton(STRING_TEXT.getString("confirm"));
 		confirmButton.setBounds(200, 600, 100, 50);
 		confirmButton.setBackground(Color.white);
 		confirmButton.addActionListener(w -> {

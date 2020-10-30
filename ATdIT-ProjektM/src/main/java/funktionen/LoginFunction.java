@@ -1,6 +1,7 @@
 package funktionen;
 
 import java.awt.Color;
+import java.util.ResourceBundle;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -26,6 +27,7 @@ public class LoginFunction {
 	private JPasswordField password;
 
 	private JLabel wrongnameLabel, wrongpasswordLabel;
+	private final ResourceBundle STRING_TEXT;
 
 	/**
 	 * Data base is started
@@ -36,6 +38,7 @@ public class LoginFunction {
 
 	public LoginFunction(JTextField userTextfield, JPasswordField passwordPasswordfield, JLabel wrongnameLabel,
 			JLabel wrongpasswordLabel) {
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/Funktionen/LoginFunction/loginfunction");
 		name = userTextfield;
 		password = passwordPasswordfield;
 		this.wrongnameLabel = wrongnameLabel;
@@ -57,18 +60,21 @@ public class LoginFunction {
 			s += c[i];
 
 		try {
+			if(Validator.getValidator().getUser(name.getText().strip()) == null) {
+				throw new LoginCredentialsException(1);
+			}
 			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
 			Window.addToFrame(new MenuScreen());
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
 			case 1:
-				wrongnameLabel.setText("Benutzername falsch.");
+				wrongnameLabel.setText(STRING_TEXT.getString("wrong_username"));
 				wrongnameLabel.setBackground(Color.WHITE);
 				wrongnameLabel.setForeground(Color.RED);
 				break;
 
 			case 2:
-				wrongpasswordLabel.setText("Passwort falsch.");
+				wrongpasswordLabel.setText(STRING_TEXT.getString("wrong_pw"));
 				wrongpasswordLabel.setBackground(Color.WHITE);
 				wrongpasswordLabel.setForeground(Color.RED);
 				break;

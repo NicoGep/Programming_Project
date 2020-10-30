@@ -2,6 +2,7 @@ package master;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ResourceBundle;
 
 import javax.swing.*;
 

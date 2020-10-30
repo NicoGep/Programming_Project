@@ -3,6 +3,7 @@ package screens;
 import master.Window;
 import master.MasterScreen;
 import java.awt.*;
+import java.util.ResourceBundle;
 
 import javax.swing.*;
 
@@ -30,6 +31,7 @@ public class EditProfile extends MasterScreen {
 	public JButton cancelButton;
 	public JButton newprofilepictureButton;
 	public JButton changepasswordButton;
+	private final ResourceBundle STRING_TEXT;
 
 	/**
 	 * constructor without layout
@@ -38,26 +40,27 @@ public class EditProfile extends MasterScreen {
 
 		this.setLayout(null);
 		this.setBackground(Color.WHITE);
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/EditProfile/editprofile");
 
-		nameLabel = new JLabel("Name");
+		nameLabel = new JLabel(STRING_TEXT.getString("name"));
 		nameLabel.setBounds(0, 0, 450, 100);
 		nameLabel.setBackground(Color.LIGHT_GRAY);
 		nameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		levelLabel = new JLabel("Niveau");
+		levelLabel = new JLabel(STRING_TEXT.getString("niveau"));
 		levelLabel.setBounds(0, 150, 450, 100);
 		levelLabel.setBackground(Color.LIGHT_GRAY);
 		levelLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		mailLabel = new JLabel("E-Mail:");
+		mailLabel = new JLabel(STRING_TEXT.getString("email"));
 		mailLabel.setBounds(0, 300, 450, 100);
 		mailLabel.setBackground(Color.LIGHT_GRAY);
 		mailLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
 		levelSelection = new JComboBox<String>();
-		levelSelection.addItem("Anfänger");
-		levelSelection.addItem("Medium");
-		levelSelection.addItem("Professionell");
+		levelSelection.addItem(STRING_TEXT.getString("beginner"));
+		levelSelection.addItem(STRING_TEXT.getString("medium"));
+		levelSelection.addItem(STRING_TEXT.getString("pro"));
 		levelSelection.setBounds(0, 250, 450, 50);
 		levelSelection.setSelectedItem(MyProfile.level);
 
@@ -67,7 +70,7 @@ public class EditProfile extends MasterScreen {
 		newmailTextfield = new JTextField(MyProfile.mail);
 		newmailTextfield.setBounds(0, 400, 450, 50);
 
-		newprofilepictureButton = new JButton("Neues Profilbild");
+		newprofilepictureButton = new JButton(STRING_TEXT.getString("new_pp"));
 		newprofilepictureButton.setBounds(0, 450, 450, 100);
 		newprofilepictureButton.setBackground(Color.LIGHT_GRAY);
 		newprofilepictureButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -75,7 +78,7 @@ public class EditProfile extends MasterScreen {
 			Window.addToFrame(new ChangeProfilePicture());
 		});
 
-		changepasswordButton = new JButton("Passwort ändern");
+		changepasswordButton = new JButton(STRING_TEXT.getString("change_pw"));
 		changepasswordButton.setBounds(0, 550, 450, 50);
 		changepasswordButton.setBackground(Color.LIGHT_GRAY);
 		changepasswordButton.setForeground(Color.RED);
@@ -84,7 +87,7 @@ public class EditProfile extends MasterScreen {
 			Window.addToFrame(new ChangePassword());
 		});
 
-		saveButton = new JButton("Speichern");
+		saveButton = new JButton(STRING_TEXT.getString("save"));
 		saveButton.setBackground(Color.GREEN);
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -93,7 +96,7 @@ public class EditProfile extends MasterScreen {
 			Window.addToFrame(new MyProfile());
 		});
 
-		cancelButton = new JButton("Abbrechen");
+		cancelButton = new JButton(STRING_TEXT.getString("cancel"));
 		cancelButton.setBackground(Color.RED);
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
