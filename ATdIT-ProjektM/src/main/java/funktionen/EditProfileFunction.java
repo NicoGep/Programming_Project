@@ -1,5 +1,7 @@
 package funktionen;
 
+import java.util.ResourceBundle;
+
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -17,6 +19,8 @@ public class EditProfileFunction {
 
 	public JTextField newnameTextfield;
 	public JTextField newmailTextfield;
+	
+	private final ResourceBundle STRING_TEXT = ResourceBundle.getBundle("i18n/Funktionen/EditProfileFunction/editprofilefunction");
 
 	/**
 	 * Method for saving changes to the profile. If the cancel button is pressed,
@@ -37,7 +41,19 @@ public class EditProfileFunction {
 				&& !(newnameTextfield.getText().equals(user.getName()))) {
 			user.setName(newnameTextfield.getText());
 		}
-		user.setNiveau((String) levelSelection.getItemAt(levelSelection.getSelectedIndex()));
+		
+		if (((String) levelSelection.getItemAt(levelSelection.getSelectedIndex())).equals(STRING_TEXT.getString("beginner"))) {
+			user.setNiveau("1");
+		}
+		else if (((String) levelSelection.getItemAt(levelSelection.getSelectedIndex())).equals(STRING_TEXT.getString("medium"))) {
+			user.setNiveau("2");
+		}
+		else if (((String) levelSelection.getItemAt(levelSelection.getSelectedIndex())).equals(STRING_TEXT.getString("pro"))) {
+			user.setNiveau("3");
+		}
+		
+	
+		
 		if (newmailTextfield.getText() != "") {
 			user.setEmail(newmailTextfield.getText());
 		}
