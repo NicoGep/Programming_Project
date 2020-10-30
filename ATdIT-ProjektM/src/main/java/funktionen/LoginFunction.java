@@ -60,6 +60,9 @@ public class LoginFunction {
 			s += c[i];
 
 		try {
+			if(Validator.getValidator().getUser(name.getText().strip()) == null) {
+				throw new LoginCredentialsException(1);
+			}
 			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
 			Window.addToFrame(new MenuScreen());
 		} catch (LoginCredentialsException lE) {
