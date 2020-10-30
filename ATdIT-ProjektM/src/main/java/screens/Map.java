@@ -58,7 +58,7 @@ public class Map extends MasterScreen {
 		routelengthLabel.setBackground(Color.white);
 		routelengthPanel.add(routelengthLabel);
 		
-		JTextField routelengthTextField = new JTextField();
+		JTextField routelengthTextField = new JTextField(Integer.toString(User.getLoggedUser().getRouteLength()));
 		routelengthTextField.setBounds(70, 425, 300, 50);
 		routelengthTextField.setBackground(Color.white);
 		
@@ -73,7 +73,7 @@ public class Map extends MasterScreen {
 		heightdifferenceLabel.setBackground(Color.white);
 		heightdifferencePanel.add(heightdifferenceLabel);
 		
-		JTextField heightdifferenceTextField = new JTextField();
+		JTextField heightdifferenceTextField = new JTextField(Integer.toString(User.getLoggedUser().getHeightDifference()));
 		heightdifferenceTextField.setBackground(Color.white);
 		heightdifferenceTextField.setBounds(70, 530, 300, 50);
 		
