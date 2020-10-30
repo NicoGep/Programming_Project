@@ -3,6 +3,8 @@ package master;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+
 import javax.swing.*;
 
 
@@ -21,6 +23,7 @@ public class MasterBanner extends JPanel {
 	JButton logoutButton;
 	
 	JLabel nameLabel;
+	private final ResourceBundle STRING_TEXT;
 	
 	/**
 	 * Constructor to create a general construct
@@ -32,8 +35,10 @@ public class MasterBanner extends JPanel {
 		this.setBounds(0, 0, SIZE_X, SIZE_Y);
 		this.setBackground(Color.GREEN);
 		
-		backButton = new JButton("Zurück");
-		logoutButton = new JButton("Ausloggen");
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/master/MasterBanner/masterbanner");
+		
+		backButton = new JButton(STRING_TEXT.getString("back"));
+		logoutButton = new JButton(STRING_TEXT.getString("log_out"));
 		nameLabel = new JLabel();
 		
 //		nameLabel.setText("Hallo " + Benutzer.getName());

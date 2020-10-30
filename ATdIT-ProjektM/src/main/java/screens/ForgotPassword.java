@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ import master.Window;
 public class ForgotPassword extends Body {
 	
 	public JButton backButton;
+	private final ResourceBundle STRING_TEXT;
 	
 	/**
 	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
@@ -44,25 +46,27 @@ public class ForgotPassword extends Body {
 	 */
 	public ForgotPassword() {
 		
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/ForgotPassword/forgotpw");
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(13,1));
 		panel.setBounds(0,0,450,800);
 		
-		JLabel forgotpasswordLabel = new JLabel ("Passwort ");
-		JLabel forgotpasswordLabel2 = new JLabel ("vergessen?");
+		JLabel forgotpasswordLabel = new JLabel (STRING_TEXT.getString("pw"));
+		JLabel forgotpasswordLabel2 = new JLabel (STRING_TEXT.getString("forgot"));
 		Font title = new Font ("Segoe UI", Font.BOLD, 30);
 		forgotpasswordLabel.setFont(title);
 		forgotpasswordLabel.setFont(title);
 		
-		JLabel text = new JLabel("Ein Code wurde an Ihre hinterlegte ");
-		JLabel text1 = new JLabel("E-Mail Adresse gesendet!");
-		JLabel text2 = new JLabel("Code eingeben: ");
+		JLabel text = new JLabel(STRING_TEXT.getString("code"));
+		JLabel text1 = new JLabel(STRING_TEXT.getString("email"));
+		JLabel text2 = new JLabel(STRING_TEXT.getString("code2"));
 		
 		JTextField codeTextfield = new JTextField();
 		
 		
-		JButton loginButton = new JButton("Einloggen");
-		backButton = new JButton("Zurück");
+		JButton loginButton = new JButton(STRING_TEXT.getString("login"));
+		backButton = new JButton(STRING_TEXT.getString("back"));
 		
 		JLabel space = new JLabel();
 		JLabel space1 = new JLabel();
