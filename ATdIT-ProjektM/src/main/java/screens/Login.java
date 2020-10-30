@@ -101,7 +101,8 @@ public class Login extends Body {
 		
 
 		registerButton.addActionListener(l -> {
-			Window.addToFrame(new Registration());
+			Window.clearHistory();
+			Window.newDraw(new Registration());
 			});
 		forgotpasswordButton.addActionListener(l -> {
 			Window.addToFrame(new ForgotPassword());
