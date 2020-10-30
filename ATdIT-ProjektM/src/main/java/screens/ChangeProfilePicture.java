@@ -1,8 +1,6 @@
 package screens;
 
 import java.awt.*;
-import java.util.ResourceBundle;
-
 import javax.swing.*;
 import connection.User;
 import master.Window;
@@ -21,16 +19,14 @@ public class ChangeProfilePicture extends MasterScreen {
 
 	public JLabel addressLabel;
 	public JTextField addressTextfield;
-	private final ResourceBundle STRING_TEXT;
 
 	/**
 	 * constructor without layout
 	 */
 	public ChangeProfilePicture() {
 		this.setLayout(null);
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/ChangeProfilePicture/changepp");
 
-		addressLabel = new JLabel(STRING_TEXT.getString("adress"));
+		addressLabel = new JLabel("Adresse des neuen Profilbilds: ");
 		addressLabel.setBounds(0, 0, 450, 100);
 		addressLabel.setBackground(Color.LIGHT_GRAY);
 		addressLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
@@ -38,7 +34,7 @@ public class ChangeProfilePicture extends MasterScreen {
 		addressTextfield = new JTextField(MyProfile.profilepictureaddress);
 		addressTextfield.setBounds(0, 100, 450, 50);
 
-		saveButton = new JButton(STRING_TEXT.getString("save"));
+		saveButton = new JButton("Speichern");
 		saveButton.setBackground(Color.GREEN);
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -47,7 +43,7 @@ public class ChangeProfilePicture extends MasterScreen {
 			Window.addToFrame(new EditProfile());
 		});
 
-		cancelButton = new JButton(STRING_TEXT.getString("cancel"));
+		cancelButton = new JButton("Abbrechen");
 		cancelButton.setBackground(Color.RED);
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));

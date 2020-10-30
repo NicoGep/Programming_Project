@@ -1,7 +1,6 @@
 package funktionen;
 
 import java.awt.Color;
-import java.util.ResourceBundle;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -24,10 +23,8 @@ public class RegisterFunction {
 
 	public JTextField userTextfield, mailTextfield;
 	public JPasswordField passwordPasswordfield, repeatpasswordPasswordfield;
-	private final ResourceBundle STRING_TEXT;
 
 	public RegisterFunction(JTextField user, JTextField mail, JPasswordField password, JPasswordField repeatpassword) {
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/Funktionen/RegisterFunction/registerfunction");
 		userTextfield = user;
 		mailTextfield = mail;
 		passwordPasswordfield = password;
@@ -73,14 +70,14 @@ public class RegisterFunction {
 				Window.newDraw();
 				Window.addToFrame(new MenuScreen());
 			} else {
-				Registration.userexistsLabel.setText(STRING_TEXT.getString("user_exists"));
+				Registration.userexistsLabel.setText("Benutzer existiert bereits!");
 				Registration.userexistsLabel.setBackground(Color.WHITE);
 				Registration.userexistsLabel.setForeground(Color.RED);
 			}
 
 		}
 		else {
-			Registration.passworddoesnotmatchLabel.setText(STRING_TEXT.getString("password_match"));
+			Registration.passworddoesnotmatchLabel.setText("Passwort stimmt nicht überrein!");
 			Registration.passworddoesnotmatchLabel.setBackground(Color.WHITE);
 			Registration.passworddoesnotmatchLabel.setForeground(Color.RED);
 		}

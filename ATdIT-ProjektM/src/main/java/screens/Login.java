@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.ResourceBundle;
+
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -35,8 +35,7 @@ public class Login extends Body {
 	private JLabel wrongnameLabel;
 	private JLabel wrongpasswordLabel;
 	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/wandern (2).jpg";
-	private final ResourceBundle STRING_TEXT;
-	
+
 	/** constructor for creating UI of Login-Screen
 	 *  @param panel : JPanel
 	 *  @param loginLabel : JLabel
@@ -52,20 +51,19 @@ public class Login extends Body {
 	 *  @param wrongpasswortLabel : JLabels
 	 */
 	public Login() {
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/Login/login");
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(13, 1));
 		panel.setBounds(0, 0, 450, 800);
 
-		JLabel loginLabel = new JLabel(STRING_TEXT.getString("login"));
+		JLabel loginLabel = new JLabel("Log-In");
 		Font title = new Font("Segoe UI", Font.BOLD, 30);
 		loginLabel.setFont(title);
 
-		JLabel userLabel = new JLabel(STRING_TEXT.getString("username"));
+		JLabel userLabel = new JLabel("Benutzername");
 		userTextfield = new JTextField();
 		userTextfield.setText("TestBenutzer1");
 
-		JLabel passwordLabel = new JLabel(STRING_TEXT.getString("password"));
+		JLabel passwordLabel = new JLabel("Passwort");
 		passwordPasswordfield = new JPasswordField();
 		passwordPasswordfield.setText("pass");
 
@@ -73,9 +71,9 @@ public class Login extends Body {
 		JLabel space1 = new JLabel();
 		JLabel space2 = new JLabel();
 
-		registerButton = new JButton(STRING_TEXT.getString("registration"));
-		forgotpasswordButton = new JButton(STRING_TEXT.getString("forgot_password"));
-		loginButton = new JButton(STRING_TEXT.getString("log_in"));
+		registerButton = new JButton("Registrieren");
+		forgotpasswordButton = new JButton("Passwort vergessen?");
+		loginButton = new JButton("Einloggen");
 
 		wrongnameLabel = new JLabel("");
 		wrongpasswordLabel = new JLabel("");

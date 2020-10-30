@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -38,39 +37,37 @@ public class Registration extends Body {
 
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;
-	private final ResourceBundle STRING_TEXT;
 
 	/**
 	 * constructor (GridLayout)
 	 */
 	public Registration() {
-		
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/Registration/Registration");
+
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(17, 1));
 		panel.setBounds(0, 0, 450, 800);
 
-		JLabel registerLabel = new JLabel(STRING_TEXT.getString("Registrieren"));
+		JLabel registerLabel = new JLabel("Registrieren");
 		Font title = new Font("Segoe UI", Font.BOLD, 30);
 		registerLabel.setFont(title);
 
-		JLabel mailLabel = new JLabel(STRING_TEXT.getString("email"));
+		JLabel mailLabel = new JLabel("E-Mail Adresse: ");
 		mailTextfield = new JTextField();
 
-		JLabel userLabel = new JLabel(STRING_TEXT.getString("username"));
+		JLabel userLabel = new JLabel("Benutzername: ");
 		userTextfield = new JTextField();
 
-		JLabel passwordLabel = new JLabel(STRING_TEXT.getString("password"));
+		JLabel passwordLabel = new JLabel("Passwort: ");
 		passwordPasswordfield = new JPasswordField();
 
-		JLabel repeatpasswordLabel = new JLabel(STRING_TEXT.getString("repeat_password"));
+		JLabel repeatpasswordLabel = new JLabel("Passwort wiederholen: ");
 		repeatpasswordPasswordfield = new JPasswordField();
 
-		JCheckBox agbCheckbox = new JCheckBox(STRING_TEXT.getString("AGB"));
+		JCheckBox agbCheckbox = new JCheckBox("Ich stimme den AGB zu ...");
 
-		registerButton = new JButton(STRING_TEXT.getString("Registrieren"));
+		registerButton = new JButton("Registrieren");
 
-		backButton = new JButton(STRING_TEXT.getString("back"));
+		backButton = new JButton("Zurück");
 
 		passworddoesnotmatchLabel = new JLabel("");
 		userexistsLabel = new JLabel("");
