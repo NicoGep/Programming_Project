@@ -10,7 +10,7 @@ public class Helferlein {
 		
 		Validator.createValidator();
 		
-		Thread.sleep(1000);
+		Thread.sleep(30000);
 		
 		
 	}

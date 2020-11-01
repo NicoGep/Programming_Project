@@ -7,22 +7,22 @@ import master.ErrorFrame;
 
 public class DatabaseConnection {
 	
-	public enum Databases {
-		wanderoo, test;
-		
-		public String getDatabase(Databases d) {
-			switch(d) {
-			case wanderoo: return "wanderoo";
-			case test: return "test";
-			default: return "";
-			}
-		}
-		
-	}
-	
-	public enum Tables {
-		users, groups
-	}
+//	public enum Databases {
+//		wanderoo, test;
+//		
+//		public String getDatabase(Databases d) {
+//			switch(d) {
+//			case wanderoo: return "wanderoo";
+//			case test: return "test";
+//			default: return "";
+//			}
+//		}
+//		
+//	}
+//	
+//	public enum Tables {
+//		users, groups
+//	}
 	
 	
 	
