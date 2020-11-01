@@ -30,6 +30,7 @@ public class RegistrationTest {
 		JPasswordField testPassAgain = new JPasswordField("pass");
 
 		RegisterFunction test = new RegisterFunction(testUser, testMail, testPass, testPassAgain);
+		
 		Registration.userexistsLabel = new JLabel();
 		Registration.userexistsLabel.setVisible(false);
 		Registration.passworddoesnotmatchLabel = new JLabel();

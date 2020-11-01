@@ -2,6 +2,7 @@ exceptions\DatabaseConnectException.class
 master\MasterScreen.class
 connection\Groups.class
 screens\EditProfile.class
+exceptions\RegistrationException.class
 funktionen\ChangePasswordFunction.class
 master\Panel.class
 connection\Validator.class

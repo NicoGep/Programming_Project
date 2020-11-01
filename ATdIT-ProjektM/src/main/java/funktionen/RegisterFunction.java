@@ -1,6 +1,5 @@
 package funktionen;
 
-
 import java.util.ResourceBundle;
 
 import javax.swing.JPasswordField;
@@ -39,7 +38,8 @@ public class RegisterFunction {
 	 * Database is started. User is registered in the database with a user name and
 	 * password. Corresponding error messages if the user name already exists and
 	 * the password does not match.
-	 * @throws RegistrationException 
+	 * 
+	 * @throws RegistrationException
 	 */
 
 	public void register() throws RegistrationException {
@@ -75,13 +75,12 @@ public class RegisterFunction {
 				Window.newDraw();
 				Window.addToFrame(new MenuScreen());
 			} else {
-				throw new RegistrationException(1,STRING_TEXT.getString("user_exists"));
-				
+				throw new RegistrationException(1, STRING_TEXT.getString("user_exists"));
+
 			}
 
-		}
-		else {
-			throw new RegistrationException(2,STRING_TEXT.getString("password_match"));
+		} else {
+			throw new RegistrationException(2, STRING_TEXT.getString("password_match"));
 		}
 	}
 }
