@@ -21,7 +21,7 @@ public class InputException extends Exception {
 		switch(state) {
 		
 		case 1: System.out.println("Kein User gefunden."); break;
-		case 2: System.out.println("Zwei User gefunden."); break;
+		case 2: System.out.println("Zwei User gefunden."); break; 
 		case 3: System.out.println("Der Name Existiert bereits."); break;
 		case 4: System.out.println("Kein Name angegeben."); break;
 		case 5: System.out.println("Kein Passwort angegeben."); break;
@@ -29,10 +29,9 @@ public class InputException extends Exception {
 		case 7: System.out.println("Gruppe existiert nicht."); break;
 		case 8: System.out.println("Benutzer ist bereits in dieser Gruppe."); break;
 		case 9: System.out.println("Benutzer ist nicht in dieser Gruppe."); break;
-		case 10: System.out.println("Streckenlänge oder Höehenunterschied ist negativ.");
+		case 10: System.out.println("Streckenlänge oder Höehenunterschied ist negativ."); break;
 		
 		}
-		
 	}
-
+	
 }

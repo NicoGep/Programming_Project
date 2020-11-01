@@ -1,19 +1,14 @@
 package funktionen;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import connection.User;
-import connection.DatabaseConnection;
 import connection.Validator;
-import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import master.Window;
-import screens.Login;
 import screens.MenuScreen;
 import screens.Registration;
 
@@ -64,7 +59,7 @@ public class RegisterFunction {
 
 			if (Validator.getValidator().getUser(name.getText()) == null) {
 				try {
-					User.addNewUser(name.getText().strip(), Registration.mailTextfield.getText(), userPassword);
+					User.addNewUser(name.getText().strip(), mailTextfield.getText(), userPassword);
 					User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
 				} catch (InputException e) {
 					// TODO Auto-generated catch block

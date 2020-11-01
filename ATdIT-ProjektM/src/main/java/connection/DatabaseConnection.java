@@ -1,11 +1,14 @@
 package connection;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 
 import exceptions.DatabaseConnectException;
+import exceptions.InputException;
 import master.ErrorFrame;
+import master.Window;
 
-public class DatabaseConnection {
+public final class DatabaseConnection {
 	
 	public enum Databases {
 		wanderoo, test;
@@ -69,6 +72,8 @@ public class DatabaseConnection {
 				con = DriverManager.getConnection(url, rootUser, rootPassword);	//######### NOCH ROOT CREDS ############
 			
 			
+		} catch(SQLException sqlE) {
+			throw new DatabaseConnectException(1);
 		} catch(Exception e) {
 			new ErrorFrame(e);
 		}
@@ -87,7 +92,7 @@ public class DatabaseConnection {
 			if(con != null)
 				con.close();
 			con = null;
-			System.out.println("\n\nDatabase disconnected");
+//			System.out.println("\n\nDatabase disconnected");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -165,11 +170,6 @@ public class DatabaseConnection {
 			return 0;
 		}
 	}
-	
-	
-	
-
-	
 	
 	
 }

@@ -2,9 +2,7 @@ package screens;
 
 import java.awt.*;
 import javax.swing.*;
-import connection.DatabaseConnection;
 import exceptions.ChangePasswordException;
-import exceptions.DatabaseConnectException;
 import funktionen.ChangePasswordFunction;
 import master.Window;
 import master.MasterScreen;
@@ -15,20 +13,22 @@ import master.MasterScreen;
  * @author Group3
  *
  */
+
+@SuppressWarnings("serial")
 public class ChangePassword extends MasterScreen {
 
 	public JButton saveButton;
 	public JButton cancelButton;
 
-	public static JPasswordField oldpasswordPasswordfield;
-	public static JPasswordField newpasswordPasswordfield;
-	public static JPasswordField newpasswordcontrolPasswordfield;
+	public JPasswordField oldpasswordPasswordfield;
+	public JPasswordField newpasswordPasswordfield;
+	public JPasswordField newpasswordcontrolPasswordfield;
 
 	JLabel oldpasswordLabel;
 	JLabel newpasswordLabel;
 	JLabel newpasswordcontrolLabel;
-	public static JLabel newpassworddoesnotmatchLabel;
-	public static JLabel stateoldpasswordLabel;
+	public JLabel newpassworddoesnotmatchLabel;
+	public JLabel stateoldpasswordLabel;
 
 	/**
 	 * constructor without Layout
@@ -77,9 +77,11 @@ public class ChangePassword extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(d -> {
-				try {
-					ChangePasswordFunction.changePassword();
-				} catch (ChangePasswordException e) {}				
+			try {
+				new ChangePasswordFunction(newpassworddoesnotmatchLabel, stateoldpasswordLabel).changePassword(newpasswordPasswordfield, newpasswordcontrolPasswordfield,
+						oldpasswordPasswordfield);
+			} catch (ChangePasswordException e) {
+			}
 		});
 
 		cancelButton = new JButton("Abbrechen");
@@ -100,18 +102,6 @@ public class ChangePassword extends MasterScreen {
 		this.add(stateoldpasswordLabel);
 		this.add(cancelButton);
 		this.add(saveButton);
-	}
-
-	public static JPasswordField getOldPassword() {
-		return oldpasswordPasswordfield;
-	}
-
-	public static JPasswordField getNewPassword() {
-		return newpasswordPasswordfield;
-	}
-
-	public static JPasswordField getNewPasswordControl() {
-		return newpasswordcontrolPasswordfield;
 	}
 
 }
