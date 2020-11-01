@@ -32,7 +32,7 @@ public class Test_Philipp {
 //	}
 
 	@Test
-	public void test1() throws LoginCredentialsException, ChangePasswordException {
+	public void test1() throws LoginCredentialsException, ChangePasswordException, InterruptedException {
 		Validator.createValidator();
 
 		JPasswordField old, newp, control;
@@ -40,7 +40,7 @@ public class Test_Philipp {
 		sop.setVisible(false);
 		JLabel npw = new JLabel();
 		npw.setVisible(false);
-
+		Thread.sleep(5000);
 		User.loginUser(Validator.getValidator().getUser("TestBenutzer1"), "pass");
 
 		old = new JPasswordField("pass");
