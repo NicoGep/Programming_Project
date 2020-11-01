@@ -1,15 +1,14 @@
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
-import org.junit.jupiter.api.*;
-
 import connection.User;
 import connection.Validator;
 import exceptions.ChangePasswordException;
+import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
 import funktionen.ChangePasswordFunction;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import static org.junit.jupiter.api.Assertions.*;
 public class Test_Philipp {
 //	public boolean ab() throws ChangePasswordException, LoginCredentialsException {
 //		Validator.createValidator();
@@ -31,7 +30,7 @@ public class Test_Philipp {
 //
 //	}
 
-	@Test
+	@Test(expected = ChangePasswordException.class)
 	public void test1() throws LoginCredentialsException, ChangePasswordException, InterruptedException {
 		Validator.createValidator();
 
@@ -48,9 +47,6 @@ public class Test_Philipp {
 		control = new JPasswordField("test3");
 
 		new ChangePasswordFunction(npw, sop).changePassword(newp, control, old);
-		
-		
-		assertTrue(npw.isVisible());
 		
 		
 	}
