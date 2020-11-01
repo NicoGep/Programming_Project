@@ -10,7 +10,6 @@ import exceptions.DatabaseConnectException;
  * @author Gruppe 3
  *
  */
-@SuppressWarnings("serial")
 public class MasterScreen extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 700;

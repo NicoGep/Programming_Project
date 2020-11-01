@@ -15,9 +15,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-			
 		Validator.createValidator();
-			
 		
 //		try {
 //			Thread.sleep(1000);

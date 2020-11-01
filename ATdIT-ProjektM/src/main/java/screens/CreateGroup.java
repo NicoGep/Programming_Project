@@ -2,6 +2,8 @@ package screens;
 
 import java.awt.*;
 import javax.swing.*;
+import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import funktionen.CreateGroupFunction;
 import master.Window;
 import master.MasterScreen;
@@ -12,15 +14,14 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-@SuppressWarnings("serial")
 public class CreateGroup extends MasterScreen {
 
 	public JButton cancelButton;
 	public JButton saveButton;
 
-	public JComboBox<String> levelSelection;
+	public static JComboBox<String> levelSelection;
 
-	public JTextField groupNameTextfield;
+	public static JTextField groupNameTextfield;
 
 	JLabel groupNameLabel;
 	JLabel levelLabel;
@@ -63,7 +64,7 @@ public class CreateGroup extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-			new CreateGroupFunction(groupNameTextfield, levelSelection).save();
+			CreateGroupFunction.save();
 			Window.addToFrame(new MyProfile());
 		});
 

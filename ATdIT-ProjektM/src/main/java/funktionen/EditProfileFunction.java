@@ -1,10 +1,8 @@
 package funktionen;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-
 import connection.User;
-
+import exceptions.InputException;
+import screens.EditProfile;
 
 /**
  * Class for the function of class "ProfilBearbeiten"
@@ -13,11 +11,6 @@ import connection.User;
  *
  */
 public class EditProfileFunction {
-	public JComboBox<String> levelSelection;
-
-	public JTextField newnameTextfield;
-	public JTextField newmailTextfield;
-
 	/**
 	 * Method for saving changes to the profile. If the cancel button is pressed,
 	 * the "MyProfile" screen opens without saving the values. If the name entered
@@ -25,21 +18,17 @@ public class EditProfileFunction {
 	 * remains and the text "Name already exists!" issued.
 	 * 
 	 */
-	public EditProfileFunction(JComboBox<String> levelSelection, JTextField newnameTextfield, JTextField newmailTextfield) {
-		this.levelSelection = levelSelection;
-		this.newnameTextfield = newnameTextfield;
-		this.newmailTextfield = newmailTextfield;
-	}
 
-	public void saveChanges() {
+	public static void saveChanges() {
 		User user = User.getLoggedUser();
-		if (newnameTextfield.getText() != ""
-				&& !(newnameTextfield.getText().equals(user.getName()))) {
-			user.setName(newnameTextfield.getText());
+		if (EditProfile.newnameTextfield.getText() != ""
+				&& !(EditProfile.newnameTextfield.getText().equals(user.getName()))) {
+			user.setName(EditProfile.newnameTextfield.getText());
 		}
-		user.setNiveau((String) levelSelection.getItemAt(levelSelection.getSelectedIndex()));
-		if (newmailTextfield.getText() != "") {
-			user.setEmail(newmailTextfield.getText());
+		user.setNiveau(
+				(String) EditProfile.levelSelection.getItemAt(EditProfile.levelSelection.getSelectedIndex()));
+		if (EditProfile.newmailTextfield.getText() != "") {
+			user.setEmail(EditProfile.newmailTextfield.getText());
 		}
 	}
 

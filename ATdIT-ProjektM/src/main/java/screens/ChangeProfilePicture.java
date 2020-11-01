@@ -3,6 +3,8 @@ package screens;
 import java.awt.*;
 import javax.swing.*;
 import connection.User;
+import connection.DatabaseConnection;
+import exceptions.DatabaseConnectException;
 import master.Window;
 import master.MasterScreen;
 
@@ -12,13 +14,12 @@ import master.MasterScreen;
  * @author Group3
  *
  */
-@SuppressWarnings("serial")
 public class ChangeProfilePicture extends MasterScreen {
 	public JButton saveButton;
 	public JButton cancelButton;
 
-	public JLabel addressLabel;
-	public JTextField addressTextfield;
+	JLabel addressLabel;
+	public static JTextField addressTextfield;
 
 	/**
 	 * constructor without layout
@@ -39,7 +40,7 @@ public class ChangeProfilePicture extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {			
-			User.getLoggedUser().setProfilePic(addressTextfield.getText());
+			User.getLoggedUser().setProfilePic(ChangeProfilePicture.addressTextfield.getText());
 			Window.addToFrame(new EditProfile());
 		});
 

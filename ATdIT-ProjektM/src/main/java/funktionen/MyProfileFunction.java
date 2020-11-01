@@ -1,10 +1,9 @@
 package funktionen;
 
 import connection.User;
-
-import java.util.List;
-
+import connection.DatabaseConnection;
 import connection.Groups;
+import exceptions.DatabaseConnectException;
 import screens.MyProfile;
 
 /**
@@ -13,11 +12,6 @@ import screens.MyProfile;
  * @author Group3
  */
 public class MyProfileFunction {
-	public String name;
-	public String level;
-	public String mail;
-	public String profilepictureaddress;
-	public List<Groups> groupList;
 
 	/**
 	 * method to load user data
@@ -35,7 +29,7 @@ public class MyProfileFunction {
 	 * method to add groups
 	 */
 	public void addGroups() {
-		MyProfile.groupList = Groups.getAllGroups();
+			MyProfile.groupList = Groups.getAllGroups();
 	}
 
 	/**

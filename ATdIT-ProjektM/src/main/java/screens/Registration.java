@@ -24,16 +24,15 @@ import master.Window;
  * @author Group3
  *
  */
-@SuppressWarnings("serial")
 public class Registration extends Body {
 
-	public JTextField userTextfield;
-	public JPasswordField passwordPasswordfield;
-	public JTextField mailTextfield;
-	public JPasswordField repeatpasswordPasswordfield;
+	public static JTextField userTextfield;
+	public static JPasswordField passwordPasswordfield;
+	public static JTextField mailTextfield;
+	public static JPasswordField repeatpasswordPasswordfield;
 
-	public JButton registerButton;
-	public JButton backButton;
+	public static JButton registerButton;
+	public static JButton backButton;
 
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;

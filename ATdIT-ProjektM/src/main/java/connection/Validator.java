@@ -5,12 +5,12 @@ import java.sql.SQLException;
 
 import exceptions.DatabaseConnectException;
 import master.ErrorFrame;
-import master.Window;
 
 public final class Validator extends Thread {
 	
 	
 	private static Validator validatorObject;
+	
 	
 	
 	private final int testInterval = 10000;
@@ -21,6 +21,7 @@ public final class Validator extends Thread {
 	private Validator() {
 		validatorObject = this;
 		this.setDaemon(true);
+		
 	}
 	
 	@Override
@@ -39,9 +40,7 @@ public final class Validator extends Thread {
 	
 	
 	public static void createValidator() {
-			
 		new Validator().start();
-			
 	}
 	
 	public static void killValidator() throws DatabaseConnectException {
@@ -68,7 +67,6 @@ public final class Validator extends Thread {
 				
 				if(!DatabaseConnection.testConnection()) {
 					System.out.println("es besteht anscheindend keine Verbindung mehr");
-					
 					DatabaseConnection.connectDatabase();
 					System.out.println("jetzt neu verbunden");
 				}

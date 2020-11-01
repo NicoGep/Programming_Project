@@ -11,7 +11,6 @@ import master.MasterScreen;
  * @author group3
  *
  */
-@SuppressWarnings("serial")
 public class MenuScreen extends MasterScreen {
 	
 	/**

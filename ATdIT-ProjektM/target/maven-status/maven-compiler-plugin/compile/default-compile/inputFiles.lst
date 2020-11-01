@@ -1,12 +1,10 @@
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\master\Body.java
-C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\screens\DisconnectionScreen.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\MyProfileFunction.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\CreateGroupFunction.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\screens\Login.java
-C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\TestKlasse.java
-C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\connection\Test.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\ChangePasswordFunction.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\master\MasterScreen.java
+C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\ForgotPasswordFunction.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\connection\Groups.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\master\ErrorFrame.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\InputException.java
@@ -31,6 +29,7 @@ C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdI
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\master\Window.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\master\MasterBanner.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\ChangePasswordException.java
+C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\AdminFunctions.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\screens\Map.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\screens\Registration.java
 C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\src\main\java\master\Main.java

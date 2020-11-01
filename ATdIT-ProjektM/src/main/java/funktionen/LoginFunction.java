@@ -1,6 +1,8 @@
 package funktionen;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -8,10 +10,14 @@ import javax.swing.JTextField;
 
 import connection.User;
 import connection.Validator;
-
+import connection.DatabaseConnection;
+import connection.Validator;
+import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
 import master.Window;
-
+import screens.ForgotPassword;
+import screens.Registration;
+import screens.Login;
 import screens.MenuScreen;
 
 /**

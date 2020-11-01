@@ -2,11 +2,7 @@ package master;
 
 import javax.swing.*;
 import connection.User;
-import screens.DisconnectionScreen;
 import screens.Login;
-import screens.Map;
-import screens.MyProfile;
-
 import java.util.*;
 import java.awt.*;
 
@@ -47,27 +43,6 @@ public class Window extends JFrame {
 		this.setResizable(false);
 		
 	}
-	
-	
-	public static void showDisconnectScreen() {
-//		masterFrame.add(new DisconnectionScreen());
-		
-//		JLayeredPane pane = new JLayeredPane();
-//		pane.add(new DisconnectionScreen(), 1);
-//		pane.add(content, 2);
-//		
-//		newDraw(pane);
-		
-		
-//		addToFrame(new DisconnectScreen());
-		
-		
-	}
-	
-	public static void hideDisconnectScreen() {
-		newDraw(content);
-	}
-	
 	
 	//TEMP
 	private static void printHistory() {

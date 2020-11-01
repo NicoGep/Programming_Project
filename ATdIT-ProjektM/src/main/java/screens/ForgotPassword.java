@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import connection.User;
+import funktionen.ForgotPasswordFunction;
 import master.Body;
 import master.Window;
 
@@ -20,7 +21,6 @@ import master.Window;
  * @author Group3
  *
  */
-@SuppressWarnings("serial")
 public class ForgotPassword extends Body {
 	
 	public JButton backButton;
@@ -84,11 +84,7 @@ public class ForgotPassword extends Body {
 	
 		this.add(panel);
 		
-		backButton.addActionListener(l -> {
-			User.logoutUser();
-			Window.clearHistory();
-			Window.newDraw(new Login());
-		});
+		backButton.addActionListener(new ForgotPasswordFunction());
 	}
 	
 	/** background image is drawn
