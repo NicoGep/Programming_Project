@@ -5,6 +5,7 @@ package exceptions;
  * 
  *
  */
+@SuppressWarnings("serial")
 public class DatabaseConnectException extends Exception {
 	
 	private int state;

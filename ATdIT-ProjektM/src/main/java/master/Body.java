@@ -9,6 +9,7 @@ import javax.swing.*;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Body extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 800;

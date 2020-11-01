@@ -2,8 +2,7 @@ package master;
 
 import javax.swing.*;
 
-import connection.Validator;
-import exceptions.DatabaseConnectException;
+
 
 /** Klasse, um den MasterScreen bereitzustellen
  * 

@@ -6,6 +6,7 @@ Exception class for specific information for incorrect inputs
  * 
  *
  */
+@SuppressWarnings("serial")
 public class InputException extends Exception {
 	
 	private int state;

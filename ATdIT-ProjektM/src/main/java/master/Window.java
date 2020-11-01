@@ -11,6 +11,7 @@ import java.awt.*;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Window extends JFrame {
 	
 	private final int SIZE_X = 466, SIZE_Y = 839;
@@ -45,6 +46,7 @@ public class Window extends JFrame {
 	}
 	
 	//TEMP
+	@SuppressWarnings("unused")
 	private static void printHistory() {
 		for(int i = 0; i < history.size(); i++)
 			System.out.println(history.get(i));

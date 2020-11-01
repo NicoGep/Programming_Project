@@ -4,6 +4,7 @@ package exceptions;
  * 	Exception class for wrong user input in the login screen
  *
  */
+@SuppressWarnings("serial")
 public class LoginCredentialsException extends Exception {
 	
 	private int state;

@@ -15,6 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import connection.User;
+import exceptions.RegistrationException;
 import funktionen.RegisterFunction;
 import master.Body;
 import master.Window;
@@ -101,8 +102,12 @@ public class Registration extends Body {
 
 		registerButton.addActionListener(l -> {
 
-			new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
-					.register();
+			try {
+				new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
+						.register();
+			} catch (RegistrationException e) {
+				
+			}
 		});
 
 		backButton.addActionListener(l -> {

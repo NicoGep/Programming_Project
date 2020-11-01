@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
+
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 
