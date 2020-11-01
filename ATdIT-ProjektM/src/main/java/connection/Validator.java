@@ -106,6 +106,7 @@ public final class Validator extends Thread {
 		
 		try {
 			if(!set.first())
+			
 				return null;
 			
 		} catch (SQLException e) {
