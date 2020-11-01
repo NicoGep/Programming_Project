@@ -1,19 +1,11 @@
 package funktionen;
 
 import connection.User;
-<<<<<<< HEAD
-import connection.DatabaseConnection;
-=======
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.ResourceBundle;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 
->>>>>>> parent of c386e70... Revert "m erge"
 import connection.Groups;
-import exceptions.DatabaseConnectException;
 import screens.MyProfile;
 
 /**
@@ -22,19 +14,12 @@ import screens.MyProfile;
  * @author Group3
  */
 public class MyProfileFunction {
-<<<<<<< HEAD
-=======
 	public String name;
 	public String level;
 	public String mail;
 	public String profilepictureaddress;
 	public List<Groups> groupList;
-<<<<<<< HEAD
->>>>>>> parent of c386e70... Revert "m erge"
-
-=======
 	private final ResourceBundle STRING_TEXT = ResourceBundle.getBundle("i18n/Funktionen/MyProfileFunction/myprofilefunction");
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 	/**
 	 * method to load user data
 	 */
@@ -60,7 +45,7 @@ public class MyProfileFunction {
 	 * method to add groups
 	 */
 	public void addGroups() {
-			MyProfile.groupList = Groups.getAllGroups();
+		MyProfile.groupList = Groups.getAllGroups();
 	}
 
 	/**

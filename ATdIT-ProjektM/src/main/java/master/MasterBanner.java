@@ -3,15 +3,11 @@ package master;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
-=======
 import java.util.ResourceBundle;
 
 import javax.swing.*;
 
->>>>>>> parent of c386e70... Revert "m erge"
 
-import javax.swing.*;
 
 /** Class for the MasterBanner to have uniform screens
  * 

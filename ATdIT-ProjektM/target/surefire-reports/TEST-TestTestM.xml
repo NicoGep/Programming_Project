@@ -1,64 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestTestM" time="0.014" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestTestM" time="0.016" tests="1" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="sun.desktop" value="windows"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
-    <property name="java.specification.version" value="11"/>
+    <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\nicol\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\nicol\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\nicol\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\nicol\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\nicol\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\nicol\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\nicol\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
-    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
+    <property name="java.class.path" value="C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\Philipp\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\Philipp\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Philipp\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Philipp\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\Philipp\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\Philipp\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\Philipp\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="user.timezone" value="Europe/Berlin"/>
-    <property name="java.vm.specification.version" value="11"/>
     <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="13"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="DE"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\nicol\AppData\Local\Temp\surefire11617250986818031129\surefirebooter11684809343693546161.jar C:\Users\nicol\AppData\Local\Temp\surefire11617250986818031129 2020-10-26T12-24-22_713-jvmRun1 surefire8465195208729742817tmp surefire_05516785462770751136tmp"/>
+    <property name="sun.boot.library.path" value="C:\jdk-13.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\Philipp\AppData\Local\Temp\surefire4469614089138603966\surefirebooter4777927624315465924.jar C:\Users\Philipp\AppData\Local\Temp\surefire4469614089138603966 2020-10-30T15-51-12_576-jvmRun1 surefire6012029439463658895tmp surefire_09652647680171289318tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\nicol\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\nicol\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\nicol\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\nicol\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\nicol\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\nicol\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\nicol\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\target\test-classes;C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\target\classes;C:\Users\Philipp\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\Philipp\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Philipp\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Philipp\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\Philipp\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\Philipp\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\Philipp\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\nicol"/>
+    <property name="user.home" value="C:\Users\Philipp"/>
     <property name="user.language" value="de"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2019-07-16"/>
-    <property name="java.home" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot"/>
+    <property name="java.version.date" value="2020-01-14"/>
+    <property name="java.home" value="C:\jdk-13.0.2"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM"/>
+    <property name="basedir" value="C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\nicol\AppData\Local\Temp\surefire11617250986818031129\surefirebooter11684809343693546161.jar"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Philipp\AppData\Local\Temp\surefire4469614089138603966\surefirebooter4777927624315465924.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="11.0.4+11"/>
-    <property name="user.name" value="nicol"/>
+    <property name="java.runtime.version" value="13.0.2+8"/>
+    <property name="user.name" value="Philipp"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="AdoptOpenJDK"/>
-    <property name="localRepository" value="C:\Users\nicol\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-build/issues"/>
-    <property name="java.io.tmpdir" value="C:\Users\nicol\AppData\Local\Temp\"/>
-    <property name="java.version" value="11.0.4"/>
-    <property name="user.dir" value="C:\Users\nicol\Documents\Workspace\GitHub\ATdIT-Projekt\Programming_Project\ATdIT-ProjektM"/>
+    <property name="localRepository" value="C:\Users\Philipp\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Philipp\AppData\Local\Temp\"/>
+    <property name="java.version" value="13.0.2"/>
+    <property name="user.dir" value="C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/AdoptOpenJDK/jdk-11.0.4.11-hotspot/bin/client;C:/Program Files/AdoptOpenJDK/jdk-11.0.4.11-hotspot/bin;C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\nicol\AppData\Local\Microsoft\WindowsApps;C:\Users\nicol\AppData\Local\GitHubDesktop\bin;C:\Program Files (x86)\Eclipse\eclipse;;."/>
-    <property name="java.vendor" value="AdoptOpenJDK"/>
-    <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.vm.version" value="11.0.4+11"/>
+    <property name="java.library.path" value="C:\jdk-13.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/jdk-13.0.2/bin/server;C:/jdk-13.0.2/bin;C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Philipp\OneDrive\Desktop\apache-maven-3.6.3\bin;C:\Users\Philipp\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Philipp\AppData\Local\Programs\Python\Python39\;C:\Users\Philipp\AppData\Local\Microsoft\WindowsApps;C:\Users\Philipp\AppData\Local\GitHubDesktop\bin;C:\eclipse\eclipse;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="13.0.2+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="55.0"/>
+    <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="testtest" classname="TestTestM" time="0.008"/>
+  <testcase name="testtest" classname="TestTestM" time="0.01"/>
 </testsuite>

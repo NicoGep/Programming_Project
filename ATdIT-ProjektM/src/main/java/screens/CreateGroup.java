@@ -4,8 +4,6 @@ import java.awt.*;
 import java.util.ResourceBundle;
 
 import javax.swing.*;
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
 import funktionen.CreateGroupFunction;
 import master.Window;
 import master.MasterScreen;
@@ -16,14 +14,15 @@ import master.MasterScreen;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class CreateGroup extends MasterScreen {
 
 	public JButton cancelButton;
 	public JButton saveButton;
 
-	public static JComboBox<String> levelSelection;
+	public JComboBox<String> levelSelection;
 
-	public static JTextField groupNameTextfield;
+	public JTextField groupNameTextfield;
 
 	JLabel groupNameLabel;
 	JLabel levelLabel;
@@ -68,7 +67,7 @@ public class CreateGroup extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-			CreateGroupFunction.save();
+			new CreateGroupFunction(groupNameTextfield, levelSelection).save();
 			Window.addToFrame(new MyProfile());
 		});
 

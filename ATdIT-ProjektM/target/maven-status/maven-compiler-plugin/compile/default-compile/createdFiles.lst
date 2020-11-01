@@ -23,7 +23,6 @@ screens\Registration.class
 exceptions\LoginCredentialsException.class
 exceptions\ChangePasswordException.class
 funktionen\AdminFunctions.class
-funktionen\ForgotPasswordFunction.class
 connection\DatabaseConnection.class
 exceptions\InputException.class
 funktionen\LoginFunction.class

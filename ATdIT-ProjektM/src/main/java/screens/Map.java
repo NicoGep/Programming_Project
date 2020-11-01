@@ -19,6 +19,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Map extends MasterScreen {
 	
 	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/mapImage.jpg";

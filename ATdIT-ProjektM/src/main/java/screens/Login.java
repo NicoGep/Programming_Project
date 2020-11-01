@@ -5,15 +5,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-<<<<<<< HEAD
-import java.awt.event.ActionListener;
-=======
-<<<<<<< HEAD
-
-=======
 import java.util.ResourceBundle;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -30,11 +22,12 @@ import master.Window;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Login extends Body {
 
-	public static JButton registerButton;
-	public static JButton forgotpasswordButton;
-	public static JButton loginButton;
+	public JButton registerButton;
+	public JButton forgotpasswordButton;
+	public JButton loginButton;
 	
 	private JTextField userTextfield;
 	private JPasswordField passwordPasswordfield;

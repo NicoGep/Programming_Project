@@ -1,15 +1,7 @@
 package funktionen;
 
 import java.awt.Color;
-<<<<<<< HEAD
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-=======
-<<<<<<< HEAD
-=======
 import java.util.ResourceBundle;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -17,14 +9,10 @@ import javax.swing.JTextField;
 
 import connection.User;
 import connection.Validator;
-import connection.DatabaseConnection;
-import connection.Validator;
-import exceptions.DatabaseConnectException;
+
 import exceptions.LoginCredentialsException;
 import master.Window;
-import screens.ForgotPassword;
-import screens.Registration;
-import screens.Login;
+
 import screens.MenuScreen;
 
 /**

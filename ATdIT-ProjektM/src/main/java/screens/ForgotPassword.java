@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import connection.User;
-import funktionen.ForgotPasswordFunction;
 import master.Body;
 import master.Window;
 
@@ -22,13 +21,11 @@ import master.Window;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class ForgotPassword extends Body {
 	
 	public JButton backButton;
-<<<<<<< HEAD
-=======
 	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 	
 	/**
 	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
@@ -91,7 +88,11 @@ public class ForgotPassword extends Body {
 	
 		this.add(panel);
 		
-		backButton.addActionListener(new ForgotPasswordFunction());
+		backButton.addActionListener(l -> {
+			User.logoutUser();
+			Window.clearHistory();
+			Window.newDraw(new Login());
+		});
 	}
 	
 	/** background image is drawn

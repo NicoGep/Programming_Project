@@ -3,13 +3,7 @@ package screens;
 import master.Window;
 import master.MasterScreen;
 import java.awt.*;
-<<<<<<< HEAD
-=======
 import java.util.ResourceBundle;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
-
-import connection.DatabaseConnection;
-import exceptions.DatabaseConnectException;
 
 import javax.swing.*;
 
@@ -21,16 +15,17 @@ import funktionen.EditProfileFunction;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class EditProfile extends MasterScreen {
 
 	JLabel nameLabel;
 	JLabel levelLabel;
 	JLabel mailLabel;
 
-	public static JComboBox<String> levelSelection;
+	public JComboBox<String> levelSelection;
 
-	public static JTextField newnameTextfield;
-	public static JTextField newmailTextfield;
+	public JTextField newnameTextfield;
+	public JTextField newmailTextfield;
 
 	public JButton saveButton;
 	public JButton cancelButton;
@@ -97,7 +92,7 @@ public class EditProfile extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-				EditProfileFunction.saveChanges();				
+			new EditProfileFunction(levelSelection, newnameTextfield, newmailTextfield).saveChanges();
 			Window.addToFrame(new MyProfile());
 		});
 
