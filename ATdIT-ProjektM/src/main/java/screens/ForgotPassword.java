@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -25,10 +24,6 @@ import master.Window;
 public class ForgotPassword extends Body {
 	
 	public JButton backButton;
-<<<<<<< HEAD
-=======
-	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 	
 	/**
 	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
@@ -49,27 +44,25 @@ public class ForgotPassword extends Body {
 	 */
 	public ForgotPassword() {
 		
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/ForgotPassword/forgotpw");
-		
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(13,1));
 		panel.setBounds(0,0,450,800);
 		
-		JLabel forgotpasswordLabel = new JLabel (STRING_TEXT.getString("pw"));
-		JLabel forgotpasswordLabel2 = new JLabel (STRING_TEXT.getString("forgot"));
+		JLabel forgotpasswordLabel = new JLabel ("Passwort ");
+		JLabel forgotpasswordLabel2 = new JLabel ("vergessen?");
 		Font title = new Font ("Segoe UI", Font.BOLD, 30);
 		forgotpasswordLabel.setFont(title);
 		forgotpasswordLabel.setFont(title);
 		
-		JLabel text = new JLabel(STRING_TEXT.getString("code"));
-		JLabel text1 = new JLabel(STRING_TEXT.getString("email"));
-		JLabel text2 = new JLabel(STRING_TEXT.getString("code2"));
+		JLabel text = new JLabel("Ein Code wurde an Ihre hinterlegte ");
+		JLabel text1 = new JLabel("E-Mail Adresse gesendet!");
+		JLabel text2 = new JLabel("Code eingeben: ");
 		
 		JTextField codeTextfield = new JTextField();
 		
 		
-		JButton loginButton = new JButton(STRING_TEXT.getString("login"));
-		backButton = new JButton(STRING_TEXT.getString("back"));
+		JButton loginButton = new JButton("Einloggen");
+		backButton = new JButton("Zurück");
 		
 		JLabel space = new JLabel();
 		JLabel space1 = new JLabel();
@@ -102,12 +95,11 @@ public class ForgotPassword extends Body {
 	 * 
 	 */
 	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		Image img = Toolkit.getDefaultToolkit().getImage("./src/main/resources/images/wandern (2).jpg");
-		g.drawImage(img, 0, 0, null);
-		setVisible(true);
-		repaint();
+	protected void paintComponent (Graphics g) {
+	Image img = Toolkit.getDefaultToolkit().getImage("./ui/images/wandern (2).jpg");	
+	super.paintComponent(g);
+	g.drawImage(img, 0, 0 , null);
+	setVisible(true);
 	}
 
 }

@@ -1,8 +1,6 @@
 package screens;
 
 import java.awt.*;
-import java.util.ResourceBundle;
-
 import javax.swing.*;
 import funktionen.CreateGroupFunction;
 import master.Window;
@@ -26,7 +24,6 @@ public class CreateGroup extends MasterScreen {
 
 	JLabel groupNameLabel;
 	JLabel levelLabel;
-	private final ResourceBundle STRING_TEXT;
 
 	/**
 	 * constructor Gruppe Erstellen Layout : null
@@ -41,14 +38,13 @@ public class CreateGroup extends MasterScreen {
 	public CreateGroup() {
 
 		this.setLayout(null);
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/CreateGroup/creategroup");
 
-		groupNameLabel = new JLabel(STRING_TEXT.getString("group_name"));
+		groupNameLabel = new JLabel("Name der Gruppe:");
 		groupNameLabel.setBounds(0, 0, 450, 100);
 		groupNameLabel.setBackground(Color.LIGHT_GRAY);
 		groupNameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		levelLabel = new JLabel(STRING_TEXT.getString("group_niveau"));
+		levelLabel = new JLabel("Niveau der Gruppe:");
 		levelLabel.setBounds(0, 150, 450, 100);
 		levelLabel.setBackground(Color.LIGHT_GRAY);
 		levelLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
@@ -57,12 +53,12 @@ public class CreateGroup extends MasterScreen {
 		groupNameTextfield.setBounds(0, 100, 450, 50);
 
 		levelSelection = new JComboBox<String>();
-		levelSelection.addItem(STRING_TEXT.getString("beginner"));
-		levelSelection.addItem(STRING_TEXT.getString("medium"));
-		levelSelection.addItem(STRING_TEXT.getString("pro"));
+		levelSelection.addItem("Anfänger");
+		levelSelection.addItem("Medium");
+		levelSelection.addItem("Professionell");
 		levelSelection.setBounds(0, 250, 450, 50);
 
-		saveButton = new JButton(STRING_TEXT.getString("save"));
+		saveButton = new JButton("Speichern");
 		saveButton.setBackground(Color.GREEN);
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -71,7 +67,7 @@ public class CreateGroup extends MasterScreen {
 			Window.addToFrame(new MyProfile());
 		});
 
-		cancelButton = new JButton(STRING_TEXT.getString("cancel"));
+		cancelButton = new JButton("Abbrechen");
 		cancelButton.setBackground(Color.RED);
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));

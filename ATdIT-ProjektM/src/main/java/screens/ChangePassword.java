@@ -1,8 +1,6 @@
 package screens;
 
 import java.awt.*;
-import java.util.ResourceBundle;
-
 import javax.swing.*;
 import exceptions.ChangePasswordException;
 import funktionen.ChangePasswordFunction;
@@ -31,40 +29,35 @@ public class ChangePassword extends MasterScreen {
 	JLabel newpasswordcontrolLabel;
 	public JLabel newpassworddoesnotmatchLabel;
 	public JLabel stateoldpasswordLabel;
-<<<<<<< HEAD
-=======
-	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 
 	/**
 	 * constructor without Layout
 	 */
 	public ChangePassword() {
 		this.setLayout(null);
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/ChangePassword/changep");
 
-		oldpasswordLabel = new JLabel(STRING_TEXT.getString("old_pw"));
+		oldpasswordLabel = new JLabel("Altes Passwort: ");
 		oldpasswordLabel.setBounds(0, 0, 450, 100);
 		oldpasswordLabel.setBackground(Color.LIGHT_GRAY);
 		oldpasswordLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		newpasswordLabel = new JLabel(STRING_TEXT.getString("new_pw"));
+		newpasswordLabel = new JLabel("Neues Passwort: ");
 		newpasswordLabel.setBounds(0, 150, 450, 100);
 		newpasswordLabel.setBackground(Color.LIGHT_GRAY);
 		newpasswordLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		newpasswordcontrolLabel = new JLabel(STRING_TEXT.getString("repeat_pw"));
+		newpasswordcontrolLabel = new JLabel("Wiederholen Sie Ihr neues Passwort: ");
 		newpasswordcontrolLabel.setBounds(0, 300, 450, 100);
 		newpasswordcontrolLabel.setBackground(Color.LIGHT_GRAY);
 		newpasswordcontrolLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
 
-		newpassworddoesnotmatchLabel = new JLabel(STRING_TEXT.getString("x_pw"));
+		newpassworddoesnotmatchLabel = new JLabel("Das neue Passwort stimmt nicht überein!");
 		newpassworddoesnotmatchLabel.setBounds(0, 450, 450, 75);
 		newpassworddoesnotmatchLabel.setBackground(Color.WHITE);
 		newpassworddoesnotmatchLabel.setForeground(Color.RED);
 		newpassworddoesnotmatchLabel.setVisible(false);
 
-		stateoldpasswordLabel = new JLabel(STRING_TEXT.getString("old_pw_wrong"));
+		stateoldpasswordLabel = new JLabel("Altes Passwort ist falsch!");
 		stateoldpasswordLabel.setBounds(0, 525, 450, 75);
 		stateoldpasswordLabel.setBackground(Color.WHITE);
 		stateoldpasswordLabel.setForeground(Color.RED);
@@ -79,7 +72,7 @@ public class ChangePassword extends MasterScreen {
 		newpasswordcontrolPasswordfield = new JPasswordField();
 		newpasswordcontrolPasswordfield.setBounds(0, 400, 450, 50);
 
-		saveButton = new JButton(STRING_TEXT.getString("save"));
+		saveButton = new JButton("Speichern");
 		saveButton.setBackground(Color.GREEN);
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -91,7 +84,7 @@ public class ChangePassword extends MasterScreen {
 			}
 		});
 
-		cancelButton = new JButton(STRING_TEXT.getString("cancel"));
+		cancelButton = new JButton("Abbrechen");
 		cancelButton.setBackground(Color.RED);
 		cancelButton.setBounds(0, 600, 225, 100);
 		cancelButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));

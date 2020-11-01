@@ -2,8 +2,6 @@ package screens;
 
 import java.awt.*;
 import java.util.List;
-import java.util.ResourceBundle;
-
 import javax.swing.*;
 import connection.Groups;
 import funktionen.JoinLeaveGroupFunction;
@@ -32,10 +30,6 @@ public class JoinLeaveGroup extends MasterScreen {
 	public JLabel results;
 
 	public JTextField groupNameTextfield;
-<<<<<<< HEAD
-=======
-	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 
 	/**
 	 * constructor GruppeBeitreten
@@ -50,12 +44,10 @@ public class JoinLeaveGroup extends MasterScreen {
 	 * @param backButton         : JButton
 	 */
 	public JoinLeaveGroup() {
-		
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/JoinLeaveGroup/joinleaveg");
 
 		this.setLayout(null);
 
-		groupNameLabel = new JLabel(STRING_TEXT.getString("group_name"));
+		groupNameLabel = new JLabel("Name der Gruppe:");
 		groupNameLabel.setBounds(0, 0, 450, 100);
 		groupNameLabel.setBackground(Color.LIGHT_GRAY);
 		groupNameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
@@ -63,7 +55,7 @@ public class JoinLeaveGroup extends MasterScreen {
 		groupNameTextfield = new JTextField();
 		groupNameTextfield.setBounds(0, 100, 450, 50);
 
-		results = new JLabel(STRING_TEXT.getString("search_result"));
+		results = new JLabel("Ergebnisse der Suche");
 		results.setBounds(0, 150, 450, 100);
 		results.setBackground(Color.LIGHT_GRAY);
 		results.setFont(new Font("Ueberschrift", Font.BOLD, 20));
@@ -73,7 +65,7 @@ public class JoinLeaveGroup extends MasterScreen {
 		groups.setBounds(0, 250, 450, 50);
 		groups.setVisible(false);
 
-		searchButton = new JButton(STRING_TEXT.getString("search"));
+		searchButton = new JButton("Suchen");
 		searchButton.setBackground(Color.BLUE);
 		searchButton.setBounds(0, 400, 450, 100);
 		searchButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -81,7 +73,7 @@ public class JoinLeaveGroup extends MasterScreen {
 			new JoinLeaveGroupFunction(groups, allGroupsList, results, groupNameTextfield).search();
 		});
 
-		joinButton = new JButton(STRING_TEXT.getString("join"));
+		joinButton = new JButton("Beitreten");
 		joinButton.setBackground(Color.LIGHT_GRAY);
 		joinButton.setBounds(225, 500, 225, 100);
 		joinButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -90,7 +82,7 @@ public class JoinLeaveGroup extends MasterScreen {
 			Window.addToFrame(new MyProfile());
 		});
 
-		deleteButton = new JButton(STRING_TEXT.getString("leave"));
+		deleteButton = new JButton("Austreten");
 		deleteButton.setBackground(Color.LIGHT_GRAY);
 		deleteButton.setBounds(0, 500, 225, 100);
 		deleteButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
@@ -99,7 +91,7 @@ public class JoinLeaveGroup extends MasterScreen {
 			Window.addToFrame(new MyProfile());
 		});
 
-		backButton = new JButton(STRING_TEXT.getString("back"));
+		backButton = new JButton("Zurück");
 		backButton.setBackground(Color.RED);
 		backButton.setBounds(0, 600, 450, 100);
 		backButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));

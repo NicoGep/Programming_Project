@@ -99,7 +99,7 @@ public class Login extends Body {
 		
 
 		registerButton.addActionListener(l -> {
-			Window.newDraw(new Registration());
+			Window.addToFrame(new Registration());
 			});
 		forgotpasswordButton.addActionListener(l -> {
 			Window.addToFrame(new ForgotPassword());
