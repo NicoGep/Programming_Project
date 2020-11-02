@@ -32,8 +32,8 @@ public class Login extends Body {
 	private JTextField userTextfield;
 	private JPasswordField passwordPasswordfield;
 	
-	public static JLabel wrongnameLabel;
-	public static JLabel wrongpasswordLabel;
+	private JLabel wrongnameLabel;
+	private JLabel wrongpasswordLabel;
 	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/wandern (2).jpg";
 	private final ResourceBundle STRING_TEXT;
 	
