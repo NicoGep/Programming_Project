@@ -13,6 +13,7 @@ public class ErrorFrame extends JFrame {
 	
 	JTextArea text;
 	
+	
 	public ErrorFrame(DatabaseConnectException dbE) {
 		this();
 //		System.out.println("dbEx");
@@ -22,9 +23,9 @@ public class ErrorFrame extends JFrame {
 		
 		dbE.printStackTrace(writer);
 		
-		String str = "Datenbank konnte nicht verbunden werden. \n" + buffer.toString();
+		String str = buffer.toString();
 		
-		text.setText(str);
+		text.setText("Datenbank konnte nicht verbunden werden.");
 		
 	}
 	
@@ -52,8 +53,10 @@ public class ErrorFrame extends JFrame {
 		text = new JTextArea();
 		this.getContentPane().add(text);
 		
+		
 		this.setVisible(true);
 		
 	}
+	
 
 }

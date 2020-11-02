@@ -2,6 +2,8 @@ package master;
 
 import javax.swing.*;
 import connection.User;
+import screens.DisconnectScreen;
+import screens.EstablishingConnection;
 import screens.Login;
 import java.util.*;
 import java.awt.*;
@@ -21,6 +23,8 @@ public class Window extends JFrame {
 	private static Window masterFrame;
 	private static Container content;
 	
+	private static boolean disconnectScreenFlag = false;
+	
 	/**
 	 * Stack for the window history so that the back button can function perfectly
 	 */
@@ -37,12 +41,35 @@ public class Window extends JFrame {
 	public Window() {
 		
 		masterFrame = this;
+		
+		Window.addToHistory(new Panel(new Login()));
 
 		this.setTitle("wanderoo");
 		this.setBounds(20, 20, SIZE_X, SIZE_Y);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
+	}
+	
+	public static void showDisconnectScreen(int i) {
+		
+		if(!disconnectScreenFlag) {
+			
+			switch(i) {
+			case 0: Window.addToFrame(new Panel(new DisconnectScreen())); break;
+			case 1: Window.newDraw(new Panel(new EstablishingConnection()));break;
+			}
+		}
+		
+		disconnectScreenFlag = true;
+	}
+	
+	public static void hideDisconnectScreen() {
+		
+		if(disconnectScreenFlag)
+			Window.lastContent();
+		
+		disconnectScreenFlag = false;
 	}
 	
 	//TEMP
@@ -56,7 +83,8 @@ public class Window extends JFrame {
 	 *  return the last window of the stack
 	 */
 	public static void lastContent() {
-		newDraw(history.pop());
+		if(history.size() > 0)
+			newDraw(history.pop());
 	}
 	
 	/**
@@ -65,6 +93,8 @@ public class Window extends JFrame {
 	public static void clearHistory() {
 		history = new Stack<Container>();
 	}
+	
+	
 	
 	/** current window is added to the History-Stack
 	 * 
@@ -82,6 +112,7 @@ public class Window extends JFrame {
 	public static void reset() {
 		User.logoutUser();
 		clearHistory();
+		disconnectScreenFlag = false;
 		newDraw(new Panel(new Login()));
 	}
 	

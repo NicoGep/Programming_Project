@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import exceptions.DatabaseConnectException;
 import master.ErrorFrame;
+import master.Window;
 
 public final class Validator extends Thread {
 	
@@ -43,8 +44,9 @@ public final class Validator extends Thread {
 		new Validator().start();
 	}
 	
-	public static void killValidator() throws DatabaseConnectException {
-		validatorObject.interrupt();
+	public static void killValidator() {
+		if(validatorObject != null)
+			validatorObject.interrupt();
 		DatabaseConnection.disconnectDatabase();
 		validatorObject = null;
 	}
@@ -55,23 +57,29 @@ public final class Validator extends Thread {
 		
 		try {
 			DatabaseConnection.connectDatabase();
+			Window.reset();
 		} catch (DatabaseConnectException e) {
 			new ErrorFrame(e);
+			
 		}
+		
 		
 		while(!isInterrupted()) {
 			
 			try {
 				
-				sleep(testInterval);
-				
 				if(!DatabaseConnection.testConnection()) {
 					System.out.println("es besteht anscheindend keine Verbindung mehr");
+					Window.showDisconnectScreen(0);
+					
 					DatabaseConnection.connectDatabase();
 					System.out.println("jetzt neu verbunden");
+					Window.hideDisconnectScreen();
 				}
 				
 				System.out.println("verbindung besteht noch");
+				
+				sleep(testInterval);
 				
 			} catch(InterruptedException e) {
 				interrupt();
@@ -114,6 +122,16 @@ public final class Validator extends Thread {
 		return new User(set);
 	}
 	
+	protected void deleteUser(User user) {
+		
+		String statement =
+				"DELETE FROM " + DatabaseConnection.usersTable + " " +
+				"WHERE userid = '" + user.getID() + "';"
+				;
+		
+		DatabaseConnection.makeUpdate(statement);
+		
+	}
 	
 	protected void updateUser(User user) {
 		
@@ -126,6 +144,17 @@ public final class Validator extends Thread {
 				"userroutelength = '" + user.getRouteLength() + "', " +
 				"userheightdifference = '" + user.getHeightDifference() + "' " +
 				"WHERE userid = '" + user.getID() + "';"
+				;
+		
+		DatabaseConnection.makeUpdate(statement);
+		
+	}
+	
+	protected void deleteGroup(Groups group) {
+		
+		String statement =
+				"DELETE FROM " + DatabaseConnection.groupsTable + " " +
+				"WHERE groupid = '" + group.getGroupID() + "';"
 				;
 		
 		DatabaseConnection.makeUpdate(statement);
