@@ -1,5 +1,6 @@
 package screens;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -73,8 +74,16 @@ public class Registration extends Body {
 
 		backButton = new JButton(STRING_TEXT.getString("back"));
 
-		passworddoesnotmatchLabel = new JLabel("");
-		userexistsLabel = new JLabel("");
+		passworddoesnotmatchLabel = new JLabel(STRING_TEXT.getString("password_match"));
+		passworddoesnotmatchLabel.setBackground(Color.WHITE);
+		passworddoesnotmatchLabel.setForeground(Color.RED);
+		passworddoesnotmatchLabel.setVisible(false);
+		
+		userexistsLabel = new JLabel(STRING_TEXT.getString("user_exists"));
+		userexistsLabel.setBackground(Color.WHITE);
+		userexistsLabel.setForeground(Color.RED);
+		userexistsLabel.setVisible(false);
+		
 
 		JLabel space = new JLabel();
 		JLabel space1 = new JLabel();

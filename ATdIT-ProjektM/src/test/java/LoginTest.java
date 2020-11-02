@@ -9,29 +9,24 @@ import org.junit.jupiter.api.Test;
 import connection.Validator;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
+import exceptions.LoginException;
 import funktionen.LoginFunction;
-import screens.Login;
 
 
 public class LoginTest {
-	
+
 	@Test
 	public void testWrongName() throws LoginCredentialsException, InputException, InterruptedException {
 		Validator.createValidator();
 		Thread.sleep(5000);
 		JTextField testUser = new JTextField("TestBenutzer123");
 		JPasswordField testPass = new JPasswordField("pass");
-		Login.wrongnameLabel = new JLabel();
-		Login.wrongpasswordLabel = new JLabel();
-		
-		Login.wrongnameLabel.setVisible(false);
-		Login.wrongpasswordLabel.setVisible(false);
-		
+		JLabel wrongnameLabel = new JLabel();
+		JLabel wrongpasswordLabel = new JLabel();
 
-		LoginFunction test = new LoginFunction(testUser, testPass, Login.wrongnameLabel, Login.wrongpasswordLabel);
-		
-		
-		assertThrows(LoginCredentialsException.class, () -> {
+		LoginFunction test = new LoginFunction(testUser, testPass, wrongnameLabel, wrongpasswordLabel);
+
+		assertThrows(LoginException.class, () -> {
 			test.login();
 		});
 
@@ -42,21 +37,16 @@ public class LoginTest {
 		Validator.createValidator();
 		Thread.sleep(5000);
 		JTextField testUser = new JTextField("TestBenutzer1");
-		JPasswordField testPass = new JPasswordField("pass123");
-		Login.wrongnameLabel = new JLabel();
-		Login.wrongpasswordLabel = new JLabel();
-		
-		Login.wrongnameLabel.setVisible(false);
-		Login.wrongpasswordLabel.setVisible(false);
-		
-	
-		LoginFunction test = new LoginFunction(testUser, testPass, Login.wrongnameLabel, Login.wrongpasswordLabel);
-		
-		
-		assertThrows(LoginCredentialsException.class, () -> {
+		JPasswordField testPass = new JPasswordField("paß");
+		JLabel wrongnameLabel = new JLabel();
+		JLabel wrongpasswordLabel = new JLabel();
+
+		LoginFunction test = new LoginFunction(testUser, testPass, wrongnameLabel, wrongpasswordLabel);
+
+		assertThrows(LoginException.class, () -> {
 			test.login();
 		});
-	
+
 	}
 
 }

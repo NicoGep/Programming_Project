@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exceptions.LoginException;
 import funktionen.LoginFunction;
 import master.Body;
 import master.Window;
@@ -110,7 +111,11 @@ public class Login extends Body {
 			Window.addToFrame(new ForgotPassword());
 			});
 		loginButton.addActionListener(l -> {
-			new LoginFunction(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
+			try {
+				new LoginFunction(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
+			} catch (LoginException e) {
+				
+			}
 		});
 
 
