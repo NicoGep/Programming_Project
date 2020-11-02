@@ -34,7 +34,7 @@ public class Login extends Body {
 	
 	private JLabel wrongnameLabel;
 	private JLabel wrongpasswordLabel;
-	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/wandern (2).jpg";
+	private final String LOGIN_IMAGE_STRING = "/images/wandern (2).jpg";
 	private final ResourceBundle STRING_TEXT;
 	
 	/** constructor for creating UI of Login-Screen
@@ -123,7 +123,8 @@ public class Login extends Body {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Image img = Toolkit.getDefaultToolkit().getImage(LOGIN_IMAGE_STRING);
+		var url = getClass().getResource(LOGIN_IMAGE_STRING);
+		Image img = Toolkit.getDefaultToolkit().getImage(url);
 		g.drawImage(img, 0, 0, null);
 		setVisible(true);
 		repaint();
