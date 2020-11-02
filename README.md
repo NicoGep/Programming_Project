@@ -6,6 +6,6 @@ Programmierprojekt für das Studium <br>
 ATdIT-ProjektM: [Source-Code](https://github.com/NicoGep/Programming_Project/tree/master/ATdIT-ProjektM)<br>
 database: [SQL-File Download](https://github.com/NicoGep/Programming_Project/blob/master/database/wanderoo.sql)<br>
 presentation: [Hier](https://github.com/NicoGep/Programming_Project/tree/master/presentation) ist die Präsentation für Gruppe 3 zu finden <br>
-prototype: [Dateien für den Prototypen](https://github.com/NicoGep/Programming_Project/wiki/Prototype:-Link-zum-AdobeXD-Projekt) <br>
+prototype: [Dateien für den Prototypen](https://github.com/NicoGep/Programming_Project/tree/master/prototype) <br>
 recherche: [Grundlage für das Projekt, gesammelte Informationen, wissenschaftliche Ausarbeitung, Clean-Code](https://github.com/NicoGep/Programming_Project/tree/master/recherche)<br>
 Startanleitung.txt: [Link](https://github.com/NicoGep/Programming_Project/wiki/Anleitung-zum-richtigen-App-Start)
