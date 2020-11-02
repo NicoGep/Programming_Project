@@ -41,4 +41,26 @@ public class RegistrationTest {
 		});
 
 	}
+
+	@Test
+	public void testPasswordDoesNotMatch() throws LoginCredentialsException, InputException, InterruptedException {
+		Validator.createValidator();
+		Thread.sleep(5000);
+		JTextField testUser = new JTextField("TestBenutzer1");
+		JTextField testMail = new JTextField("test@beispiel.de");
+		JPasswordField testPass = new JPasswordField("pass");
+		JPasswordField testPassAgain = new JPasswordField("pass1");
+	
+		RegisterFunction test = new RegisterFunction(testUser, testMail, testPass, testPassAgain);
+		
+		Registration.userexistsLabel = new JLabel();
+		Registration.userexistsLabel.setVisible(false);
+		Registration.passworddoesnotmatchLabel = new JLabel();
+		Registration.passworddoesnotmatchLabel.setVisible(false);
+	
+		assertThrows(RegistrationException.class, () -> {
+			test.register();
+		});
+	
+	}
 }

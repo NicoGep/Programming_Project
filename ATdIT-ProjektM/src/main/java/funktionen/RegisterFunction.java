@@ -2,6 +2,7 @@ package funktionen;
 
 import java.util.ResourceBundle;
 
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import connection.User;
@@ -24,6 +25,7 @@ public class RegisterFunction {
 
 	public JTextField userTextfield, mailTextfield;
 	public JPasswordField passwordPasswordfield, repeatpasswordPasswordfield;
+	public JLabel passworddoesnotmatchLabel, userexistsLabel;
 	private final ResourceBundle STRING_TEXT;
 
 	public RegisterFunction(JTextField user, JTextField mail, JPasswordField password, JPasswordField repeatpassword) {
@@ -32,6 +34,7 @@ public class RegisterFunction {
 		mailTextfield = mail;
 		passwordPasswordfield = password;
 		repeatpasswordPasswordfield = repeatpassword;
+
 	}
 
 	/**
