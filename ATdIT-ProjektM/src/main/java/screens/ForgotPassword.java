@@ -26,7 +26,6 @@ public class ForgotPassword extends Body {
 	
 	public JButton backButton;
 	private final ResourceBundle STRING_TEXT;
-	private final String LOGIN_IMAGE_STRING = "/images/wandern (2).jpg";
 	
 	/**
 	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
@@ -102,8 +101,7 @@ public class ForgotPassword extends Body {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		var url = getClass().getResource(LOGIN_IMAGE_STRING);
-		Image img = Toolkit.getDefaultToolkit().getImage(url);
+		Image img = Toolkit.getDefaultToolkit().getImage("./src/main/resources/images/wandern (2).jpg");
 		g.drawImage(img, 0, 0, null);
 		setVisible(true);
 		repaint();
