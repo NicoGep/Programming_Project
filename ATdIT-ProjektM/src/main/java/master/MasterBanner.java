@@ -40,16 +40,12 @@ public class MasterBanner extends JPanel {
 		
 		backButton = new JButton(STRING_TEXT.getString("back"));
 		logoutButton = new JButton(STRING_TEXT.getString("log_out"));
-		menuButton = new JButton("Menü"); //################## Switch auf internationalisierungs-KÃ¤se
-//		menuButton = new JButton(STRING_TEXT.getString("menu_Screen")); 
-		
-//		nameLabel = new JLabel();
-		
+		menuButton = new JButton(STRING_TEXT.getString("menu")); 		
 		
 		this.add(backButton);
 		this.add(logoutButton);
 		this.add(menuButton);
-//		this.add(nameLabel);
+
 		
 		backButton.addActionListener(a -> {
 				Window.lastContent();
