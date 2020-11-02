@@ -1,5 +1,10 @@
+connection\DatabaseConnection_Test.class
 ChangePasswordTest.class
 RegistrationTest.class
+connection\Group_Test.class
+connection\User_Test.class
+connection\Test_Philipp.class
 MapTest.class
 TestTestM.class
 LoginTest.class
+connection\Validator_Test.class

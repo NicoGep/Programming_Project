@@ -22,7 +22,7 @@ import master.MasterScreen;
 @SuppressWarnings("serial")
 public class Map extends MasterScreen {
 	
-	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/mapImage.jpg";
+	private final String LOGIN_IMAGE_STRING = "/images/mapImage.jpg";
 	private final ResourceBundle STRING_TEXT;
 	
 	/**	constructor without Layout
@@ -42,7 +42,8 @@ public class Map extends MasterScreen {
 		
 		
 //		Image mapImage = Toolkit.getDefaultToolkit().createImage("/.ui/images/mapImage.jpg");
-		Icon mapImage = new ImageIcon(LOGIN_IMAGE_STRING);
+		var url = getClass().getResource(LOGIN_IMAGE_STRING);
+		Icon mapImage = new ImageIcon(url);
 		JPanel mapPanel = new JPanel();
 		mapPanel.setBounds(75, 50, 300, 300);
 		
