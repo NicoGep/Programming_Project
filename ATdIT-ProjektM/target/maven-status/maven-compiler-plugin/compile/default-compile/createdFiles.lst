@@ -6,11 +6,9 @@ exceptions\RegistrationException.class
 funktionen\ChangePasswordFunction.class
 master\Panel.class
 connection\Validator.class
-master\MasterBanner$2.class
 screens\ChangeProfilePicture.class
 master\ErrorFrame.class
 screens\Registration.class
-funktionen\AdminFunctions.class
 connection\DatabaseConnection.class
 exceptions\InputException.class
 funktionen\LoginFunction.class
@@ -22,7 +20,6 @@ funktionen\RegisterFunction.class
 funktionen\JoinLeaveGroupFunction.class
 screens\MyProfile.class
 master\Main.class
-master\MasterBanner$1.class
 screens\ChangePassword.class
 connection\DatabaseConnection$1.class
 funktionen\CreateGroupFunction.class

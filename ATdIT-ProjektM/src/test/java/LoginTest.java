@@ -4,6 +4,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import connection.Validator;
@@ -11,14 +13,27 @@ import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import exceptions.LoginException;
 import funktionen.LoginFunction;
-
+import master.Window;
 
 public class LoginTest {
+	static Validator v;
+
+	@BeforeAll
+	public static void creation() {
+		
+		new Window();
+
+		Validator.createValidator();
+		v = Validator.getValidator();
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+		}
+	}
 
 	@Test
 	public void testWrongName() throws LoginCredentialsException, InputException, InterruptedException {
-		Validator.createValidator();
-		Thread.sleep(5000);
+
 		JTextField testUser = new JTextField("TestBenutzer123");
 		JPasswordField testPass = new JPasswordField("pass");
 		JLabel wrongnameLabel = new JLabel();
@@ -34,8 +49,7 @@ public class LoginTest {
 
 	@Test
 	public void testWrongPassword() throws LoginCredentialsException, InputException, InterruptedException {
-		Validator.createValidator();
-		Thread.sleep(5000);
+
 		JTextField testUser = new JTextField("TestBenutzer1");
 		JPasswordField testPass = new JPasswordField("paﬂ");
 		JLabel wrongnameLabel = new JLabel();
@@ -47,6 +61,12 @@ public class LoginTest {
 			test.login();
 		});
 
+	}
+
+	@AfterAll
+	public static void terminate() {
+		Validator.killValidator();
+		v = null;
 	}
 
 }

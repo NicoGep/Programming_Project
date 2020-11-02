@@ -12,7 +12,6 @@ import connection.Validator;
 
 import exceptions.LoginCredentialsException;
 import exceptions.LoginException;
-import master.Panel;
 import master.Window;
 
 import screens.MenuScreen;
@@ -67,7 +66,7 @@ public class LoginFunction {
 				throw new LoginException(1,STRING_TEXT.getString("wrong_username"), wrongnameLabel);
 			}
 			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
-			Window.newDraw(new Panel(new MenuScreen()));
+			Window.addToFrame(new MenuScreen());
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
 			case 2:

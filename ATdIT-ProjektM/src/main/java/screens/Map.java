@@ -2,8 +2,6 @@ package screens;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.ResourceBundle;
 
 import javax.swing.Icon;
@@ -24,7 +22,7 @@ import master.MasterScreen;
 @SuppressWarnings("serial")
 public class Map extends MasterScreen {
 	
-	private final String MAP_IMAGE_STRING = "/images/mapImage.jpg";
+	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/mapImage.jpg";
 	private final ResourceBundle STRING_TEXT;
 	
 	/**	constructor without Layout
@@ -43,13 +41,15 @@ public class Map extends MasterScreen {
 		this.setBackground(Color.white);
 		
 		
-		var url = getClass().getResource(MAP_IMAGE_STRING);
-		Icon mapImage = new ImageIcon(url);
+//		Image mapImage = Toolkit.getDefaultToolkit().createImage("/.ui/images/mapImage.jpg");
+		Icon mapImage = new ImageIcon(LOGIN_IMAGE_STRING);
 		JPanel mapPanel = new JPanel();
 		mapPanel.setBounds(75, 50, 300, 300);
 		
 		
 		JLabel mapLabel = new JLabel(mapImage);
+//		karteLabel.setFont(new Font("Calibri", Font.BOLD, 40));
+//		karteLabel.setBackground(Color.white);
 		mapPanel.add(mapLabel);
 
 		JPanel routelengthPanel = new JPanel();
