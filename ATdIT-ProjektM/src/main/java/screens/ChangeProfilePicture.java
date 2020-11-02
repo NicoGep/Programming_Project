@@ -20,17 +20,10 @@ public class ChangeProfilePicture extends MasterScreen {
 	public JButton saveButton;
 	public JButton cancelButton;
 
-<<<<<<< HEAD
-	JLabel addressLabel;
 	public static JTextField addressTextfield;
-=======
 	public JLabel addressLabel;
-	public JTextField addressTextfield;
-<<<<<<< HEAD
-=======
+//	public JTextField addressTextfield;
 	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 
 	/**
 	 * constructor without layout

@@ -3,10 +3,7 @@ package screens;
 import master.Window;
 import master.MasterScreen;
 import java.awt.*;
-<<<<<<< HEAD
-=======
 import java.util.ResourceBundle;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 
 import connection.DatabaseConnection;
 import exceptions.DatabaseConnectException;

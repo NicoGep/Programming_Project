@@ -29,17 +29,12 @@ public class ChangePassword extends MasterScreen {
 	JLabel oldpasswordLabel;
 	JLabel newpasswordLabel;
 	JLabel newpasswordcontrolLabel;
-<<<<<<< HEAD
+	
 	public static JLabel newpassworddoesnotmatchLabel;
 	public static JLabel stateoldpasswordLabel;
-=======
-	public JLabel newpassworddoesnotmatchLabel;
-	public JLabel stateoldpasswordLabel;
-<<<<<<< HEAD
-=======
+//	public JLabel newpassworddoesnotmatchLabel;
+//	public JLabel stateoldpasswordLabel;
 	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 
 	/**
 	 * constructor without Layout

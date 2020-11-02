@@ -1,15 +1,9 @@
 package funktionen;
 
 import java.awt.Color;
-<<<<<<< HEAD
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-=======
-<<<<<<< HEAD
-=======
 import java.util.ResourceBundle;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -21,6 +15,7 @@ import connection.DatabaseConnection;
 import connection.Validator;
 import exceptions.DatabaseConnectException;
 import exceptions.LoginCredentialsException;
+import master.Panel;
 import master.Window;
 import screens.ForgotPassword;
 import screens.Registration;
@@ -76,7 +71,7 @@ public class LoginFunction {
 				throw new LoginCredentialsException(1);
 			}
 			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
-			Window.addToFrame(new MenuScreen());
+			Window.newDraw(new Panel(new MenuScreen()));
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
 			case 1:

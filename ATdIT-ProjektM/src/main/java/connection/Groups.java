@@ -85,6 +85,10 @@ public class Groups {
 		
 	}
 	
+	public void deleteGroup() {
+		Validator.getValidator().deleteGroup(this);
+	}
+	
 	
 	//------------------------------------------ Getter ---------------------------------------------
 
@@ -116,6 +120,42 @@ public class Groups {
 	
 	
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + groupID;
+		result = prime * result + ((groupName == null) ? 0 : groupName.hashCode());
+		result = prime * result + ((groupNiveau == null) ? 0 : groupNiveau.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Groups other = (Groups) obj;
+		if (groupID != other.groupID)
+			return false;
+		if (groupName == null) {
+			if (other.groupName != null)
+				return false;
+		} else if (!groupName.equals(other.groupName))
+			return false;
+		if (groupNiveau == null) {
+			if (other.groupNiveau != null)
+				return false;
+		} else if (!groupNiveau.equals(other.groupNiveau))
+			return false;
+		return true;
+	}
+
+
 	@Override
 	public String toString() {
 		return "GruppenID: " + this.getGroupID() + " - Name: " + this.getGroupName() + " - Niveau: " + this.getGroupNiveau();

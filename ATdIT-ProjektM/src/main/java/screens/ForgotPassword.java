@@ -24,14 +24,11 @@ import master.Window;
  */
 public class ForgotPassword extends Body {
 	
-	public JButton backButton;
-<<<<<<< HEAD
-=======
+	public static JButton backButton;
 	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
 	
 	/**
-	 * Konstruktor für die Erstelleung des Passwort Vergessen-Screens
+	 * Konstruktor fï¿½r die Erstelleung des Passwort Vergessen-Screens
 	 * @param panel : JPanel
 	 * @param forgotpasswordLabel : JLabel
 	 * @param forgotpasswordLabel2 : JLabel

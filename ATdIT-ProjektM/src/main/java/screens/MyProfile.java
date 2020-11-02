@@ -52,16 +52,10 @@ public class MyProfile extends MasterScreen {
 
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
-<<<<<<< HEAD
 		new MyProfileFunction().loadData();
-=======
-<<<<<<< HEAD
 //		new MyProfileFunction().loadData();
-=======
 		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/MyProfile/myprofile");
 		new MyProfileFunction().loadData();
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 		Image image = Toolkit.getDefaultToolkit().createImage(profilepictureaddress);
 
 		dataPanel = new JPanel();

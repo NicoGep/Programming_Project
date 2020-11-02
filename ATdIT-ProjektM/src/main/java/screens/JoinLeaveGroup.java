@@ -32,15 +32,9 @@ public class JoinLeaveGroup extends MasterScreen {
 	JLabel groupNameLabel;
 	public static JLabel results;
 
-<<<<<<< HEAD
 	public static JTextField groupNameTextfield;
-=======
-	public JTextField groupNameTextfield;
-<<<<<<< HEAD
-=======
+//	public JTextField groupNameTextfield;
 	private final ResourceBundle STRING_TEXT;
->>>>>>> 23f808221443bc60226e306a4b229ae5fe30dbdd
->>>>>>> parent of c386e70... Revert "m erge"
 
 	/**
 	 * constructor GruppeBeitreten

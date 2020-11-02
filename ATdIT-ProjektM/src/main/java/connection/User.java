@@ -33,7 +33,7 @@ public class User {
 	
 	/**Konstruktor
 	 * 
-	 * @param set Benutzerset, das übergeben werden muss : ResultSet
+	 * @param set Benutzerset, das ï¿½bergeben werden muss : ResultSet
 	 * @throws DatabaseConnectException 
 	 */
 	protected User(ResultSet set) {
@@ -144,7 +144,7 @@ public class User {
 	
 	
 	/**
-	 * Löscht das letzte Benutzer-Objekt für höhere Sicherheit
+	 * Lï¿½scht das letzte Benutzer-Objekt fï¿½r hï¿½here Sicherheit
 	 * 
 	 */
 	@Override
@@ -158,6 +158,10 @@ public class User {
 		this.heightDifference = -1;
 		this.routeLength = -1;
 		
+	}
+	
+	public void deleteUser() {
+		Validator.getValidator().deleteUser(this);
 	}
 	
 	
