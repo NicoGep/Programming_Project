@@ -40,7 +40,7 @@ public class MasterBanner extends JPanel {
 		
 		backButton = new JButton(STRING_TEXT.getString("back"));
 		logoutButton = new JButton(STRING_TEXT.getString("log_out"));
-		menuButton = new JButton("Menü"); //################## Switch auf internationalisierungs-Käse
+		menuButton = new JButton("Men�"); //################## Switch auf internationalisierungs-Käse
 //		menuButton = new JButton(STRING_TEXT.getString("menu_Screen")); 
 		
 //		nameLabel = new JLabel();
