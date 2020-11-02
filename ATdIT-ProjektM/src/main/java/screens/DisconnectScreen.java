@@ -1,7 +1,5 @@
 package screens;
 
-import java.awt.FlowLayout;
-import java.awt.Point;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 
@@ -9,6 +7,7 @@ import javax.swing.JLabel;
 
 import master.Body;
 
+@SuppressWarnings("serial")
 public class DisconnectScreen extends Body {
 	
 	JLabel label;

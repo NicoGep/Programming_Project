@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 
 import master.Body;
 
+@SuppressWarnings("serial")
 public class EstablishingConnection extends Body {
 	
 	JLabel label;

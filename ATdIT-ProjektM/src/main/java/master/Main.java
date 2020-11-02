@@ -1,6 +1,5 @@
 package master;
 
-import connection.Groups;
 import connection.Validator;
 import exceptions.InputException;
 

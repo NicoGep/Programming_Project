@@ -6,26 +6,7 @@ import exceptions.DatabaseConnectException;
 import master.ErrorFrame;
 
 public class DatabaseConnection {
-	
-	public enum Databases {
-		wanderoo, test;
 		
-		public String getDatabase(Databases d) {
-			switch(d) {
-			case wanderoo: return "wanderoo";
-			case test: return "test";
-			default: return "";
-			}
-		}
-		
-	}
-	
-	public enum Tables {
-		users, groups
-	}
-	
-	
-	
 	
 	private static String rootUser = "root";
 
@@ -75,8 +56,6 @@ public class DatabaseConnection {
 		
 		if(!DatabaseConnection.testConnection())
 			throw new DatabaseConnectException(1);
-
-		System.out.println("Database connected\n\n");
 		
 	}
 	
@@ -87,7 +66,6 @@ public class DatabaseConnection {
 			if(con != null)
 				con.close();
 			con = null;
-			System.out.println("\n\nDatabase disconnected");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -165,11 +143,6 @@ public class DatabaseConnection {
 			return 0;
 		}
 	}
-	
-	
-	
-
-	
 	
 	
 }

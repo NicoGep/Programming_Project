@@ -69,15 +69,12 @@ public final class Validator extends Thread {
 			try {
 				
 				if(!DatabaseConnection.testConnection()) {
-					System.out.println("es besteht anscheindend keine Verbindung mehr");
 					Window.showDisconnectScreen(0);
 					
 					DatabaseConnection.connectDatabase();
-					System.out.println("jetzt neu verbunden");
 					Window.hideDisconnectScreen();
 				}
 				
-				System.out.println("verbindung besteht noch");
 				
 				sleep(testInterval);
 				
