@@ -1,26 +1,46 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import connection.User;
 import connection.Validator;
 import exceptions.LoginCredentialsException;
+import master.Window;
 
 public class MapTest {
 
-	@Test
-	public void inputRouteLengthTest() throws LoginCredentialsException, InterruptedException {
+static Validator v;
+	
+	@BeforeAll
+	public static void creation() {
+		Window frame = new Window();
+		
 		Validator.createValidator();
-		Thread.sleep(5000);
+		v = Validator.getValidator();
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+		}
+	}
+	@Test
+	public void inputRouteLengthTest() throws LoginCredentialsException {
 		User.loginUser(Validator.getValidator().getUser("TestBenutzer1"), "pass");
-		assertEquals(5, User.getLoggedUser().getRouteLength());
+		User.getLoggedUser().setRouteLength(5);
+		assertEquals((int) 5, User.getLoggedUser().getRouteLength());
 	}
 	
 	@Test
-	public void inputHeightDifTest() throws InterruptedException, LoginCredentialsException {
-		Validator.createValidator();
-		Thread.sleep(5000);
+	public void inputHeightDifTest() throws LoginCredentialsException {
 		User.loginUser(Validator.getValidator().getUser("TestBenutzer1"), "pass");
-		assertEquals(100, User.getLoggedUser().getHeightDifference());
+		User.getLoggedUser().setHeightDifference(100);
+		assertEquals((int) 100, User.getLoggedUser().getHeightDifference());
+	}
+	
+	@AfterAll
+	public static void terminate() {
+		Validator.killValidator();
+		v = null;
 	}
 }
