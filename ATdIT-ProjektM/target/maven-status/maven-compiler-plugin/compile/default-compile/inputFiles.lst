@@ -30,6 +30,7 @@ C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\sr
 C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\connection\DatabaseConnection.java
 C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\RegisterFunction.java
 C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\LoginCredentialsException.java
+C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\LoginException.java
 C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\ChangePasswordException.java
 C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\InputException.java
 C:\Users\Philipp\OneDrive\Dokumente\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\master\MasterBanner.java
