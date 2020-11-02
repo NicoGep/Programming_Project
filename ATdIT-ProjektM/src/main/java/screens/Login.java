@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
 import javax.swing.JButton;
@@ -14,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exceptions.LoginException;
 import funktionen.LoginFunction;
 import master.Body;
 import master.Window;
@@ -23,18 +23,19 @@ import master.Window;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Login extends Body {
 
-	public static JButton registerButton;
-	public static JButton forgotpasswordButton;
-	public static JButton loginButton;
+	public JButton registerButton;
+	public JButton forgotpasswordButton;
+	public JButton loginButton;
 	
 	private JTextField userTextfield;
 	private JPasswordField passwordPasswordfield;
 	
 	private JLabel wrongnameLabel;
 	private JLabel wrongpasswordLabel;
-	private final String LOGIN_IMAGE_STRING = "./src/main/resources/images/wandern (2).jpg";
+	private final String LOGIN_IMAGE_STRING = "/images/wandern (2).jpg";
 	private final ResourceBundle STRING_TEXT;
 	
 	/** constructor for creating UI of Login-Screen
@@ -110,7 +111,11 @@ public class Login extends Body {
 			Window.addToFrame(new ForgotPassword());
 			});
 		loginButton.addActionListener(l -> {
-			new LoginFunction(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
+			try {
+				new LoginFunction(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
+			} catch (LoginException e) {
+				
+			}
 		});
 
 
@@ -123,7 +128,8 @@ public class Login extends Body {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Image img = Toolkit.getDefaultToolkit().getImage(LOGIN_IMAGE_STRING);
+		var url = getClass().getResource(LOGIN_IMAGE_STRING);
+		Image img = Toolkit.getDefaultToolkit().getImage(url);
 		g.drawImage(img, 0, 0, null);
 		setVisible(true);
 		repaint();

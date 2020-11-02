@@ -1,20 +1,16 @@
 package funktionen;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import connection.User;
-import connection.DatabaseConnection;
 import connection.Validator;
-import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
+import exceptions.RegistrationException;
 import master.Window;
-import screens.Login;
 import screens.MenuScreen;
 import screens.Registration;
 
@@ -29,6 +25,7 @@ public class RegisterFunction {
 
 	public JTextField userTextfield, mailTextfield;
 	public JPasswordField passwordPasswordfield, repeatpasswordPasswordfield;
+	public JLabel passworddoesnotmatchLabel, userexistsLabel;
 	private final ResourceBundle STRING_TEXT;
 
 	public RegisterFunction(JTextField user, JTextField mail, JPasswordField password, JPasswordField repeatpassword) {
@@ -37,15 +34,18 @@ public class RegisterFunction {
 		mailTextfield = mail;
 		passwordPasswordfield = password;
 		repeatpasswordPasswordfield = repeatpassword;
+
 	}
 
 	/**
 	 * Database is started. User is registered in the database with a user name and
 	 * password. Corresponding error messages if the user name already exists and
 	 * the password does not match.
+	 * 
+	 * @throws RegistrationException
 	 */
 
-	public void register() {
+	public void register() throws RegistrationException {
 
 		JTextField name;
 
@@ -65,9 +65,9 @@ public class RegisterFunction {
 		if (userControlPassword.equals(userPassword)) {
 			name = userTextfield;
 
-			if (Validator.getValidator().getUser(name.getText()) == null) {
+			if ((Validator.getValidator().getUser(name.getText())) == null) {
 				try {
-					User.addNewUser(name.getText().strip(), Registration.mailTextfield.getText(), userPassword);
+					User.addNewUser(name.getText().strip(), mailTextfield.getText(), userPassword);
 					User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
 				} catch (InputException e) {
 					// TODO Auto-generated catch block
@@ -78,16 +78,12 @@ public class RegisterFunction {
 				Window.newDraw();
 				Window.addToFrame(new MenuScreen());
 			} else {
-				Registration.userexistsLabel.setText(STRING_TEXT.getString("user_exists"));
-				Registration.userexistsLabel.setBackground(Color.WHITE);
-				Registration.userexistsLabel.setForeground(Color.RED);
+				throw new RegistrationException(1, STRING_TEXT.getString("user_exists"));
+
 			}
 
-		}
-		else {
-			Registration.passworddoesnotmatchLabel.setText(STRING_TEXT.getString("password_match"));
-			Registration.passworddoesnotmatchLabel.setBackground(Color.WHITE);
-			Registration.passworddoesnotmatchLabel.setForeground(Color.RED);
+		} else {
+			throw new RegistrationException(2, STRING_TEXT.getString("password_match"));
 		}
 	}
 }

@@ -2,6 +2,7 @@ package master;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Panel extends JPanel {
 	
 	private final int SIZE_X = 450, SIZE_Y = 800;

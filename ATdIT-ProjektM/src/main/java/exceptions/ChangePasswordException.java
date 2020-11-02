@@ -1,13 +1,18 @@
 package exceptions;
 
-import screens.ChangePassword;
+import javax.swing.JLabel;
+
+
 
 /**
  * Exception class to detect failed change of password
  * 
  *
  */
+@SuppressWarnings("serial")
 public class ChangePasswordException extends Exception {
+	public JLabel newpassworddoesnotmatchLabel;
+	public JLabel stateoldpasswordLabel;
 
 	/**
 	 * 
@@ -17,18 +22,19 @@ public class ChangePasswordException extends Exception {
 	 * 
 	 * @param state : int (Connection state to provide specific information)
 	 */
-	public ChangePasswordException(int state) {
-
-		switch (state) {		
+	public ChangePasswordException(int state, JLabel newpassworddoesnotmatchLabel, JLabel stateoldpasswordLabel) {
+		this.newpassworddoesnotmatchLabel = newpassworddoesnotmatchLabel;
+		this.stateoldpasswordLabel = stateoldpasswordLabel;
+		switch (state) {
 		case 1:
-			ChangePassword.newpassworddoesnotmatchLabel.setVisible(true);
+			newpassworddoesnotmatchLabel.setVisible(true);
 			break;
 		case 2:
-			ChangePassword.stateoldpasswordLabel.setVisible(true);
+			stateoldpasswordLabel.setVisible(true);
 			break;
 		case 3:
-			ChangePassword.newpassworddoesnotmatchLabel.setVisible(true);
-			ChangePassword.stateoldpasswordLabel.setVisible(true);
+			newpassworddoesnotmatchLabel.setVisible(true);
+			stateoldpasswordLabel.setVisible(true);
 			break;
 		}
 

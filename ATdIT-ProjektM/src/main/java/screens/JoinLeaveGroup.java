@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.swing.*;
-import connection.DatabaseConnection;
 import connection.Groups;
-import exceptions.DatabaseConnectException;
 import funktionen.JoinLeaveGroupFunction;
 import master.Window;
 import master.MasterScreen;
@@ -18,6 +16,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class JoinLeaveGroup extends MasterScreen {
 
 	public JButton backButton;
@@ -25,15 +24,14 @@ public class JoinLeaveGroup extends MasterScreen {
 	public JButton deleteButton;
 	public JButton searchButton;
 
-	public static JComboBox<String> groups;
+	public JComboBox<String> groups;
 
-	public static List<Groups> allGroupsList;
+	public List<Groups> allGroupsList;
 
 	JLabel groupNameLabel;
-	public static JLabel results;
+	public JLabel results;
 
-	public static JTextField groupNameTextfield;
-//	public JTextField groupNameTextfield;
+	public JTextField groupNameTextfield;
 	private final ResourceBundle STRING_TEXT;
 
 	/**
@@ -77,15 +75,16 @@ public class JoinLeaveGroup extends MasterScreen {
 		searchButton.setBounds(0, 400, 450, 100);
 		searchButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		searchButton.addActionListener(l -> {
-				JoinLeaveGroupFunction.search();
+			new JoinLeaveGroupFunction(groups, allGroupsList, results, groupNameTextfield).search();
 		});
 
 		joinButton = new JButton(STRING_TEXT.getString("join"));
 		joinButton.setBackground(Color.LIGHT_GRAY);
 		joinButton.setBounds(225, 500, 225, 100);
 		joinButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
-		joinButton.addActionListener(l -> {			
-				JoinLeaveGroupFunction.joinGroup();
+		joinButton.addActionListener(l -> {
+			new JoinLeaveGroupFunction(groups, allGroupsList, results, groupNameTextfield).joinGroup();
+			Window.addToFrame(new MyProfile());
 		});
 
 		deleteButton = new JButton(STRING_TEXT.getString("leave"));
@@ -93,7 +92,8 @@ public class JoinLeaveGroup extends MasterScreen {
 		deleteButton.setBounds(0, 500, 225, 100);
 		deleteButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		deleteButton.addActionListener(l -> {
-				JoinLeaveGroupFunction.leaveGroup();
+			new JoinLeaveGroupFunction(groups, allGroupsList, results, groupNameTextfield).leaveGroup();
+			Window.addToFrame(new MyProfile());
 		});
 
 		backButton = new JButton(STRING_TEXT.getString("back"));

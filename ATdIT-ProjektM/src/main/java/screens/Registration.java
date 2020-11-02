@@ -1,5 +1,6 @@
 package screens;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -15,6 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import connection.User;
+import exceptions.RegistrationException;
 import funktionen.RegisterFunction;
 import master.Body;
 import master.Window;
@@ -25,15 +27,16 @@ import master.Window;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class Registration extends Body {
 
-	public static JTextField userTextfield;
-	public static JPasswordField passwordPasswordfield;
-	public static JTextField mailTextfield;
-	public static JPasswordField repeatpasswordPasswordfield;
+	public JTextField userTextfield;
+	public JPasswordField passwordPasswordfield;
+	public JTextField mailTextfield;
+	public JPasswordField repeatpasswordPasswordfield;
 
-	public static JButton registerButton;
-	public static JButton backButton;
+	public JButton registerButton;
+	public JButton backButton;
 
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;
@@ -71,8 +74,16 @@ public class Registration extends Body {
 
 		backButton = new JButton(STRING_TEXT.getString("back"));
 
-		passworddoesnotmatchLabel = new JLabel("");
-		userexistsLabel = new JLabel("");
+		passworddoesnotmatchLabel = new JLabel(STRING_TEXT.getString("password_match"));
+		passworddoesnotmatchLabel.setBackground(Color.WHITE);
+		passworddoesnotmatchLabel.setForeground(Color.RED);
+		passworddoesnotmatchLabel.setVisible(false);
+		
+		userexistsLabel = new JLabel(STRING_TEXT.getString("user_exists"));
+		userexistsLabel.setBackground(Color.WHITE);
+		userexistsLabel.setForeground(Color.RED);
+		userexistsLabel.setVisible(false);
+		
 
 		JLabel space = new JLabel();
 		JLabel space1 = new JLabel();
@@ -100,8 +111,12 @@ public class Registration extends Body {
 
 		registerButton.addActionListener(l -> {
 
-			new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
-					.register();
+			try {
+				new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
+						.register();
+			} catch (RegistrationException e) {
+				
+			}
 		});
 
 		backButton.addActionListener(l -> {

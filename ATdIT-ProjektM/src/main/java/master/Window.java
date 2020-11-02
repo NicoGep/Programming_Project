@@ -73,6 +73,7 @@ public class Window extends JFrame {
 	}
 	
 	//TEMP
+	@SuppressWarnings("unused")
 	private static void printHistory() {
 		for(int i = 0; i < history.size(); i++)
 			System.out.println(history.get(i));

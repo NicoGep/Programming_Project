@@ -1,12 +1,11 @@
 package funktionen;
 
 import connection.User;
-import connection.DatabaseConnection;
 
 import java.util.List;
 import java.util.ResourceBundle;
+
 import connection.Groups;
-import exceptions.DatabaseConnectException;
 import screens.MyProfile;
 
 /**
@@ -46,7 +45,7 @@ public class MyProfileFunction {
 	 * method to add groups
 	 */
 	public void addGroups() {
-			MyProfile.groupList = Groups.getAllGroups();
+		MyProfile.groupList = Groups.getAllGroups();
 	}
 
 	/**

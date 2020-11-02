@@ -1,12 +1,12 @@
 package connection;
 
 import java.sql.*;
-import java.util.*;
+
 
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
-import master.Window;
+
 
 /**User-Class for Userfunctions
  * Benutzer is a Singleton.

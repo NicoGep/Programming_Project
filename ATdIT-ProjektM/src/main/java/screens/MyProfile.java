@@ -9,7 +9,6 @@ import javax.swing.*;
 
 import connection.User;
 import connection.Groups;
-import connection.Validator;
 import funktionen.MyProfileFunction;
 import master.Window;
 import master.MasterScreen;
@@ -20,6 +19,7 @@ import master.MasterScreen;
  * @author Group3
  *
  */
+@SuppressWarnings("serial")
 public class MyProfile extends MasterScreen {
 
 	public static String name;
@@ -52,8 +52,6 @@ public class MyProfile extends MasterScreen {
 
 		this.setBackground(Color.lightGray);
 		this.setLayout(null);
-		new MyProfileFunction().loadData();
-//		new MyProfileFunction().loadData();
 		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/MyProfile/myprofile");
 		new MyProfileFunction().loadData();
 		Image image = Toolkit.getDefaultToolkit().createImage(profilepictureaddress);

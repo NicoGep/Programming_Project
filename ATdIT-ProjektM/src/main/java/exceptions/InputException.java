@@ -6,6 +6,7 @@ Exception class for specific information for incorrect inputs
  * 
  *
  */
+@SuppressWarnings("serial")
 public class InputException extends Exception {
 	
 	private int state;
@@ -16,7 +17,7 @@ public class InputException extends Exception {
 	 */
 	public InputException(int state) {
 		
-		this.state = state;
+		this.setState(state);
 		
 		switch(state) {
 		
@@ -33,6 +34,14 @@ public class InputException extends Exception {
 		
 		}
 		
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 
 }

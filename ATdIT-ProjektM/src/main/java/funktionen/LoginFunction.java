@@ -1,8 +1,6 @@
 package funktionen;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.util.ResourceBundle;
 
 import javax.swing.JLabel;
@@ -11,15 +9,11 @@ import javax.swing.JTextField;
 
 import connection.User;
 import connection.Validator;
-import connection.DatabaseConnection;
-import connection.Validator;
-import exceptions.DatabaseConnectException;
+
 import exceptions.LoginCredentialsException;
-import master.Panel;
+import exceptions.LoginException;
 import master.Window;
-import screens.ForgotPassword;
-import screens.Registration;
-import screens.Login;
+
 import screens.MenuScreen;
 
 /**
@@ -56,9 +50,10 @@ public class LoginFunction {
 	 * Check the login data with the database with the corresponding error message
 	 * if the name / password is incorrect. Forwarding to the screens menu, forgot
 	 * password and registration.
+	 * @throws LoginException 
 	 * 
 	 */
-	public void login() {
+	public void login() throws LoginException {
 		wrongnameLabel.setText("");
 		wrongpasswordLabel.setText("");
 		String s = "";
@@ -68,24 +63,14 @@ public class LoginFunction {
 
 		try {
 			if(Validator.getValidator().getUser(name.getText().strip()) == null) {
-				throw new LoginCredentialsException(1);
+				throw new LoginException(1,STRING_TEXT.getString("wrong_username"), wrongnameLabel);
 			}
 			User.loginUser(Validator.getValidator().getUser(name.getText().strip()), s);
-			Window.newDraw(new Panel(new MenuScreen()));
+			Window.addToFrame(new MenuScreen());
 		} catch (LoginCredentialsException lE) {
 			switch (lE.getState()) {// Label which is shown when the user or password is wrong
-			case 1:
-				wrongnameLabel.setText(STRING_TEXT.getString("wrong_username"));
-				wrongnameLabel.setBackground(Color.WHITE);
-				wrongnameLabel.setForeground(Color.RED);
-				break;
-
 			case 2:
-				wrongpasswordLabel.setText(STRING_TEXT.getString("wrong_pw"));
-				wrongpasswordLabel.setBackground(Color.WHITE);
-				wrongpasswordLabel.setForeground(Color.RED);
-				break;
-
+				throw new LoginException(2, STRING_TEXT.getString("wrong_pw"), wrongpasswordLabel);
 			default:
 				break;
 			}
