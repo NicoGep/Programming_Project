@@ -24,6 +24,7 @@ public class EditProfile extends MasterScreen {
 	JLabel levelLabel;
 	JLabel mailLabel;
 	JLabel userExists;
+	JLabel wrongMailFormat;
 
 	public JComboBox<String> levelSelection;
 
@@ -62,6 +63,9 @@ public class EditProfile extends MasterScreen {
 		mailLabel.setBounds(0, 300, 450, 100);
 		mailLabel.setBackground(Color.LIGHT_GRAY);
 		mailLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		
+		wrongMailFormat = new JLabel("");
+		wrongMailFormat.setBounds(0, 350, 450, 50);
 
 		levelSelection = new JComboBox<String>();
 		levelSelection.addItem(STRING_TEXT.getString("beginner"));
@@ -99,7 +103,7 @@ public class EditProfile extends MasterScreen {
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
 			try {
-				new EditProfileFunction(levelSelection, newnameTextfield, newmailTextfield, userExists).saveChanges();
+				new EditProfileFunction(levelSelection, newnameTextfield, newmailTextfield, userExists, wrongMailFormat).saveChanges();
 			} catch (EditProfileException e) {
 				Main.printError(e);
 			}
@@ -119,6 +123,7 @@ public class EditProfile extends MasterScreen {
 		this.add(levelLabel);
 		this.add(levelSelection);
 		this.add(mailLabel);
+		this.add(wrongMailFormat);
 		this.add(newmailTextfield);
 		this.add(newprofilepictureButton);
 		this.add(changepasswordButton);

@@ -24,7 +24,7 @@ public class EditProfileFunction {
 	public JTextField newnameTextfield;
 	public JTextField newmailTextfield;
 
-	public JLabel userexists;
+	public JLabel userexists, wrongMailFormat;
 
 	private final ResourceBundle STRING_TEXT = ResourceBundle
 			.getBundle("i18n/Funktionen/EditProfileFunction/editprofilefunction");
@@ -37,15 +37,18 @@ public class EditProfileFunction {
 	 * 
 	 */
 	public EditProfileFunction(JComboBox<String> levelSelection, JTextField newnameTextfield,
-			JTextField newmailTextfield, JLabel userexists) {
+			JTextField newmailTextfield, JLabel userexists, JLabel wrongMailFormat) {
 		this.levelSelection = levelSelection;
 		this.newnameTextfield = newnameTextfield;
 		this.newmailTextfield = newmailTextfield;
 		this.userexists = userexists;
+		this.wrongMailFormat = wrongMailFormat;
 	}
 
 	public void saveChanges() throws EditProfileException {
 		User user = User.getLoggedUser();
+		userexists.setText("");
+		wrongMailFormat.setText("");
 
 		if (((String) levelSelection.getItemAt(levelSelection.getSelectedIndex()))
 				.equals(STRING_TEXT.getString("beginner"))) {
@@ -59,15 +62,37 @@ public class EditProfileFunction {
 		}
 
 		String mail = newmailTextfield.getText();
-		if (mail.contains("@") && !(mail.equalsIgnoreCase("")) && mail.contains(".")) {
-			user.setEmail(newmailTextfield.getText());
+		if (!(newnameTextfield.getText().equals(user.getName()))) {
 			if ((Validator.getValidator().getUser(newnameTextfield.getText())) == null) {
-				if (newnameTextfield.getText() != "" && !(newnameTextfield.getText().equals(user.getName()))) {
-					user.setName(newnameTextfield.getText());
+				if (newnameTextfield.getText() != "") {
+					if (mail.contains("@") && !(mail.equalsIgnoreCase("")) && mail.contains(".")) {
+
+						user.setName(newnameTextfield.getText());
+
+						user.setEmail(newmailTextfield.getText());
+						Window.addToFrame(new MyProfile());
+					} else {
+						throw new EditProfileException(wrongMailFormat, STRING_TEXT.getString("wrong_mail_format"));
+					}
+				} else {
+					throw new EditProfileException(userexists, STRING_TEXT.getString("no_user"));
 				}
-				Window.addToFrame(new MyProfile());
 			} else {
 				throw new EditProfileException(userexists, STRING_TEXT.getString("user_exists"));
+			}
+		} else {
+			if (newnameTextfield.getText() != "") {
+				if (mail.contains("@") && !(mail.equalsIgnoreCase("")) && mail.contains(".")) {
+
+					user.setName(newnameTextfield.getText());
+
+					user.setEmail(newmailTextfield.getText());
+					Window.addToFrame(new MyProfile());
+				} else {
+					throw new EditProfileException(wrongMailFormat, STRING_TEXT.getString("wrong_mail_format"));
+				}
+			} else {
+				throw new EditProfileException(userexists, STRING_TEXT.getString("no_user"));
 			}
 		}
 
