@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Nov 2020 um 18:10
+-- Erstellungszeit: 03. Nov 2020 um 19:58
 -- Server-Version: 10.4.14-MariaDB
 -- PHP-Version: 7.4.11
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `atdit`
+-- Datenbank: `wanderoo`
 --
 
 -- --------------------------------------------------------
@@ -123,8 +123,7 @@ ALTER TABLE `usercredentials`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userid`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `useremail` (`useremail`);
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indizes für die Tabelle `users_groups`

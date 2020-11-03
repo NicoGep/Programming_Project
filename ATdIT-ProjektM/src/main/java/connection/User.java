@@ -179,6 +179,9 @@ public class User {
 			
 			ResultSet set = DatabaseConnection.makeQuerry(statement);
 			
+			if(group == null)
+				return false;
+			
 			while(set.next())
 				if(set.getInt("groupid") == group.getGroupID())
 					return true;
