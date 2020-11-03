@@ -47,7 +47,7 @@ public class Registration extends Body {
 	 * constructor (GridLayout)
 	 */
 	public Registration() {
-		
+
 		this.STRING_TEXT = ResourceBundle.getBundle("i18n/screens/Registration/Registration");
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(17, 1));
@@ -75,16 +75,9 @@ public class Registration extends Body {
 
 		backButton = new JButton(STRING_TEXT.getString("back"));
 
-		passworddoesnotmatchLabel = new JLabel(STRING_TEXT.getString("password_match"));
-		passworddoesnotmatchLabel.setBackground(Color.WHITE);
-		passworddoesnotmatchLabel.setForeground(Color.RED);
-		passworddoesnotmatchLabel.setVisible(false);
-		
-		userexistsLabel = new JLabel(STRING_TEXT.getString("user_exists"));
-		userexistsLabel.setBackground(Color.WHITE);
-		userexistsLabel.setForeground(Color.RED);
-		userexistsLabel.setVisible(false);
-		
+		passworddoesnotmatchLabel = new JLabel("");
+
+		userexistsLabel = new JLabel("");
 
 		JLabel space = new JLabel();
 		JLabel space1 = new JLabel();
@@ -116,7 +109,7 @@ public class Registration extends Body {
 				new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
 						.register();
 			} catch (RegistrationException e) {
-				
+
 			}
 		});
 
