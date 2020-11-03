@@ -10,6 +10,7 @@ import connection.Validator;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
 import exceptions.RegistrationException;
+import master.Main;
 import master.Window;
 import screens.MenuScreen;
 import screens.Registration;
@@ -77,7 +78,7 @@ public class RegisterFunction {
 					}
 				} catch (InputException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Main.printError(e);
 				} catch (LoginCredentialsException e) {
 					System.out.println("Test");
 				}

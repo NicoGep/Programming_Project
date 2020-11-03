@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 import connection.Groups;
 import exceptions.InputException;
+import master.Main;
 
 /**
  * Class with the functions for class "GruppeErstellen"
@@ -32,7 +33,7 @@ public class CreateGroupFunction {
 			User.getLoggedUser().addToGroup(Groups.addNewGroup(groupNameTextfield.getText(),
 					(String) levelSelection.getItemAt(levelSelection.getSelectedIndex())));
 		} catch (InputException e) {
-
+			Main.printError(e);
 		}
 
 	}

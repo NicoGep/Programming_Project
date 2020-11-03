@@ -11,6 +11,7 @@ import connection.User;
 import connection.Groups;
 import connection.Validator;
 import exceptions.InputException;
+import master.Main;
 
 
 /**
@@ -72,7 +73,7 @@ public class JoinLeaveGroupFunction {
 				User.getLoggedUser().addToGroup(Validator.getValidator().getGroup(group));
 			}
 		} catch (InputException e) {
-
+			Main.printError(e);
 		}
 	}
 

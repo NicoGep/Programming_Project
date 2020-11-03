@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import exceptions.LoginException;
 import funktionen.LoginFunction;
 import master.Body;
+import master.Main;
 import master.Window;
 
 /**	UI class for the "Login" screen
@@ -114,7 +115,7 @@ public class Login extends Body {
 			try {
 				new LoginFunction(userTextfield, passwordPasswordfield, wrongnameLabel, wrongpasswordLabel).login();
 			} catch (LoginException e) {
-				
+				Main.printError(e);
 			}
 		});
 

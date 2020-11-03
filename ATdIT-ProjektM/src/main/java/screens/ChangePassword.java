@@ -7,6 +7,7 @@ import javax.swing.*;
 import exceptions.ChangePasswordException;
 import funktionen.ChangePasswordFunction;
 import master.Window;
+import master.Main;
 import master.MasterScreen;
 
 /**
@@ -85,6 +86,7 @@ public class ChangePassword extends MasterScreen {
 				new ChangePasswordFunction(newpassworddoesnotmatchLabel, stateoldpasswordLabel).changePassword(newpasswordPasswordfield, newpasswordcontrolPasswordfield,
 						oldpasswordPasswordfield);
 			} catch (ChangePasswordException e) {
+				Main.printError(e);
 			}
 		});
 
