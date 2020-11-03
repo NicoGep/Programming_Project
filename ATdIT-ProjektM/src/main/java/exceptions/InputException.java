@@ -1,5 +1,7 @@
 package exceptions;
 
+import java.util.ResourceBundle;
+
 /**
  * 	
 Exception class for specific information for incorrect inputs
@@ -10,6 +12,7 @@ Exception class for specific information for incorrect inputs
 public class InputException extends Exception {
 	
 	private int state;
+	private final ResourceBundle STRING_TEXT;
 	
 	/**
 	 *  Input-Exception for specific information for incorrect user inputs 
@@ -17,20 +20,21 @@ public class InputException extends Exception {
 	 */
 	public InputException(int state) {
 		
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/exceptions/Input/Exception/inpute");
 		this.setState(state);
 		
 		switch(state) {
 		
-		case 1: System.out.println("Kein User gefunden."); break;
-		case 2: System.out.println("Zwei User gefunden."); break;
-		case 3: System.out.println("Der Name Existiert bereits."); break;
-		case 4: System.out.println("Kein Name angegeben."); break;
-		case 5: System.out.println("Kein Passwort angegeben."); break;
-		case 6: System.out.println("Gruppe exitiert bereits."); break;
-		case 7: System.out.println("Gruppe existiert nicht."); break;
-		case 8: System.out.println("Benutzer ist bereits in dieser Gruppe."); break;
-		case 9: System.out.println("Benutzer ist nicht in dieser Gruppe."); break;
-		case 10: System.out.println("Streckenlänge oder Höehenunterschied ist negativ.");
+		case 1: System.out.println(STRING_TEXT.getString("no_user")); break;
+		case 2: System.out.println(STRING_TEXT.getString("two_users")); break;
+		case 3: System.out.println(STRING_TEXT.getString("name_exists")); break;
+		case 4: System.out.println(STRING_TEXT.getString("no_name")); break;
+		case 5: System.out.println(STRING_TEXT.getString("no_pw")); break;
+		case 6: System.out.println(STRING_TEXT.getString("group_exists")); break;
+		case 7: System.out.println(STRING_TEXT.getString("group_not_exists")); break;
+		case 8: System.out.println(STRING_TEXT.getString("user_in_group")); break;
+		case 9: System.out.println(STRING_TEXT.getString("user_not_in_group")); break;
+		case 10: System.out.println(STRING_TEXT.getString("param_negative"));
 		
 		}
 		

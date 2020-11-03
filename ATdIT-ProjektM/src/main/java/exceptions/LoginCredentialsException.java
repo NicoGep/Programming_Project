@@ -1,5 +1,7 @@
 package exceptions;
 
+import java.util.ResourceBundle;
+
 /**
  * 	Exception class for wrong user input in the login screen
  *
@@ -8,6 +10,7 @@ package exceptions;
 public class LoginCredentialsException extends Exception {
 	
 	private int state;
+	private final ResourceBundle STRING_TEXT;
 	
 	/**
 	 *  Function for specifying incorrect user entries in the login screen
@@ -16,13 +19,14 @@ public class LoginCredentialsException extends Exception {
 	public LoginCredentialsException(int state) {
 		
 		this.state = state;
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/exceptions/LoginCredentialsException/logince");
 
 		switch(state) {
 		
-		case 1: System.out.println("Benutzername nicht gefunden."); break;
-		case 2: System.out.println("Passwort falsch."); break;
-		case 3: System.out.println("Leerer Benutzername"); break;
-		case 4: System.out.println("Leeres Passwort"); break;
+		case 1: System.out.println(STRING_TEXT.getString("user_wrong")); break;
+		case 2: System.out.println(STRING_TEXT.getString("pw_wrong")); break;
+		case 3: System.out.println(STRING_TEXT.getString("empty_user")); break;
+		case 4: System.out.println(STRING_TEXT.getString("empty_pw")); break;
 		
 		}
 		
