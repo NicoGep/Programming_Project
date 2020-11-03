@@ -48,9 +48,6 @@ public class MyProfileFunction {
 		MyProfile.groupList = Groups.getAllGroups();
 	}
 
-	/**
-	 * the screens 'edit profile', 'create group' or 'group' will open when the
-	 * associated button is clicked
-	 */
+	
 
 }

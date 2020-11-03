@@ -32,7 +32,7 @@ public class CreateGroupFunction {
 			User.getLoggedUser().addToGroup(Groups.addNewGroup(groupNameTextfield.getText(),
 					(String) levelSelection.getItemAt(levelSelection.getSelectedIndex())));
 		} catch (InputException e) {
-
+			
 		}
 
 	}
