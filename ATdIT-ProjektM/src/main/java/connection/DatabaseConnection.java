@@ -3,7 +3,6 @@ package connection;
 import java.sql.*;
 
 import exceptions.DatabaseConnectException;
-import master.ErrorFrame;
 import master.Main;
 
 public class DatabaseConnection {

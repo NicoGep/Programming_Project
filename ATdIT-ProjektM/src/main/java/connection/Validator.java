@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import exceptions.DatabaseConnectException;
-import master.ErrorFrame;
 import master.Main;
 import master.Window;
 
