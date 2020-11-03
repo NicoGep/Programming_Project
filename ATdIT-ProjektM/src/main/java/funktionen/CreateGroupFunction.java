@@ -30,8 +30,11 @@ public class CreateGroupFunction {
 
 	public void save() {
 		try {
-			User.getLoggedUser().addToGroup(Groups.addNewGroup(groupNameTextfield.getText(),
-					(String) levelSelection.getItemAt(levelSelection.getSelectedIndex())));
+			if (!((String) levelSelection.getItemAt(levelSelection.getSelectedIndex())).equalsIgnoreCase("")) {
+				User.getLoggedUser().addToGroup(Groups.addNewGroup(groupNameTextfield.getText(),
+						(String) levelSelection.getItemAt(levelSelection.getSelectedIndex())));
+			}
+			
 		} catch (InputException e) {
 			Main.printError(e);
 		}

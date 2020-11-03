@@ -61,6 +61,7 @@ public class JoinLeaveGroupFunction {
 				User.getLoggedUser().removeFromGroup(Validator.getValidator().getGroup(group));
 			}
 		} catch (InputException e) {
+			Main.printError(e);
 		}
 
 	}

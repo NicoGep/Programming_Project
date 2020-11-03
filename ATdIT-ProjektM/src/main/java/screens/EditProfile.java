@@ -1,12 +1,14 @@
 package screens;
 
 import master.Window;
+import master.Main;
 import master.MasterScreen;
 import java.awt.*;
 import java.util.ResourceBundle;
 
 import javax.swing.*;
 
+import exceptions.EditProfileException;
 import funktionen.EditProfileFunction;
 
 /**
@@ -21,6 +23,7 @@ public class EditProfile extends MasterScreen {
 	JLabel nameLabel;
 	JLabel levelLabel;
 	JLabel mailLabel;
+	JLabel userExists;
 
 	public JComboBox<String> levelSelection;
 
@@ -46,6 +49,9 @@ public class EditProfile extends MasterScreen {
 		nameLabel.setBounds(0, 0, 450, 100);
 		nameLabel.setBackground(Color.LIGHT_GRAY);
 		nameLabel.setFont(new Font("Ueberschrift", Font.BOLD, 20));
+		
+		userExists = new JLabel("");
+		userExists.setBounds(0, 150, 450, 50);
 
 		levelLabel = new JLabel(STRING_TEXT.getString("niveau"));
 		levelLabel.setBounds(0, 150, 450, 100);
@@ -92,8 +98,11 @@ public class EditProfile extends MasterScreen {
 		saveButton.setBounds(225, 600, 225, 100);
 		saveButton.setFont(new Font("Ueberschrift", Font.BOLD, 18));
 		saveButton.addActionListener(l -> {
-			new EditProfileFunction(levelSelection, newnameTextfield, newmailTextfield).saveChanges();
-			Window.addToFrame(new MyProfile());
+			try {
+				new EditProfileFunction(levelSelection, newnameTextfield, newmailTextfield, userExists).saveChanges();
+			} catch (EditProfileException e) {
+				Main.printError(e);
+			}
 		});
 
 		cancelButton = new JButton(STRING_TEXT.getString("cancel"));
@@ -106,6 +115,7 @@ public class EditProfile extends MasterScreen {
 
 		this.add(nameLabel);
 		this.add(newnameTextfield);
+		this.add(userExists);
 		this.add(levelLabel);
 		this.add(levelSelection);
 		this.add(mailLabel);
