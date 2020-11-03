@@ -4,6 +4,7 @@ import java.sql.*;
 
 import exceptions.DatabaseConnectException;
 import master.ErrorFrame;
+import master.Main;
 
 public class DatabaseConnection {
 		
@@ -51,7 +52,8 @@ public class DatabaseConnection {
 			
 			
 		} catch(Exception e) {
-			new ErrorFrame(e);
+			Main.printError(e, "connectDatabase-Exception");
+			throw new DatabaseConnectException(1);
 		}
 		
 		if(!DatabaseConnection.testConnection())

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import exceptions.DatabaseConnectException;
 import master.ErrorFrame;
+import master.Main;
 import master.Window;
 
 public final class Validator extends Thread {
@@ -59,8 +60,8 @@ public final class Validator extends Thread {
 			DatabaseConnection.connectDatabase();
 			Window.reset();
 		} catch (DatabaseConnectException e) {
-			new ErrorFrame(e);
-			
+//			new ErrorFrame(e);
+			Main.printError(e, "Database connection could not be initialised.");
 		}
 		
 		
@@ -82,8 +83,8 @@ public final class Validator extends Thread {
 				interrupt();
 			} catch(DatabaseConnectException dbE) {
 				
-				new ErrorFrame(dbE);
-				
+//				new ErrorFrame(dbE);
+				Main.printError(dbE, "Database connection could not be established.");
 			}
 			
 		}

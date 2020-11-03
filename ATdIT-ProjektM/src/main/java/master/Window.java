@@ -57,7 +57,7 @@ public class Window extends JFrame {
 			
 			switch(i) {
 			case 0: Window.addToFrame(new Panel(new DisconnectScreen())); break;
-			case 1: Window.newDraw(new Panel(new EstablishingConnection()));break;
+			case 1: Window.newDraw(new Panel(new EstablishingConnection())); break;
 			}
 		}
 		
