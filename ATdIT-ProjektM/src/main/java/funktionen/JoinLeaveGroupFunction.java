@@ -46,7 +46,6 @@ public class JoinLeaveGroupFunction {
 			String search = groupNameTextfield.getText();
 			if (item.contains(search)) {
 				groups.addItem(item);
-				System.out.println(item);
 			}
 		}
 		results.setVisible(true);
