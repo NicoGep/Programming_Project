@@ -77,10 +77,10 @@ public class RegisterFunction {
 						throw new RegistrationException(1, STRING_TEXT.getString("wrong_mail_format"));
 					}
 				} catch (InputException e) {
-					// TODO Auto-generated catch block
+					
 					Main.printError(e);
 				} catch (LoginCredentialsException e) {
-					System.out.println("Test");
+					Main.printError(e);
 				}
 				Window.newDraw();
 				Window.addToFrame(new MenuScreen());
