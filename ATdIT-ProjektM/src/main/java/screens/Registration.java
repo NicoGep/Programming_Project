@@ -19,6 +19,7 @@ import connection.User;
 import exceptions.RegistrationException;
 import funktionen.RegisterFunction;
 import master.Body;
+import master.Main;
 import master.Window;
 
 /**
@@ -109,7 +110,7 @@ public class Registration extends Body {
 				new RegisterFunction(userTextfield, mailTextfield, passwordPasswordfield, repeatpasswordPasswordfield)
 						.register();
 			} catch (RegistrationException e) {
-
+				Main.printError(e);
 			}
 		});
 

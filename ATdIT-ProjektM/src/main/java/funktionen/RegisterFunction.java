@@ -77,6 +77,7 @@ public class RegisterFunction {
 						throw new RegistrationException(1, STRING_TEXT.getString("wrong_mail_format"));
 					}
 				} catch (InputException e) {
+					// TODO Auto-generated catch block
 					Main.printError(e);
 				} catch (LoginCredentialsException e) {
 					System.out.println("Test");
@@ -85,7 +86,6 @@ public class RegisterFunction {
 				Window.addToFrame(new MenuScreen());
 			} else {
 				throw new RegistrationException(1, STRING_TEXT.getString("user_exists"));
-				
 
 			}
 
