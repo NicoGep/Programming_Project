@@ -67,8 +67,14 @@ public class RegisterFunction {
 
 			if ((Validator.getValidator().getUser(name.getText())) == null) {
 				try {
-					User.addNewUser(name.getText().strip(), mailTextfield.getText(), userPassword);
-					User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
+					String mail = mailTextfield.getText();
+					if (mail.contains("@") && !(mail.equalsIgnoreCase("")) && mail.contains(".")) {
+						User.addNewUser(name.getText().strip(), mailTextfield.getText(), userPassword);
+						User.loginUser(Validator.getValidator().getUser(name.getText().strip()), userPassword);
+					}
+					else {
+						throw new RegistrationException(1, STRING_TEXT.getString("wrong_mail_format"));
+					}
 				} catch (InputException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
