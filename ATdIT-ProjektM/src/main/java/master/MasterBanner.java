@@ -46,7 +46,7 @@ public class MasterBanner extends JPanel {
 		this.add(menuButton);
 		
 		if(User.getLoggedUser() != null) {
-			nameLabel = new JLabel(STRING_TEXT.getString("welcome_Name") + " " + User.getLoggedUser().getName());
+			nameLabel = new JLabel(STRING_TEXT.getString("welcome_name") + " " + User.getLoggedUser().getName());
 			this.add(nameLabel);
 		}
 
