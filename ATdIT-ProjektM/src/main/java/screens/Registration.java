@@ -41,6 +41,7 @@ public class Registration extends Body {
 	public static JLabel passworddoesnotmatchLabel;
 	public static JLabel userexistsLabel;
 	private final ResourceBundle STRING_TEXT;
+	private final String LOGIN_IMAGE_STRING = "/images/wandern (2).jpg";
 
 	/**
 	 * constructor (GridLayout)
@@ -134,7 +135,8 @@ public class Registration extends Body {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Image img = Toolkit.getDefaultToolkit().getImage("./src/main/resources/images/wandern (2).jpg");
+		var url = getClass().getResource(LOGIN_IMAGE_STRING);
+		Image img = Toolkit.getDefaultToolkit().getImage(url);
 		g.drawImage(img, 0, 0, null);
 		setVisible(true);
 		repaint();
