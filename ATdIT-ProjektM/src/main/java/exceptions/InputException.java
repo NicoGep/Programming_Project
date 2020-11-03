@@ -20,7 +20,7 @@ public class InputException extends Exception {
 	 */
 	public InputException(int state) {
 		
-		this.STRING_TEXT = ResourceBundle.getBundle("i18n/exceptions/Input/Exception/inpute");
+		this.STRING_TEXT = ResourceBundle.getBundle("i18n/exceptions/InputException/inpute");
 		this.setState(state);
 		
 		switch(state) {
