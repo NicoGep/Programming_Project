@@ -86,7 +86,9 @@ public class Map extends MasterScreen {
 		confirmButton.setBackground(Color.white);
 		confirmButton.addActionListener(w -> {
 			User user = User.getLoggedUser();
-			if (routelengthTextField != null && heightdifferenceTextField != null) {
+			if (routelengthTextField.getText() != null && heightdifferenceTextField.getText() != null 
+					&& (Integer.parseInt(routelengthTextField.getText())) <= 0 
+					&& (Integer.parseInt(heightdifferenceTextField.getText())) < 0 ) {
 				confirmButton.setBackground(Color.green);
 				user.setRouteLength(Integer.parseInt(routelengthTextField.getText()));
 				user.setHeightDifference(Integer.parseInt(heightdifferenceTextField.getText()));
