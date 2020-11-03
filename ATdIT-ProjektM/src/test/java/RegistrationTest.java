@@ -37,8 +37,6 @@ public class RegistrationTest {
 
 	@Test
 	public void testUserAlreadyExists() throws LoginCredentialsException, InputException, InterruptedException {
-		Validator.createValidator();
-		Thread.sleep(5000);
 		JTextField testUser = new JTextField("TestBenutzer1");
 		JTextField testMail = new JTextField("test@beispiel.de");
 		JPasswordField testPass = new JPasswordField("pass");
@@ -59,8 +57,6 @@ public class RegistrationTest {
 
 	@Test
 	public void testPasswordDoesNotMatch() throws LoginCredentialsException, InputException, InterruptedException {
-		Validator.createValidator();
-		Thread.sleep(5000);
 		JTextField testUser = new JTextField("TestBenutzer1");
 		JTextField testMail = new JTextField("test@beispiel.de");
 		JPasswordField testPass = new JPasswordField("pass");

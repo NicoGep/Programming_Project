@@ -8,7 +8,6 @@ funktionen\ChangePasswordFunction.class
 master\Panel.class
 connection\Validator.class
 screens\ChangeProfilePicture.class
-master\ErrorFrame.class
 screens\DisconnectScreen$1.class
 screens\Registration.class
 connection\DatabaseConnection.class
@@ -24,14 +23,11 @@ funktionen\JoinLeaveGroupFunction.class
 screens\MyProfile.class
 master\Main.class
 screens\ChangePassword.class
-connection\DatabaseConnection$1.class
 funktionen\CreateGroupFunction.class
-connection\DatabaseConnection$Tables.class
 screens\Login.class
-connection\DatabaseConnection$Databases.class
 funktionen\MyProfileFunction.class
 funktionen\EditProfileFunction.class
-master\test.class
+exceptions\EditProfileException.class
 exceptions\LoginCredentialsException.class
 exceptions\ChangePasswordException.class
 screens\DisconnectScreen.class

@@ -1,9 +1,9 @@
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\connection\Validator.java
-C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\master\ErrorFrame.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\screens\EditProfile.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\ChangePasswordException.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\master\Window.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\screens\JoinLeaveGroup.java
+C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\EditProfileException.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\ChangePasswordFunction.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\screens\ChangeProfilePicture.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\master\Main.java
@@ -22,7 +22,6 @@ C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\ja
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\screens\Registration.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\exceptions\LoginException.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\screens\MenuScreen.java
-C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\master\test.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\funktionen\JoinLeaveGroupFunction.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\connection\User.java
 C:\Users\I518230\Documents\GitHub\Programming_Project\ATdIT-ProjektM\src\main\java\master\MasterScreen.java
