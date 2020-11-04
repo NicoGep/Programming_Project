@@ -27,7 +27,6 @@ public final class Validator extends Thread {
 	
 	@Override
 	protected void finalize() throws Throwable {
-//		DatabaseConnection.disconnectDatabase();
 		Validator.killValidator();
 	}
 
@@ -59,7 +58,6 @@ public final class Validator extends Thread {
 			DatabaseConnection.connectDatabase();
 			Window.reset();
 		} catch (DatabaseConnectException e) {
-//			new ErrorFrame(e);
 			Main.printError(e, "Database connection could not be initialised.");
 		}
 		
@@ -82,7 +80,6 @@ public final class Validator extends Thread {
 				interrupt();
 			} catch(DatabaseConnectException dbE) {
 				
-//				new ErrorFrame(dbE);
 				Main.printError(dbE, "Database connection could not be established.");
 			}
 			
@@ -113,6 +110,7 @@ public final class Validator extends Thread {
 				return null;
 			
 		} catch (SQLException e) {
+			Main.printError(e);
 			return null;
 		}
 		
@@ -184,6 +182,7 @@ public final class Validator extends Thread {
 				return null;
 			
 		} catch (SQLException e) {
+			Main.printError(e);
 			return null;
 		}
 		
@@ -193,8 +192,6 @@ public final class Validator extends Thread {
 	
 	
 	public boolean checkPassword(User user, String password) {
-		
-//		ResultSet set = DatabaseConnection.makeQuerry("SELECT userpassword FROM " + DatabaseConnection.usercredentialsTable + " INNER JOIN " + Database);
 		
 		String statement = "SELECT userpassword FROM usercredentials INNER JOIN users ON users.userid = usercredentials.userid WHERE users.userid = " + user.getID() + ";";
 		
@@ -213,6 +210,7 @@ public final class Validator extends Thread {
 			return true;
 			
 		} catch (SQLException e) {
+			Main.printError(e);
 			return false;
 		}
 		

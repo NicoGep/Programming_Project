@@ -20,8 +20,6 @@ public class Main {
 	/**	main-Methode
 	 * 
 	 * @param args : String[] (args-Array)
-	 * @throws InterruptedException 
-	 * @throws InputException 
 	 */
 	public static void main(String[] args) {
 		
@@ -72,6 +70,5 @@ public class Main {
 	
 	
 	
-	//########################### Zugriff von mehreren Ger�ten ##########################
 	
 }

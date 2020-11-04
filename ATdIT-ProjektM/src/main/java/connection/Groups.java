@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import exceptions.InputException;
+import master.Main;
 
 public class Groups {
 	
@@ -24,7 +25,7 @@ public class Groups {
 			this.groupNiveau = set.getString("groupniveau");
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Main.printError(e);
 		}
 	}
 	

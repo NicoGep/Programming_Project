@@ -72,7 +72,7 @@ public class Window extends JFrame {
 		disconnectScreenFlag = false;
 	}
 	
-	//TEMP
+	//misc
 	@SuppressWarnings("unused")
 	private static void printHistory() {
 		for(int i = 0; i < history.size(); i++)
@@ -80,7 +80,7 @@ public class Window extends JFrame {
 	}
 	
 	/**
-	 *  return the last window of the stack
+	 *  draws the last content pane from the stack
 	 */
 	public static void lastContent() {
 		if(history.size() > 0)
@@ -88,7 +88,7 @@ public class Window extends JFrame {
 	}
 	
 	/**
-	 * History-Container is emptied
+	 * History-Stack is emptied
 	 */
 	public static void clearHistory() {
 		history = new Stack<Container>();
@@ -102,7 +102,7 @@ public class Window extends JFrame {
 	 */
 	private static void addToHistory(Container container) {
 		if(history.size() >= MAX_HISTORY_SIZE)
-			history.pop();
+			history.remove(0);
 		history.push(container);
 	}
 	

@@ -6,6 +6,7 @@ import java.sql.*;
 import exceptions.DatabaseConnectException;
 import exceptions.InputException;
 import exceptions.LoginCredentialsException;
+import master.Main;
 
 
 /**User-Class for Userfunctions
@@ -49,7 +50,7 @@ public class User {
 			heightDifference = set.getInt("userheightdifference");
 		
 		} catch(SQLException sqlE) {
-			sqlE.printStackTrace();
+			Main.printError(sqlE);
 		}
 		
 	}
@@ -77,8 +78,6 @@ public class User {
 	
 	/**
 	 * loggt den Benutzer aus
-	 * @return	false, wenn kein Nutzer angemeldet ist
-	 * 			true, wenn der Nutzer erfolgreich abgemeldet werden konnte
 	 */
 	public static void logoutUser() {
 		loggedUser = null;

@@ -69,7 +69,7 @@ public class DatabaseConnection {
 			con = null;
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Main.printError(e);
 		}
 		
 	}
@@ -101,7 +101,7 @@ public class DatabaseConnection {
 		return makeQuerry(statement, standardDatabase);	
 	}
 	
-	public static ResultSet makeQuerry(String statement, String database) {      //################## Null returnen, wenn Set leer #####################
+	public static ResultSet makeQuerry(String statement, String database) {      
 		
 		try {
 			
@@ -113,8 +113,7 @@ public class DatabaseConnection {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("makeQuerry Exception");
+			Main.printError(e, "makeQuerry Exception");
 			return null;
 		}
 	}
@@ -139,8 +138,7 @@ public class DatabaseConnection {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("makeUpdateException");
+			Main.printError(e, "makeUpdateException");
 			return 0;
 		}
 	}
